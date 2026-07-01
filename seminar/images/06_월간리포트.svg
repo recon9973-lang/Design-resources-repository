@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <style>
+    text { font-family: 'Noto Sans CJK KR','Noto Sans KR',sans-serif; }
+  </style>
+  <rect width="1600" height="900" fill="#fcfcfb"/>
+
+  <text x="120" y="110" font-size="52" font-weight="900" fill="#0b0b0b">매월 숫자로 확인합니다 — 월간 리포트 (예시)</text>
+  <rect x="120" y="138" width="120" height="8" rx="4" fill="#2a78d6"/>
+
+  <!-- stat tiles -->
+  <g>
+    <rect x="120" y="182" width="320" height="150" rx="18" fill="#ffffff" stroke="#e1e0d9" stroke-width="2"/>
+    <text x="152" y="228" font-size="22" fill="#52514e">AI 언급률</text>
+    <text x="152" y="292" font-size="56" font-weight="900" fill="#0b0b0b">30%</text>
+    <text x="290" y="292" font-size="24" font-weight="700" fill="#006300">▲ +8%p</text>
+  </g>
+  <g>
+    <rect x="466" y="182" width="320" height="150" rx="18" fill="#ffffff" stroke="#e1e0d9" stroke-width="2"/>
+    <text x="498" y="228" font-size="22" fill="#52514e">언급된 질문</text>
+    <text x="498" y="292" font-size="56" font-weight="900" fill="#0b0b0b">12<tspan font-size="30" font-weight="700" fill="#898781"> / 40개</tspan></text>
+  </g>
+  <g>
+    <rect x="812" y="182" width="320" height="150" rx="18" fill="#ffffff" stroke="#e1e0d9" stroke-width="2"/>
+    <text x="844" y="228" font-size="22" fill="#52514e">이번 달 콘텐츠 발행</text>
+    <text x="844" y="292" font-size="56" font-weight="900" fill="#0b0b0b">10<tspan font-size="30" font-weight="700" fill="#898781">건</tspan></text>
+  </g>
+  <g>
+    <rect x="1158" y="182" width="320" height="150" rx="18" fill="#ffffff" stroke="#e1e0d9" stroke-width="2"/>
+    <text x="1190" y="228" font-size="22" fill="#52514e">홈페이지 개선</text>
+    <text x="1190" y="292" font-size="56" font-weight="900" fill="#0b0b0b">3<tspan font-size="30" font-weight="700" fill="#898781">건</tspan></text>
+  </g>
+
+  <!-- left panel: platform mention rate -->
+  <rect x="120" y="368" width="660" height="420" rx="18" fill="#ffffff" stroke="#e1e0d9" stroke-width="2"/>
+  <text x="152" y="424" font-size="26" font-weight="800" fill="#0b0b0b">플랫폼별 언급률</text>
+  <text x="152" y="456" font-size="20" fill="#898781">질문 10개 기준 · 예시 수치</text>
+
+  <!-- bars: scale 50% = 380px, x0=330 -->
+  <g font-size="23">
+    <text x="310" y="524" fill="#52514e" text-anchor="end">ChatGPT</text>
+    <path d="M330 498 L634 498 Q638 498 638 502 L638 530 Q638 534 634 534 L330 534 Z" fill="#2a78d6"/>
+    <text x="652" y="524" fill="#0b0b0b" font-weight="700">40%</text>
+
+    <text x="310" y="592" fill="#52514e" text-anchor="end">Gemini</text>
+    <path d="M330 566 L558 566 Q562 566 562 570 L562 598 Q562 602 558 602 L330 602 Z" fill="#2a78d6"/>
+    <text x="576" y="592" fill="#0b0b0b" font-weight="700">30%</text>
+
+    <text x="310" y="660" fill="#52514e" text-anchor="end">Perplexity</text>
+    <path d="M330 634 L558 634 Q562 634 562 638 L562 666 Q562 670 558 670 L330 670 Z" fill="#2a78d6"/>
+    <text x="576" y="660" fill="#0b0b0b" font-weight="700">30%</text>
+
+    <text x="310" y="728" fill="#52514e" text-anchor="end">Claude</text>
+    <path d="M330 702 L482 702 Q486 702 486 706 L486 734 Q486 738 482 738 L330 738 Z" fill="#2a78d6"/>
+    <text x="500" y="728" fill="#0b0b0b" font-weight="700">20%</text>
+  </g>
+  <line x1="330" y1="486" x2="330" y2="750" stroke="#c3c2b7" stroke-width="2"/>
+
+  <!-- right panel: mention rate trend -->
+  <rect x="820" y="368" width="660" height="420" rx="18" fill="#ffffff" stroke="#e1e0d9" stroke-width="2"/>
+  <text x="852" y="424" font-size="26" font-weight="800" fill="#0b0b0b">AI 언급률 추이</text>
+  <text x="852" y="456" font-size="20" fill="#898781">기반 구축 후 누적 개선 · 예시 수치</text>
+
+  <!-- columns: baseline y=730, scale 40%=270px, width 96 -->
+  <g>
+    <path d="M900 696.25 Q900 692.25 904 692.25 L992 692.25 Q996 692.25 996 696.25 L996 730 L900 730 Z" fill="#86b6ef"/>
+    <text x="948" y="676" font-size="23" font-weight="700" fill="#0b0b0b" text-anchor="middle">5%</text>
+    <text x="948" y="766" font-size="21" fill="#52514e" text-anchor="middle">1개월 차</text>
+
+    <path d="M1040 653 Q1040 649 1044 649 L1132 649 Q1136 649 1136 653 L1136 730 L1040 730 Z" fill="#5598e7"/>
+    <text x="1088" y="633" font-size="23" font-weight="700" fill="#0b0b0b" text-anchor="middle">12%</text>
+    <text x="1088" y="766" font-size="21" fill="#52514e" text-anchor="middle">2개월 차</text>
+
+    <path d="M1180 585.5 Q1180 581.5 1184 581.5 L1272 581.5 Q1276 581.5 1276 585.5 L1276 730 L1180 730 Z" fill="#2a78d6"/>
+    <text x="1228" y="565" font-size="23" font-weight="700" fill="#0b0b0b" text-anchor="middle">22%</text>
+    <text x="1228" y="766" font-size="21" fill="#52514e" text-anchor="middle">3개월 차</text>
+
+    <path d="M1320 531.5 Q1320 527.5 1324 527.5 L1412 527.5 Q1416 527.5 1416 531.5 L1416 730 L1320 730 Z" fill="#184f95"/>
+    <text x="1368" y="511" font-size="23" font-weight="700" fill="#0b0b0b" text-anchor="middle">30%</text>
+    <text x="1368" y="766" font-size="21" fill="#52514e" text-anchor="middle">4개월 차</text>
+  </g>
+  <line x1="880" y1="730" x2="1440" y2="730" stroke="#c3c2b7" stroke-width="2"/>
+
+  <!-- footer disclaimer -->
+  <text x="800" y="850" font-size="22" fill="#898781" text-anchor="middle">위 수치는 이해를 돕기 위한 예시입니다. AI 검색 결과는 플랫폼 정책에 따라 달라질 수 있으며 특정 노출을 보장하지 않습니다.</text>
+</svg>

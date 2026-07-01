@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <defs>
+    <linearGradient id="bg7" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0d366b"/>
+      <stop offset="1" stop-color="#184f95"/>
+    </linearGradient>
+  </defs>
+  <style>
+    text { font-family: 'Noto Sans CJK KR','Noto Sans KR',sans-serif; }
+  </style>
+  <rect width="1600" height="900" fill="url(#bg7)"/>
+  <circle cx="1460" cy="120" r="280" fill="#ffffff" opacity="0.04"/>
+  <circle cx="140" cy="800" r="240" fill="#ffffff" opacity="0.05"/>
+
+  <text x="800" y="250" font-size="34" fill="#9ec5f4" text-anchor="middle" font-weight="500">우리 한의원은 AI 검색에서 어떻게 보이고 있을까요?</text>
+
+  <text x="800" y="390" font-size="76" font-weight="900" fill="#ffffff" text-anchor="middle">무료 AI 검색 진단을</text>
+  <text x="800" y="490" font-size="76" font-weight="900" fill="#ffffff" text-anchor="middle">먼저 받아보세요</text>
+
+  <text x="800" y="576" font-size="28" fill="#b7d3f6" text-anchor="middle">지역명 · 증상명 · 진료 분야 기준 10~15개 질문으로</text>
+  <text x="800" y="618" font-size="28" fill="#b7d3f6" text-anchor="middle">ChatGPT · Gemini · Claude · Perplexity 언급 현황을 확인해드립니다</text>
+
+  <!-- CTA button -->
+  <rect x="580" y="672" width="440" height="86" rx="43" fill="#ffffff"/>
+  <text x="800" y="728" font-size="32" font-weight="800" fill="#0d366b" text-anchor="middle">무료 AI 검색 진단 신청</text>
+
+  <text x="800" y="826" font-size="24" fill="#86b6ef" text-anchor="middle">진단 후 무리한 계약을 강요하지 않습니다 — 현재 상태와 개선 가능성을 먼저 보여드립니다</text>
+</svg>

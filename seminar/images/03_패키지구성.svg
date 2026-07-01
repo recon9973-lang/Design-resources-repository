@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <style>
+    text { font-family: 'Noto Sans CJK KR','Noto Sans KR',sans-serif; }
+  </style>
+  <rect width="1600" height="900" fill="#fcfcfb"/>
+
+  <text x="120" y="118" font-size="52" font-weight="900" fill="#0b0b0b">5가지가 함께 움직이는 풀패키지 운영</text>
+  <rect x="120" y="146" width="120" height="8" rx="4" fill="#2a78d6"/>
+  <text x="120" y="204" font-size="28" fill="#52514e">단순 홈페이지 제작이나 블로그 대행이 아니라, 매월 디지털 자산을 쌓는 운영 상품입니다</text>
+
+  <!-- 5 cards: 264 wide, gap 10 -->
+  <!-- card 1 -->
+  <g>
+    <rect x="120" y="256" width="258" height="420" rx="18" fill="#ffffff" stroke="#e1e0d9" stroke-width="2"/>
+    <rect x="120" y="256" width="258" height="10" rx="5" fill="#2a78d6"/>
+    <text x="150" y="330" font-size="40" font-weight="900" fill="#2a78d6">01</text>
+    <text x="150" y="386" font-size="29" font-weight="800" fill="#0b0b0b">GEO / AEO</text>
+    <text x="150" y="424" font-size="29" font-weight="800" fill="#0b0b0b">운영</text>
+    <text x="150" y="482" font-size="22" fill="#52514e">AI 질문 30~50개 설계</text>
+    <text x="150" y="518" font-size="22" fill="#52514e">4개 AI 플랫폼</text>
+    <text x="150" y="550" font-size="22" fill="#52514e">월 1회 언급 점검</text>
+    <text x="150" y="586" font-size="22" fill="#52514e">AI 인용형 FAQ 설계</text>
+    <text x="150" y="622" font-size="22" fill="#52514e">병원 정보 일관성 점검</text>
+  </g>
+
+  <!-- card 2 -->
+  <g>
+    <rect x="396" y="256" width="258" height="420" rx="18" fill="#ffffff" stroke="#e1e0d9" stroke-width="2"/>
+    <rect x="396" y="256" width="258" height="10" rx="5" fill="#1baf7a"/>
+    <text x="426" y="330" font-size="40" font-weight="900" fill="#1baf7a">02</text>
+    <text x="426" y="386" font-size="29" font-weight="800" fill="#0b0b0b">SEO 콘텐츠</text>
+    <text x="426" y="424" font-size="29" font-weight="800" fill="#0b0b0b">운영</text>
+    <text x="426" y="482" font-size="22" fill="#52514e">월 8건 이상 발행</text>
+    <text x="426" y="518" font-size="22" fill="#52514e">지역명+증상 콘텐츠</text>
+    <text x="426" y="554" font-size="22" fill="#52514e">진료 분야 안내 · FAQ</text>
+    <text x="426" y="590" font-size="22" fill="#52514e">원장 전문성 · 진료 철학</text>
+    <text x="426" y="626" font-size="22" fill="#52514e">예약 전환 안내 콘텐츠</text>
+  </g>
+
+  <!-- card 3 -->
+  <g>
+    <rect x="672" y="256" width="258" height="420" rx="18" fill="#ffffff" stroke="#e1e0d9" stroke-width="2"/>
+    <rect x="672" y="256" width="258" height="10" rx="5" fill="#eda100"/>
+    <text x="702" y="330" font-size="40" font-weight="900" fill="#c98500">03</text>
+    <text x="702" y="386" font-size="29" font-weight="800" fill="#0b0b0b">홈페이지</text>
+    <text x="702" y="424" font-size="29" font-weight="800" fill="#0b0b0b">제작 · 관리</text>
+    <text x="702" y="482" font-size="22" font-weight="700" fill="#184f95">제작비 구독료 포함</text>
+    <text x="702" y="518" font-size="22" fill="#52514e">검색 최적화 구조 설계</text>
+    <text x="702" y="554" font-size="22" fill="#52514e">원장 소개 · 진료 분야</text>
+    <text x="702" y="590" font-size="22" fill="#52514e">모바일 예약 동선 개선</text>
+    <text x="702" y="626" font-size="22" fill="#52514e">월 2~4건 개선</text>
+  </g>
+
+  <!-- card 4 -->
+  <g>
+    <rect x="948" y="256" width="258" height="420" rx="18" fill="#ffffff" stroke="#e1e0d9" stroke-width="2"/>
+    <rect x="948" y="256" width="258" height="10" rx="5" fill="#4a3aa7"/>
+    <text x="978" y="330" font-size="40" font-weight="900" fill="#4a3aa7">04</text>
+    <text x="978" y="386" font-size="29" font-weight="800" fill="#0b0b0b">랜딩페이지</text>
+    <text x="978" y="424" font-size="29" font-weight="800" fill="#0b0b0b">고도화</text>
+    <text x="978" y="482" font-size="22" fill="#52514e">대표 진료 분야</text>
+    <text x="978" y="514" font-size="22" fill="#52514e">월 1개씩 고도화</text>
+    <text x="978" y="550" font-size="22" fill="#52514e">허리통증 · 목통증 ·</text>
+    <text x="978" y="582" font-size="22" fill="#52514e">교통사고 후유증 등</text>
+    <text x="978" y="618" font-size="22" fill="#52514e">FAQ + 예약 CTA 구성</text>
+  </g>
+
+  <!-- card 5 -->
+  <g>
+    <rect x="1224" y="256" width="258" height="420" rx="18" fill="#ffffff" stroke="#e1e0d9" stroke-width="2"/>
+    <rect x="1224" y="256" width="258" height="10" rx="5" fill="#e34948"/>
+    <text x="1254" y="330" font-size="40" font-weight="900" fill="#e34948">05</text>
+    <text x="1254" y="386" font-size="29" font-weight="800" fill="#0b0b0b">월간 리포트</text>
+    <text x="1254" y="424" font-size="29" font-weight="800" fill="#0b0b0b">&#8203;</text>
+    <text x="1254" y="482" font-size="22" font-weight="700" fill="#184f95">핵심 KPI : AI 언급률</text>
+    <text x="1254" y="518" font-size="22" fill="#52514e">질문별 AI 답변 결과</text>
+    <text x="1254" y="554" font-size="22" fill="#52514e">검색 노출 키워드 변화</text>
+    <text x="1254" y="590" font-size="22" fill="#52514e">발행 · 개선 내역</text>
+    <text x="1254" y="626" font-size="22" fill="#52514e">다음 달 운영 계획</text>
+  </g>
+
+  <!-- footer flow -->
+  <rect x="120" y="732" width="1360" height="94" rx="20" fill="#f0efec"/>
+  <text x="800" y="790" font-size="28" font-weight="700" fill="#0b0b0b" text-anchor="middle">질문 설계 → 콘텐츠 → 홈페이지 → 리포트가 연결되어 매월 검색자산이 쌓입니다</text>
+</svg>

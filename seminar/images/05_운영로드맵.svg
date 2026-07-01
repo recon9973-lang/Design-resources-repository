@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <style>
+    text { font-family: 'Noto Sans CJK KR','Noto Sans KR',sans-serif; }
+  </style>
+  <rect width="1600" height="900" fill="#fcfcfb"/>
+
+  <text x="120" y="118" font-size="52" font-weight="900" fill="#0b0b0b">12개월, 이렇게 운영합니다</text>
+  <rect x="120" y="146" width="120" height="8" rx="4" fill="#2a78d6"/>
+  <text x="120" y="204" font-size="28" fill="#52514e">AI/AEO와 SEO는 누적형 자산입니다 — 진단에서 시작해 검색자산을 쌓아갑니다</text>
+
+  <!-- timeline base -->
+  <line x1="140" y1="330" x2="1460" y2="330" stroke="#e1e0d9" stroke-width="4"/>
+
+  <!-- phase 1 -->
+  <g>
+    <circle cx="240" cy="330" r="16" fill="#86b6ef"/>
+    <circle cx="240" cy="330" r="7" fill="#fcfcfb"/>
+    <rect x="120" y="392" width="300" height="330" rx="18" fill="#ffffff" stroke="#e1e0d9" stroke-width="2"/>
+    <rect x="150" y="424" width="126" height="44" rx="22" fill="#cde2fb"/>
+    <text x="213" y="454" font-size="22" font-weight="800" fill="#184f95" text-anchor="middle">1개월 차</text>
+    <text x="150" y="520" font-size="28" font-weight="800" fill="#0b0b0b">진단과 기반 구축</text>
+    <g font-size="21" fill="#52514e">
+      <text x="150" y="566">· 검색 · AI 언급 현황 진단</text>
+      <text x="150" y="600">· AI 질문 30~50개 설계</text>
+      <text x="150" y="634">· 홈페이지 구조 개선안</text>
+      <text x="150" y="668">· 콘텐츠 주제 24~36개 설계</text>
+    </g>
+  </g>
+
+  <!-- phase 2 -->
+  <g>
+    <circle cx="580" cy="330" r="16" fill="#5598e7"/>
+    <circle cx="580" cy="330" r="7" fill="#fcfcfb"/>
+    <rect x="460" y="392" width="300" height="330" rx="18" fill="#ffffff" stroke="#e1e0d9" stroke-width="2"/>
+    <rect x="490" y="424" width="146" height="44" rx="22" fill="#cde2fb"/>
+    <text x="563" y="454" font-size="22" font-weight="800" fill="#184f95" text-anchor="middle">2~3개월 차</text>
+    <text x="490" y="520" font-size="28" font-weight="800" fill="#0b0b0b">콘텐츠 축적 · 정비</text>
+    <g font-size="21" fill="#52514e">
+      <text x="490" y="566">· 월 8건 이상 콘텐츠 발행</text>
+      <text x="490" y="600">· 진료 랜딩페이지 고도화</text>
+      <text x="490" y="634">· FAQ 구조화</text>
+      <text x="490" y="668">· AI 언급률 1차 점검</text>
+    </g>
+  </g>
+
+  <!-- phase 3 -->
+  <g>
+    <circle cx="920" cy="330" r="16" fill="#2a78d6"/>
+    <circle cx="920" cy="330" r="7" fill="#fcfcfb"/>
+    <rect x="800" y="392" width="300" height="330" rx="18" fill="#ffffff" stroke="#e1e0d9" stroke-width="2"/>
+    <rect x="830" y="424" width="146" height="44" rx="22" fill="#cde2fb"/>
+    <text x="903" y="454" font-size="22" font-weight="800" fill="#184f95" text-anchor="middle">4~6개월 차</text>
+    <text x="830" y="520" font-size="28" font-weight="800" fill="#0b0b0b">언급률 개선 · 전환</text>
+    <g font-size="21" fill="#52514e">
+      <text x="830" y="566">· 미노출 질문 보완 콘텐츠</text>
+      <text x="830" y="600">· 예약 CTA · 모바일 개선</text>
+      <text x="830" y="634">· 지역/증상 콘텐츠 확장</text>
+      <text x="830" y="668">· 언급 사례 확보 목표</text>
+    </g>
+  </g>
+
+  <!-- phase 4 -->
+  <g>
+    <circle cx="1260" cy="330" r="16" fill="#184f95"/>
+    <circle cx="1260" cy="330" r="7" fill="#fcfcfb"/>
+    <rect x="1140" y="392" width="300" height="330" rx="18" fill="#ffffff" stroke="#e1e0d9" stroke-width="2"/>
+    <rect x="1170" y="424" width="162" height="44" rx="22" fill="#cde2fb"/>
+    <text x="1251" y="454" font-size="22" font-weight="800" fill="#184f95" text-anchor="middle">7~12개월 차</text>
+    <text x="1170" y="520" font-size="28" font-weight="800" fill="#0b0b0b">검색자산 누적</text>
+    <g font-size="21" fill="#52514e">
+      <text x="1170" y="566">· 콘텐츠 허브 구축</text>
+      <text x="1170" y="600">· AI 언급률 추세 관리</text>
+      <text x="1170" y="634">· 전환 동선 고도화</text>
+      <text x="1170" y="668">· 고성과 콘텐츠 확장</text>
+    </g>
+  </g>
+
+  <!-- footer -->
+  <text x="800" y="812" font-size="26" fill="#52514e" text-anchor="middle">3~6개월 내 주요 지역/증상 질문에서 언급 사례를 만드는 것을 목표로 운영합니다</text>
+  <text x="800" y="850" font-size="22" fill="#898781" text-anchor="middle">AI 검색 결과는 각 플랫폼의 판단에 따라 달라질 수 있어 특정 노출을 보장하지 않습니다</text>
+</svg>

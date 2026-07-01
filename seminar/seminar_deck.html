@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI 검색에서 먼저 발견되는 한의원 — 세미나</title>
+<style>
+  :root{
+    --navy:#0d366b; --navy2:#184f95; --blue:#2a78d6; --blue-lt:#cde2fb;
+    --ink:#0b0b0b; --ink2:#52514e; --muted:#898781;
+    --surface:#fcfcfb; --line:#e1e0d9; --wash:#f0efec;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%;background:#111;overflow:hidden;
+    font-family:'Pretendard','Noto Sans CJK KR','Noto Sans KR','Malgun Gothic','Apple SD Gothic Neo',sans-serif}
+  #stage{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+  .slide{width:1600px;height:900px;background:var(--surface);display:none;position:relative;
+    transform-origin:center center;flex-shrink:0}
+  .slide.active{display:block}
+  .slide img.full{width:1600px;height:900px;display:block}
+
+  .pad{padding:100px 120px}
+  h1.t{font-size:52px;font-weight:900;color:var(--ink);line-height:1.25}
+  .rule{width:120px;height:8px;border-radius:4px;background:var(--blue);margin:22px 0 40px}
+  .sub{font-size:28px;color:var(--ink2);margin-bottom:36px}
+
+  .biglist{list-style:none;margin-top:16px}
+  .biglist li{font-size:30px;color:var(--ink2);padding:26px 0 26px 76px;position:relative;border-bottom:1px solid var(--line);line-height:1.45}
+  .biglist li b{color:var(--ink)}
+  .biglist li::before{content:attr(data-n);position:absolute;left:0;top:24px;width:52px;height:52px;border-radius:26px;
+    background:var(--blue-lt);color:var(--navy2);font-size:24px;font-weight:800;display:flex;align-items:center;justify-content:center}
+
+  .quotebox{background:var(--navy);border-radius:24px;padding:56px 64px;margin-top:48px}
+  .quotebox p{color:#fff;font-size:36px;font-weight:800;line-height:1.55}
+  .quotebox p span{color:#9ec5f4}
+
+  .cols3{display:flex;gap:32px;margin-top:8px}
+  .col{flex:1;background:#fff;border:2px solid var(--line);border-radius:20px;padding:44px 40px}
+  .col .n{font-size:40px;font-weight:900;color:var(--blue);margin-bottom:18px}
+  .col h3{font-size:31px;font-weight:800;color:var(--ink);margin-bottom:20px;line-height:1.35}
+  .col p{font-size:24px;color:var(--ink2);line-height:1.6}
+
+  .footnote{position:absolute;left:120px;right:120px;bottom:56px;font-size:22px;color:var(--muted);text-align:center}
+
+  #hud{position:fixed;right:20px;bottom:16px;color:#888;font-size:13px;z-index:10;
+    font-family:inherit;user-select:none}
+</style>
+</head>
+<body>
+<div id="stage">
+
+  <!-- 1. 표지 -->
+  <section class="slide active"><img class="full" src="images/01_표지.png" alt="AI 검색에서 먼저 발견되는 한의원 — 표지"></section>
+
+  <!-- 2. 오프닝 질문 -->
+  <section class="slide">
+    <div class="pad">
+      <h1 class="t">시작하기 전에, 하나만 여쭙겠습니다</h1>
+      <div class="rule"></div>
+      <div class="quotebox">
+        <p>원장님 한의원은 지금 ChatGPT나 Gemini에<br>
+        <span>"지역명 + 증상 + 한의원"</span>으로 물어봤을 때<br>
+        언급되고 있나요?</p>
+      </div>
+      <p class="sub" style="margin-top:44px">확인해보신 적이 없다면 — 오늘 세미나가 도움이 될 것입니다.</p>
+    </div>
+  </section>
+
+  <!-- 3. 시장 변화 -->
+  <section class="slide"><img class="full" src="images/02_시장변화.png" alt="환자가 병원을 찾는 방식의 변화"></section>
+
+  <!-- 4. 기존 마케팅의 한계 -->
+  <section class="slide">
+    <div class="pad">
+      <h1 class="t">홈페이지와 블로그만으로는 부족합니다</h1>
+      <div class="rule"></div>
+      <ul class="biglist">
+        <li data-n="1">홈페이지가 있어도 <b>AI가 이해하기 어려운 구조</b>일 수 있습니다</li>
+        <li data-n="2">블로그 글은 많지만 <b>지역/증상 질문과 연결되지 않을</b> 수 있습니다</li>
+        <li data-n="3">원장님의 진료 철학과 전문성이 <b>검색자산으로 정리되어 있지 않습니다</b></li>
+        <li data-n="4">매월 <b>무엇이 개선됐는지 확인할 지표</b>가 없습니다</li>
+      </ul>
+      <div class="footnote">AI 검색은 광고 문구가 아니라 구조화된 정보, 일관된 병원 설명, 증상별 콘텐츠, FAQ, 의료진 정보를 종합해 답변을 구성합니다</div>
+    </div>
+  </section>
+
+  <!-- 5. 핵심 약속 -->
+  <section class="slide">
+    <div class="pad">
+      <h1 class="t">그래서, 저희가 드리는 약속</h1>
+      <div class="rule"></div>
+      <div class="quotebox">
+        <p>"우리 한의원이 <span>AI와 검색엔진이 이해하기 쉬운<br>디지털 자산</span>으로 쌓이게 합니다."</p>
+      </div>
+      <ul class="biglist" style="margin-top:32px">
+        <li data-n="✓" style="border-bottom:1px solid var(--line)">AI의 지역/증상 질문에서 <b>언급될 가능성</b>을 높입니다 — 보장이 아니라 <b>매월 측정</b>합니다</li>
+        <li data-n="✓" style="border-bottom:none">네이버/구글에서 발견될 콘텐츠를 쌓고, 홈페이지를 <b>예약 전환 중심</b>으로 관리합니다</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 6. 패키지 구성 -->
+  <section class="slide"><img class="full" src="images/03_패키지구성.png" alt="패키지 5대 구성"></section>
+
+  <!-- 7. 운영 로드맵 -->
+  <section class="slide"><img class="full" src="images/05_운영로드맵.png" alt="12개월 운영 로드맵"></section>
+
+  <!-- 8. 월간 리포트 -->
+  <section class="slide"><img class="full" src="images/06_월간리포트.png" alt="월간 리포트 예시"></section>
+
+  <!-- 9. 가격 -->
+  <section class="slide"><img class="full" src="images/04_가격안내.png" alt="가격 안내"></section>
+
+  <!-- 10. 차별점 -->
+  <section class="slide">
+    <div class="pad">
+      <h1 class="t">무엇이 다른가요 — 3가지 차별점</h1>
+      <div class="rule"></div>
+      <div class="cols3">
+        <div class="col">
+          <div class="n">01</div>
+          <h3>홈페이지 제작이 아니라<br>검색자산 운영</h3>
+          <p>한 번 만들고 끝나는 제작이 아니라, AI 검색 시대에 맞춰 매월 자산을 쌓는 12개월 운영입니다.</p>
+        </div>
+        <div class="col">
+          <div class="n">02</div>
+          <h3>블로그 대행이 아니라<br>연결된 운영</h3>
+          <p>질문 설계 → 콘텐츠 → 홈페이지 → 리포트가 하나로 연결됩니다. 글만 발행하지 않습니다.</p>
+        </div>
+        <div class="col">
+          <div class="n">03</div>
+          <h3>노출 보장이 아니라<br>측정 가능한 언급률</h3>
+          <p>보장할 수 없는 것을 약속하지 않습니다. 대신 AI 언급률을 매월 숫자로 추적해 보여드립니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 11. 신뢰 원칙 (의료광고) -->
+  <section class="slide">
+    <div class="pad">
+      <h1 class="t">의료 업종이기에, 지키는 원칙</h1>
+      <div class="rule"></div>
+      <ul class="biglist">
+        <li data-n="1">AI 노출·검색 순위·치료 효과를 <b>보장하는 표현을 쓰지 않습니다</b></li>
+        <li data-n="2">환자 후기를 치료 효과 증명처럼 사용하지 않고, <b>타 한의원과 비교·비방하지 않습니다</b></li>
+        <li data-n="3">진료 가능 여부·비용·치료 기간은 <b>반드시 원장님 확인 후</b> 작성합니다</li>
+        <li data-n="4">의료광고 심의가 필요한 매체·표현은 <b>사전 검토 대상으로 분류</b>합니다</li>
+      </ul>
+      <div class="footnote">참고 기준: 의료법 제56조(의료광고) — 공격적인 표현보다 신뢰를 쌓는 방식으로 운영합니다</div>
+    </div>
+  </section>
+
+  <!-- 12. CTA -->
+  <section class="slide"><img class="full" src="images/07_무료진단CTA.png" alt="무료 AI 검색 진단 신청"></section>
+
+</div>
+<div id="hud"><span id="pageno"></span> · 방향키/클릭으로 이동</div>
+<script>
+  const slides=[...document.querySelectorAll('.slide')];let i=0;
+  function fit(){const s=Math.min(innerWidth/1600,innerHeight/900);
+    slides.forEach(el=>el.style.transform=`scale(${s})`);}
+  function show(n){i=Math.max(0,Math.min(slides.length-1,n));
+    slides.forEach((el,k)=>el.classList.toggle('active',k===i));
+    document.getElementById('pageno').textContent=(i+1)+' / '+slides.length;
+    history.replaceState(null,'','#'+(i+1));fit();}
+  addEventListener('resize',fit);
+  addEventListener('keydown',e=>{
+    if(['ArrowRight','ArrowDown','PageDown',' '].includes(e.key))show(i+1);
+    if(['ArrowLeft','ArrowUp','PageUp'].includes(e.key))show(i-1);
+    if(e.key==='Home')show(0); if(e.key==='End')show(slides.length-1);});
+  addEventListener('click',e=>{show(e.clientX>innerWidth/2?i+1:i-1)});
+  show((parseInt(location.hash.slice(1))||1)-1);
+</script>
+</body>
+</html>

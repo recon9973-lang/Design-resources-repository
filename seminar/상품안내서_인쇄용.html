@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>AI 한의원 검색점유 패키지 — 상품 안내서</title>
+<style>
+  :root{
+    --navy:#0d366b; --navy2:#184f95; --blue:#2a78d6; --blue-lt:#cde2fb;
+    --ink:#0b0b0b; --ink2:#52514e; --muted:#898781;
+    --line:#e1e0d9; --wash:#f0efec;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Pretendard','Noto Sans CJK KR','Noto Sans KR','Malgun Gothic','Apple SD Gothic Neo',sans-serif;
+    color:var(--ink);background:#e8e8e6;line-height:1.6}
+  .page{width:210mm;min-height:297mm;background:#fff;margin:10mm auto;padding:18mm 16mm;position:relative}
+  @media print{
+    body{background:#fff}
+    .page{margin:0;page-break-after:always;min-height:auto}
+    .page:last-child{page-break-after:auto}
+  }
+
+  /* cover */
+  .cover{background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;
+    display:flex;flex-direction:column;justify-content:center;padding:24mm 20mm}
+  .cover .eyebrow{display:inline-block;background:rgba(255,255,255,.14);color:var(--blue-lt);
+    border-radius:999px;padding:8px 22px;font-weight:700;font-size:15px;width:fit-content;margin-bottom:28px}
+  .cover h1{font-size:44px;font-weight:900;line-height:1.3;margin-bottom:24px}
+  .cover .lead{font-size:16px;color:#b7d3f6;margin-bottom:40px;max-width:135mm}
+  .cover .chips{display:flex;gap:10px;margin-bottom:48px}
+  .cover .chips span{background:rgba(255,255,255,.14);border-radius:999px;padding:8px 18px;font-weight:700;font-size:14px}
+  .cover .meta{border-top:1px solid rgba(255,255,255,.2);padding-top:20px;font-size:14px;color:#cde2fb}
+  .cover .meta b{color:#fff}
+
+  h2{font-size:22px;font-weight:900;margin:0 0 4px;color:var(--ink)}
+  .rule{width:44px;height:5px;border-radius:3px;background:var(--blue);margin:8px 0 16px}
+  h3{font-size:15px;font-weight:800;color:var(--navy2);margin:14px 0 6px}
+  p,li{font-size:13.5px;color:var(--ink2)}
+  ul{padding-left:18px;margin:6px 0}
+  .sec{margin-bottom:26px}
+  .callout{background:var(--wash);border-radius:10px;padding:12px 16px;font-size:13.5px;margin:10px 0}
+  .callout.navy{background:var(--navy);color:#fff}
+  .callout.navy b{color:#9ec5f4}
+
+  table{width:100%;border-collapse:collapse;margin:10px 0;font-size:13px}
+  th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;color:var(--ink2)}
+  th{background:var(--wash);color:var(--ink);font-weight:800}
+  td.c,th.c{text-align:center}
+  .hl{background:#eaf2fc}
+  .hl b{color:var(--navy2)}
+
+  .qa dt{font-weight:800;font-size:13.5px;color:var(--ink);margin-top:12px}
+  .qa dd{font-size:13px;color:var(--ink2);margin:3px 0 0}
+  .fine{font-size:11.5px;color:var(--muted);border-top:1px solid var(--line);padding-top:10px;margin-top:24px}
+  .pageno{position:absolute;bottom:8mm;right:16mm;font-size:11px;color:var(--muted)}
+</style>
+</head>
+<body>
+
+<!-- P1 cover -->
+<div class="page cover">
+  <span class="eyebrow">AI 한의원 검색점유 패키지 · 상품 안내서</span>
+  <h1>AI 검색에서<br>먼저 발견되는 한의원</h1>
+  <p class="lead">환자는 이제 네이버뿐 아니라 ChatGPT, Gemini, Claude, Perplexity에 증상과 병원을 묻습니다.
+  원장님의 한의원이 지역/증상 질문에서 언급될 가능성을 높이도록 홈페이지, SEO 콘텐츠, AEO/GEO 구조화,
+  월간 리포트를 함께 운영하는 프리미엄 구독 상품입니다.</p>
+  <div class="chips"><span>ChatGPT</span><span>Gemini</span><span>Claude</span><span>Perplexity</span></div>
+  <div class="meta"><b>12개월 구독형 운영</b> &nbsp;|&nbsp; 월 150~250만원 &nbsp;|&nbsp; 백링크 제외 풀패키지 &nbsp;|&nbsp; 핵심 KPI : AI 언급률</div>
+</div>
+
+<!-- P2 -->
+<div class="page">
+  <div class="sec">
+    <h2>환자는 이미 AI에게 묻고 있습니다</h2>
+    <div class="rule"></div>
+    <p>예전에는 네이버에 "강남 한의원", "허리통증 한의원"을 검색했습니다. 이제는 이렇게 묻습니다.</p>
+    <ul>
+      <li>"강남에서 허리통증 진료 보는 한의원 알려줘"</li>
+      <li>"교통사고 후유증으로 한의원 갈 때 뭘 확인해야 해?"</li>
+      <li>"목통증이 오래가는데 한의원 선택 기준이 뭐야?"</li>
+    </ul>
+    <div class="callout navy">이 질문에 우리 한의원이 언급되지 않는다면, <b>앞으로의 검색 경쟁에서 보이지 않는 병원</b>이 될 수 있습니다.</div>
+  </div>
+
+  <div class="sec">
+    <h2>패키지에 포함되는 것 — 5가지가 함께 움직입니다</h2>
+    <div class="rule"></div>
+    <h3>① GEO/AEO 운영 — AI 검색 최적화</h3>
+    <p>지역/증상/진료 AI 질문 30~50개 설계 · 4개 AI 플랫폼 월 1회 점검 및 언급 여부 기록 · AI 인용형 FAQ 설계 · 병원 정보 일관성 점검</p>
+    <h3>② SEO 콘텐츠 운영</h3>
+    <p>월 8건 이상 발행 — 지역명+증상, 진료 분야 안내, 환자 FAQ, 원장 전문성·진료 철학, 예약 안내 콘텐츠</p>
+    <h3>③ SEO 홈페이지 제작/관리 <span style="color:var(--blue)">(제작비 구독료 포함)</span></h3>
+    <p>홈 · 원장 소개 · 진료 분야 · 증상 콘텐츠 · FAQ · 위치/예약 구성, 검색 최적화 구조와 모바일 예약 동선, 월 2~4건 개선</p>
+    <h3>④ 랜딩페이지 고도화</h3>
+    <p>대표 진료 분야(허리통증, 목통증, 교통사고 후유증 등)를 월 단위로 하나씩 고도화 — 증상 설명, 진료 관점, 내원 전 안내, FAQ, 예약 CTA</p>
+    <h3>⑤ 월간 리포트</h3>
+    <p>AI 언급률(핵심 KPI), 질문별 답변 결과, 검색 노출 키워드, 발행·개선 내역, 다음 달 운영 계획</p>
+  </div>
+
+  <div class="sec">
+    <h2>12개월 운영 로드맵</h2>
+    <div class="rule"></div>
+    <table>
+      <tr><th style="width:24%">기간</th><th style="width:26%">단계</th><th>주요 내용</th></tr>
+      <tr><td>1개월 차</td><td>진단과 기반 구축</td><td>검색·AI 언급 진단, AI 질문 30~50개 설계, 홈페이지 구조 개선안, 콘텐츠 주제 24~36개</td></tr>
+      <tr><td>2~3개월 차</td><td>콘텐츠 축적·정비</td><td>월 8건+ 콘텐츠, 랜딩페이지 고도화, FAQ 구조화, AI 언급률 1차 점검</td></tr>
+      <tr><td>4~6개월 차</td><td>언급률 개선·전환</td><td>미노출 질문 보완, 예약 CTA·모바일 동선 개선, 콘텐츠 확장</td></tr>
+      <tr><td>7~12개월 차</td><td>검색자산 누적</td><td>콘텐츠 허브 구축, 언급률 추세 관리, 전환 동선·고성과 콘텐츠 고도화</td></tr>
+    </table>
+    <p style="font-size:12px;color:var(--muted)">3~6개월 내 주요 질문에서 언급 사례를 만드는 것을 목표로 운영합니다.</p>
+  </div>
+  <div class="pageno">2</div>
+</div>
+
+<!-- P3 -->
+<div class="page">
+  <div class="sec">
+    <h2>가격 안내 — 홈페이지 제작 포함 12개월 구독</h2>
+    <div class="rule"></div>
+    <table>
+      <tr><th>구성</th><th class="c">Basic</th><th class="c hl">Growth ★ 추천</th><th class="c">Premium</th></tr>
+      <tr><td>월 구독료</td><td class="c">150만원</td><td class="c hl"><b>200만원</b></td><td class="c">250만원</td></tr>
+      <tr><td>AI 질문 추적</td><td class="c">30개</td><td class="c hl">40개</td><td class="c">50개</td></tr>
+      <tr><td>월 콘텐츠</td><td class="c">8건</td><td class="c hl">10건</td><td class="c">12건</td></tr>
+      <tr><td>홈페이지 개선</td><td class="c">월 2건</td><td class="c hl">월 3건</td><td class="c">월 4건</td></tr>
+      <tr><td>랜딩페이지 고도화</td><td class="c">—</td><td class="c hl">월 1개</td><td class="c">월 1~2개</td></tr>
+      <tr><td>월간 리포트</td><td class="c">1회</td><td class="c hl">1회</td><td class="c">1회</td></tr>
+      <tr><td>전략 미팅</td><td class="c">—</td><td class="c hl">분기별</td><td class="c">월간</td></tr>
+      <tr><td>계약 기간</td><td class="c">12개월</td><td class="c hl">12개월</td><td class="c">12개월</td></tr>
+    </table>
+    <ul>
+      <li><b>Basic</b> — 홈페이지·콘텐츠 기반이 거의 없는 한의원, 경쟁 강도 중간 이하 지역</li>
+      <li><b>Growth</b> — 가장 권장하는 표준 패키지. 경쟁 지역에서 대표 진료 분야를 키우고 싶은 한의원</li>
+      <li><b>Premium</b> — 경쟁이 강한 상권, 여러 진료 분야를 동시에 키우려는 한의원</li>
+    </ul>
+    <div class="callout">홈페이지 제작비는 별도 선결제 없이 12개월 구독료에 포함됩니다. 백링크는 기본 상품에 포함되지 않으며, 필요 시 별도 옵션으로만 제안합니다.</div>
+  </div>
+
+  <div class="sec">
+    <h2>자주 묻는 질문</h2>
+    <div class="rule"></div>
+    <dl class="qa">
+      <dt>Q. AI 검색 노출을 보장하나요?</dt>
+      <dd>아니요. AI 답변은 각 플랫폼의 판단에 따라 달라지므로 특정 노출을 보장하지 않습니다. 대신 주요 질문을 정하고 언급 가능성을 높이는 콘텐츠와 구조를 매월 개선하며, 실제 언급 여부를 리포트로 추적합니다.</dd>
+      <dt>Q. 기존 홈페이지가 있어도 가능한가요?</dt>
+      <dd>가능합니다. 진단 후 유지할 부분과 개선할 부분을 나누고, AI가 이해하기 어려운 구조라면 구독 범위 안에서 재정비합니다.</dd>
+      <dt>Q. 네이버 블로그 대행과 무엇이 다른가요?</dt>
+      <dd>글만 쓰지 않습니다. AI 질문 설계, 홈페이지 구조, 진료 랜딩페이지, FAQ, 내부 링크, 월간 언급률 리포트를 함께 운영합니다.</dd>
+      <dt>Q. 언제부터 성과를 볼 수 있나요?</dt>
+      <dd>AI/SEO 검색자산은 누적형입니다. 1개월 차 진단·기반 구축, 2~3개월 차 콘텐츠 축적, 3~6개월 차에 주요 질문 언급 사례 확보를 목표로 운영합니다.</dd>
+      <dt>Q. 의료광고 규정은 어떻게 관리하나요?</dt>
+      <dd>치료 효과 보장, 과장 후기, 비교·비방 표현을 쓰지 않습니다. 진료 가능 여부·비용·치료 기간은 한의원 확인 후 작성하며, 심의가 필요한 표현·매체는 별도 검토합니다.</dd>
+    </dl>
+  </div>
+
+  <div class="sec">
+    <h2>무료 AI 검색 진단 신청</h2>
+    <div class="rule"></div>
+    <p>지역명 · 증상명 · 진료 분야 기준 10~15개 질문으로 ChatGPT, Gemini, Claude, Perplexity 언급 현황을 무료로 확인해드립니다.</p>
+    <div class="callout navy">진단 후 무리한 계약을 강요하지 않습니다 — <b>현재 검색 상태와 개선 가능성을 먼저 보여드립니다.</b></div>
+  </div>
+
+  <p class="fine">고지: AI 검색 결과는 각 플랫폼의 정책, 색인 상태, 답변 생성 방식에 따라 달라질 수 있습니다. 본 상품은 특정 노출이나 순위를 보장하지 않으며, 주요 질문에서 한의원이 언급될 가능성을 높이기 위한 운영과 현황 보고를 제공합니다. 본 안내서의 수치 예시는 이해를 돕기 위한 예시입니다.</p>
+  <div class="pageno">3</div>
+</div>
+
+</body>
+</html>
