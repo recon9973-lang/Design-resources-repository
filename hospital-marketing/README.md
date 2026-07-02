@@ -16,6 +16,8 @@
 | [`pipeline/`](pipeline/) | **0단계 데이터 파이프라인** — HIRA·네이버 커넥터, 반경 계산, 점수 엔진. API 키 없이 목업 모드로 동작, 단위 테스트 포함 |
 | [`admin/index.html`](admin/index.html) | 관리자단 증빙 검수 화면 프로토타입 (위험도/법무 상태 필터, 법무 승인 전 고객 노출 승격 차단, 감사 로그) |
 | [`report/monthly-report.html`](report/monthly-report.html) | 월간 PDF 리포트 템플릿 (A4 2쪽, 인쇄→PDF 저장) |
+| [`landing/index.html`](landing/index.html) | 영업용 원페이저 랜딩 (베타 모집, 요금제, 컴플라이언스 FAQ) |
+| [`data/keyword_seed.csv`](data/keyword_seed.csv) | 진료과별 키워드 사전 시드 63건 (피부과·성형외과·치과·한의원·안과·비만·탈모, 위험도 라벨 포함) |
 
 ## 프로토타입 미리보기
 
