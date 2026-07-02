@@ -49,12 +49,14 @@ def competition_weight(distance_m: float, same_department: bool,
 def density_score(competitors: list[dict], radius_m: int) -> float:
     """경쟁 밀도 점수 (25%). 가중 경쟁량이 적을수록 높다.
 
-    지수 감쇠로 0-100에 매핑: score = 100 * exp(-W / K).
-    K는 반경별 기준 경쟁량(가중치 합이 K이면 약 37점)로, 고경쟁 비급여과
-    상권 표본에서 재조정한다.
+    로그 압축 매핑: score = max(0, 100 - 18·ln(1 + W_eq)).
+    W_eq는 반경 면적으로 정규화한 1km 환산 가중 경쟁량.
+
+    계수 18은 2026-07 HIRA 실측(반경 1km 피부과 표방 기준) 캘리브레이션:
+      강남 역삼 298곳 W=114 → 14.5점 / 마포 홍대 74곳 W=56 → 27.1점 /
+      청주 성안길 19곳 W=13 → 53.0점 / 경쟁 0곳 → 100점.
+    지수식(exp(-W/K))은 과밀 상권에서 0점으로 포화되어 변별력이 없어 교체.
     """
-    k_by_radius = {500: 6.0, 1000: 10.0, 1500: 14.0, 2000: 18.0}
-    k = k_by_radius.get(radius_m, 10.0)
     total_w = sum(
         competition_weight(
             c["distance_m"], c.get("same_department", True), radius_m,
@@ -62,7 +64,8 @@ def density_score(competitors: list[dict], radius_m: int) -> float:
         )
         for c in competitors
     )
-    return round(100.0 * math.exp(-total_w / k), 1)
+    w_eq = total_w / ((radius_m / 1000.0) ** 2)
+    return round(max(0.0, 100.0 - 18.0 * math.log1p(w_eq)), 1)
 
 
 def demand_score(population_in_radius: int, target_age_ratio: float,
