@@ -164,8 +164,15 @@ TEMPLATE = Template("""<!DOCTYPE html>
     <div class="meta">분석 반경 $radius_label · 발행 $issued<br>실데이터 기반 · 리포트 ID $report_id</div>
   </div>
   <div class="hero">
-    <div><div style="font-size:12px;color:var(--ink2)">검색정보 운영 진단 점수 (당사 산식)</div>
-      <div class="num">$final_score<small> / 100</small></div></div>
+    <div style="display:flex;align-items:center;gap:14px">
+      <svg width="112" height="70" viewBox="0 0 112 70" role="img" aria-label="진단 점수 $final_score점">
+        <path d="M 12 58 A 44 44 0 0 1 100 58" fill="none" stroke="var(--accent-l)" stroke-width="11" stroke-linecap="round"/>
+        <path d="M 12 58 A 44 44 0 0 1 100 58" fill="none" stroke="var(--accent)" stroke-width="11"
+          stroke-linecap="round" stroke-dasharray="$gauge_dash 138.3"/>
+        <text x="56" y="52" text-anchor="middle" font-size="27" font-weight="750" fill="var(--ink)">$final_score</text>
+      </svg>
+      <div style="font-size:11.5px;color:var(--ink2)">검색정보 운영<br>진단 점수<br><span style="color:var(--muted)">당사 산식 · 0~100</span></div>
+    </div>
     <div class="desc">$summary_text</div>
   </div>
   <h2>점수 구성</h2>
@@ -180,6 +187,10 @@ TEMPLATE = Template("""<!DOCTYPE html>
       <div class="track"><div class="fill" style="width:$s_place%"></div></div></div>
   </div>
   <h2>키워드별 노출 진단 (네이버 공식 API 기준 · 상위 5위 이내)</h2>
+  <div style="margin:2px 0 10px">
+    <div style="display:flex;gap:2px;height:14px;border-radius:7px;overflow:hidden">$grade_segments</div>
+    <div style="display:flex;gap:14px;font-size:10.5px;color:var(--ink2);margin-top:5px">$grade_legend</div>
+  </div>
   <table><thead><tr><th>키워드</th><th>API 기준</th><th class="num">API 내 위치</th><th>등급</th>
     <th>해당 키워드 1위 업체</th></tr></thead>
   <tbody>$keyword_rows</tbody></table>
@@ -248,10 +259,27 @@ def render(args, data: dict) -> str:
         f"노출되고 있으며, 경쟁 밀도가 높은 상권 특성상 세분 지역 키워드 공략과 커버리지 확대가 "
         f"이번 달 개선 포인트입니다.")
 
+    # 등급 분포 인포그래픽 (분할 막대 + 범례)
+    cnt = {"top": 0, "mid": 0, "none": 0}
+    for k in data["keywords"]:
+        cnt[k["grade"]] += 1
+    seg_color = {"top": "var(--good)", "mid": "var(--warn)", "none": "var(--crit)"}
+    grade_segments = "".join(
+        f"<div style='flex:{cnt[g]};background:{seg_color[g]}'></div>"
+        for g in ("top", "mid", "none") if cnt[g])
+    grade_legend = "".join(
+        f"<span><span style='display:inline-block;width:8px;height:8px;border-radius:50%;"
+        f"background:{seg_color[g]};margin-right:4px'></span>{label} <b>{cnt[g]}</b></span>"
+        for g, label in (("top", "상위권"), ("mid", "중위권"), ("none", "미노출")))
+
+    gauge_dash = f"{138.3 * max(0.0, min(s['final'], 100.0)) / 100.0:.1f}"
+
     month = args.month or date.today().strftime("%Y-%m")
     y, m = month.split("-")
     return TEMPLATE.substitute(
         hospital=esc(args.name), month_label=f"{y}년 {int(m)}월",
+        gauge_dash=gauge_dash,
+        grade_segments=grade_segments, grade_legend=grade_legend,
         radius_label=f"{args.radius / 1000:g}km",
         issued=date.today().isoformat(),
         report_id=f"RPT-{month}-LIVE",

@@ -3,10 +3,36 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; form-action 'self'; base-uri 'self'; frame-ancestors 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'unsafe-inline'; img-src 'self' data: https://*.google-analytics.com https://*.googletagmanager.com; connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com; form-action 'self'; base-uri 'self'; frame-ancestors 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
-<title>무료 병원 검색정보 운영 진단 신청 · (주)베놈 venomad</title>
+<title>무료 병원 검색정보 운영 진단 신청 | (주)베놈 venomad</title>
 <meta name="description" content="(주)베놈이 병원의 공개정보와 검색정보 운영 상태를 무료로 진단해 드립니다. 반경 내 경쟁 현황, 키워드 노출 등급, 정보 정비 제안을 담은 내부 참고용 리포트.">
+<link rel="canonical" href="https://recon9973-lang.github.io/Design-resources-repository/hospital-marketing/landing/">
+<!-- Open Graph / 소셜 공유 -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="(주)베놈 venomad">
+<meta property="og:title" content="무료 병원 검색정보 운영 진단 신청">
+<meta property="og:description" content="반경 내 경쟁 현황, 키워드 노출 등급, 정보 정비 제안을 담은 무료 진단 리포트. 병원 내부 참고용으로 제공됩니다.">
+<meta property="og:url" content="https://recon9973-lang.github.io/Design-resources-repository/hospital-marketing/landing/">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary">
+<!-- 구조화 데이터: 조직 + FAQ -->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+ {"@type":"Organization","name":"(주)베놈","alternateName":"venomad",
+  "description":"병원 전문 광고대행사 — 무료 병원 검색정보 운영 진단 제공",
+  "url":"https://recon9973-lang.github.io/Design-resources-repository/hospital-marketing/landing/"},
+ {"@type":"FAQPage","mainEntity":[
+  {"@type":"Question","name":"정말 무료인가요? 조건이 있나요?",
+   "acceptedAnswer":{"@type":"Answer","text":"네, 무료입니다. 상담이나 광고대행 계약은 조건이 아니며, 선택 동의를 하지 않아도 리포트를 받으실 수 있습니다."}},
+  {"@type":"Question","name":"네이버 순위를 추적해 주나요?",
+   "acceptedAnswer":{"@type":"Answer","text":"아니요. 실시간 순위 추적은 하지 않습니다. 네이버 공식 오픈 API 기준으로 키워드별 상위 5건 내 노출 여부를 매달 측정하며, 실제 검색화면과 다를 수 있어 측정 조건과 함께 표기합니다."}},
+  {"@type":"Question","name":"리포트를 병원 블로그나 광고에 써도 되나요?",
+   "acceptedAnswer":{"@type":"Answer","text":"안 됩니다. 리포트는 병원 내부 운영 참고자료로, 환자 대상 광고·홍보물로 전재·캡처·인용·배포할 수 없습니다."}},
+  {"@type":"Question","name":"환자 리뷰도 분석하나요?",
+   "acceptedAnswer":{"@type":"Answer","text":"리뷰 본문은 수집·분석하지 않습니다. 리뷰 수 같은 집계값이 필요한 경우 병원에서 직접 확인해 입력하신 값만 사용합니다."}}
+ ]}]}
+</script>
 <style>
   :root{
     --ink:#0b0b0b; --ink2:#52514e; --muted:#898781;
@@ -311,6 +337,22 @@
 
 <script>
 "use strict";
+/* ---------- GA4 방문자 집계 ----------
+   측정 ID를 발급받아 아래에 넣으면 활성화됩니다 (placeholder 상태에서는 로드 안 함).
+   활성화 시 쿠키 기반 행태정보 수집이 시작됩니다 — 개인정보처리방침의
+   자동수집 항목(쿠키·방문기록)이 게시된 상태인지 확인하세요. */
+const GA_MEASUREMENT_ID = 'G-XXXXXXXXXX'; // TODO: GA4 측정 ID로 교체
+if (!/X{4}/.test(GA_MEASUREMENT_ID)) {
+  const s = document.createElement('script');
+  s.async = true;
+  s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_MEASUREMENT_ID;
+  document.head.appendChild(s);
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = function(){ dataLayer.push(arguments); };
+  gtag('js', new Date());
+  gtag('config', GA_MEASUREMENT_ID, { anonymize_ip: true });
+}
+
 // 채널 마스터 체크박스: c4 토글 시 하위 채널 일괄, 하위 변경 시 마스터 동기화
 const master = document.getElementById('c4');
 const subs = [...document.querySelectorAll('.adch')];
@@ -352,6 +394,7 @@ document.getElementById('applyForm').addEventListener('submit', e => {
     return;
   }
   recordSubmit();
+  if (window.gtag) gtag('event', 'diagnosis_apply', { method: 'form' }); // 전환 이벤트
   // 프로토타입: 접수 서버 연동 전. 실제 구현 시 동의 일시/IP/문구 버전 함께 저장.
   f.style.display = 'none';
   document.getElementById('formDone').style.display = 'block';

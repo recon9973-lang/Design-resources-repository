@@ -186,10 +186,12 @@
   <!-- ================= 대시보드 홈 ================= -->
   <section class="panel active" id="panel-home">
     <div class="card hero-card">
-      <div>
-        <div class="label" style="font-size:13px;color:var(--text-secondary)">검색정보 운영 진단 점수 (당사 산식)</div>
-        <div class="hero-num"><span id="heroScore">62</span><small> / 100</small></div>
-        <div class="delta up" id="heroDelta">▲ 2점 · 전월 대비</div>
+      <div style="display:flex;align-items:center;gap:14px">
+        <div id="heroGauge"></div>
+        <div>
+          <div class="label" style="font-size:13px;color:var(--text-secondary)">검색정보 운영 진단 점수<br><span style="font-size:11px;color:var(--text-muted)">당사 산식 · 0~100</span></div>
+          <div class="delta up" id="heroDelta" style="margin-top:6px">▲ 2점 · 전월 대비</div>
+        </div>
       </div>
       <div class="meters" id="meters"></div>
     </div>
@@ -243,6 +245,7 @@
   <section class="panel" id="panel-kw">
     <h2>키워드별 노출 진단</h2>
     <p class="sub">네이버 지역 검색 <b>공식 API 기준(상위 5건)</b> 지표입니다. 실제 검색화면과 다를 수 있으며, 실시간 순위가 아닙니다.</p>
+    <div class="card" id="gradeStrip" style="margin-bottom:12px"></div>
     <div class="card table-card">
       <table id="kwTable">
         <thead><tr>
@@ -398,9 +401,19 @@ $('#radiusSeg').addEventListener('click',e=>{
 });
 
 /* ---------- 홈 렌더 ---------- */
+function drawGauge(el,score){ // 반원 게이지 — 점수의 시각 앵커
+  const r=44,cx=56,cy=58,circ=Math.PI*r;
+  const frac=Math.max(0,Math.min(score,100))/100;
+  el.innerHTML=`<svg width="112" height="70" viewBox="0 0 112 70" role="img" aria-label="진단 점수 ${score}점">
+    <path d="M ${cx-r} ${cy} A ${r} ${r} 0 0 1 ${cx+r} ${cy}" fill="none" stroke="var(--seq-150)" stroke-width="11" stroke-linecap="round"/>
+    <path d="M ${cx-r} ${cy} A ${r} ${r} 0 0 1 ${cx+r} ${cy}" fill="none" stroke="var(--seq-450)" stroke-width="11"
+      stroke-linecap="round" stroke-dasharray="${(circ*frac).toFixed(1)} ${circ.toFixed(1)}"/>
+    <text x="${cx}" y="${cy-6}" text-anchor="middle" font-size="27" font-weight="750" fill="var(--text-primary)">${score}</text>
+  </svg>`;
+}
 function renderHome(){
   const d=RADIUS_DATA[radius];
-  $('#heroScore').textContent=d.score;
+  drawGauge($('#heroGauge'),d.score);
   const hd=$('#heroDelta');
   if(IS_LIVE){
     hd.textContent='기준월 첫 리포트 · 실데이터';
@@ -514,6 +527,22 @@ function renderKeywords(){
   const chip=g=>g==='top'?'<span class="chip top"><span class="dot"></span>상위권</span>'
     :g==='mid'?'<span class="chip mid"><span class="dot"></span>중위권</span>'
     :'<span class="chip none"><span class="dot"></span>미노출</span>';
+  /* 등급 요약 분할 막대 — 한눈에 커버리지 파악 */
+  const cnt={top:0,mid:0,none:0};
+  KEYWORDS.forEach(k=>cnt[k.grade]++);
+  const total=KEYWORDS.length||1;
+  const seg=(n,color)=>n?`<div style="flex:${n};background:${color};height:100%"></div>`:'';
+  $('#gradeStrip').innerHTML=`
+    <p class="chart-title" style="margin:0 0 8px">키워드 ${total}개 등급 분포</p>
+    <div style="display:flex;gap:2px;height:16px;border-radius:8px;overflow:hidden;background:var(--plane)">
+      ${seg(cnt.top,'var(--status-good)')}${seg(cnt.mid,'var(--status-warn)')}${seg(cnt.none,'var(--status-crit)')}
+    </div>
+    <div class="legend" style="margin-top:8px">
+      <span class="key"><span class="sw" style="background:var(--status-good)"></span>상위권 <b>${cnt.top}</b></span>
+      <span class="key"><span class="sw" style="background:var(--status-warn)"></span>중위권 <b>${cnt.mid}</b></span>
+      <span class="key"><span class="sw" style="background:var(--status-crit)"></span>미노출 <b>${cnt.none}</b></span>
+      <span class="key" style="color:var(--text-muted)">API 응답 3위 이내 / 응답 내 / 응답 밖(상위 5건)</span>
+    </div>`;
   $('#kwTable tbody').innerHTML=KEYWORDS.map(k=>
     `<tr><td><b>${esc(k.kw)}</b></td><td>${esc(k.type)}</td>
      <td>${k.api?'노출':'미노출'}</td>
