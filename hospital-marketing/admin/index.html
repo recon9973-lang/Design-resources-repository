@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>메디랭크 로컬 · 관리자단 증빙 검수 (프로토타입)</title>
+<meta name="robots" content="noindex">
+<style>
+  :root{
+    --surface-1:#fcfcfb; --plane:#f9f9f7;
+    --text-primary:#0b0b0b; --text-secondary:#52514e; --text-muted:#898781;
+    --grid:#e1e0d9; --hairline:rgba(11,11,11,.10);
+    --series-1:#2a78d6;
+    --status-good:#0ca30c; --status-warn:#fab219; --status-serious:#ec835a; --status-crit:#d03b3b;
+    --shadow:rgba(0,55,112,.08) 0 1px 3px;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --surface-1:#1a1a19; --plane:#0d0d0d;
+      --text-primary:#fff; --text-secondary:#c3c2b7; --text-muted:#898781;
+      --grid:#2c2c2a; --hairline:rgba(255,255,255,.10);
+      --series-1:#3987e5;
+      --shadow:rgba(0,0,0,.4) 0 1px 3px;
+    }
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,"Segoe UI","Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+    background:var(--plane);color:var(--text-primary);line-height:1.55}
+  .wrap{max-width:1150px;margin:0 auto;padding:0 20px}
+  header{background:var(--surface-1);border-bottom:1px solid var(--grid)}
+  .h-inner{display:flex;align-items:center;gap:12px;padding:13px 0;flex-wrap:wrap}
+  .brand{font-weight:800;font-size:16px;display:flex;align-items:center;gap:8px}
+  .brand .mark{width:24px;height:24px;border-radius:6px;background:var(--text-primary);color:var(--plane);
+    display:inline-flex;align-items:center;justify-content:center;font-size:12px;font-weight:900}
+  .role{margin-left:auto;font-size:12.5px;color:var(--text-secondary)}
+  .role b{color:var(--text-primary)}
+  .warn-banner{background:color-mix(in srgb, var(--status-crit) 8%, var(--surface-1));
+    border-bottom:1px solid var(--grid);font-size:12.5px;color:var(--text-secondary);padding:8px 0}
+  .warn-banner b{color:var(--status-crit)}
+  main{padding:22px 0 60px}
+  h1{font-size:19px;margin:0 0 4px}
+  .sub{color:var(--text-secondary);font-size:13px;margin:0 0 16px}
+
+  .filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+  select{font:inherit;font-size:13px;padding:7px 10px;border:1px solid var(--grid);border-radius:8px;
+    background:var(--surface-1);color:var(--text-primary)}
+  .count{font-size:12.5px;color:var(--text-muted);align-self:center}
+
+  .card{background:var(--surface-1);border:1px solid var(--grid);border-radius:12px;box-shadow:var(--shadow)}
+  table{border-collapse:collapse;width:100%;font-size:13px}
+  th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--grid);vertical-align:middle}
+  th{font-size:11.5px;color:var(--text-secondary);white-space:nowrap}
+  tbody tr{cursor:pointer}
+  tbody tr:hover{background:color-mix(in srgb, var(--series-1) 5%, transparent)}
+  tbody tr.sel{background:color-mix(in srgb, var(--series-1) 10%, transparent)}
+
+  .pill{display:inline-flex;align-items:center;gap:5px;font-size:11.5px;font-weight:650;
+    border:1px solid var(--hairline);border-radius:99px;padding:1px 8px;white-space:nowrap}
+  .pill .dot{width:7px;height:7px;border-radius:50%}
+  .risk-low .dot{background:var(--status-good)} .risk-medium .dot{background:var(--status-warn)}
+  .risk-high .dot{background:var(--status-serious)} .risk-critical .dot{background:var(--status-crit)}
+  .lg-pending .dot{background:var(--status-warn)} .lg-in_review .dot{background:var(--status-serious)}
+  .lg-approved .dot{background:var(--status-good)} .lg-rejected .dot{background:var(--status-crit)}
+
+  .layout{display:grid;grid-template-columns:1fr 340px;gap:14px;align-items:start}
+  @media (max-width:900px){.layout{grid-template-columns:1fr}}
+  .detail{padding:16px;font-size:13px}
+  .detail h2{font-size:14.5px;margin:0 0 10px}
+  .kv{display:grid;grid-template-columns:110px 1fr;gap:4px 10px;margin-bottom:14px}
+  .kv .k{color:var(--text-muted);font-size:12px}
+  .detail .box{border:1px dashed var(--grid);border-radius:8px;padding:10px;color:var(--text-muted);
+    font-size:12px;text-align:center;margin-bottom:12px}
+  .detail label{display:block;font-size:12px;color:var(--text-secondary);margin:10px 0 4px}
+  .detail select,.detail button{width:100%}
+  .btn{font:inherit;font-size:13px;font-weight:600;padding:8px 12px;border-radius:8px;cursor:pointer;
+    border:1px solid var(--grid);background:var(--surface-1);color:var(--text-primary)}
+  .btn.primary{background:var(--series-1);border-color:var(--series-1);color:#fff}
+  .btn[disabled]{opacity:.45;cursor:not-allowed}
+  .hint{font-size:11.5px;color:var(--text-muted);margin-top:6px}
+  .audit{margin-top:14px}
+  .audit h3{font-size:12.5px;margin:0 0 6px;color:var(--text-secondary)}
+  .audit ul{margin:0;padding-left:16px;font-size:12px;color:var(--text-muted)}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap h-inner">
+    <div class="brand"><span class="mark">M</span> 메디랭크 로컬 — 관리자단</div>
+    <div class="role">로그인: <b>data_operator@medirank</b> · 역할 data_operator · 프로토타입(목업)</div>
+  </div>
+</header>
+<div class="warn-banner"><div class="wrap">
+  <b>내부 전용.</b> 이 화면의 원천자료(스냅샷·HTML·payload·수집 로그)는 고객 화면·영업자료·PDF에 절대 포함하지 않습니다.
+  모든 열람·다운로드는 감사 로그에 기록됩니다.
+</div></div>
+
+<main class="wrap">
+  <h1>증빙 자료 검수</h1>
+  <p class="sub">internal_evidence_items — 법무 승인 전에는 customer_safe_summary로 승격할 수 없습니다 (DB 트리거로 강제).</p>
+
+  <div class="filters">
+    <select id="fType">
+      <option value="">유형 전체</option>
+      <option>serp_screenshot</option><option>serp_html</option><option>raw_api_payload</option>
+      <option>ad_section_observation</option><option>collection_error_log</option><option>manual_review_note</option>
+    </select>
+    <select id="fRisk">
+      <option value="">위험도 전체</option>
+      <option value="low">low</option><option value="medium">medium</option>
+      <option value="high">high</option><option value="critical">critical</option>
+    </select>
+    <select id="fLegal">
+      <option value="">법무 상태 전체</option>
+      <option value="pending">pending</option><option value="in_review">in_review</option>
+      <option value="approved">approved</option><option value="rejected">rejected</option>
+    </select>
+    <span class="count" id="count"></span>
+  </div>
+
+  <div class="layout">
+    <div class="card" style="overflow-x:auto">
+      <table>
+        <thead><tr>
+          <th>ID</th><th>유형</th><th>병원/키워드</th><th>수집일</th><th>위험도</th><th>법무 상태</th><th>노출 범위</th>
+        </tr></thead>
+        <tbody id="rows"></tbody>
+      </table>
+    </div>
+
+    <div class="card detail" id="detail">
+      <h2>항목을 선택하세요</h2>
+      <p style="color:var(--text-muted);font-size:12.5px">왼쪽 목록에서 증빙 항목을 선택하면 상세와 검수 액션이 표시됩니다.</p>
+    </div>
+  </div>
+</main>
+
+<script>
+"use strict";
+const ITEMS = [
+  {id:'EV-1041', type:'serp_screenshot', hospital:'밝은빛피부과의원', keyword:'강남 피부과', collected:'2026-07-01 09:12',
+   risk:'high', legal:'pending', scope:'internal_admin_only', mode:'manual', device:'mobile', loc:'강남역 반경 기준점', login:'비로그인',
+   summary:{grade:'mid', reference_rank:11}, audit:['2026-07-01 09:14 upload by op-kim','2026-07-01 10:02 view by op-kim']},
+  {id:'EV-1042', type:'serp_screenshot', hospital:'밝은빛피부과의원', keyword:'강남 리프팅', collected:'2026-07-01 09:18',
+   risk:'high', legal:'in_review', scope:'internal_legal_only', mode:'manual', device:'mobile', loc:'강남역 반경 기준점', login:'비로그인',
+   summary:{grade:'mid', reference_rank:7}, audit:['2026-07-01 09:20 upload by op-kim','2026-07-01 14:41 view by legal-park']},
+  {id:'EV-1043', type:'raw_api_payload', hospital:'밝은빛피부과의원', keyword:'테헤란로 피부과', collected:'2026-07-01 08:00',
+   risk:'medium', legal:'approved', scope:'customer_safe_summary', mode:'approved_automated', device:'-', loc:'-', login:'비로그인',
+   summary:{grade:'top', api_rank:2}, audit:['2026-07-01 08:01 ingest by system','2026-07-02 11:05 approve by legal-park']},
+  {id:'EV-1044', type:'ad_section_observation', hospital:'밝은빛피부과의원', keyword:'강남 보톡스', collected:'2026-07-01 09:25',
+   risk:'critical', legal:'pending', scope:'internal_admin_only', mode:'manual', device:'mobile', loc:'강남역 반경 기준점', login:'비로그인',
+   summary:{note:'경쟁 광고 문구 원문 포함 — 고객 노출 금지'}, audit:['2026-07-01 09:27 upload by op-kim']},
+  {id:'EV-1045', type:'collection_error_log', hospital:'밝은빛피부과의원', keyword:'강남 탈모치료', collected:'2026-07-01 09:31',
+   risk:'medium', legal:'not_required', scope:'internal_admin_only', mode:'manual', device:'mobile', loc:'강남역 반경 기준점', login:'비로그인',
+   summary:{note:'네트워크 타임아웃 1회, 재시도 성공'}, audit:['2026-07-01 09:31 ingest by system']},
+  {id:'EV-1046', type:'serp_html', hospital:'밝은빛피부과의원', keyword:'강남 피부과', collected:'2026-06-01 09:10',
+   risk:'high', legal:'rejected', scope:'blocked', mode:'manual', device:'mobile', loc:'강남역 반경 기준점', login:'비로그인',
+   summary:{note:'수집 조건 기록 누락 — 사용 금지 처리'}, audit:['2026-06-01 09:11 upload by op-kim','2026-06-03 16:20 reject by legal-park']},
+  {id:'EV-1047', type:'manual_review_note', hospital:'밝은빛피부과의원', keyword:'-', collected:'2026-07-02 10:00',
+   risk:'low', legal:'not_required', scope:'internal_admin_only', mode:'manual', device:'-', loc:'-', login:'-',
+   summary:{note:'병원 매칭 신뢰도 0.92 — B의원 동명이인 이슈 확인 완료'}, audit:['2026-07-02 10:00 note by op-kim']}
+];
+const $=s=>document.querySelector(s);
+let selected=null;
+
+function pill(cls, txt){return `<span class="pill ${cls}"><span class="dot"></span>${txt}</span>`}
+
+function render(){
+  const ft=$('#fType').value, fr=$('#fRisk').value, fl=$('#fLegal').value;
+  const list=ITEMS.filter(i=>(!ft||i.type===ft)&&(!fr||i.risk===fr)&&(!fl||i.legal===fl));
+  $('#count').textContent=`${list.length}건 / 전체 ${ITEMS.length}건`;
+  $('#rows').innerHTML=list.map(i=>
+    `<tr data-id="${i.id}" class="${selected===i.id?'sel':''}">
+      <td>${i.id}</td><td>${i.type}</td>
+      <td>${i.hospital}<br><span style="color:var(--text-muted);font-size:11.5px">${i.keyword}</span></td>
+      <td style="white-space:nowrap">${i.collected}</td>
+      <td>${pill('risk-'+i.risk, i.risk)}</td>
+      <td>${pill('lg-'+i.legal, i.legal)}</td>
+      <td style="font-size:11.5px">${i.scope}</td>
+    </tr>`).join('');
+  document.querySelectorAll('#rows tr').forEach(tr=>tr.addEventListener('click',()=>{selected=tr.dataset.id;render();renderDetail()}));
+}
+
+function renderDetail(){
+  const i=ITEMS.find(x=>x.id===selected);
+  if(!i)return;
+  const canPromote=i.legal==='approved';
+  $('#detail').innerHTML=`
+    <h2>${i.id} · ${i.type}</h2>
+    <div class="box">🔒 원본 미리보기 (storage_ref) — 프로토타입에서는 표시하지 않음<br>열람 시 감사 로그 기록</div>
+    <div class="kv">
+      <span class="k">병원</span><span>${i.hospital}</span>
+      <span class="k">키워드</span><span>${i.keyword}</span>
+      <span class="k">수집일</span><span>${i.collected}</span>
+      <span class="k">수집 방식</span><span>${i.mode} · ${i.device} · ${i.login}</span>
+      <span class="k">기준 위치</span><span>${i.loc}</span>
+      <span class="k">위험도</span><span>${pill('risk-'+i.risk,i.risk)}</span>
+      <span class="k">법무 상태</span><span>${pill('lg-'+i.legal,i.legal)}</span>
+      <span class="k">요약(redacted)</span><span style="font-size:12px">${JSON.stringify(i.summary)}</span>
+    </div>
+    <label>노출 범위 (visibility_scope)</label>
+    <select id="scopeSel" ${canPromote?'':'data-locked="1"'}>
+      ${['internal_admin_only','internal_legal_only','customer_safe_summary','blocked'].map(s=>
+        `<option ${s===i.scope?'selected':''} ${s==='customer_safe_summary'&&!canPromote?'disabled':''}>${s}</option>`).join('')}
+    </select>
+    ${canPromote?'':'<div class="hint">customer_safe_summary는 법무 approved 이후에만 선택할 수 있습니다.</div>'}
+    <label>&nbsp;</label>
+    <button class="btn primary" onclick="alert('프로토타입: 저장 시 audit_logs에 기록됩니다.')">검수 결과 저장</button>
+    <div class="audit"><h3>감사 로그</h3><ul>${i.audit.map(a=>`<li>${a}</li>`).join('')}</ul></div>`;
+}
+
+['fType','fRisk','fLegal'].forEach(id=>$('#'+id).addEventListener('change',render));
+render();
+</script>
+</body>
+</html>

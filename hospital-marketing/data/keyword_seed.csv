@@ -1,0 +1,63 @@
+department,keyword_template,keyword_type,priority,risk_level,note
+피부과,{지역} 피부과,region_department,10,low,대표 지역 키워드
+피부과,{역명} 피부과,local_modifier,20,low,역 단위 지역 키워드
+피부과,{지역} 리프팅,procedure,30,low,
+피부과,{지역} 보톡스,procedure,30,low,
+피부과,{지역} 필러,procedure,35,low,
+피부과,{지역} 레이저토닝,procedure,40,low,
+피부과,{지역} 기미레이저,procedure,40,low,
+피부과,{지역} 여드름치료,symptom,30,low,
+피부과,{지역} 여드름흉터,symptom,45,low,
+피부과,{지역} 모공치료,symptom,50,low,
+피부과,{지역} 피부관리,procedure,45,low,
+피부과,{지역} 두드러기,symptom,60,low,
+성형외과,{지역} 성형외과,region_department,10,low,대표 지역 키워드
+성형외과,{역명} 성형외과,local_modifier,20,low,
+성형외과,{지역} 쌍꺼풀,procedure,30,medium,시술 표현 주의
+성형외과,{지역} 눈성형,procedure,30,medium,
+성형외과,{지역} 코성형,procedure,30,medium,
+성형외과,{지역} 안면윤곽,procedure,40,medium,
+성형외과,{지역} 가슴성형,procedure,45,high,광고 심의 대상 표현 주의
+성형외과,{지역} 지방흡입,procedure,40,medium,
+성형외과,{지역} 리프팅,procedure,35,low,
+치과,{지역} 치과,region_department,10,low,대표 지역 키워드
+치과,{역명} 치과,local_modifier,20,low,
+치과,{지역} 임플란트,procedure,25,medium,가격 표시 광고 규제 주의
+치과,{지역} 교정치과,procedure,25,low,
+치과,{지역} 투명교정,procedure,35,low,
+치과,{지역} 충치치료,symptom,40,low,
+치과,{지역} 사랑니발치,procedure,40,low,
+치과,{지역} 치아미백,procedure,45,low,
+치과,{지역} 잇몸치료,symptom,45,low,
+치과,{지역} 스케일링,procedure,50,low,
+한의원,{지역} 한의원,region_department,10,low,대표 지역 키워드
+한의원,{역명} 한의원,local_modifier,20,low,
+한의원,{지역} 교통사고한의원,symptom,25,low,
+한의원,{지역} 추나요법,procedure,30,low,
+한의원,{지역} 다이어트한약,procedure,35,medium,효능 표현 주의
+한의원,{지역} 침치료,procedure,40,low,
+한의원,{지역} 허리디스크,symptom,35,low,
+한의원,{지역} 목디스크,symptom,40,low,
+한의원,{지역} 체질개선,procedure,55,medium,효능 표현 주의
+안과,{지역} 안과,region_department,10,low,대표 지역 키워드
+안과,{역명} 안과,local_modifier,20,low,
+안과,{지역} 라식,procedure,25,medium,수술 관련 광고 심의 주의
+안과,{지역} 라섹,procedure,25,medium,
+안과,{지역} 스마일라식,procedure,30,medium,
+안과,{지역} 백내장수술,procedure,30,medium,
+안과,{지역} 노안교정,procedure,40,medium,
+안과,{지역} 드림렌즈,procedure,45,low,
+안과,{지역} 안구건조증,symptom,40,low,
+비만클리닉,{지역} 다이어트,symptom,20,medium,효과 보장 표현 금지
+비만클리닉,{지역} 비만클리닉,region_department,15,low,대표 지역 키워드
+비만클리닉,{지역} 지방분해주사,procedure,35,medium,
+비만클리닉,{지역} 다이어트약처방,procedure,40,high,의약품 광고 규제 주의
+비만클리닉,{지역} 바디프로필,comparison,60,medium,
+탈모클리닉,{지역} 탈모치료,symptom,15,low,대표 키워드
+탈모클리닉,{지역} 탈모병원,region_department,20,low,
+탈모클리닉,{지역} 모발이식,procedure,30,medium,수술 광고 심의 주의
+탈모클리닉,{지역} 두피관리,procedure,45,low,
+탈모클리닉,{지역} 여성탈모,symptom,40,low,
+공통,{병원명},brand,5,low,브랜드 키워드 — 병원 등록 시 자동 생성
+공통,{지역} {진료과} 추천,comparison,70,high,비교·추천 표현 — 광고 활용 금지·모니터링만
+공통,{지역} {진료과} 잘하는곳,comparison,75,high,비교 표현 — 모니터링 전용
