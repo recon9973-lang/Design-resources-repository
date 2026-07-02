@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>법무 검토용 서비스 설명자료 · 병원 검색 노출 경쟁력 진단 SaaS</title>
+<style>
+  :root{--ink:#0b0b0b;--ink2:#52514e;--muted:#898781;--grid:#e1e0d9;
+    --accent:#2a78d6;--accent-l:#eef4fc;--good:#0ca30c;--crit:#d03b3b;--warn:#b7791f}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,"Segoe UI","Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+    color:var(--ink);line-height:1.55;background:#eee;font-size:12.5px}
+  .page{width:210mm;min-height:297mm;margin:10px auto;background:#fff;padding:15mm 15mm;position:relative}
+  @media print{body{background:#fff}.page{margin:0;width:auto;min-height:auto;page-break-after:always}
+    .no-print{display:none}@page{size:A4;margin:0}}
+  .toolbar{max-width:210mm;margin:14px auto 0;display:flex;justify-content:flex-end}
+  .toolbar button{font:inherit;font-size:13px;font-weight:600;padding:8px 16px;border-radius:8px;border:0;
+    background:var(--accent);color:#fff;cursor:pointer}
+  .doc-head{border-bottom:2px solid var(--ink);padding-bottom:10px;margin-bottom:16px}
+  .doc-head .t1{font-size:11px;letter-spacing:.14em;color:var(--ink2);font-weight:700}
+  .doc-head h1{margin:3px 0 2px;font-size:21px;letter-spacing:-.5px}
+  .doc-head .meta{font-size:11.5px;color:var(--ink2)}
+  h2{font-size:14px;margin:18px 0 8px;padding-left:9px;border-left:3px solid var(--accent)}
+  h3{font-size:12.5px;margin:12px 0 4px}
+  p{margin:0 0 8px}
+  ul{margin:0 0 8px;padding-left:18px}
+  li{margin-bottom:3px}
+  table{border-collapse:collapse;width:100%;font-size:11px;margin:0 0 10px}
+  th,td{text-align:left;padding:6px 8px;border-bottom:1px solid var(--grid);vertical-align:top}
+  th{font-size:10px;color:var(--ink2);border-bottom:1.5px solid var(--ink);white-space:nowrap}
+  .callout{border:1px solid var(--grid);border-left:3px solid var(--accent);border-radius:6px;
+    background:var(--accent-l);padding:9px 12px;font-size:11.5px;margin:0 0 10px}
+  .warn{border-left-color:var(--crit);background:#fdf0f0}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .box{border:1px solid var(--grid);border-radius:8px;padding:10px 12px}
+  .box h3{margin-top:0}
+  .ok-t{color:var(--good);font-weight:800} .no-t{color:var(--crit);font-weight:800}
+  .flow{display:flex;flex-direction:column;gap:6px;margin:0 0 10px}
+  .flow-row{display:flex;align-items:stretch;gap:6px}
+  .fbox{flex:1;border:1px solid var(--grid);border-radius:7px;padding:7px 9px;font-size:10.5px;background:#fff}
+  .fbox b{display:block;font-size:11px;margin-bottom:2px}
+  .fbox.src{background:var(--accent-l)}
+  .fbox.internal{background:#fdf6ec;border-color:#e8d9b8}
+  .fbox.cust{background:#f0f9f0;border-color:#cfe6cf}
+  .arrow{align-self:center;color:var(--muted);font-size:14px;flex:none}
+  .pageno{position:absolute;bottom:8mm;right:15mm;font-size:9.5px;color:var(--muted)}
+  .foot{margin-top:14px;border-top:1px solid var(--grid);padding-top:8px;font-size:9.5px;color:var(--muted)}
+</style>
+</head>
+<body>
+<div class="toolbar no-print"><button onclick="window.print()">PDF로 저장 (인쇄)</button></div>
+
+<!-- ================= PAGE 1 ================= -->
+<div class="page">
+  <div class="doc-head">
+    <div class="t1">법무 검토용 서비스 설명자료 · 대외비</div>
+    <h1>병원 검색 노출 경쟁력 진단 SaaS (가칭 메디랭크 로컬)</h1>
+    <div class="meta">작성일 2026-07-02 · 작성 [운영자 이름] · 첨부: 법무 검토 의뢰서, 기획서 전문, 샘플 리포트 PDF</div>
+  </div>
+
+  <h2>1. 서비스가 하는 일 (한 문단)</h2>
+  <p>운영 중인 병원의 원장이 병원 이름·주소·진료과를 등록하면, <b>①공공데이터로 반경 500m~2km 안의
+  경쟁 병원 수와 분포를</b> 계산하고, <b>②네이버 공식 오픈 API로 핵심 검색 키워드에서 병원의 노출 여부를</b> 확인하고,
+  <b>③통계청 인구·상권 지표를</b> 결합해 "마케팅 경쟁력 점수(0~100)"와 월간 개선 제안을 담은
+  대시보드·PDF 리포트를 제공하는 월 구독 서비스입니다. 고객은 병원(의료기관)이며, 환자를 상대하지 않습니다.</p>
+
+  <h2>2. 사업 모델</h2>
+  <table>
+    <thead><tr><th>상품</th><th>가격(안)</th><th>내용</th></tr></thead>
+    <tbody>
+      <tr><td>Starter</td><td>월 9~19만원</td><td>병원 1개 · 키워드 10개 · 반경 분석 · 월간 PDF</td></tr>
+      <tr><td>Pro</td><td>월 29~49만원</td><td>키워드 30개 · 경쟁 벤치마크 · (법무 승인 후) 월간 참고 스냅샷</td></tr>
+      <tr><td>Premium / B2B</td><td>월 79만원~</td><td>다지점 · 대행사 공유 · 화이트라벨</td></tr>
+    </tbody>
+  </table>
+
+  <h2>3. 데이터 흐름 한눈에 보기</h2>
+  <div class="flow">
+    <div class="flow-row">
+      <div class="fbox src"><b>건강보험심사평가원 병원정보서비스</b>공공데이터포털 공식 API · 병원명/주소/좌표/진료과</div>
+      <div class="fbox src"><b>네이버 지역 검색 API</b>비로그인 공식 오픈 API · 키워드당 상위 5건(업체명/주소/카테고리)</div>
+      <div class="fbox src"><b>통계청 SGIS</b>공식 API · 행정구역 인구/밀도/연령/종사자</div>
+    </div>
+    <div class="flow-row"><div class="arrow" style="margin:0 auto">▼ 수집·저장 (서버 DB)</div></div>
+    <div class="flow-row">
+      <div class="fbox internal"><b>내부 분석 계층</b>반경 경쟁 계산 · 노출 판정 · 점수 산출 · 원본 API 응답은 내부 증빙 테이블에 접근통제 보관(고객 비노출)</div>
+    </div>
+    <div class="flow-row"><div class="arrow" style="margin:0 auto">▼ 가공·등급화</div></div>
+    <div class="flow-row">
+      <div class="fbox cust"><b>고객 화면/PDF에 나가는 것</b>점수(0~100) · 반경 내 경쟁 병원 수/거리 · 키워드별 "상위권/중위권/미노출" 등급 · 인구 참고지표 · 운영 개선 제안 · 출처/기준일/측정조건/고지 문구</div>
+    </div>
+  </div>
+  <div class="callout">핵심 설계 원칙(B-safe): <b>공식 API와 공공데이터만 사용</b>하고, 화면 크롤링·실시간 순위 추적·대량 수집을
+  하지 않습니다. 위험도가 있는 원천자료(원본 API 응답 등)는 고객에게 보여주지 않고 내부 증빙으로만 접근통제 하에 보관합니다.</div>
+
+  <h2>4. 현재 하고 있는 것 vs 계획 중인 것 (검토 대상)</h2>
+  <div class="two">
+    <div class="box">
+      <h3><span class="ok-t">지금 (MVP)</span> — 이미 구현·운영 예정</h3>
+      <ul>
+        <li>공식 API 3종 호출 (각 기관 발급 키, 한도 내 저빈도)</li>
+        <li>월 1회 배치 수집 → 월간 리포트</li>
+        <li>리뷰 수·평점 등 공개 집계값 표시 계획 (리뷰 본문 미수집)</li>
+      </ul>
+    </div>
+    <div class="box">
+      <h3><span class="no-t">계획 (법무 의견 필요)</span> — 승인 전 미운영</h3>
+      <ul>
+        <li>네이버 <b>실제 검색화면</b>의 월 1회 "참고 스냅샷" (5쪽 상세)</li>
+        <li>네이버 플레이스 공개 집계값(리뷰 수·사진 수) 수집 방식</li>
+        <li>약관·개인정보처리방침 제정</li>
+      </ul>
+    </div>
+  </div>
+  <div class="pageno">1 / 3</div>
+</div>
+
+<!-- ================= PAGE 2 ================= -->
+<div class="page">
+  <h2 style="margin-top:0">5. 데이터 소스별 상세 명세</h2>
+  <table>
+    <thead><tr><th>소스</th><th>수집 방식</th><th>수집 항목</th><th>빈도/규모</th><th>저장</th><th>고객 노출 형태</th></tr></thead>
+    <tbody>
+      <tr><td><b>HIRA 병원정보서비스</b><br>(공공데이터포털)</td><td>공식 REST API<br>발급 serviceKey</td>
+        <td>병원명, 주소, 좌표, 진료과목, 종별, 개설일</td><td>월 1회 배치<br>병원당 반경 조회 1~4건</td>
+        <td>병원 마스터 DB</td><td>경쟁 병원명/거리 표, 지도 점 (공공데이터 원문 그대로)</td></tr>
+      <tr><td><b>네이버 지역 검색 API</b><br>(developers.naver.com)</td><td>공식 오픈 API<br>비로그인, Client ID/Secret</td>
+        <td>키워드당 상위 5건: 업체명, 주소, 카테고리, 링크</td><td>월 1회 배치<br>병원당 키워드 10~30개 = 호출 10~30건 (일 한도 25,000건 대비 극소량)</td>
+        <td>판정 결과 + 원본 응답(내부 증빙, 접근통제)</td><td>노출/미노출, API 내 위치, 등급(상위권/중위권/미노출). "실시간 순위" 표현 사용 안 함</td></tr>
+      <tr><td><b>통계청 SGIS</b></td><td>공식 API<br>인증키+토큰</td>
+        <td>행정구역 총인구, 인구밀도, 평균연령, 종사자·사업체 수</td><td>월 1회</td>
+        <td>지역 지표 DB</td><td>"잠재 수요 참고지표"로 표기 (수요 단정 금지)</td></tr>
+      <tr><td><b>소상공인 상가정보</b></td><td>공공데이터 CSV</td><td>상호, 업종코드, 좌표</td><td>분기 1회</td><td>보조 매칭용</td><td>직접 노출 없음 (좌표 보정용)</td></tr>
+    </tbody>
+  </table>
+
+  <h2>6. 고객에게 보여주는 것 / 절대 보여주지 않는 것</h2>
+  <div class="two">
+    <div class="box">
+      <h3><span class="ok-t">✓ 고객 화면·PDF 노출</span></h3>
+      <ul>
+        <li>가공된 점수·등급·변화 추이</li>
+        <li>반경 내 경쟁 병원 수, 병원명·거리(공공데이터 원문)</li>
+        <li>키워드별 등급화 결과</li>
+        <li>출처·기준일·측정 조건·면책 고지</li>
+        <li>운영·정보 정비 중심 개선 제안</li>
+      </ul>
+    </div>
+    <div class="box">
+      <h3><span class="no-t">✕ 내부 전용 (관리자단·접근통제·감사로그)</span></h3>
+      <ul>
+        <li>API 원본 응답(payload)</li>
+        <li>(향후) 검색화면 스냅샷 원본 이미지·HTML</li>
+        <li>수집 실패/차단 로그, 수집 조건 메타데이터</li>
+        <li>경쟁 병원 광고 문구 원문, 리뷰 본문(수집 자체를 안 함)</li>
+        <li>법무 검토 상태·내부 메모</li>
+      </ul>
+    </div>
+  </div>
+  <div class="callout">이 분리는 데이터베이스 스키마 수준에서 강제됩니다: 내부 증빙 테이블(internal_evidence_items)은
+  <b>법무 승인(approved) 전에는 고객 노출 등급으로 변경이 불가능</b>하도록 DB 트리거로 차단하고,
+  원천자료 열람·다운로드·삭제는 감사 로그(audit_logs)에 기록됩니다. 권한은 고객/대행사/데이터운영/법무/관리자 5단계로 분리됩니다.</div>
+
+  <h2>7. 하지 않는 것 (제품 정책으로 배제)</h2>
+  <ul>
+    <li>실시간 순위 추적, 대량·매일 크롤링, 검색화면 자동 대량 수집</li>
+    <li>캡차·차단 우회, 로그인 세션을 이용한 수집, 개인화된 검색 결과 이용</li>
+    <li>리뷰 본문·환자 치료경험담 수집 및 분석</li>
+    <li>"상위노출 보장", "순위 상승 약속", 치료 효과 보장 표현</li>
+    <li>특정 경쟁 병원 비방 또는 단정적 비교우위 표현</li>
+    <li>환자 개인정보 수집 (고객사 담당자 계정 정보만 취급)</li>
+  </ul>
+  <div class="pageno">2 / 3</div>
+</div>
+
+<!-- ================= PAGE 3 ================= -->
+<div class="page">
+  <h2 style="margin-top:0">8. (검토 대상) 월간 참고 스냅샷 운영안</h2>
+  <p>공식 API 결과와 실제 검색화면은 다를 수 있어, 리포트 신뢰도를 위해 <b>월 1회</b>에 한해 실제
+  검색화면을 확인·기록하는 방안을 검토 중입니다. <b>법무 의견 전에는 운영하지 않습니다.</b></p>
+  <table>
+    <thead><tr><th>항목</th><th>운영안</th></tr></thead>
+    <tbody>
+      <tr><td>빈도·규모</td><td>병원당 핵심 키워드 10~30개, 월 1회 (사람이 직접 검색하는 수준의 접근량)</td></tr>
+      <tr><td>방식</td><td>1안: 직원 수작업 검색·기록 / 2안: 저빈도 반자동(스크립트 보조) — 두 안의 법적 차이 질의</td></tr>
+      <tr><td>조건 기록</td><td>기준 위치·시간·기기·비로그인 여부를 함께 저장 (재현 가능성 확보)</td></tr>
+      <tr><td>금지 사항</td><td>캡차/차단 우회 없음 · 로그인/개인화 결과 사용 없음 · 부하 유발 없음</td></tr>
+      <tr><td>보관</td><td>원본 화면은 내부 증빙 전용(6쪽 접근통제 체계) · 고객에게는 "참고 스냅샷" 표기의 등급 결과만</td></tr>
+      <tr><td>표시</td><td>"실시간 순위" 아님을 명시, 공식 API 지표와 분리 표기</td></tr>
+    </tbody>
+  </table>
+
+  <h2>9. 의료광고 관련 문구 정책 (리포트 내 제안 문구)</h2>
+  <div class="two">
+    <div class="box"><h3><span class="ok-t">허용하는 제안 예시</span></h3>
+      <ul>
+        <li>"플레이스 진료 카테고리를 실제 진료 항목과 일치시키세요"</li>
+        <li>"진료시간·주차·예약 링크를 최신화하세요"</li>
+        <li>"해당 진료를 실제 제공하는 경우에만 소개·FAQ에 반영하세요"</li>
+        <li>"합법적인 만족도 조사·재방문 안내 절차를 정비하세요"</li>
+      </ul></div>
+    <div class="box"><h3><span class="no-t">배제하는 제안 예시</span></h3>
+      <ul>
+        <li>치료 효과·기간 보장 표현</li>
+        <li>환자 후기·전후사진을 광고 소재로 활용하는 제안</li>
+        <li>"OO병원보다 낫다" 류의 비교·비방</li>
+        <li>대가성 리뷰 유도</li>
+      </ul></div>
+  </div>
+  <p>모든 리포트에 고지: <i>"본 리포트는 마케팅 운영 참고용이며 특정 검색 순위 달성이나 매출 증가를 보장하지 않습니다.
+  개선 제안은 의료법상 의료광고 규정을 준수하는 운영·정보 정비 활동으로 한정됩니다."</i></p>
+
+  <h2>10. 개인정보 처리 현황</h2>
+  <table>
+    <thead><tr><th>구분</th><th>내용</th></tr></thead>
+    <tbody>
+      <tr><td>수집하는 개인정보</td><td>고객사(병원) 담당자 계정: 이메일, 이름, 연락처 · 결제 정보(PG 위탁 예정)</td></tr>
+      <tr><td>수집하지 않는 것</td><td>환자 정보 일체 · 리뷰 작성자 정보 · 리뷰 본문</td></tr>
+      <tr><td>병원 정보의 성격</td><td>공공데이터·공개 API상의 사업장 정보(법인/기관 정보)로, 개인정보 아님이 원칙이나 1인 의원의 경우 병원명에 원장 성명이 포함될 수 있음 — 이 경우의 처리 기준 질의</td></tr>
+      <tr><td>보안</td><td>API 키·인증정보 암호화 저장, 원천자료 접근 감사 로그</td></tr>
+    </tbody>
+  </table>
+
+  <h2>11. 질의 요약 (상세는 첨부 '법무 검토 의뢰서')</h2>
+  <ul>
+    <li>① 월간 참고 스냅샷(수작업/반자동)의 적법 범위와 운영 조건</li>
+    <li>② 네이버 공식 API 결과의 저장·가공·표시 범위와 출처 표기 요건</li>
+    <li>③ 경쟁 병원명이 나오는 원장용 분석 리포트의 의료광고법상 지위</li>
+    <li>④ 공공데이터의 유료 서비스 활용 시 추가 의무</li>
+    <li>⑤ 약관·개인정보처리방침 초안 (1인 의원 상호의 개인정보성 포함)</li>
+  </ul>
+
+  <div class="foot">첨부 1. 법무 검토 의뢰서 (질의 상세) · 첨부 2. 기획서 전문 (데이터 모델·권한 설계 포함) ·
+  첨부 3. 실데이터 샘플 리포트 PDF · 첨부 4. 화면 캡처 (대시보드/관리자단)<br>
+  본 자료는 법무 검토 목적으로 작성된 내부 문서입니다. 외부 배포를 금합니다.</div>
+  <div class="pageno">3 / 3</div>
+</div>
+</body>
+</html>
