@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; form-action 'self'; base-uri 'self'; frame-ancestors 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <title>무료 병원 검색정보 운영 진단 신청 · (주)베놈 venomad</title>
 <meta name="description" content="(주)베놈이 병원의 공개정보와 검색정보 운영 상태를 무료로 진단해 드립니다. 반경 내 경쟁 현황, 키워드 노출 등급, 정보 정비 제안을 담은 내부 참고용 리포트.">
 <style>
@@ -169,6 +171,10 @@
 
   <div class="form-card">
     <form id="applyForm" novalidate>
+      <!-- 허니팟: 사람에게는 보이지 않는 필드. 봇이 채우면 제출을 무시한다 -->
+      <div style="position:absolute;left:-9999px;top:-9999px" aria-hidden="true">
+        <label>회사 웹사이트 <input type="text" name="company_website" tabindex="-1" autocomplete="off"></label>
+      </div>
       <p class="form-note">컨설팅 안내 및 광고성 정보 수신은 <b>선택 사항</b>이며,
       선택 동의를 하지 않아도 무료 진단 리포트 신청에는 불이익이 없습니다.</p>
 
@@ -311,14 +317,41 @@ const subs = [...document.querySelectorAll('.adch')];
 master.addEventListener('change', () => subs.forEach(s => s.checked = master.checked));
 subs.forEach(s => s.addEventListener('change', () => master.checked = subs.some(x => x.checked)));
 
+/* 어뷰징 클라이언트 가드 — UX용 1차 방어. 실효 차단은 접수 서버에서 수행
+   (docs/어뷰징-방지-정책.md: IP당 일 3회, 이메일당 월 2회, 병원당 월 1회) */
+const FORM_OPENED_AT = Date.now();
+const DAILY_LIMIT = 2;
+function todaySubmits() {
+  try {
+    const d = JSON.parse(localStorage.getItem('venom_dx') || '{}');
+    return d.date === new Date().toDateString() ? (d.n || 0) : 0;
+  } catch { return 0; }
+}
+function recordSubmit() {
+  try {
+    localStorage.setItem('venom_dx',
+      JSON.stringify({ date: new Date().toDateString(), n: todaySubmits() + 1 }));
+  } catch {}
+}
+
 document.getElementById('applyForm').addEventListener('submit', e => {
   e.preventDefault();
   const f = e.target;
+  if (f.company_website && f.company_website.value) return; // 허니팟 — 봇 무시
+  if (Date.now() - FORM_OPENED_AT < 3000) {                 // 3초 미만 제출 = 자동화 의심
+    alert('입력 내용을 확인한 뒤 다시 제출해 주세요.');
+    return;
+  }
   if (!f.reportValidity()) return;
   if (!document.getElementById('c1').checked || !document.getElementById('c2').checked) {
     alert('필수 동의 사항(개인정보 수집·이용, 제공조건)에 체크해 주세요.');
     return;
   }
+  if (todaySubmits() >= DAILY_LIMIT) {
+    alert('오늘 신청 가능 횟수를 초과했습니다. 내일 다시 시도하시거나 문의처로 연락해 주세요.');
+    return;
+  }
+  recordSubmit();
   // 프로토타입: 접수 서버 연동 전. 실제 구현 시 동의 일시/IP/문구 버전 함께 저장.
   f.style.display = 'none';
   document.getElementById('formDone').style.display = 'block';

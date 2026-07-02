@@ -3,7 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>메디랭크 로컬 · 병원 마케팅 경쟁력 진단 (MVP 프로토타입)</title>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; base-uri 'self'; frame-ancestors 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="robots" content="noindex">
+<title>(주)베놈 검색정보 진단 대시보드 (MVP 프로토타입)</title>
 <meta name="description" content="우리 병원, 주변 1km 안에서 얼마나 잘 보이고 있나요? 공공데이터와 공식 API 기반 병원 검색 노출 경쟁력 진단 대시보드 프로토타입.">
 <style>
   .viz-root, :root{
@@ -370,6 +373,8 @@ let MAP_POINTS=[];
 /* ---------- 상태 ---------- */
 let radius = 1000;
 const $=s=>document.querySelector(s), $$=s=>document.querySelectorAll(s);
+// 병원명 등 API 유래 문자열은 innerHTML 삽입 전 반드시 이스케이프 (XSS 방지)
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const tip=$('#tip');
 function showTip(html,x,y){tip.innerHTML=html;tip.style.display='block';
   const r=tip.getBoundingClientRect();
@@ -487,14 +492,14 @@ function renderMap(){
     </svg>`;
   $$('#mapChart .mp').forEach(c=>{
     const p=MAP_POINTS[+c.dataset.i];
-    const html=`<div class="t-title">${p.name}</div>
+    const html=`<div class="t-title">${esc(p.name)}</div>
       <div class="t-row">${p.same?'같은 진료과 표방':'유사 키워드 진료과'} · ${p.dist}m</div>
-      ${p.grade?`<div class="t-row">API 노출 등급: ${p.grade}</div>`:''}`;
+      ${p.grade?`<div class="t-row">API 노출 등급: ${esc(p.grade)}</div>`:''}`;
     c.addEventListener('mousemove',e=>showTip(html,e.clientX,e.clientY));
     c.addEventListener('mouseleave',hideTip);
   });
   const rows=MAP_POINTS.filter(p=>p.dist<=radius).slice(0,12).map(p=>
-    `<tr><td>${p.name}</td><td>${p.same?'같은 진료과':'유사 진료과'}</td><td class="num">${p.dist}m</td><td>${p.grade||'미측정'}</td></tr>`).join('');
+    `<tr><td>${esc(p.name)}</td><td>${p.same?'같은 진료과':'유사 진료과'}</td><td class="num">${p.dist}m</td><td>${esc(p.grade||'미측정')}</td></tr>`).join('');
   $('#mapTable tbody').innerHTML=rows+
     `<tr><td colspan="4" style="color:var(--text-muted);font-size:12px">가까운 12곳 표시 · 전체 ${MAP_POINTS.filter(p=>p.dist<=radius).length}곳 (반경 ${fmtR(radius)})</td></tr>`;
 }
@@ -510,10 +515,10 @@ function renderKeywords(){
     :g==='mid'?'<span class="chip mid"><span class="dot"></span>중위권</span>'
     :'<span class="chip none"><span class="dot"></span>미노출</span>';
   $('#kwTable tbody').innerHTML=KEYWORDS.map(k=>
-    `<tr><td><b>${k.kw}</b></td><td>${k.type}</td>
+    `<tr><td><b>${esc(k.kw)}</b></td><td>${esc(k.type)}</td>
      <td>${k.api?'노출':'미노출'}</td>
      <td class="num">${k.pos??'—'}</td>
-     <td>${chip(k.grade)}</td><td>${k.comp}</td><td>${k.act||actByGrade(k.grade)}</td></tr>`).join('');
+     <td>${chip(k.grade)}</td><td>${esc(k.comp)}</td><td>${esc(k.act||actByGrade(k.grade))}</td></tr>`).join('');
 }
 
 /* ---------- 벤치마크 ---------- */
@@ -522,7 +527,7 @@ function renderBench(){
     $('#benchChart').innerHTML='<p style="font-size:13px;color:var(--text-muted);padding:30px 10px;text-align:center">'
       +'리뷰 수·평점 등 플레이스 공개 집계값 비교는 다음 단계(플레이스 실측 수집 모듈)에서 제공됩니다.</p>';
     $('#benchTable tbody').innerHTML=MAP_POINTS.filter(p=>p.dist<=radius).slice(0,5).map(p=>
-      `<tr><td>${p.name}</td><td class="num">${p.dist}m</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td class="num">—</td></tr>`).join('')
+      `<tr><td>${esc(p.name)}</td><td class="num">${p.dist}m</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td class="num">—</td></tr>`).join('')
       +'<tr><td colspan="6" style="color:var(--text-muted);font-size:12px">가까운 5곳 · 집계값 수집 예정</td></tr>';
     return;
   }
@@ -569,7 +574,7 @@ function renderActions(){
     acts=[];
     if(weak.length)acts.push({
       t:`미노출 키워드 ${weak.length}개 커버리지 정비`,
-      p:`"${weak.slice(0,3).join('·')}" 등이 공식 API 결과(상위 5위)에 없습니다. 해당 진료를 실제 제공하는 경우에만 플레이스 소개·진료 항목·FAQ에 반영하세요.`,
+      p:`"${esc(weak.slice(0,3).join('·'))}" 등이 공식 API 결과(상위 5위)에 없습니다. 해당 진료를 실제 제공하는 경우에만 플레이스 소개·진료 항목·FAQ에 반영하세요.`,
       b:`근거: 키워드 ${KEYWORDS.length}개 중 ${weak.length}개 미노출 · 노출 점수 ${d.comp.exposure}점`});
     if(d.comp.density<40)acts.push({
       t:'생활권 세분 키워드로 경쟁 우회',
@@ -612,7 +617,7 @@ function applyLiveData(j){
   MAP_POINTS.sort((a,b)=>a.dist-b.dist);
   const h=j.hospital;
   document.querySelector('.hospital-id').innerHTML=
-    `<b id="hName">${h.name}</b> · ${h.department}<br>${h.address?h.address+' · ':''}${j.month} 리포트`;
+    `<b id="hName">${esc(h.name)}</b> · ${esc(h.department)}<br>${h.address?esc(h.address)+' · ':''}${esc(j.month)} 리포트`;
   document.querySelector('.brand small').textContent='실데이터 · '+j.month+' 기준';
 }
 fetch('data/dashboard-live.json')

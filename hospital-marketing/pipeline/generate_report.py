@@ -10,6 +10,7 @@
 """
 
 import argparse
+import html
 import sys
 from datetime import date
 from pathlib import Path
@@ -203,19 +204,20 @@ TEMPLATE = Template("""<!DOCTYPE html>
 
 
 def render(args, data: dict) -> str:
+    esc = html.escape  # 병원명·키워드·API 응답 문자열은 외부 입력 — XSS 방지 필수
     s = data["scores"]
     kw_rows = []
     for k in data["keywords"]:
         cls, label = GRADE_LABEL[k["grade"]]
         kw_rows.append(
-            f"<tr><td><b>{k['keyword']}</b></td>"
+            f"<tr><td><b>{esc(k['keyword'])}</b></td>"
             f"<td>{'노출' if k['exposed'] else '미노출'}</td>"
             f"<td class='num'>{k['rank'] if k['rank'] else '—'}</td>"
             f"<td><span class='chip {cls}'><span class='d'></span>{label}</span></td>"
-            f"<td>{k['top1']}</td></tr>")
+            f"<td>{esc(k['top1'])}</td></tr>")
     comp_rows = [
-        f"<tr><td>{c['name']}</td><td class='num'>{c['distance_m']:.0f}m</td>"
-        f"<td>{(c['address'] or '')[:36]}</td></tr>"
+        f"<tr><td>{esc(c['name'])}</td><td class='num'>{c['distance_m']:.0f}m</td>"
+        f"<td>{esc((c['address'] or '')[:36])}</td></tr>"
         for c in data["competitors"][:8]]
     comp_rows.append(
         f"<tr><td colspan='3' style='color:var(--muted)'>가까운 8곳 표시 · "
@@ -225,7 +227,7 @@ def render(args, data: dict) -> str:
     if st:
         stats_block = (
             f"<table><tbody>"
-            f"<tr><td>행정구역</td><td class='num'>{st['adm_nm']} ({st['year']}년)</td></tr>"
+            f"<tr><td>행정구역</td><td class='num'>{esc(st['adm_nm'] or '')} ({st['year']}년)</td></tr>"
             f"<tr><td>총인구 / 인구밀도</td><td class='num'>{st['tot_ppltn']:,.0f}명 · {st['ppltn_dnsty']:,.0f}명/km²</td></tr>"
             f"<tr><td>반경 {args.radius}m 환산 인구(밀도 기반 근사)</td><td class='num'>약 {data['population']:,}명</td></tr>"
             f"<tr><td>평균연령</td><td class='num'>{st['avg_age']}세</td></tr>"
@@ -249,7 +251,7 @@ def render(args, data: dict) -> str:
     month = args.month or date.today().strftime("%Y-%m")
     y, m = month.split("-")
     return TEMPLATE.substitute(
-        hospital=args.name, month_label=f"{y}년 {int(m)}월",
+        hospital=esc(args.name), month_label=f"{y}년 {int(m)}월",
         radius_label=f"{args.radius / 1000:g}km",
         issued=date.today().isoformat(),
         report_id=f"RPT-{month}-LIVE",

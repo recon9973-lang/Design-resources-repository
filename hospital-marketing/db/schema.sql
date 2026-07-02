@@ -296,6 +296,92 @@ CREATE TRIGGER trg_evidence_visibility
   FOR EACH ROW EXECUTE FUNCTION enforce_evidence_visibility();
 
 -- ---------------------------------------------------------------
+-- 무료 진단 신청 접수 + 어뷰징 방지 (docs/어뷰징-방지-정책.md)
+-- ---------------------------------------------------------------
+
+CREATE TYPE request_status AS ENUM (
+  'received',      -- 접수
+  'generating',    -- 리포트 생성 중
+  'sent',          -- 발송 완료
+  'consulting',    -- 상담 진행
+  'converted',     -- 광고대행 계약 전환
+  'rejected',      -- 어뷰징/중복 등으로 반려
+  'blocked'        -- 차단 (재신청 불가)
+);
+
+-- 신청 1건 = 1행. 동의 증적(일시/IP/문구 버전)을 함께 보관 (개인정보보호법 대응)
+CREATE TABLE diagnosis_requests (
+  id                  BIGSERIAL PRIMARY KEY,
+  hospital_name       TEXT NOT NULL,
+  hospital_address    TEXT NOT NULL,
+  department          TEXT NOT NULL,
+  applicant_name      TEXT NOT NULL,
+  applicant_role      TEXT,
+  phone               TEXT NOT NULL,
+  email               CITEXT NOT NULL,
+  delivery_method     TEXT NOT NULL,             -- email / sms / both
+  keywords            TEXT,
+  consult_wanted      BOOLEAN NOT NULL DEFAULT FALSE,
+  -- 동의 증적
+  consent_required    BOOLEAN NOT NULL,          -- 필수 2건 (수집·이용 + 제공조건)
+  consent_marketing   BOOLEAN NOT NULL DEFAULT FALSE,
+  consent_ad_sms      BOOLEAN NOT NULL DEFAULT FALSE,
+  consent_ad_email    BOOLEAN NOT NULL DEFAULT FALSE,
+  consent_ad_call     BOOLEAN NOT NULL DEFAULT FALSE,
+  consent_text_version TEXT NOT NULL,            -- 동의 문구 버전 (예: 2026-07-v1)
+  -- 어뷰징 방지용 요청 메타 (처리방침 "자동 수집 항목"에 고지됨)
+  client_ip           INET NOT NULL,
+  user_agent          TEXT,
+  status              request_status NOT NULL DEFAULT 'received',
+  reject_reason       TEXT,
+  created_at          TIMESTAMPTZ NOT NULL DEFAULT now(),
+  updated_at          TIMESTAMPTZ NOT NULL DEFAULT now()
+);
+CREATE INDEX idx_requests_ip_time    ON diagnosis_requests (client_ip, created_at);
+CREATE INDEX idx_requests_email_time ON diagnosis_requests (email, created_at);
+CREATE INDEX idx_requests_hospital   ON diagnosis_requests (hospital_name, hospital_address);
+CREATE INDEX idx_requests_status     ON diagnosis_requests (status, created_at);
+
+-- 요청 제한 정책 (애플리케이션 레이어에서 접수 전 검사, 기본값)
+--   IP당:     일 3회 / 월 10회 초과 시 자동 반려(rejected) + 검토 큐
+--   이메일당: 월 2회 초과 시 반려
+--   병원당:   동일 병원명+주소는 월 1회 (갱신 리포트는 익월부터)
+--   전화번호당: 월 3회 초과 시 반려
+-- 임계 2배 초과 또는 반려 3회 누적 시 blocked 전환(관리자 해제 전 재신청 불가)
+
+CREATE OR REPLACE FUNCTION count_recent_requests(
+  p_ip INET, p_hours INTEGER
+) RETURNS BIGINT AS $$
+  SELECT count(*) FROM diagnosis_requests
+  WHERE client_ip = p_ip
+    AND created_at > now() - make_interval(hours => p_hours)
+    AND status <> 'rejected';
+$$ LANGUAGE sql STABLE;
+
+-- 수신거부 / 재연락 금지 목록 (정보통신망법 §50, 어떤 캠페인에서도 제외)
+CREATE TABLE suppression_list (
+  id           BIGSERIAL PRIMARY KEY,
+  channel      TEXT NOT NULL CHECK (channel IN ('sms', 'email', 'call', 'all')),
+  identifier   TEXT NOT NULL,                    -- 전화번호 또는 이메일
+  reason       TEXT NOT NULL,                    -- opt_out / cold_call_refusal / admin
+  source       TEXT,                             -- 철회 접수 경로
+  created_at   TIMESTAMPTZ NOT NULL DEFAULT now(),
+  UNIQUE (channel, identifier)
+);
+
+-- 차단 IP/식별자 (어뷰징 확정 건)
+CREATE TABLE abuse_blocklist (
+  id           BIGSERIAL PRIMARY KEY,
+  kind         TEXT NOT NULL CHECK (kind IN ('ip', 'email', 'phone')),
+  identifier   TEXT NOT NULL,
+  reason       TEXT NOT NULL,
+  blocked_by   BIGINT REFERENCES users(id),
+  expires_at   TIMESTAMPTZ,                      -- NULL = 무기한 (관리자 해제 전)
+  created_at   TIMESTAMPTZ NOT NULL DEFAULT now(),
+  UNIQUE (kind, identifier)
+);
+
+-- ---------------------------------------------------------------
 -- 반경 내 경쟁 병원 조회 헬퍼
 -- ---------------------------------------------------------------
 
