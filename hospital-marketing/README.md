@@ -13,6 +13,9 @@
 | [`index.html`](index.html) | **원장용 대시보드 MVP 프로토타입** — 목업 데이터, 단일 파일, 의존성 없음. 브라우저로 열면 바로 동작 |
 | [`db/schema.sql`](db/schema.sql) | PostgreSQL + PostGIS 스키마 (기획서 8장 구현, 법무 검토 게이트 트리거 포함) |
 | [`api/openapi.yaml`](api/openapi.yaml) | REST API 명세 초안 (기획서 9장, 고객용/관리자용 분리) |
+| [`pipeline/`](pipeline/) | **0단계 데이터 파이프라인** — HIRA·네이버 커넥터, 반경 계산, 점수 엔진. API 키 없이 목업 모드로 동작, 단위 테스트 포함 |
+| [`admin/index.html`](admin/index.html) | 관리자단 증빙 검수 화면 프로토타입 (위험도/법무 상태 필터, 법무 승인 전 고객 노출 승격 차단, 감사 로그) |
+| [`report/monthly-report.html`](report/monthly-report.html) | 월간 PDF 리포트 템플릿 (A4 2쪽, 인쇄→PDF 저장) |
 
 ## 프로토타입 미리보기
 
@@ -39,7 +42,9 @@ GitHub Pages 배포 시: `https://recon9973-lang.github.io/Design-resources-repo
 - [x] 기획서 확정 (B-safe 안)
 - [x] 대시보드 프로토타입 (목업 데이터)
 - [x] DB 스키마 / API 명세 초안
-- [ ] 0단계: HIRA·상가 데이터 수집 파이프라인 + 반경 계산 검증 (샘플 3개 지역, 매칭 정확도 85%)
+- [x] 0단계 파이프라인 스캐폴드: HIRA·네이버 커넥터 + 반경 계산 + 점수 엔진 (목업 모드 검증 완료 — 실데이터 검증은 API 키 필요)
+- [x] 관리자단 증빙 검수 화면 프로토타입 / 월간 PDF 리포트 템플릿
+- [ ] 0단계 마무리: 실제 API 키로 샘플 3개 지역 매칭 정확도 85% 검증
 - [ ] 1단계: 병원 1곳 실데이터 내부 리포트 + PDF 생성
 - [ ] 2단계: 로그인·병원 등록 포함 원장용 대시보드 (베타 20곳)
 - [ ] 3단계: 법무 검토 후 월간 참고 스냅샷 운영

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>월간 검색 노출 경쟁력 리포트 · 2026년 7월 (템플릿)</title>
+<style>
+  :root{
+    --ink:#0b0b0b; --ink2:#52514e; --muted:#898781;
+    --grid:#e1e0d9; --accent:#2a78d6; --accent-l:#b7d3f6;
+    --good:#0ca30c; --warn:#fab219; --crit:#d03b3b; --good-text:#006300;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,"Segoe UI","Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+    color:var(--ink);line-height:1.5;background:#eee}
+  .page{width:210mm;min-height:297mm;margin:10px auto;background:#fff;padding:16mm 15mm;position:relative}
+  @media print{
+    body{background:#fff} .page{margin:0;width:auto;min-height:auto;page-break-after:always}
+    .no-print{display:none}
+    @page{size:A4;margin:0}
+  }
+  .toolbar{max-width:210mm;margin:14px auto 0;display:flex;justify-content:flex-end}
+  .toolbar button{font:inherit;font-size:13px;font-weight:600;padding:8px 16px;border-radius:8px;
+    border:0;background:var(--accent);color:#fff;cursor:pointer}
+
+  .rpt-head{display:flex;justify-content:space-between;align-items:flex-start;border-bottom:2px solid var(--ink);
+    padding-bottom:10px;margin-bottom:18px}
+  .rpt-head .t1{font-size:12px;letter-spacing:.12em;color:var(--ink2);font-weight:700}
+  .rpt-head h1{margin:2px 0 0;font-size:22px;letter-spacing:-.5px}
+  .rpt-head .meta{text-align:right;font-size:12px;color:var(--ink2)}
+
+  .hero{display:flex;gap:24px;align-items:center;border:1px solid var(--grid);border-radius:12px;padding:18px 22px;margin-bottom:16px}
+  .hero .num{font-size:54px;font-weight:700;letter-spacing:-2px;line-height:1}
+  .hero .num small{font-size:18px;color:var(--muted);font-weight:600;letter-spacing:0}
+  .hero .delta{font-size:13px;color:var(--good-text);font-weight:650;margin-top:2px}
+  .hero .desc{font-size:13px;color:var(--ink2);flex:1}
+
+  h2{font-size:14.5px;margin:20px 0 8px;padding-left:9px;border-left:3px solid var(--accent)}
+  .comp{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:4px}
+  .comp .c{border:1px solid var(--grid);border-radius:10px;padding:10px 12px}
+  .comp .c .l{font-size:11px;color:var(--ink2)}
+  .comp .c .v{font-size:21px;font-weight:700}
+  .comp .c .w{font-size:10.5px;color:var(--muted)}
+  .comp .track{height:6px;border-radius:3px;background:var(--accent-l);margin-top:6px;overflow:hidden}
+  .comp .fill{height:100%;background:var(--accent);border-radius:3px}
+
+  table{border-collapse:collapse;width:100%;font-size:12px;margin-bottom:6px}
+  th,td{text-align:left;padding:7px 9px;border-bottom:1px solid var(--grid)}
+  th{font-size:10.5px;color:var(--ink2);border-bottom:1.5px solid var(--ink)}
+  td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+  .chip{display:inline-flex;align-items:center;gap:4px;font-size:10.5px;font-weight:700;border-radius:99px;padding:1px 8px;border:1px solid var(--grid)}
+  .chip .d{width:7px;height:7px;border-radius:50%}
+  .chip.top .d{background:var(--good)} .chip.mid .d{background:var(--warn)} .chip.none .d{background:var(--crit)}
+
+  .act{display:flex;gap:12px;align-items:flex-start;border:1px solid var(--grid);border-radius:10px;padding:11px 14px;margin-bottom:8px}
+  .act .n{flex:none;width:24px;height:24px;border-radius:7px;background:var(--accent);color:#fff;font-weight:800;
+    font-size:13px;display:inline-flex;align-items:center;justify-content:center}
+  .act h3{margin:0 0 2px;font-size:13px}
+  .act p{margin:0;font-size:12px;color:var(--ink2)}
+  .act .b{font-size:10.5px;color:var(--muted);margin-top:3px}
+
+  .basis{margin-top:18px;border-top:1px solid var(--grid);padding-top:10px;font-size:10px;color:var(--muted)}
+  .basis b{color:var(--ink2)}
+  .pageno{position:absolute;bottom:8mm;right:15mm;font-size:10px;color:var(--muted)}
+</style>
+</head>
+<body>
+
+<div class="toolbar no-print"><button onclick="window.print()">PDF로 저장 (인쇄)</button></div>
+
+<div class="page">
+  <div class="rpt-head">
+    <div>
+      <div class="t1">MEDIRANK LOCAL · 월간 검색 노출 경쟁력 리포트</div>
+      <h1>밝은빛피부과의원 — 2026년 7월</h1>
+    </div>
+    <div class="meta">
+      서울 강남구 테헤란로 000 · 피부과<br>
+      분석 반경 1km · 발행 2026-07-02<br>
+      리포트 ID RPT-2026-07-0001
+    </div>
+  </div>
+
+  <div class="hero">
+    <div>
+      <div style="font-size:12px;color:var(--ink2)">마케팅 경쟁력 점수</div>
+      <div class="num">62<small> / 100</small></div>
+      <div class="delta">▲ 2점 · 전월 대비</div>
+    </div>
+    <div class="desc">
+      반경 1km 안 경쟁 병원 <b>32곳</b> 대비 검색 노출·입지 경쟁력은 <b>중상위권</b>입니다.
+      핵심 키워드 10개 중 7개가 공식 API 기준 노출 중이며, 3개 키워드의 커버리지 공백과
+      플레이스 사진·리뷰 격차가 이번 달 개선 포인트입니다.
+    </div>
+  </div>
+
+  <h2>점수 구성</h2>
+  <div class="comp">
+    <div class="c"><div class="l">노출</div><div class="v">58</div><div class="w">가중치 40%</div><div class="track"><div class="fill" style="width:58%"></div></div></div>
+    <div class="c"><div class="l">경쟁 밀도</div><div class="v">52</div><div class="w">가중치 25%</div><div class="track"><div class="fill" style="width:52%"></div></div></div>
+    <div class="c"><div class="l">수요·입지</div><div class="v">78</div><div class="w">가중치 20%</div><div class="track"><div class="fill" style="width:78%"></div></div></div>
+    <div class="c"><div class="l">플레이스 품질</div><div class="v">66</div><div class="w">가중치 15%</div><div class="track"><div class="fill" style="width:66%"></div></div></div>
+  </div>
+
+  <h2>키워드별 노출 진단</h2>
+  <table>
+    <thead><tr><th>키워드</th><th>유형</th><th>API 기준</th><th class="num">API 내 위치</th><th class="num">참고 스냅샷</th><th>등급</th><th>추천 액션</th></tr></thead>
+    <tbody>
+      <tr><td><b>테헤란로 피부과</b></td><td>지역+진료과</td><td>노출</td><td class="num">2</td><td class="num">참고 3위</td><td><span class="chip top"><span class="d"></span>상위권</span></td><td>현 상태 유지</td></tr>
+      <tr><td><b>역삼역 피부과</b></td><td>지역+진료과</td><td>노출</td><td class="num">3</td><td class="num">참고 5위</td><td><span class="chip top"><span class="d"></span>상위권</span></td><td>플레이스 사진 최신화</td></tr>
+      <tr><td><b>강남 보톡스</b></td><td>시술</td><td>노출</td><td class="num">3</td><td class="num">미검증</td><td><span class="chip top"><span class="d"></span>상위권</span></td><td>진료 항목 문구 점검</td></tr>
+      <tr><td><b>강남 피부과</b></td><td>지역+진료과</td><td>노출</td><td class="num">4</td><td class="num">참고 11위</td><td><span class="chip mid"><span class="d"></span>중위권</span></td><td>소개·카테고리 정비</td></tr>
+      <tr><td><b>강남 리프팅</b></td><td>시술</td><td>노출</td><td class="num">7</td><td class="num">참고 7위</td><td><span class="chip mid"><span class="d"></span>중위권</span></td><td>시술 정보 페이지 보강</td></tr>
+      <tr><td><b>강남 여드름치료</b></td><td>고민</td><td>노출</td><td class="num">9</td><td class="num">미검증</td><td><span class="chip mid"><span class="d"></span>중위권</span></td><td>FAQ 구조 점검</td></tr>
+      <tr><td><b>강남 피부관리</b></td><td>시술</td><td>노출</td><td class="num">12</td><td class="num">미검증</td><td><span class="chip mid"><span class="d"></span>중위권</span></td><td>키워드-진료항목 매칭</td></tr>
+      <tr><td><b>강남 탈모치료</b></td><td>고민</td><td>미노출</td><td class="num">—</td><td class="num">미검증</td><td><span class="chip none"><span class="d"></span>미노출</span></td><td>진료 항목·소개에 반영</td></tr>
+      <tr><td><b>강남 기미레이저</b></td><td>시술</td><td>미노출</td><td class="num">—</td><td class="num">미검증</td><td><span class="chip none"><span class="d"></span>미노출</span></td><td>시술 카테고리 등록 검토</td></tr>
+      <tr><td><b>강남 흉터치료</b></td><td>고민</td><td>미노출</td><td class="num">—</td><td class="num">미검증</td><td><span class="chip none"><span class="d"></span>미노출</span></td><td>콘텐츠 커버리지 신설</td></tr>
+    </tbody>
+  </table>
+  <div class="pageno">1 / 2</div>
+</div>
+
+<div class="page">
+  <h2 style="margin-top:0">경쟁 병원 벤치마크 (반경 1km · 공개 집계값)</h2>
+  <table>
+    <thead><tr><th>병원</th><th class="num">거리</th><th class="num">키워드 커버리지</th><th class="num">리뷰</th><th class="num">평점</th><th class="num">사진</th></tr></thead>
+    <tbody>
+      <tr><td>A피부과</td><td class="num">320m</td><td class="num">90%</td><td class="num">412</td><td class="num">4.6</td><td class="num">180</td></tr>
+      <tr><td>C의원</td><td class="num">540m</td><td class="num">80%</td><td class="num">388</td><td class="num">4.5</td><td class="num">95</td></tr>
+      <tr><td>B의원</td><td class="num">210m</td><td class="num">70%</td><td class="num">267</td><td class="num">4.3</td><td class="num">60</td></tr>
+      <tr style="background:#eef4fc"><td><b>밝은빛피부과의원 (귀원)</b></td><td class="num">—</td><td class="num"><b>70%</b></td><td class="num"><b>154</b></td><td class="num"><b>4.4</b></td><td class="num"><b>44</b></td></tr>
+      <tr><td>D의원</td><td class="num">880m</td><td class="num">50%</td><td class="num">141</td><td class="num">4.1</td><td class="num">38</td></tr>
+    </tbody>
+  </table>
+
+  <h2>이번 달 우선 개선 액션</h2>
+  <div class="act"><div class="n">1</div><div>
+    <h3>네이버 플레이스 기본 정보 최신화</h3>
+    <p>대표 사진(44장, 경쟁 상위 평균 112장), 진료시간, 주차, 예약 링크를 실제 운영 상태와 맞추세요.</p>
+    <div class="b">근거: 플레이스 품질 점수 66점 · 사진 수 하위 40%</div>
+  </div></div>
+  <div class="act"><div class="n">2</div><div>
+    <h3>미노출 키워드 3개 커버리지 정비</h3>
+    <p>"강남 탈모치료·기미레이저·흉터치료"가 공식 API 결과에 없습니다. 해당 진료를 실제 제공하는 경우에만 병원 소개·진료 항목·FAQ에 반영하세요.</p>
+    <div class="b">근거: 키워드 10개 중 3개 미노출 · 노출 점수 58점</div>
+  </div></div>
+  <div class="act"><div class="n">3</div><div>
+    <h3>리뷰 운영 프로세스 정비</h3>
+    <p>상위 경쟁 병원 평균 리뷰 356개 대비 154개입니다. 합법적인 만족도 조사와 재방문 안내 절차를 정비하세요. 대가성 리뷰 유도는 권장하지 않습니다.</p>
+    <div class="b">근거: 리뷰 수 상위 3개 병원 대비 57% 부족</div>
+  </div></div>
+
+  <h2>측정 기준</h2>
+  <table>
+    <thead><tr><th>항목</th><th>기준</th></tr></thead>
+    <tbody>
+      <tr><td>노출 지표</td><td>네이버 지역 검색 API (비로그인 오픈 API, 2026-07-01 수집) — 실제 검색화면과 다를 수 있음</td></tr>
+      <tr><td>참고 스냅샷</td><td>월 1회 · 비로그인 · 모바일 · 강남역 반경 기준점 — "참고" 순위이며 실시간 순위가 아님</td></tr>
+      <tr><td>경쟁 병원</td><td>건강보험심사평가원 병원정보서비스 (2026-06 갱신), 반경 1km 내 동일·유사 진료과</td></tr>
+      <tr><td>수요 지표</td><td>SGIS 통계지리정보 기반 잠재 수요 참고지표 — 실제 방문 수요를 보장하지 않음</td></tr>
+      <tr><td>리뷰/평점</td><td>공개 집계값만 사용, 리뷰 본문 미분석</td></tr>
+    </tbody>
+  </table>
+
+  <div class="basis">
+    <b>고지</b> — 본 리포트는 병원 마케팅 운영 참고용이며, 특정 검색 순위 달성이나 매출 증가를 보장하지 않습니다.
+    개선 액션은 의료법상 의료광고 규정을 준수하는 운영·정보 정비 활동으로 한정됩니다.
+    데이터 출처: 건강보험심사평가원 병원정보서비스 · 소상공인시장진흥공단 상가(상권)정보 · 행정안전부 법정동코드 · SGIS · 네이버 오픈 API.
+    <b>본 문서는 목업 데이터 기반 템플릿입니다.</b>
+  </div>
+  <div class="pageno">2 / 2</div>
+</div>
+
+</body>
+</html>
