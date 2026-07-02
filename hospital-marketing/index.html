@@ -193,9 +193,9 @@
 
     <div class="cards" style="margin-top:14px">
       <div class="card"><div class="label">반경 내 경쟁 병원</div><div class="value" id="cCompetitors">32곳</div><div class="delta flat" id="cCompetitorsD">± 0 전월 대비</div></div>
-      <div class="card"><div class="label">핵심 키워드 (공식 API 기준 노출)</div><div class="value" id="cExposed">7 / 10</div><div class="delta up">▲ 1 전월 대비</div></div>
+      <div class="card"><div class="label">핵심 키워드 (공식 API 기준 노출)</div><div class="value" id="cExposed">7 / 10</div><div class="delta up" id="cExposedD">▲ 1 전월 대비</div></div>
       <div class="card"><div class="label">미노출 키워드</div><div class="value" id="cWeak">3개</div><div class="delta down">개선 필요</div></div>
-      <div class="card"><div class="label">상위권 (API 3위 이내)</div><div class="value" id="cTop">3개</div><div class="delta up">▲ 1 전월 대비</div></div>
+      <div class="card"><div class="label">상위권 (API 3위 이내)</div><div class="value" id="cTop">3개</div><div class="delta up" id="cTopD">▲ 1 전월 대비</div></div>
     </div>
 
     <div class="grid2">
@@ -299,8 +299,9 @@
 
 <script>
 "use strict";
-/* ---------- 목업 데이터 ---------- */
-const RADIUS_DATA = {
+/* ---------- 목업 데이터 (data/dashboard-live.json이 있으면 실데이터로 대체) ---------- */
+let IS_LIVE = false;
+let RADIUS_DATA = {
   500:  { score:63, delta:+1, competitors:14, compDelta:'▲ 1 전월 대비', comp:{exposure:58, density:64, demand:70, place:66} },
   1000: { score:62, delta:+2, competitors:32, compDelta:'± 0 전월 대비', comp:{exposure:58, density:52, demand:78, place:66} },
   1500: { score:60, delta:+2, competitors:51, compDelta:'▲ 2 전월 대비', comp:{exposure:58, density:44, demand:80, place:66} },
@@ -316,7 +317,7 @@ const COMPONENTS = [
   {key:'demand',   name:'수요·입지', weight:20},
   {key:'place',    name:'플레이스 품질', weight:15}
 ];
-const KEYWORDS = [
+let KEYWORDS = [
   {kw:'테헤란로 피부과', type:'지역+진료과', api:true, pos:2,  snap:3,   grade:'top', comp:'A피부과',        act:'현 상태 유지, 월간 추적'},
   {kw:'역삼역 피부과',   type:'지역+진료과', api:true, pos:3,  snap:5,   grade:'top', comp:'B의원',          act:'플레이스 사진 최신화'},
   {kw:'강남 보톡스',     type:'시술',       api:true, pos:3,  snap:null,grade:'top', comp:'C의원',          act:'진료 항목 문구 점검'},
@@ -328,7 +329,7 @@ const KEYWORDS = [
   {kw:'강남 기미레이저', type:'시술',       api:false,pos:null,snap:null,grade:'none',comp:'A피부과',        act:'시술 카테고리 등록 검토'},
   {kw:'강남 흉터치료',   type:'고민',       api:false,pos:null,snap:null,grade:'none',comp:'G의원',          act:'콘텐츠 커버리지 신설'}
 ];
-const BENCH = [
+let BENCH = [
   {name:'A피부과',        me:false, dist:320, cover:90, reviews:412, rating:4.6, photos:180},
   {name:'C의원',          me:false, dist:540, cover:80, reviews:388, rating:4.5, photos:95},
   {name:'B의원',          me:false, dist:210, cover:70, reviews:267, rating:4.3, photos:60},
@@ -346,7 +347,7 @@ function mulberry32(a){return function(){a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a
 const rng = mulberry32(20260702);
 const DEPTS_SAME=['피부과'], DEPTS_SIM=['성형외과','의원(미용시술)','한의원'];
 const NAMES=['하늘','미소','라온','더맑은','청담','새봄','유앤','리더스','온유','바른','세란','늘푸른','도담','가온','해온','예그린','다온','휴','채움','솔'];
-const MAP_POINTS=[];
+let MAP_POINTS=[];
 (function(){
   const counts={500:14,1000:32,1500:51,2000:74};
   let made=0;
@@ -395,10 +396,22 @@ function renderHome(){
   const d=RADIUS_DATA[radius];
   $('#heroScore').textContent=d.score;
   const hd=$('#heroDelta');
-  hd.textContent=(d.delta>0?'▲ ':'▼ ')+Math.abs(d.delta)+'점 · 전월 대비';
-  hd.className='delta '+(d.delta>0?'up':d.delta<0?'down':'flat');
+  if(IS_LIVE){
+    hd.textContent='기준월 첫 리포트 · 실데이터';
+    hd.className='delta flat';
+  }else{
+    hd.textContent=(d.delta>0?'▲ ':'▼ ')+Math.abs(d.delta)+'점 · 전월 대비';
+    hd.className='delta '+(d.delta>0?'up':d.delta<0?'down':'flat');
+  }
   $('#cCompetitors').textContent=d.competitors+'곳';
-  $('#cCompetitorsD').textContent=d.compDelta;
+  $('#cCompetitorsD').textContent=IS_LIVE?'HIRA 표방 기준':d.compDelta;
+  const exposed=KEYWORDS.filter(k=>k.api).length, top=KEYWORDS.filter(k=>k.grade==='top').length,
+        weak=KEYWORDS.filter(k=>k.grade==='none').length;
+  $('#cExposed').textContent=`${exposed} / ${KEYWORDS.length}`;
+  $('#cWeak').textContent=weak+'개';
+  $('#cTop').textContent=top+'개';
+  if(IS_LIVE){$('#cExposedD').textContent='공식 API 상위 5위 기준';$('#cExposedD').className='delta flat';
+    $('#cTopD').textContent='API 3위 이내';$('#cTopD').className='delta flat';}
   const m=$('#meters'); m.innerHTML='';
   COMPONENTS.forEach(c=>{
     const v=d.comp[c.key];
@@ -411,6 +424,12 @@ function renderHome(){
 
 /* 추이 라인 차트 (단일 시리즈 → 범례 없음, 끝값 직접 라벨) */
 function renderTrend(){
+  if(IS_LIVE){
+    $('#trendChart').innerHTML='<p style="font-size:13px;color:var(--text-muted);padding:30px 10px;text-align:center">'
+      +'첫 리포트입니다. 점수 추이는 2개월차부터 표시됩니다.</p>';
+    $('#trendTable').closest('details').style.display='none';
+    return;
+  }
   const data=TREND[radius], labels=TREND.labels;
   const W=460,H=210,P={l:34,r:44,t:14,b:26};
   const min=Math.floor(Math.min(...data)/5)*5-5, max=Math.ceil(Math.max(...data)/5)*5+5;
@@ -468,18 +487,23 @@ function renderMap(){
   $$('#mapChart .mp').forEach(c=>{
     const p=MAP_POINTS[+c.dataset.i];
     const html=`<div class="t-title">${p.name}</div>
-      <div class="t-row">${p.same?'같은 진료과 (피부과)':'유사 키워드 진료과'} · ${p.dist}m</div>
-      <div class="t-row">API 노출 등급: ${p.grade}</div>`;
+      <div class="t-row">${p.same?'같은 진료과 표방':'유사 키워드 진료과'} · ${p.dist}m</div>
+      ${p.grade?`<div class="t-row">API 노출 등급: ${p.grade}</div>`:''}`;
     c.addEventListener('mousemove',e=>showTip(html,e.clientX,e.clientY));
     c.addEventListener('mouseleave',hideTip);
   });
   const rows=MAP_POINTS.filter(p=>p.dist<=radius).slice(0,12).map(p=>
-    `<tr><td>${p.name}</td><td>${p.same?'같은 진료과':'유사 진료과'}</td><td class="num">${p.dist}m</td><td>${p.grade}</td></tr>`).join('');
+    `<tr><td>${p.name}</td><td>${p.same?'같은 진료과':'유사 진료과'}</td><td class="num">${p.dist}m</td><td>${p.grade||'미측정'}</td></tr>`).join('');
   $('#mapTable tbody').innerHTML=rows+
     `<tr><td colspan="4" style="color:var(--text-muted);font-size:12px">가까운 12곳 표시 · 전체 ${MAP_POINTS.filter(p=>p.dist<=radius).length}곳 (반경 ${fmtR(radius)})</td></tr>`;
 }
 
 /* ---------- 키워드 표 ---------- */
+function actByGrade(g){
+  return g==='top'?'현 상태 유지, 월간 추적'
+    :g==='mid'?'소개·진료 항목 콘텐츠 보강'
+    :'실제 제공 진료라면 커버리지 반영';
+}
 function renderKeywords(){
   const chip=g=>g==='top'?'<span class="chip top"><span class="dot"></span>상위권</span>'
     :g==='mid'?'<span class="chip mid"><span class="dot"></span>중위권</span>'
@@ -489,11 +513,19 @@ function renderKeywords(){
      <td>${k.api?'노출':'미노출'}</td>
      <td class="num">${k.pos??'—'}</td>
      <td class="num">${k.snap?('참고 '+k.snap+'위'):'미검증'}</td>
-     <td>${chip(k.grade)}</td><td>${k.comp}</td><td>${k.act}</td></tr>`).join('');
+     <td>${chip(k.grade)}</td><td>${k.comp}</td><td>${k.act||actByGrade(k.grade)}</td></tr>`).join('');
 }
 
 /* ---------- 벤치마크 ---------- */
 function renderBench(){
+  if(IS_LIVE){
+    $('#benchChart').innerHTML='<p style="font-size:13px;color:var(--text-muted);padding:30px 10px;text-align:center">'
+      +'리뷰 수·평점 등 플레이스 공개 집계값 비교는 다음 단계(플레이스 실측 수집 모듈)에서 제공됩니다.</p>';
+    $('#benchTable tbody').innerHTML=MAP_POINTS.filter(p=>p.dist<=radius).slice(0,5).map(p=>
+      `<tr><td>${p.name}</td><td class="num">${p.dist}m</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td class="num">—</td></tr>`).join('')
+      +'<tr><td colspan="6" style="color:var(--text-muted);font-size:12px">가까운 5곳 · 집계값 수집 예정</td></tr>';
+    return;
+  }
   const W=460, rowH=34, P={l:150,r:56,t:6,b:22};
   const H=P.t+P.b+BENCH.length*rowH;
   const max=Math.max(...BENCH.map(b=>b.reviews));
@@ -530,7 +562,26 @@ function renderBench(){
 
 /* ---------- 액션 ---------- */
 function renderActions(){
-  const html=ACTIONS.map((a,i)=>
+  let acts=ACTIONS;
+  if(IS_LIVE){
+    const weak=KEYWORDS.filter(k=>k.grade==='none').map(k=>k.kw);
+    const d=RADIUS_DATA[radius];
+    acts=[];
+    if(weak.length)acts.push({
+      t:`미노출 키워드 ${weak.length}개 커버리지 정비`,
+      p:`"${weak.slice(0,3).join('·')}" 등이 공식 API 결과(상위 5위)에 없습니다. 해당 진료를 실제 제공하는 경우에만 플레이스 소개·진료 항목·FAQ에 반영하세요.`,
+      b:`근거: 키워드 ${KEYWORDS.length}개 중 ${weak.length}개 미노출 · 노출 점수 ${d.comp.exposure}점`});
+    if(d.comp.density<40)acts.push({
+      t:'생활권 세분 키워드로 경쟁 우회',
+      p:'반경 내 경쟁 강도가 매우 높습니다. 광역 키워드 대신 역·동 단위 지역 수식어와 세부 시술 조합 키워드의 커버리지를 우선 확보하세요.',
+      b:`근거: 경쟁 밀도 점수 ${d.comp.density}점 · 반경 내 경쟁 ${d.competitors}곳`});
+    acts.push({
+      t:'네이버 플레이스 기본 정보 최신화',
+      p:'대표 사진, 진료시간, 주차, 예약 링크를 실제 운영 상태와 맞추고 진료 카테고리가 실제 진료 항목과 일치하는지 점검하세요.',
+      b:'근거: 플레이스 품질 지표는 다음 단계에서 실측 수집 예정'});
+    acts=acts.slice(0,3);
+  }
+  const html=acts.map((a,i)=>
     `<div class="action"><div class="pri">${i+1}</div>
       <div><h3>${a.t}</h3><p>${a.p}</p><div class="basis">${a.b}</div></div></div>`).join('');
   $('#homeActions').innerHTML=html;
@@ -542,7 +593,33 @@ function renderAll(){
   $$('.rEcho').forEach(e=>e.textContent=fmtR(radius));
   renderHome(); renderMap(); renderKeywords(); renderBench(); renderActions();
 }
-renderAll();
+
+/* ---------- 실데이터 로더 ----------
+   pipeline/export_dashboard.py가 만든 data/dashboard-live.json이 있으면
+   목업 대신 실데이터를 표시한다. (file:// 직접 열람 시에는 목업으로 동작) */
+function applyLiveData(j){
+  IS_LIVE=true;
+  RADIUS_DATA={};
+  for(const r of [500,1000,1500,2000]){
+    const d=j.radius_data[String(r)];
+    RADIUS_DATA[r]={score:d.score, delta:0, competitors:d.competitors, compDelta:'',
+      comp:{exposure:d.comp.exposure, density:d.comp.density, demand:d.comp.demand, place:d.comp.place}};
+  }
+  KEYWORDS=j.keywords.map(k=>({kw:k.kw, type:k.type, api:k.api, pos:k.pos,
+    snap:null, grade:k.grade, comp:k.comp}));
+  MAP_POINTS=j.map_points.map(p=>({name:p.name, dist:Math.round(p.distance_m),
+    ang:(p.bearing_deg-90)*Math.PI/180, same:!!p.same_department, grade:null}));
+  MAP_POINTS.sort((a,b)=>a.dist-b.dist);
+  const h=j.hospital;
+  document.querySelector('.hospital-id').innerHTML=
+    `<b id="hName">${h.name}</b> · ${h.department}<br>${h.address?h.address+' · ':''}${j.month} 리포트`;
+  document.querySelector('.brand small').textContent='실데이터 · '+j.month+' 기준';
+}
+fetch('data/dashboard-live.json')
+  .then(r=>r.ok?r.json():null)
+  .then(j=>{ if(j&&j.live) applyLiveData(j); })
+  .catch(()=>{})
+  .finally(renderAll);
 </script>
 </body>
 </html>
