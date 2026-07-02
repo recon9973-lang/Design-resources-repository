@@ -148,7 +148,7 @@
 
 <header class="top">
   <div class="wrap top-inner">
-    <div class="brand"><span class="mark">M</span> 메디랭크 로컬 <small>MVP 프로토타입 · 목업 데이터</small></div>
+    <div class="brand"><span class="mark">V</span> (주)베놈 검색정보 진단 <small>MVP 프로토타입 · 목업 데이터</small></div>
     <div class="hospital-id">
       <b id="hName">밝은빛피부과의원</b> · 피부과<br>
       서울 강남구 테헤란로 000 · <span id="hMonth">2026년 7월</span> 리포트
@@ -184,7 +184,7 @@
   <section class="panel active" id="panel-home">
     <div class="card hero-card">
       <div>
-        <div class="label" style="font-size:13px;color:var(--text-secondary)">마케팅 경쟁력 점수</div>
+        <div class="label" style="font-size:13px;color:var(--text-secondary)">검색정보 운영 진단 점수 (당사 산식)</div>
         <div class="hero-num"><span id="heroScore">62</span><small> / 100</small></div>
         <div class="delta up" id="heroDelta">▲ 2점 · 전월 대비</div>
       </div>
@@ -239,23 +239,23 @@
   <!-- ================= 키워드 노출 ================= -->
   <section class="panel" id="panel-kw">
     <h2>키워드별 노출 진단</h2>
-    <p class="sub">네이버 <b>공식 API 기준</b> 지표와 <b>월간 참고 스냅샷</b>은 서로 다를 수 있어 분리해 표기합니다. 실시간 순위가 아닙니다.</p>
+    <p class="sub">네이버 지역 검색 <b>공식 API 기준(상위 5건)</b> 지표입니다. 실제 검색화면과 다를 수 있으며, 실시간 순위가 아닙니다.</p>
     <div class="card table-card">
       <table id="kwTable">
         <thead><tr>
-          <th>키워드</th><th>유형</th><th>API 기준</th><th class="num">API 내 위치</th>
-          <th class="num">참고 스냅샷</th><th>등급</th><th>상위 경쟁 병원</th><th>추천 액션</th>
+          <th>키워드</th><th>유형</th><th>API 기준</th><th class="num">API 응답 내 위치</th>
+          <th>등급</th><th>해당 키워드 상위 업체</th><th>추천 액션</th>
         </tr></thead>
         <tbody></tbody>
       </table>
     </div>
-    <p class="note">등급 기준 — <b>상위권</b>: 공식 API 결과 3위 이내 · <b>중위권</b>: 노출되지만 3위 밖 · <b>미노출</b>: API 결과에 없음. 스냅샷은 월 1회, 비로그인·기준 위치 고정 조건의 참고값입니다.</p>
+    <p class="note">등급 기준 — <b>상위권</b>: 공식 API 응답 3위 이내 · <b>중위권</b>: 응답 내 노출 · <b>미노출</b>: API 응답(상위 5건)에 없음. 등급은 당사 산식에 따른 참고 지표입니다.</p>
   </section>
 
   <!-- ================= 경쟁 벤치마크 ================= -->
   <section class="panel" id="panel-bench">
     <h2>경쟁 병원 벤치마크</h2>
-    <p class="sub">반경 <span class="rEcho">1km</span> 내 API 노출 상위 경쟁 병원 · 리뷰 수/평점은 공개 집계값만 사용하며 리뷰 본문은 분석하지 않습니다.</p>
+    <p class="sub">반경 <span class="rEcho">1km</span> 내 인접 경쟁 병원 · 리뷰 수/평점/사진 수는 <b>병원이 직접 확인해 입력한 값</b>만 사용하며 리뷰 본문은 수집·분석하지 않습니다.</p>
     <div class="grid2">
       <div class="card chart-card">
         <p class="chart-title">방문자 리뷰 수 비교</p>
@@ -287,10 +287,11 @@
   </section>
 
   <footer class="basis">
+    <b>병원 내부 운영 참고용 — 환자 대상 광고·홍보물 전재 금지.</b> 본 화면의 진단 점수·등급은 (주)베놈 산식에 따른
+    참고 지표이며, 특정 검색 순위 달성, 환자 유입, 매출 증가를 보장하지 않습니다.<br>
     <b>데이터 출처·기준</b> — 건강보험심사평가원 병원정보서비스(2026-06 갱신) · 소상공인시장진흥공단 상가(상권)정보(2026-2Q) ·
-    행정안전부 법정동코드 · SGIS 통계지리정보 · 네이버 지역 검색 API(2026-07-01 수집, 비로그인).<br>
-    공식 API 결과는 실제 검색화면과 다를 수 있습니다. 참고 스냅샷은 월 1회, 기준 위치·시간·기기 조건을 기록해 수집합니다.
-    인구·상권 지표는 잠재 수요 참고지표이며 실제 방문 수요를 보장하지 않습니다.
+    행정안전부 법정동코드 · SGIS 통계지리정보 · 네이버 지역 검색 API(2026-07-01 수집, 비로그인, 결과 상위 5건).<br>
+    공식 API 결과는 실제 검색화면과 다를 수 있습니다. 인구·상권 지표는 잠재 수요 참고지표이며 실제 방문 수요를 보장하지 않습니다.
     <b>본 화면은 목업 데이터 기반 MVP 프로토타입입니다.</b>
   </footer>
 </main>
@@ -512,7 +513,6 @@ function renderKeywords(){
     `<tr><td><b>${k.kw}</b></td><td>${k.type}</td>
      <td>${k.api?'노출':'미노출'}</td>
      <td class="num">${k.pos??'—'}</td>
-     <td class="num">${k.snap?('참고 '+k.snap+'위'):'미검증'}</td>
      <td>${chip(k.grade)}</td><td>${k.comp}</td><td>${k.act||actByGrade(k.grade)}</td></tr>`).join('');
 }
 

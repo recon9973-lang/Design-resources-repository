@@ -61,7 +61,9 @@ def collect(args) -> dict:
     exposure = scoring.exposure_score(keyword_results)
     density = scoring.density_score(competitors, args.radius)
     demand = scoring.demand_score(population, 0.45, args.radius)
-    place = scoring.place_quality_score(154, 4.4, 44, 0.7)  # TODO: 플레이스 수집 모듈
+    # 플레이스 집계값(리뷰/사진 수)은 법무 의견에 따라 자동 수집하지 않는다.
+    # 병원이 직접 확인·입력한 값을 쓰며, 입력 전까지는 아래 기본값(예시)을 사용.
+    place = scoring.place_quality_score(154, 4.4, 44, 0.7)
     final = scoring.final_score(exposure, density, demand, place)
 
     return {"competitors": competitors, "keywords": keyword_results,
@@ -156,12 +158,12 @@ TEMPLATE = Template("""<!DOCTYPE html>
 <div class="toolbar no-print"><button onclick="window.print()">PDF로 저장 (인쇄)</button></div>
 <div class="page">
   <div class="rpt-head">
-    <div><div class="t1">MEDIRANK LOCAL · 월간 검색 노출 경쟁력 리포트</div>
+    <div><div class="t1">(주)베놈 VENOMAD · 병원 검색정보 운영 진단 리포트 · 병원 내부 참고용 — 광고 전재 금지</div>
       <h1>$hospital — $month_label</h1></div>
     <div class="meta">분석 반경 $radius_label · 발행 $issued<br>실데이터 기반 · 리포트 ID $report_id</div>
   </div>
   <div class="hero">
-    <div><div style="font-size:12px;color:var(--ink2)">마케팅 경쟁력 점수</div>
+    <div><div style="font-size:12px;color:var(--ink2)">검색정보 운영 진단 점수 (당사 산식)</div>
       <div class="num">$final_score<small> / 100</small></div></div>
     <div class="desc">$summary_text</div>
   </div>
@@ -187,12 +189,15 @@ TEMPLATE = Template("""<!DOCTYPE html>
   $stats_block
   <h2>이번 달 우선 개선 액션</h2>
   $action_blocks
-  <div class="basis"><b>측정 기준·고지</b> — 노출 지표: 네이버 지역 검색 API(비로그인 오픈 API, 결과 상위 5건, $issued 수집).
-  "미노출"은 공식 API 상위 5위 밖을 의미하며 실제 검색화면과 다를 수 있습니다.
+  <div class="basis"><b>측정 기준·고지</b> — 본 리포트는 병원 내부 운영 참고자료이며 의료광고물이 아닙니다.
+  환자 대상 광고·홍보물로 전재, 캡처, 인용, 배포할 수 없습니다. 진단 점수와 등급은 (주)베놈 산식에 따른 참고
+  지표이며, 특정 검색 순위 달성, 환자 유입, 매출 증가를 보장하지 않고 의료서비스의 질·치료 효과·환자 만족도를
+  의미하지 않습니다. 경쟁 병원에 대한 우열 판단이나 비방 목적으로 사용할 수 없습니다.
+  노출 지표: 네이버 지역 검색 API(비로그인 오픈 API, 결과 상위 5건, $issued 수집) — "미노출"은 API 응답 상위
+  5건 밖을 의미하며 실제 검색화면과 다를 수 있습니다.
   경쟁 병원: 건강보험심사평가원 병원정보서비스(반경 $radius_label, 진료과목 표방 기준, 개원/폐업 반영 시차 가능).
-  수요 지표: SGIS 잠재 수요 참고지표(실제 방문 수요 미보장). 본 리포트는 마케팅 운영 참고용이며
-  특정 검색 순위 달성이나 매출 증가를 보장하지 않습니다. 개선 액션은 의료광고 규정을 준수하는
-  운영·정보 정비 활동으로 한정됩니다.</div>
+  수요 지표: SGIS 잠재 수요 참고지표(실제 방문 수요 미보장). 개선 제안은 의료광고 규정을 준수하는
+  운영·정보 정비 활동으로 한정됩니다. 문의·정정 요청: (주)베놈 venomad.</div>
 </div></body></html>
 """)
 
