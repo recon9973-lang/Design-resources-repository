@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>개원 입지 비교 분석 · (주)베놈 검색정보 진단</title>
+<meta name="robots" content="noindex">
+<style>
+  .viz-root, :root{
+    --surface-1:#fcfcfb; --plane:#f9f9f7;
+    --text-primary:#0b0b0b; --text-secondary:#52514e; --text-muted:#898781;
+    --grid:#e1e0d9; --baseline:#c3c2b7; --hairline:rgba(11,11,11,.10);
+    --series-1:#2a78d6; --series-2:#1baf7a; --series-3:#eda100;
+    --seq-150:#b7d3f6; --seq-250:#86b6ef; --seq-450:#2a78d6;
+    --gold:#eda100;
+    --shadow:rgba(0,55,112,.08) 0 1px 3px;
+  }
+  @media (prefers-color-scheme: dark){
+    .viz-root, :root{
+      --surface-1:#1a1a19; --plane:#0d0d0d;
+      --text-primary:#fff; --text-secondary:#c3c2b7; --text-muted:#898781;
+      --grid:#2c2c2a; --baseline:#383835; --hairline:rgba(255,255,255,.10);
+      --series-1:#3987e5; --series-2:#199e70; --series-3:#c98500;
+      --seq-150:#0d366b; --seq-250:#104281; --seq-450:#3987e5;
+      --gold:#c98500;
+      --shadow:rgba(0,0,0,.4) 0 1px 3px;
+    }
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,"Segoe UI","Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+    background:var(--plane);color:var(--text-primary);line-height:1.55;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+  header.top{border-bottom:1px solid var(--grid);background:var(--surface-1)}
+  .top-inner{display:flex;align-items:center;gap:12px;padding:14px 0;flex-wrap:wrap}
+  .brand{font-weight:800;font-size:17px;display:flex;align-items:center;gap:8px}
+  .brand .mark{width:26px;height:26px;border-radius:7px;background:var(--text-primary);color:var(--plane);
+    display:inline-flex;align-items:center;justify-content:center;font-size:12px;font-weight:900}
+  .brand small{font-weight:600;color:var(--text-muted);font-size:11px;border:1px solid var(--grid);
+    border-radius:99px;padding:1px 8px}
+  .meta{margin-left:auto;font-size:12.5px;color:var(--text-secondary);text-align:right}
+  main{padding:24px 0 60px}
+  h1{font-size:20px;margin:0 0 4px;letter-spacing:-.4px}
+  .sub{color:var(--text-secondary);font-size:13px;margin:0 0 20px}
+  h2{font-size:16px;margin:28px 0 4px}
+  .h-sub{color:var(--text-muted);font-size:12px;margin:0 0 12px}
+
+  /* 후보지 카드 */
+  .sites{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px}
+  .site{background:var(--surface-1);border:1px solid var(--grid);border-radius:14px;padding:20px;
+    box-shadow:var(--shadow);position:relative}
+  .site.best{border:2px solid var(--series-1)}
+  .site .rank{position:absolute;top:-11px;left:16px;font-size:11px;font-weight:800;border-radius:99px;
+    padding:2px 11px;background:var(--grid);color:var(--text-secondary)}
+  .site.best .rank{background:var(--series-1);color:#fff}
+  .site h3{margin:4px 0 0;font-size:16px}
+  .site .adm{font-size:11.5px;color:var(--text-muted);margin-bottom:12px}
+  .gauge-row{display:flex;gap:16px;align-items:center}
+  .gauge{flex:none}
+  .g-val{font-size:22px;font-weight:750;letter-spacing:-.5px}
+  .g-val small{font-size:11px;color:var(--text-muted);font-weight:600;display:block;letter-spacing:0}
+  .mini{flex:1;display:grid;gap:7px}
+  .mini .m-row{font-size:11px;color:var(--text-secondary)}
+  .mini .m-head{display:flex;justify-content:space-between}
+  .mini .m-head b{color:var(--text-primary)}
+  .mini .track{height:6px;border-radius:3px;background:var(--seq-150);margin-top:2px;overflow:hidden}
+  .mini .fill{height:100%;border-radius:3px;background:var(--seq-450)}
+  .facts{display:grid;grid-template-columns:1fr 1fr;gap:6px 10px;margin-top:14px;font-size:11.5px}
+  .facts .f{background:var(--plane);border:1px solid var(--grid);border-radius:8px;padding:6px 9px}
+  .facts .f b{display:block;font-size:14px;font-variant-numeric:tabular-nums}
+  .facts .f span{color:var(--text-muted);font-size:10.5px}
+
+  .card{background:var(--surface-1);border:1px solid var(--grid);border-radius:12px;padding:16px;box-shadow:var(--shadow)}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  @media (max-width:840px){.grid2{grid-template-columns:1fr}}
+  .chart-title{font-size:13.5px;font-weight:650;margin:0}
+  .chart-sub{font-size:11.5px;color:var(--text-muted);margin:0 0 8px}
+  .legend{display:flex;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--text-secondary);margin:6px 0 0}
+  .legend .key{display:inline-flex;align-items:center;gap:6px}
+  .legend .sw{width:10px;height:10px;border-radius:50%;box-shadow:0 0 0 2px var(--surface-1)}
+  svg text{font-family:inherit}
+
+  table{border-collapse:collapse;width:100%;font-size:12.5px;background:var(--surface-1)}
+  th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--grid)}
+  th{font-size:11px;color:var(--text-secondary);white-space:nowrap}
+  td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+  .table-card{padding:0;overflow-x:auto}
+
+  .note{border:1px solid var(--grid);border-left:3px solid var(--gold);border-radius:8px;
+    background:var(--surface-1);padding:10px 14px;font-size:12px;color:var(--text-secondary);margin:18px 0 0}
+  footer.basis{border-top:1px solid var(--grid);margin-top:34px;padding:16px 0 30px;font-size:11.5px;color:var(--text-muted)}
+</style>
+</head>
+<body class="viz-root">
+
+<header class="top"><div class="wrap top-inner">
+  <div class="brand"><span class="mark">V</span> (주)베놈 · 개원 입지 비교 분석 <small>내부 컨설팅 도구</small></div>
+  <div class="meta" id="metaBox">진료과 — · 반경 — · 기준월 —</div>
+</div></header>
+
+<main class="wrap">
+  <h1>후보지별 입지 참고 점수</h1>
+  <p class="sub">경쟁 여유 50% + 잠재 수요 30% + 상권 활동 20% (당사 산식 · 0~100).
+  임대료·접근성·건물 조건 등 핵심 입지 변수는 포함하지 않는 <b>참고 지표</b>입니다.</p>
+
+  <div class="sites" id="siteCards"></div>
+
+  <h2>지표별 비교</h2>
+  <p class="h-sub">막대 옆 숫자가 실측값입니다. ↓ 표시는 낮을수록 유리한 지표입니다.</p>
+  <div class="grid2" id="charts"></div>
+  <div class="legend" id="legend"></div>
+
+  <h2>전체 지표 표</h2>
+  <div class="card table-card">
+    <table id="tbl"><thead><tr>
+      <th>후보지</th><th>행정구역</th><th class="num">반경 내 경쟁 ↓</th><th class="num">포화도(만명당) ↓</th>
+      <th class="num">반경 인구</th><th class="num">종사자 밀도</th><th class="num">평균연령</th>
+      <th class="num">경쟁 여유</th><th class="num">수요</th><th class="num">상권</th><th class="num"><b>입지 점수</b></th>
+    </tr></thead><tbody></tbody></table>
+  </div>
+
+  <div class="note" id="reading"></div>
+
+  <footer class="basis" id="disc"></footer>
+</main>
+
+<script>
+"use strict";
+/* pipeline/compare_sites.py 가 만든 data/location-live.json을 읽는다.
+   file:// 직접 열람 시에는 아래 내장 샘플(2026-07 실측)로 동작. */
+const FALLBACK = {
+ "month":"2026-07","department":"피부과","radius_m":1000,
+ "weights":{"competition":0.5,"demand":0.3,"commerce":0.2},
+ "sites":[
+  {"name":"마포 홍대입구","adm_nm":"서울특별시마포구","competitors":74,"competition_score":27.2,
+   "population_radius":47612,"demand_score":61.7,"avg_age":42.2,"employee_density_km2":11801,
+   "commerce_score":37.6,"saturation_per_10k":15.5,"site_score":39.6},
+  {"name":"노원 상계","adm_nm":"서울특별시노원구","competitors":71,"competition_score":32.7,
+   "population_radius":43547,"demand_score":58.5,"avg_age":44.2,"employee_density_km2":3498,
+   "commerce_score":13.1,"saturation_per_10k":16.3,"site_score":36.5},
+  {"name":"강남 역삼","adm_nm":"서울특별시강남구","competitors":298,"competition_score":14.6,
+   "population_radius":40692,"demand_score":56.1,"avg_age":42.5,"employee_density_km2":19505,
+   "commerce_score":54.2,"saturation_per_10k":73.2,"site_score":35.0}],
+ "disclaimer":"입지 참고 점수는 당사 산식에 따른 참고 지표이며 임대료·접근성·건물 조건 등 핵심 입지 변수를 포함하지 않습니다. 개원 성과를 보장하지 않습니다."
+};
+const COLORS=['var(--series-1)','var(--series-2)','var(--series-3)'];
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const $=s=>document.querySelector(s);
+const fmt=n=>Number(n).toLocaleString('ko-KR');
+
+function gauge(score,color){ // 반원 게이지 (0-100)
+  const r=34,cx=44,cy=44,circ=Math.PI*r;
+  const frac=Math.max(0,Math.min(score,100))/100;
+  return `<svg width="88" height="56" viewBox="0 0 88 56" role="img" aria-label="입지 참고 점수 ${score}점">
+    <path d="M ${cx-r} ${cy} A ${r} ${r} 0 0 1 ${cx+r} ${cy}" fill="none" stroke="var(--seq-150)" stroke-width="9" stroke-linecap="round"/>
+    <path d="M ${cx-r} ${cy} A ${r} ${r} 0 0 1 ${cx+r} ${cy}" fill="none" stroke="${color}" stroke-width="9"
+      stroke-linecap="round" stroke-dasharray="${(circ*frac).toFixed(1)} ${circ.toFixed(1)}"/>
+    <text x="${cx}" y="${cy-4}" text-anchor="middle" font-size="19" font-weight="750" fill="var(--text-primary)">${Math.round(score)}</text>
+  </svg>`;
+}
+
+function render(data){
+  $('#metaBox').textContent=`진료과 ${data.department} · 반경 ${data.radius_m/1000}km · 기준월 ${data.month}`;
+  const sites=data.sites;
+
+  /* 후보지 카드 */
+  $('#siteCards').innerHTML=sites.map((s,i)=>`
+    <div class="site ${i===0?'best':''}">
+      <span class="rank">${i===0?'1순위 (참고)':`${i+1}순위`}</span>
+      <h3>${esc(s.name)}</h3><div class="adm">${esc(s.adm_nm||'')} · 반경 ${data.radius_m/1000}km</div>
+      <div class="gauge-row">
+        <div class="gauge">${gauge(s.site_score,COLORS[i])}</div>
+        <div class="mini">
+          ${[['경쟁 여유',s.competition_score,'50%'],['잠재 수요',s.demand_score,'30%'],['상권 활동',s.commerce_score,'20%']]
+            .map(([n,v,w])=>`<div class="m-row"><div class="m-head"><span>${n} <span style="color:var(--text-muted)">${w}</span></span><b>${Math.round(v)}</b></div>
+            <div class="track"><div class="fill" style="width:${v}%"></div></div></div>`).join('')}
+        </div>
+      </div>
+      <div class="facts">
+        <div class="f"><b>${fmt(s.competitors)}곳</b><span>반경 내 같은 진료과 ↓</span></div>
+        <div class="f"><b>${s.saturation_per_10k}</b><span>인구 1만명당 경쟁 ↓</span></div>
+        <div class="f"><b>${fmt(s.population_radius)}</b><span>반경 인구(추정)</span></div>
+        <div class="f"><b>${fmt(s.employee_density_km2)}</b><span>종사자/km² (구)</span></div>
+      </div>
+    </div>`).join('');
+
+  /* 지표별 가로 막대 비교 (직접 라벨, 시리즈 색 고정) */
+  const metrics=[
+    {key:'competitors',      t:'반경 내 같은 진료과 수',   sub:'낮을수록 경쟁 여유 ↓', fmt:v=>fmt(v)+'곳'},
+    {key:'saturation_per_10k',t:'포화도 — 인구 1만명당 경쟁', sub:'낮을수록 여유 ↓',      fmt:v=>v},
+    {key:'population_radius', t:'반경 내 추정 인구',        sub:'구 밀도 × 반경 면적',   fmt:v=>fmt(v)+'명'},
+    {key:'employee_density_km2',t:'종사자 밀도 (구 단위)',  sub:'직장인 상권 근사',      fmt:v=>fmt(v)+'/km²'},
+  ];
+  $('#charts').innerHTML=metrics.map(m=>{
+    const max=Math.max(...sites.map(s=>s[m.key]||0));
+    const rowH=30,P={l:110,r:74,t:4,b:4},W=440,H=P.t+P.b+sites.length*rowH;
+    const bars=sites.map((s,i)=>{
+      const v=s[m.key]||0, w=max?(W-P.l-P.r)*v/max:0, y=P.t+i*rowH+(rowH-18)/2;
+      return `<text x="${P.l-8}" y="${y+13}" text-anchor="end" font-size="11" fill="var(--text-primary)">${esc(s.name.length>7?s.name.slice(0,7)+'…':s.name)}</text>
+        <rect x="${P.l}" y="${y}" width="${Math.max(w-3,0).toFixed(1)}" height="18" fill="${COLORS[i]}"/>
+        <rect x="${P.l+Math.max(w-4,0).toFixed(1)}" y="${y}" width="4" height="18" rx="2" fill="${COLORS[i]}"/>
+        <text x="${P.l+w+6}" y="${y+13}" font-size="11" fill="var(--text-secondary)" style="font-variant-numeric:tabular-nums">${m.fmt(v)}</text>`;
+    }).join('');
+    return `<div class="card"><p class="chart-title">${m.t}</p><p class="chart-sub">${m.sub}</p>
+      <svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${m.t} 비교">
+        <line x1="${P.l}" x2="${P.l}" y1="0" y2="${H}" stroke="var(--baseline)" stroke-width="1"/>${bars}</svg></div>`;
+  }).join('');
+  $('#legend').innerHTML=sites.map((s,i)=>
+    `<span class="key"><span class="sw" style="background:${COLORS[i]}"></span>${esc(s.name)}</span>`).join('');
+
+  /* 표 */
+  $('#tbl tbody').innerHTML=sites.map((s,i)=>`<tr${i===0?' style="font-weight:650"':''}>
+    <td>${esc(s.name)}</td><td>${esc((s.adm_nm||'').replace('서울특별시',''))}</td>
+    <td class="num">${fmt(s.competitors)}</td><td class="num">${s.saturation_per_10k}</td>
+    <td class="num">${fmt(s.population_radius)}</td><td class="num">${fmt(s.employee_density_km2)}</td>
+    <td class="num">${s.avg_age??'—'}</td>
+    <td class="num">${Math.round(s.competition_score)}</td><td class="num">${Math.round(s.demand_score)}</td>
+    <td class="num">${Math.round(s.commerce_score)}</td><td class="num"><b>${s.site_score}</b></td></tr>`).join('');
+
+  /* 사실형 읽기 안내 (평가어 없이) */
+  const best=sites[0], worstSat=[...sites].sort((a,b)=>b.saturation_per_10k-a.saturation_per_10k)[0];
+  $('#reading').innerHTML=`<b>읽는 법</b> — 입지 점수 1순위는 <b>${esc(best.name)}</b>(${best.site_score}점)이며,
+    이는 세 후보지 중 상대 비교일 뿐 절대 평가가 아닙니다.
+    ${esc(worstSat.name)}은(는) 인구 1만명당 경쟁 ${worstSat.saturation_per_10k}곳으로 세 곳 중 경쟁 밀도가 가장 높게 측정되었습니다.
+    실제 입지 결정 시에는 임대료, 역세권·주차 접근성, 건물 조건, 인허가, 층/전면 노출 등을 반드시 함께 검토하세요.`;
+
+  $('#disc').innerHTML=`<b>(주)베놈 내부 컨설팅 참고자료 — 외부 배포·광고 전재 금지.</b> ${esc(data.disclaimer||'')}<br>
+    데이터 출처: 건강보험심사평가원 병원정보서비스(진료과목 표방 기준) · 통계청 SGIS(${data.month} 조회, 2023년 통계).
+    반경 인구는 구 단위 밀도 기반 근사값입니다.`;
+}
+
+fetch('../data/location-live.json')
+  .then(r=>r.ok?r.json():null)
+  .then(j=>render(j&&j.sites?j:FALLBACK))
+  .catch(()=>render(FALLBACK));
+</script>
+</body>
+</html>
