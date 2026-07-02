@@ -10,6 +10,7 @@
 """
 
 import argparse
+import html
 import sys
 from datetime import date
 from pathlib import Path
@@ -61,7 +62,9 @@ def collect(args) -> dict:
     exposure = scoring.exposure_score(keyword_results)
     density = scoring.density_score(competitors, args.radius)
     demand = scoring.demand_score(population, 0.45, args.radius)
-    place = scoring.place_quality_score(154, 4.4, 44, 0.7)  # TODO: 플레이스 수집 모듈
+    # 플레이스 집계값(리뷰/사진 수)은 법무 의견에 따라 자동 수집하지 않는다.
+    # 병원이 직접 확인·입력한 값을 쓰며, 입력 전까지는 아래 기본값(예시)을 사용.
+    place = scoring.place_quality_score(154, 4.4, 44, 0.7)
     final = scoring.final_score(exposure, density, demand, place)
 
     return {"competitors": competitors, "keywords": keyword_results,
@@ -156,13 +159,20 @@ TEMPLATE = Template("""<!DOCTYPE html>
 <div class="toolbar no-print"><button onclick="window.print()">PDF로 저장 (인쇄)</button></div>
 <div class="page">
   <div class="rpt-head">
-    <div><div class="t1">MEDIRANK LOCAL · 월간 검색 노출 경쟁력 리포트</div>
+    <div><div class="t1">(주)베놈 VENOMAD · 병원 검색정보 운영 진단 리포트 · 병원 내부 참고용 — 광고 전재 금지</div>
       <h1>$hospital — $month_label</h1></div>
     <div class="meta">분석 반경 $radius_label · 발행 $issued<br>실데이터 기반 · 리포트 ID $report_id</div>
   </div>
   <div class="hero">
-    <div><div style="font-size:12px;color:var(--ink2)">마케팅 경쟁력 점수</div>
-      <div class="num">$final_score<small> / 100</small></div></div>
+    <div style="display:flex;align-items:center;gap:14px">
+      <svg width="112" height="70" viewBox="0 0 112 70" role="img" aria-label="진단 점수 $final_score점">
+        <path d="M 12 58 A 44 44 0 0 1 100 58" fill="none" stroke="var(--accent-l)" stroke-width="11" stroke-linecap="round"/>
+        <path d="M 12 58 A 44 44 0 0 1 100 58" fill="none" stroke="var(--accent)" stroke-width="11"
+          stroke-linecap="round" stroke-dasharray="$gauge_dash 138.3"/>
+        <text x="56" y="52" text-anchor="middle" font-size="27" font-weight="750" fill="var(--ink)">$final_score</text>
+      </svg>
+      <div style="font-size:11.5px;color:var(--ink2)">검색정보 운영<br>진단 점수<br><span style="color:var(--muted)">당사 산식 · 0~100</span></div>
+    </div>
     <div class="desc">$summary_text</div>
   </div>
   <h2>점수 구성</h2>
@@ -177,6 +187,10 @@ TEMPLATE = Template("""<!DOCTYPE html>
       <div class="track"><div class="fill" style="width:$s_place%"></div></div></div>
   </div>
   <h2>키워드별 노출 진단 (네이버 공식 API 기준 · 상위 5위 이내)</h2>
+  <div style="margin:2px 0 10px">
+    <div style="display:flex;gap:2px;height:14px;border-radius:7px;overflow:hidden">$grade_segments</div>
+    <div style="display:flex;gap:14px;font-size:10.5px;color:var(--ink2);margin-top:5px">$grade_legend</div>
+  </div>
   <table><thead><tr><th>키워드</th><th>API 기준</th><th class="num">API 내 위치</th><th>등급</th>
     <th>해당 키워드 1위 업체</th></tr></thead>
   <tbody>$keyword_rows</tbody></table>
@@ -187,30 +201,34 @@ TEMPLATE = Template("""<!DOCTYPE html>
   $stats_block
   <h2>이번 달 우선 개선 액션</h2>
   $action_blocks
-  <div class="basis"><b>측정 기준·고지</b> — 노출 지표: 네이버 지역 검색 API(비로그인 오픈 API, 결과 상위 5건, $issued 수집).
-  "미노출"은 공식 API 상위 5위 밖을 의미하며 실제 검색화면과 다를 수 있습니다.
+  <div class="basis"><b>측정 기준·고지</b> — 본 리포트는 병원 내부 운영 참고자료이며 의료광고물이 아닙니다.
+  환자 대상 광고·홍보물로 전재, 캡처, 인용, 배포할 수 없습니다. 진단 점수와 등급은 (주)베놈 산식에 따른 참고
+  지표이며, 특정 검색 순위 달성, 환자 유입, 매출 증가를 보장하지 않고 의료서비스의 질·치료 효과·환자 만족도를
+  의미하지 않습니다. 경쟁 병원에 대한 우열 판단이나 비방 목적으로 사용할 수 없습니다.
+  노출 지표: 네이버 지역 검색 API(비로그인 오픈 API, 결과 상위 5건, $issued 수집) — "미노출"은 API 응답 상위
+  5건 밖을 의미하며 실제 검색화면과 다를 수 있습니다.
   경쟁 병원: 건강보험심사평가원 병원정보서비스(반경 $radius_label, 진료과목 표방 기준, 개원/폐업 반영 시차 가능).
-  수요 지표: SGIS 잠재 수요 참고지표(실제 방문 수요 미보장). 본 리포트는 마케팅 운영 참고용이며
-  특정 검색 순위 달성이나 매출 증가를 보장하지 않습니다. 개선 액션은 의료광고 규정을 준수하는
-  운영·정보 정비 활동으로 한정됩니다.</div>
+  수요 지표: SGIS 잠재 수요 참고지표(실제 방문 수요 미보장). 개선 제안은 의료광고 규정을 준수하는
+  운영·정보 정비 활동으로 한정됩니다. 문의·정정 요청: (주)베놈 venomad.</div>
 </div></body></html>
 """)
 
 
 def render(args, data: dict) -> str:
+    esc = html.escape  # 병원명·키워드·API 응답 문자열은 외부 입력 — XSS 방지 필수
     s = data["scores"]
     kw_rows = []
     for k in data["keywords"]:
         cls, label = GRADE_LABEL[k["grade"]]
         kw_rows.append(
-            f"<tr><td><b>{k['keyword']}</b></td>"
+            f"<tr><td><b>{esc(k['keyword'])}</b></td>"
             f"<td>{'노출' if k['exposed'] else '미노출'}</td>"
             f"<td class='num'>{k['rank'] if k['rank'] else '—'}</td>"
             f"<td><span class='chip {cls}'><span class='d'></span>{label}</span></td>"
-            f"<td>{k['top1']}</td></tr>")
+            f"<td>{esc(k['top1'])}</td></tr>")
     comp_rows = [
-        f"<tr><td>{c['name']}</td><td class='num'>{c['distance_m']:.0f}m</td>"
-        f"<td>{(c['address'] or '')[:36]}</td></tr>"
+        f"<tr><td>{esc(c['name'])}</td><td class='num'>{c['distance_m']:.0f}m</td>"
+        f"<td>{esc((c['address'] or '')[:36])}</td></tr>"
         for c in data["competitors"][:8]]
     comp_rows.append(
         f"<tr><td colspan='3' style='color:var(--muted)'>가까운 8곳 표시 · "
@@ -220,7 +238,7 @@ def render(args, data: dict) -> str:
     if st:
         stats_block = (
             f"<table><tbody>"
-            f"<tr><td>행정구역</td><td class='num'>{st['adm_nm']} ({st['year']}년)</td></tr>"
+            f"<tr><td>행정구역</td><td class='num'>{esc(st['adm_nm'] or '')} ({st['year']}년)</td></tr>"
             f"<tr><td>총인구 / 인구밀도</td><td class='num'>{st['tot_ppltn']:,.0f}명 · {st['ppltn_dnsty']:,.0f}명/km²</td></tr>"
             f"<tr><td>반경 {args.radius}m 환산 인구(밀도 기반 근사)</td><td class='num'>약 {data['population']:,}명</td></tr>"
             f"<tr><td>평균연령</td><td class='num'>{st['avg_age']}세</td></tr>"
@@ -241,10 +259,27 @@ def render(args, data: dict) -> str:
         f"노출되고 있으며, 경쟁 밀도가 높은 상권 특성상 세분 지역 키워드 공략과 커버리지 확대가 "
         f"이번 달 개선 포인트입니다.")
 
+    # 등급 분포 인포그래픽 (분할 막대 + 범례)
+    cnt = {"top": 0, "mid": 0, "none": 0}
+    for k in data["keywords"]:
+        cnt[k["grade"]] += 1
+    seg_color = {"top": "var(--good)", "mid": "var(--warn)", "none": "var(--crit)"}
+    grade_segments = "".join(
+        f"<div style='flex:{cnt[g]};background:{seg_color[g]}'></div>"
+        for g in ("top", "mid", "none") if cnt[g])
+    grade_legend = "".join(
+        f"<span><span style='display:inline-block;width:8px;height:8px;border-radius:50%;"
+        f"background:{seg_color[g]};margin-right:4px'></span>{label} <b>{cnt[g]}</b></span>"
+        for g, label in (("top", "상위권"), ("mid", "중위권"), ("none", "미노출")))
+
+    gauge_dash = f"{138.3 * max(0.0, min(s['final'], 100.0)) / 100.0:.1f}"
+
     month = args.month or date.today().strftime("%Y-%m")
     y, m = month.split("-")
     return TEMPLATE.substitute(
-        hospital=args.name, month_label=f"{y}년 {int(m)}월",
+        hospital=esc(args.name), month_label=f"{y}년 {int(m)}월",
+        gauge_dash=gauge_dash,
+        grade_segments=grade_segments, grade_legend=grade_legend,
         radius_label=f"{args.radius / 1000:g}km",
         issued=date.today().isoformat(),
         report_id=f"RPT-{month}-LIVE",

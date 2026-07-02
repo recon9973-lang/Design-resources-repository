@@ -3,8 +3,36 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>우리 병원, 주변 1km 안에서 얼마나 잘 보이고 있나요? · 메디랭크 로컬</title>
-<meta name="description" content="공공데이터와 공식 API 기반 병원 검색 노출 경쟁력 진단. 반경 내 경쟁 병원, 키워드 노출, 개선 액션을 매달 리포트로 받아보세요.">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'unsafe-inline'; img-src 'self' data: https://*.google-analytics.com https://*.googletagmanager.com; connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com; form-action 'self'; base-uri 'self'; frame-ancestors 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>무료 병원 검색정보 운영 진단 신청 | (주)베놈 venomad</title>
+<meta name="description" content="(주)베놈이 병원의 공개정보와 검색정보 운영 상태를 무료로 진단해 드립니다. 반경 내 경쟁 현황, 키워드 노출 등급, 정보 정비 제안을 담은 내부 참고용 리포트.">
+<link rel="canonical" href="https://recon9973-lang.github.io/Design-resources-repository/hospital-marketing/landing/">
+<!-- Open Graph / 소셜 공유 -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="(주)베놈 venomad">
+<meta property="og:title" content="무료 병원 검색정보 운영 진단 신청">
+<meta property="og:description" content="반경 내 경쟁 현황, 키워드 노출 등급, 정보 정비 제안을 담은 무료 진단 리포트. 병원 내부 참고용으로 제공됩니다.">
+<meta property="og:url" content="https://recon9973-lang.github.io/Design-resources-repository/hospital-marketing/landing/">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary">
+<!-- 구조화 데이터: 조직 + FAQ -->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+ {"@type":"Organization","name":"(주)베놈","alternateName":"venomad",
+  "description":"병원 전문 광고대행사 — 무료 병원 검색정보 운영 진단 제공",
+  "url":"https://recon9973-lang.github.io/Design-resources-repository/hospital-marketing/landing/"},
+ {"@type":"FAQPage","mainEntity":[
+  {"@type":"Question","name":"정말 무료인가요? 조건이 있나요?",
+   "acceptedAnswer":{"@type":"Answer","text":"네, 무료입니다. 상담이나 광고대행 계약은 조건이 아니며, 선택 동의를 하지 않아도 리포트를 받으실 수 있습니다."}},
+  {"@type":"Question","name":"네이버 순위를 추적해 주나요?",
+   "acceptedAnswer":{"@type":"Answer","text":"아니요. 실시간 순위 추적은 하지 않습니다. 네이버 공식 오픈 API 기준으로 키워드별 상위 5건 내 노출 여부를 매달 측정하며, 실제 검색화면과 다를 수 있어 측정 조건과 함께 표기합니다."}},
+  {"@type":"Question","name":"리포트를 병원 블로그나 광고에 써도 되나요?",
+   "acceptedAnswer":{"@type":"Answer","text":"안 됩니다. 리포트는 병원 내부 운영 참고자료로, 환자 대상 광고·홍보물로 전재·캡처·인용·배포할 수 없습니다."}},
+  {"@type":"Question","name":"환자 리뷰도 분석하나요?",
+   "acceptedAnswer":{"@type":"Answer","text":"리뷰 본문은 수집·분석하지 않습니다. 리뷰 수 같은 집계값이 필요한 경우 병원에서 직접 확인해 입력하신 값만 사용합니다."}}
+ ]}]}
+</script>
 <style>
   :root{
     --ink:#0b0b0b; --ink2:#52514e; --muted:#898781;
@@ -22,8 +50,9 @@
   header{padding:14px 0;border-bottom:1px solid var(--grid);background:var(--surface)}
   .h-in{display:flex;align-items:center;gap:10px}
   .brand{font-weight:800;font-size:16px;display:flex;align-items:center;gap:8px}
-  .brand .mark{width:26px;height:26px;border-radius:7px;background:var(--accent);color:#fff;
-    display:inline-flex;align-items:center;justify-content:center;font-size:13px;font-weight:900}
+  .brand .mark{width:26px;height:26px;border-radius:7px;background:#0b0b0b;color:#fff;
+    display:inline-flex;align-items:center;justify-content:center;font-size:12px;font-weight:900}
+  .brand small{font-weight:600;color:var(--muted);font-size:11px}
   .h-in .cta-s{margin-left:auto}
 
   .btn{display:inline-block;font-weight:700;font-size:14.5px;padding:12px 22px;border-radius:10px;
@@ -31,21 +60,17 @@
   .btn:hover{background:var(--accent-d)}
   .btn.ghost{background:none;color:var(--accent);border:1.5px solid var(--accent);padding:10.5px 20px}
   .btn.sm{font-size:13px;padding:8px 16px}
+  .btn[disabled]{opacity:.45;cursor:not-allowed}
 
-  .hero{background:linear-gradient(160deg,#eef4fc 0%,#f9f9f7 70%);padding:64px 0 56px;text-align:center}
-  .hero h1{font-size:clamp(26px,4.6vw,42px);letter-spacing:-1.2px;line-height:1.22;margin:0 0 14px;font-weight:850}
+  .hero{background:linear-gradient(160deg,#eef4fc 0%,#f9f9f7 70%);padding:60px 0 50px;text-align:center}
+  .hero h1{font-size:clamp(25px,4.4vw,40px);letter-spacing:-1.2px;line-height:1.22;margin:0 0 14px;font-weight:850}
   .hero h1 em{font-style:normal;color:var(--accent)}
-  .hero p{font-size:16.5px;color:var(--ink2);max-width:620px;margin:0 auto 26px}
-  .hero .disc{font-size:12px;color:var(--muted);margin-top:14px}
+  .hero p{font-size:16px;color:var(--ink2);max-width:640px;margin:0 auto 24px}
+  .hero .disc{font-size:12px;color:var(--muted);margin-top:14px;max-width:680px;margin-left:auto;margin-right:auto}
 
-  section{padding:52px 0}
-  h2{font-size:24px;letter-spacing:-.6px;margin:0 0 8px;text-align:center}
-  .sec-sub{text-align:center;color:var(--ink2);font-size:14.5px;margin:0 0 30px}
-
-  .pains{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
-  .pain{background:var(--surface);border:1px solid var(--grid);border-radius:14px;padding:20px}
-  .pain b{display:block;font-size:15px;margin-bottom:4px}
-  .pain span{font-size:13.5px;color:var(--ink2)}
+  section{padding:48px 0}
+  h2{font-size:23px;letter-spacing:-.6px;margin:0 0 8px;text-align:center}
+  .sec-sub{text-align:center;color:var(--ink2);font-size:14.5px;margin:0 0 28px}
 
   .feats{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
   .feat{background:var(--surface);border:1px solid var(--grid);border-radius:14px;padding:22px;box-shadow:var(--shadow)}
@@ -63,139 +88,317 @@
   .trust-col li{margin-bottom:6px}
   .ok{color:var(--good);font-weight:800} .no{color:var(--crit);font-weight:800}
 
-  .plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;align-items:stretch}
-  .plan{background:var(--surface);border:1px solid var(--grid);border-radius:16px;padding:24px;display:flex;flex-direction:column}
-  .plan.hot{border:2px solid var(--accent);position:relative}
-  .plan.hot .tag{position:absolute;top:-11px;left:50%;transform:translateX(-50%);background:var(--accent);
-    color:#fff;font-size:11px;font-weight:800;border-radius:99px;padding:3px 12px;letter-spacing:.04em}
-  .plan h3{margin:0 0 2px;font-size:16px}
-  .plan .price{font-size:23px;font-weight:800;letter-spacing:-.5px;margin:6px 0 2px}
-  .plan .price small{font-size:12.5px;color:var(--muted);font-weight:600}
-  .plan ul{margin:12px 0 18px;padding-left:17px;font-size:13.5px;color:var(--ink2);flex:1}
-  .plan li{margin-bottom:6px}
+  /* ---------- 신청폼 ---------- */
+  .form-card{max-width:720px;margin:0 auto;background:var(--surface);border:1px solid var(--grid);
+    border-radius:16px;padding:28px;box-shadow:var(--shadow)}
+  .form-note{font-size:13px;color:var(--ink2);border:1px solid var(--grid);border-left:3px solid var(--accent);
+    border-radius:8px;padding:10px 14px;background:var(--plane);margin:0 0 20px}
+  fieldset{border:0;padding:0;margin:0 0 18px}
+  legend{font-size:14px;font-weight:750;margin-bottom:10px;padding:0}
+  .grid-f{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  @media (max-width:640px){.grid-f{grid-template-columns:1fr}}
+  .fld{display:flex;flex-direction:column;gap:4px}
+  .fld.full{grid-column:1/-1}
+  .fld label{font-size:12.5px;font-weight:650;color:var(--ink2)}
+  .fld label .req{color:var(--crit)}
+  .fld input,.fld select,.fld textarea{font:inherit;font-size:14px;padding:9px 11px;border:1px solid var(--grid);
+    border-radius:8px;background:var(--plane);color:var(--ink)}
+  .fld input:focus,.fld select:focus,.fld textarea:focus{outline:2px solid var(--accent-l);border-color:var(--accent)}
+  .consents{display:grid;gap:8px;margin:6px 0 0}
+  .consent{border:1px solid var(--grid);border-radius:10px;background:var(--plane);padding:10px 12px}
+  .consent.optional{background:var(--surface)}
+  .consent .row{display:flex;align-items:flex-start;gap:9px}
+  .consent input[type=checkbox]{width:17px;height:17px;margin-top:2px;flex:none;accent-color:var(--accent)}
+  .consent .txt{font-size:13px;font-weight:600}
+  .consent .tag{display:inline-block;font-size:10.5px;font-weight:800;border-radius:5px;padding:0 6px;margin-right:5px;vertical-align:1px}
+  .consent .tag.req{background:var(--crit);color:#fff}
+  .consent .tag.opt{background:var(--grid);color:var(--ink2)}
+  .consent details{margin:6px 0 0 26px}
+  .consent summary{font-size:12px;color:var(--accent);cursor:pointer;font-weight:600}
+  .consent .detail{font-size:12px;color:var(--ink2);margin-top:6px;line-height:1.6}
+  .consent .detail table{border-collapse:collapse;width:100%;font-size:11.5px;margin:6px 0}
+  .consent .detail th,.consent .detail td{border:1px solid var(--grid);padding:5px 8px;text-align:left;vertical-align:top}
+  .consent .detail th{background:var(--plane);white-space:nowrap;font-weight:650;color:var(--ink2)}
+  .consent .detail ol{padding-left:16px;margin:4px 0}
+  .subchecks{display:flex;gap:14px;flex-wrap:wrap;margin:8px 0 0 26px;font-size:12.5px}
+  .subchecks label{display:inline-flex;align-items:center;gap:5px;font-weight:600;color:var(--ink2)}
+  .form-foot{font-size:12px;color:var(--muted);margin:14px 0}
+  .submit-row{text-align:center;margin-top:8px}
+  .submit-row .btn{width:100%;max-width:340px;font-size:15.5px;padding:14px 22px}
+  .form-done{display:none;text-align:center;padding:34px 10px}
+  .form-done h3{font-size:18px;margin:0 0 8px}
+  .form-done p{font-size:13.5px;color:var(--ink2)}
 
   .faq{max-width:720px;margin:0 auto}
   .faq details{background:var(--surface);border:1px solid var(--grid);border-radius:12px;padding:14px 18px;margin-bottom:10px}
   .faq summary{font-weight:700;font-size:14.5px;cursor:pointer}
   .faq p{font-size:13.5px;color:var(--ink2);margin:10px 0 2px}
 
-  .final{background:var(--accent);color:#fff;text-align:center;padding:56px 0}
-  .final h2{color:#fff}
-  .final p{color:#dbe9fb;font-size:14.5px;margin:0 0 24px}
-  .final .btn{background:#fff;color:var(--accent-d)}
-
-  footer{padding:26px 0 40px;font-size:11.5px;color:var(--muted)}
+  footer{padding:26px 0 40px;font-size:11.5px;color:var(--muted);border-top:1px solid var(--grid)}
+  footer a{color:var(--ink2);text-decoration:underline}
 </style>
 </head>
 <body>
 
 <header><div class="wrap h-in">
-  <div class="brand"><span class="mark">M</span> 메디랭크 로컬</div>
-  <a class="btn sm cta-s" href="#beta">베타 신청</a>
+  <div class="brand"><span class="mark">V</span> (주)베놈 <small>venomad · 병원 검색정보 운영 진단</small></div>
+  <a class="btn sm cta-s" href="#apply">무료 진단 신청</a>
 </div></header>
 
 <div class="hero"><div class="wrap">
   <h1>우리 병원, <em>주변 1km 안</em>에서<br>얼마나 잘 보이고 있나요?</h1>
-  <p>공공데이터와 네이버 공식 API 기반으로 반경 내 경쟁 병원, 키워드 노출 상태,
-  잠재 수요를 종합해 <b>마케팅 경쟁력 점수(0~100)</b>와 이번 달 개선 액션을 매달 진단해 드립니다.</p>
-  <a class="btn" href="#beta">베타 병원 신청하기</a>
+  <p>(주)베놈이 병원의 공개정보와 검색정보 운영 상태를 점검하는 <b>무료 진단 리포트</b>를 제공합니다.
+  반경 내 경쟁 현황, 키워드 노출 등급, 이번 달 정비 포인트를 한 번에 확인하세요.</p>
+  <a class="btn" href="#apply">무료 진단 신청하기</a>
   <a class="btn ghost" href="../report/monthly-report.html" style="margin-left:8px">샘플 리포트 보기</a>
-  <div class="disc">건강보험심사평가원 · SGIS · 네이버 오픈 API 등 공식 데이터만 사용합니다</div>
+  <div class="disc">본 리포트는 병원 내부 운영 참고자료이며 의료광고물이 아닙니다. 특정 검색 순위 달성, 환자 유입, 예약 증가 또는
+  매출 증가를 보장하지 않습니다. 진단 결과는 공공데이터·네이버 지역 검색 API·통계청 공개 지표와 당사 산식에 따른 참고 자료입니다.
+  후속 광고대행 계약은 선택 사항이며, 무료 진단 신청과 별개입니다.</div>
 </div></div>
 
 <section><div class="wrap">
-  <h2>원장님이 매달 겪는 답답함</h2>
-  <p class="sec-sub">마케팅 대행사 보고서는 어렵고, 정작 궁금한 건 단순합니다.</p>
-  <div class="pains">
-    <div class="pain"><b>"환자들이 검색하면 우리가 나오긴 하나?"</b>
-      <span>핵심 키워드 10~30개의 노출 여부를 공식 API 기준으로 매달 확인합니다.</span></div>
-    <div class="pain"><b>"옆 건물에 또 개원했다는데 경쟁이 얼마나 심한 거지?"</b>
-      <span>반경 500m~2km 안 같은 진료과 병원 수와 위치를 지도로 보여드립니다.</span></div>
-    <div class="pain"><b>"대행사 보고서, 뭘 잘했다는 건지 모르겠다"</b>
-      <span>점수 하나와 이번 달 할 일 3가지로 요약합니다. 원장님은 분석가가 아니니까요.</span></div>
-  </div>
-</div></section>
-
-<section style="padding-top:0"><div class="wrap">
-  <h2>매달 받아보는 4가지</h2>
-  <p class="sec-sub">대시보드로 확인하고, PDF로 직원·대행사와 공유하세요.</p>
+  <h2>무료 진단 리포트에 담기는 것</h2>
+  <p class="sec-sub">건강보험심사평가원·통계청 공공데이터와 네이버 공식 API 기준으로 매달 측정합니다.</p>
   <div class="feats">
-    <div class="feat"><div class="ic">📊</div><h3>마케팅 경쟁력 점수</h3>
-      <p>노출 40% · 경쟁 밀도 25% · 수요/입지 20% · 플레이스 품질 15%를 합산한 0~100점과 전월 대비 변화.</p></div>
-    <div class="feat"><div class="ic">🗺️</div><h3>반경 경쟁 지도</h3>
-      <p>내 병원 중심 반경 링 위에 같은 진료과·유사 진료과 경쟁 병원 분포를 표시.</p></div>
-    <div class="feat"><div class="ic">🔍</div><h3>키워드 노출 진단</h3>
-      <p>키워드별 상위권/중위권/미노출 등급과 상위 경쟁 병원, 커버리지 공백.</p></div>
-    <div class="feat"><div class="ic">✅</div><h3>이번 달 액션 3가지</h3>
-      <p>의료광고 규정을 지키는 운영·정보 정비 중심의 우선순위 제안 + 월간 PDF 리포트.</p></div>
+    <div class="feat"><div class="ic">📊</div><h3>검색정보 운영 진단 점수</h3>
+      <p>노출·경쟁 밀도·수요 입지·플레이스 정보 완성도를 종합한 당사 산식 기준 참고 점수(0~100).</p></div>
+    <div class="feat"><div class="ic">🗺️</div><h3>반경 경쟁 현황 지도</h3>
+      <p>내 병원 중심 반경 500m~2km 안 같은 진료과 의료기관 수와 분포 (심평원 공공데이터 기준).</p></div>
+    <div class="feat"><div class="ic">🔍</div><h3>키워드 노출 등급</h3>
+      <p>핵심 키워드별 네이버 지역 검색 API 기준 상위 5건 내 노출 여부와 커버리지 공백.</p></div>
+    <div class="feat"><div class="ic">✅</div><h3>이번 달 정비 포인트</h3>
+      <p>의료광고 규정을 지키는 플레이스 정보·콘텐츠 정비 중심의 개선 제안 3가지.</p></div>
   </div>
 </div></section>
 
 <section class="trust"><div class="wrap">
-  <h2>안전하게 설계했습니다</h2>
-  <p class="sec-sub">의료광고·데이터 수집 리스크를 제품 구조에서부터 제거했습니다.</p>
+  <h2>안전하게 만듭니다</h2>
+  <p class="sec-sub">의료광고·데이터 수집 리스크를 자료 구조에서부터 제거했습니다.</p>
   <div class="trust-g">
     <div class="trust-col"><h3><span class="ok">✓</span> 이렇게 합니다</h3><ul>
-      <li>건강보험심사평가원 병원정보 등 <b>공공데이터</b>와 <b>네이버 공식 오픈 API</b>만 사용</li>
-      <li>실제 검색화면 확인은 월 1회 "참고 스냅샷"으로 제한, 수집 조건(위치·시간·기기) 기록</li>
-      <li>리뷰 수·평점 등 <b>공개 집계값</b>만 활용</li>
-      <li>모든 리포트에 데이터 출처·기준일·측정 조건 표기</li>
+      <li>건강보험심사평가원·통계청 <b>공공데이터</b>와 <b>네이버 공식 오픈 API</b>만 사용</li>
+      <li>모든 리포트에 출처·기준일·측정 조건 표기</li>
+      <li>경쟁 병원 정보는 사실형 수치만 (평가·비방 표현 없음)</li>
+      <li>리포트는 병원 내부 참고용으로만 제공</li>
     </ul></div>
     <div class="trust-col"><h3><span class="no">✕</span> 이렇게 하지 않습니다</h3><ul>
-      <li>"실시간 순위 추적", "상위노출 보장" 약속</li>
-      <li>대량 자동 크롤링, 차단·캡차 우회</li>
-      <li>리뷰 본문·환자 치료경험담 분석 및 광고 소재화</li>
-      <li>치료 효과 보장 표현, 경쟁 병원 비방·단정 비교</li>
+      <li>"실시간 순위 추적", "상위노출 보장", 매출·환자 유입 보장 약속</li>
+      <li>검색화면 크롤링, 대량 자동 수집</li>
+      <li>리뷰 본문·환자 치료경험담 수집 및 광고 소재화</li>
+      <li>리포트 내용의 환자 대상 광고물 전재</li>
     </ul></div>
   </div>
 </div></section>
 
-<section><div class="wrap">
-  <h2>요금</h2>
-  <p class="sec-sub">베타 기간에는 할인된 가격으로 제공됩니다.</p>
-  <div class="plans">
-    <div class="plan"><h3>Starter</h3>
-      <div class="price">월 9~19만원</div>
-      <ul><li>병원 1개</li><li>핵심 키워드 10개</li><li>반경 분석 (500m~2km)</li><li>월간 PDF 리포트</li></ul>
-      <a class="btn ghost" href="#beta">베타 신청</a></div>
-    <div class="plan hot"><span class="tag">추천</span><h3>Pro</h3>
-      <div class="price">월 29~49만원</div>
-      <ul><li>키워드 30개</li><li>경쟁 병원 벤치마크</li><li>월간 참고 스냅샷 포함*</li><li>개선 액션 상세</li></ul>
-      <a class="btn" href="#beta">베타 신청</a></div>
-    <div class="plan"><h3>Premium</h3>
-      <div class="price">월 79만원~</div>
-      <ul><li>다지점 병원</li><li>대행사 공유·화이트라벨</li><li>맞춤 키워드 사전</li><li>컨설팅 리포트</li></ul>
-      <a class="btn ghost" href="#beta">문의하기</a></div>
+<!-- ================= 신청폼 ================= -->
+<section id="apply"><div class="wrap">
+  <h2>무료 병원 검색정보 운영 진단 신청</h2>
+  <p class="sec-sub">신청 후 영업일 기준 3일 이내에 선택하신 방식으로 리포트를 보내드립니다.</p>
+
+  <div class="form-card">
+    <form id="applyForm" novalidate>
+      <!-- 허니팟: 사람에게는 보이지 않는 필드. 봇이 채우면 제출을 무시한다 -->
+      <div style="position:absolute;left:-9999px;top:-9999px" aria-hidden="true">
+        <label>회사 웹사이트 <input type="text" name="company_website" tabindex="-1" autocomplete="off"></label>
+      </div>
+      <p class="form-note">컨설팅 안내 및 광고성 정보 수신은 <b>선택 사항</b>이며,
+      선택 동의를 하지 않아도 무료 진단 리포트 신청에는 불이익이 없습니다.</p>
+
+      <fieldset>
+        <legend>병원 정보</legend>
+        <div class="grid-f">
+          <div class="fld"><label>병원명 <span class="req">*</span></label><input required name="hospital" placeholder="예: 밝은빛피부과의원"></div>
+          <div class="fld"><label>진료과목 <span class="req">*</span></label><input required name="department" placeholder="예: 피부과"></div>
+          <div class="fld full"><label>병원 주소 <span class="req">*</span></label><input required name="address" placeholder="예: 서울 강남구 테헤란로 000"></div>
+          <div class="fld"><label>병원 대표번호 (선택)</label><input name="tel" placeholder="02-000-0000"></div>
+          <div class="fld"><label>홈페이지/플레이스 URL (선택)</label><input name="url" placeholder="https://"></div>
+          <div class="fld full"><label>확인하고 싶은 주요 키워드 (선택)</label><input name="keywords" placeholder="예: 강남 피부과, 역삼역 여드름치료 (쉼표로 구분)"></div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>신청자 정보</legend>
+        <div class="grid-f">
+          <div class="fld"><label>성명 <span class="req">*</span></label><input required name="name"></div>
+          <div class="fld"><label>직책/역할 <span class="req">*</span></label><input required name="role" placeholder="예: 원장, 마케팅 담당"></div>
+          <div class="fld"><label>휴대전화번호 <span class="req">*</span></label><input required name="phone" placeholder="010-0000-0000"></div>
+          <div class="fld"><label>이메일 <span class="req">*</span></label><input required type="email" name="email"></div>
+          <div class="fld"><label>리포트 수령 방식 <span class="req">*</span></label>
+            <select required name="delivery"><option value="">선택</option><option>이메일</option><option>문자 링크</option><option>둘 다</option></select></div>
+          <div class="fld"><label>상담 희망 여부 (선택)</label>
+            <select name="consult"><option value="">선택 안 함</option><option>진단 결과 설명을 듣고 싶어요</option><option>리포트만 받을게요</option></select></div>
+          <div class="fld full"><label>기타 문의사항 (선택)</label><textarea name="etc" rows="2"></textarea></div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>동의 사항</legend>
+        <div class="consents">
+
+          <div class="consent">
+            <div class="row"><input type="checkbox" id="c1" required>
+              <label for="c1" class="txt"><span class="tag req">필수</span>무료 진단 리포트 제공을 위한 개인정보 수집·이용에 동의합니다.</label></div>
+            <details><summary>상세 내용 보기</summary><div class="detail">
+              <table>
+                <tr><th>수집·이용 목적</th><td>무료 진단 신청 접수, 신청자 확인, 병원 검색정보 진단 리포트 생성 및 전달, 신청 관련 문의 응대</td></tr>
+                <tr><th>수집 항목</th><td>병원명, 병원 주소, 진료과목, 신청자 성명, 직책, 휴대전화번호, 이메일, 리포트 수령 방식 (선택: 대표번호, URL, 키워드, 상담 희망, 문의사항)</td></tr>
+                <tr><th>보유·이용 기간</th><td>리포트 제공 완료 후 1년 또는 삭제 요청 시까지 (법령상 의무 보관 예외)</td></tr>
+                <tr><th>동의 거부권</th><td>동의를 거부할 수 있으나, 필수 항목 거부 시 무료 진단 리포트 제공이 제한될 수 있습니다.</td></tr>
+              </table>근거: 개인정보보호법 제15조
+            </div></details>
+          </div>
+
+          <div class="consent">
+            <div class="row"><input type="checkbox" id="c2" required>
+              <label for="c2" class="txt"><span class="tag req">필수</span>무료 진단자료 제공조건에 동의합니다.</label></div>
+            <details><summary>상세 내용 보기</summary><div class="detail">
+              <ol>
+                <li>본 리포트는 병원 내부 운영 참고자료이며 의료광고물이 아닙니다.</li>
+                <li>환자 또는 일반 소비자 대상 광고·홍보물로 전재, 캡처, 인용, 배포할 수 없습니다.</li>
+                <li>리포트에 포함된 경쟁 병원명, 거리, 노출 등급, 진단 점수, 개선 제안은 환자 대상 광고 문구로 사용할 수 없습니다.</li>
+                <li>진단 점수와 등급은 당사 산식에 따른 참고 지표이며, 의료서비스의 질, 치료 효과, 환자 만족도, 검색 순위, 환자 유입, 예약 증가 또는 매출 증가를 의미하거나 보장하지 않습니다.</li>
+                <li>원천 데이터(공공데이터·외부 API)의 오류, 변경, 중단, 갱신 지연이 있을 수 있습니다.</li>
+                <li>후속 광고대행 계약은 선택 사항이며, 무료 진단 신청만으로 계약이 체결되지 않습니다.</li>
+                <li>제공조건 위반 시 (주)베놈은 자료 제공 중단, 삭제 요청 등 필요한 조치를 할 수 있습니다.</li>
+              </ol>
+            </div></details>
+          </div>
+
+          <div class="consent optional">
+            <div class="row"><input type="checkbox" id="c3">
+              <label for="c3" class="txt"><span class="tag opt">선택</span>컨설팅 및 광고대행 상담 안내를 위한 개인정보 수집·이용에 동의합니다.</label></div>
+            <details><summary>상세 내용 보기</summary><div class="detail">
+              <table>
+                <tr><th>수집·이용 목적</th><td>진단 결과 설명, 병원 검색정보 정비 상담, 광고대행 서비스 안내, 병원 마케팅 관련 정보 제공</td></tr>
+                <tr><th>수집 항목</th><td>병원명, 신청자 성명, 직책, 휴대전화번호, 이메일, 상담 희망 여부·시간대, 문의 내용</td></tr>
+                <tr><th>보유·이용 기간</th><td>동의 철회 시 또는 수집일로부터 2년 중 먼저 도래하는 시점까지</td></tr>
+                <tr><th>동의 거부권</th><td>거부할 수 있으며, 거부해도 무료 진단 리포트 제공에는 영향이 없습니다.</td></tr>
+              </table>근거: 개인정보보호법 제15조, 제22조
+            </div></details>
+          </div>
+
+          <div class="consent optional">
+            <div class="row"><input type="checkbox" id="c4" data-master="adch">
+              <label for="c4" class="txt"><span class="tag opt">선택</span>(주)베놈의 광고성 정보 수신에 동의합니다. (채널별 선택)</label></div>
+            <div class="subchecks">
+              <label><input type="checkbox" name="ad_sms" class="adch"> 문자</label>
+              <label><input type="checkbox" name="ad_email" class="adch"> 이메일</label>
+              <label><input type="checkbox" name="ad_call" class="adch"> 전화 상담</label>
+            </div>
+            <details><summary>상세 내용 보기</summary><div class="detail">
+              동의한 채널로 병원 검색정보 정비, 마케팅 컨설팅, 광고대행 서비스, 이벤트 및 혜택 등 광고성 정보를 받게 됩니다.
+              수신 동의는 선택 사항이며, 동의하지 않아도 무료 진단 리포트 제공에는 영향이 없습니다.
+              언제든지 수신 동의를 철회할 수 있으며, 철회 방법은 각 메시지 또는 개인정보처리방침에 안내됩니다.
+              (근거: 정보통신망법 제50조 · 수신 동의는 2년마다 재확인합니다)
+            </div></details>
+          </div>
+
+        </div>
+      </fieldset>
+
+      <p class="form-foot">신청 버튼을 누르면 위 <b>필수</b> 동의 사항에 동의한 것으로 처리됩니다.
+      개인정보 처리에 관한 자세한 내용은 <a href="privacy.html" style="text-decoration:underline">개인정보처리방침</a>을 확인하세요.
+      동의 일시·내역은 법령에 따라 기록·보관됩니다.</p>
+
+      <div class="submit-row"><button type="submit" class="btn">무료 진단 신청하기</button></div>
+    </form>
+
+    <div class="form-done" id="formDone">
+      <h3>신청이 접수되었습니다 ✓</h3>
+      <p>영업일 기준 3일 이내에 선택하신 방식으로 진단 리포트를 보내드립니다.<br>
+      (프로토타입 화면입니다 — 실제 접수 서버 연동 전)</p>
+    </div>
   </div>
-  <p style="font-size:11.5px;color:var(--muted);text-align:center;margin-top:12px">* 참고 스냅샷은 법무 검토 완료 후 제공되는 기능입니다.</p>
 </div></section>
 
 <section style="padding-top:0"><div class="wrap faq">
   <h2>자주 묻는 질문</h2>
   <p class="sec-sub"></p>
-  <details><summary>네이버 순위를 실시간으로 추적해 주나요?</summary>
-    <p>아니요. 저희는 실시간 순위 추적을 하지 않고, 그런 약속도 하지 않습니다. 네이버 공식 API 기준 노출 지표를 매달 수집하고,
-    실제 검색화면은 월 1회 기준 조건을 기록한 "참고 스냅샷"으로만 확인합니다. 두 지표는 다를 수 있어 항상 분리해 표기합니다.</p></details>
-  <details><summary>상위노출을 보장하나요?</summary>
-    <p>보장하지 않습니다. 저희가 드리는 것은 현재 상태의 정확한 진단과, 의료광고 규정을 지키면서 병원이 직접 개선할 수 있는
-    운영·정보 정비 액션입니다.</p></details>
+  <details><summary>정말 무료인가요? 조건이 있나요?</summary>
+    <p>네, 무료입니다. 상담이나 광고대행 계약은 전혀 조건이 아니며, 선택 동의를 하지 않아도 리포트를 받으실 수 있습니다.
+    저희는 이 진단을 통해 병원 검색정보 정비의 필요성을 확인하신 원장님들과 자연스럽게 컨설팅으로 이어지기를 기대할 뿐입니다.</p></details>
+  <details><summary>네이버 순위를 추적해 주나요?</summary>
+    <p>아니요. 실시간 순위 추적은 하지 않고, 그런 약속도 하지 않습니다. 네이버 <b>공식 오픈 API</b> 기준으로
+    키워드별 상위 5건 내 노출 여부를 매달 측정하며, 이는 실제 검색화면과 다를 수 있어 항상 측정 조건과 함께 표기합니다.</p></details>
+  <details><summary>리포트를 병원 블로그나 광고에 써도 되나요?</summary>
+    <p>안 됩니다. 리포트는 병원 내부 운영 참고자료로, 환자 대상 광고·홍보물로 전재·캡처·인용·배포할 수 없습니다
+    (제공조건 동의 사항). 광고물 제작이 필요하시면 별도 상담을 통해 의료광고 규정을 준수하는 절차로 진행합니다.</p></details>
   <details><summary>환자 리뷰도 분석하나요?</summary>
-    <p>리뷰 본문은 수집·분석하지 않습니다. 리뷰 수·평점 같은 공개 집계값만 경쟁 비교에 제한적으로 사용합니다.</p></details>
-  <details><summary>개원 예정인데 입지 분석도 되나요?</summary>
-    <p>개원 입지 비교 리포트(후보지 3~5곳의 경쟁·인구·상권 비교)는 별도 프리미엄 리포트로 준비 중입니다. 베타 신청 시 관심 여부를 남겨주세요.</p></details>
+    <p>리뷰 본문은 수집·분석하지 않습니다. 리뷰 수 같은 집계값이 필요한 경우 병원에서 직접 확인해 입력하신 값만 사용합니다.</p></details>
 </div></section>
 
-<div class="final" id="beta"><div class="wrap">
-  <h2>베타 병원 20곳을 모집합니다</h2>
-  <p>고경쟁 비급여 진료과(피부과·성형외과·치과·한의원·안과 등) 우선 · 첫 달 무료 진단 리포트 제공</p>
-  <a class="btn" href="mailto:recon9973@gmail.com?subject=%5B%EB%A9%94%EB%94%94%EB%9E%AD%ED%81%AC%20%EB%B2%A0%ED%83%80%5D%20%EC%8B%A0%EC%B2%AD&body=%EB%B3%91%EC%9B%90%EB%AA%85%3A%0A%EC%A7%80%EC%97%AD%3A%0A%EC%A7%84%EB%A3%8C%EA%B3%BC%3A%0A%EC%97%B0%EB%9D%BD%EC%B2%98%3A">이메일로 베타 신청하기</a>
-</div></div>
-
 <footer><div class="wrap">
-  메디랭크 로컬(가칭) · 본 페이지는 MVP 검증용 초안입니다. 서비스는 특정 검색 순위 달성이나 매출 증가를 보장하지 않으며,
-  제공되는 개선 제안은 의료법상 의료광고 규정을 준수하는 운영·정보 정비 활동으로 한정됩니다.
-  데이터 출처: 건강보험심사평가원 · 소상공인시장진흥공단 · 행정안전부 · SGIS · 네이버 오픈 API.
+  (주)베놈 venomad · 병원 검색정보 운영 진단 (무료 제공) · <a href="privacy.html">개인정보처리방침</a><br>
+  본 페이지와 진단 리포트는 병원 내부 운영 참고 목적이며, 특정 검색 순위 달성이나 매출 증가를 보장하지 않습니다.
+  진단 결과는 당사 산식에 따른 참고 지표입니다.
+  데이터 출처: 건강보험심사평가원 병원정보서비스 · 소상공인시장진흥공단 · 행정안전부 · 통계청 SGIS · 네이버 오픈 API.
+  본 화면은 접수 서버 연동 전 프로토타입입니다.
 </div></footer>
 
+<script>
+"use strict";
+/* ---------- GA4 방문자 집계 ----------
+   측정 ID를 발급받아 아래에 넣으면 활성화됩니다 (placeholder 상태에서는 로드 안 함).
+   활성화 시 쿠키 기반 행태정보 수집이 시작됩니다 — 개인정보처리방침의
+   자동수집 항목(쿠키·방문기록)이 게시된 상태인지 확인하세요. */
+const GA_MEASUREMENT_ID = 'G-XXXXXXXXXX'; // TODO: GA4 측정 ID로 교체
+if (!/X{4}/.test(GA_MEASUREMENT_ID)) {
+  const s = document.createElement('script');
+  s.async = true;
+  s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_MEASUREMENT_ID;
+  document.head.appendChild(s);
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = function(){ dataLayer.push(arguments); };
+  gtag('js', new Date());
+  gtag('config', GA_MEASUREMENT_ID, { anonymize_ip: true });
+}
+
+// 채널 마스터 체크박스: c4 토글 시 하위 채널 일괄, 하위 변경 시 마스터 동기화
+const master = document.getElementById('c4');
+const subs = [...document.querySelectorAll('.adch')];
+master.addEventListener('change', () => subs.forEach(s => s.checked = master.checked));
+subs.forEach(s => s.addEventListener('change', () => master.checked = subs.some(x => x.checked)));
+
+/* 어뷰징 클라이언트 가드 — UX용 1차 방어. 실효 차단은 접수 서버에서 수행
+   (docs/어뷰징-방지-정책.md: IP당 일 3회, 이메일당 월 2회, 병원당 월 1회) */
+const FORM_OPENED_AT = Date.now();
+const DAILY_LIMIT = 2;
+function todaySubmits() {
+  try {
+    const d = JSON.parse(localStorage.getItem('venom_dx') || '{}');
+    return d.date === new Date().toDateString() ? (d.n || 0) : 0;
+  } catch { return 0; }
+}
+function recordSubmit() {
+  try {
+    localStorage.setItem('venom_dx',
+      JSON.stringify({ date: new Date().toDateString(), n: todaySubmits() + 1 }));
+  } catch {}
+}
+
+document.getElementById('applyForm').addEventListener('submit', e => {
+  e.preventDefault();
+  const f = e.target;
+  if (f.company_website && f.company_website.value) return; // 허니팟 — 봇 무시
+  if (Date.now() - FORM_OPENED_AT < 3000) {                 // 3초 미만 제출 = 자동화 의심
+    alert('입력 내용을 확인한 뒤 다시 제출해 주세요.');
+    return;
+  }
+  if (!f.reportValidity()) return;
+  if (!document.getElementById('c1').checked || !document.getElementById('c2').checked) {
+    alert('필수 동의 사항(개인정보 수집·이용, 제공조건)에 체크해 주세요.');
+    return;
+  }
+  if (todaySubmits() >= DAILY_LIMIT) {
+    alert('오늘 신청 가능 횟수를 초과했습니다. 내일 다시 시도하시거나 문의처로 연락해 주세요.');
+    return;
+  }
+  recordSubmit();
+  if (window.gtag) gtag('event', 'diagnosis_apply', { method: 'form' }); // 전환 이벤트
+  // 프로토타입: 접수 서버 연동 전. 실제 구현 시 동의 일시/IP/문구 버전 함께 저장.
+  f.style.display = 'none';
+  document.getElementById('formDone').style.display = 'block';
+});
+</script>
 </body>
 </html>

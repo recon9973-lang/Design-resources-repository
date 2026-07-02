@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /hospital-marketing/admin/
+Disallow: /hospital-marketing/location/
+Disallow: /hospital-marketing/data/
+Disallow: /hospital-marketing/pipeline/
+Allow: /hospital-marketing/landing/
