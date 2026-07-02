@@ -12,9 +12,8 @@ https://developers.naver.com/docs/serviceapi/search/local/local.md
 import json
 import re
 import urllib.parse
-import urllib.request
 
-from .. import config
+from .. import config, httpx
 
 API_URL = "https://openapi.naver.com/v1/search/local.json"
 MAX_DISPLAY = 5  # 지역 검색 API 상한
@@ -32,15 +31,14 @@ def search_local(keyword: str) -> list[dict]:
         return _fixture_results(keyword)
 
     q = urllib.parse.urlencode({"query": keyword, "display": MAX_DISPLAY, "sort": "random"})
-    req = urllib.request.Request(
+    payload = json.loads(httpx.get_bytes(
         API_URL + "?" + q,
         headers={
             "X-Naver-Client-Id": config.NAVER_CLIENT_ID,
             "X-Naver-Client-Secret": config.NAVER_CLIENT_SECRET,
         },
-    )
-    with urllib.request.urlopen(req, timeout=15) as resp:
-        payload = json.loads(resp.read())
+        timeout=30,
+    ))
     return [
         {
             "rank": i + 1,

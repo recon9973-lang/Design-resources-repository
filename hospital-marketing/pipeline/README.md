@@ -16,6 +16,9 @@ python3 run_report.py --radius 500 --out metrics.json
 
 # 테스트
 python3 -m unittest discover -s tests
+
+# 0단계 실데이터 검증 (.env에 실키 필요)
+python3 validate_stage0.py --name 라메스피부과의원 --lat 37.5079 --lng 127.0382
 ```
 
 ## 실데이터 모드
@@ -26,6 +29,14 @@ python3 -m unittest discover -s tests
 | --- | --- |
 | `DATA_GO_KR_SERVICE_KEY` | [공공데이터포털](https://www.data.go.kr) → 병원정보서비스 활용신청 |
 | `NAVER_CLIENT_ID/SECRET` | [네이버 개발자센터](https://developers.naver.com) → 애플리케이션 등록 |
+| `SGIS_CONSUMER_KEY/SECRET` | [SGIS 개발자센터](https://sgis.kostat.go.kr/developer/) → 인증키 신청 |
+
+2026-07-02 실키 검증 완료: HIRA 반경검색(거리 교차검증 0건 불일치), 네이버
+노출 감지(노출/미노출 양방향 확인), SGIS 인구·상권 지표(강남구) 정상.
+
+주의: 네이버 지역 검색 API는 결과가 최대 5건이라 "미노출"은 "공식 API 상위
+5위 밖"을 의미한다. 고객 화면 문구도 이 기준으로 표기한다. SGIS 구(舊) 도메인
+sgisapi.kostat.go.kr은 sgisapi.mods.go.kr로 리다이렉트된다(방화벽 허용 필요).
 
 ## 구조
 
