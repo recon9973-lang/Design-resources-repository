@@ -1,0 +1,176 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src data:;">
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<title>검색정보 운영 진단 — 대구병원마케팅 × 베놈 (테스트)</title>
+<style>
+:root{
+  --bg:#f6f8fb; --card:#ffffff; --ink:#1d2735; --sub:#5b6a7e; --line:#dfe6ef;
+  --accent:#2a78d6; --accent-soft:#e8f1fc;
+  --good:#1e8a4a; --good-bg:#e7f5ec;
+  --bad:#c23a3a; --bad-bg:#faecec;
+  --mute:#8a97a8; --mute-bg:#eef1f5;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#10161f; --card:#182130; --ink:#e8edf4; --sub:#9db0c5; --line:#2a3648;
+    --accent:#5b9ee8; --accent-soft:#1c2c42;
+    --good:#4cc07a; --good-bg:#173324;
+    --bad:#e07070; --bad-bg:#3a2020;
+    --mute:#71809a; --mute-bg:#202a3a;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#10161f; --card:#182130; --ink:#e8edf4; --sub:#9db0c5; --line:#2a3648;
+  --accent:#5b9ee8; --accent-soft:#1c2c42;
+  --good:#4cc07a; --good-bg:#173324;
+  --bad:#e07070; --bad-bg:#3a2020;
+  --mute:#71809a; --mute-bg:#202a3a;
+}
+:root[data-theme="light"]{
+  --bg:#f6f8fb; --card:#ffffff; --ink:#1d2735; --sub:#5b6a7e; --line:#dfe6ef;
+  --accent:#2a78d6; --accent-soft:#e8f1fc;
+  --good:#1e8a4a; --good-bg:#e7f5ec;
+  --bad:#c23a3a; --bad-bg:#faecec;
+  --mute:#8a97a8; --mute-bg:#eef1f5;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:"Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",system-ui,sans-serif;
+  line-height:1.62;-webkit-text-size-adjust:100%}
+.wrap{max-width:860px;margin:0 auto;padding:28px 18px 64px;display:flex;flex-direction:column;gap:22px}
+header.brand{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;
+  border-bottom:2px solid var(--accent);padding-bottom:14px}
+.brandname{font-weight:800;font-size:15px;color:var(--accent);white-space:nowrap;letter-spacing:.02em}
+.brandnote{font-size:12px;color:var(--sub)}
+h1{font-size:24px;margin:0;line-height:1.35;text-wrap:balance}
+h2{font-size:16px;margin:0 0 12px;display:flex;align-items:center;gap:8px}
+h2::before{content:"";display:inline-block;width:4px;height:16px;background:var(--accent);border-radius:2px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:20px 22px}
+.meta{display:flex;gap:18px;flex-wrap:wrap;font-size:13px;color:var(--sub);margin-top:10px}
+.meta b{color:var(--ink);font-weight:700}
+.pill{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.06em;color:var(--accent);
+  background:var(--accent-soft);border-radius:999px;padding:3px 10px;margin-bottom:10px}
+.summary{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px}
+.stat .k{font-size:12px;color:var(--sub);letter-spacing:.04em}
+.stat .v{font-size:22px;font-weight:800;margin-top:2px;font-variant-numeric:tabular-nums}
+.stat .v.good{color:var(--good)} .stat .v.bad{color:var(--bad)}
+.stat .d{font-size:12px;color:var(--sub);margin-top:2px}
+.tblwrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:13.5px;min-width:520px}
+th,td{border-bottom:1px solid var(--line);padding:9px 10px;text-align:left;vertical-align:top}
+th{font-size:12px;color:var(--sub);font-weight:700;letter-spacing:.03em;white-space:nowrap}
+td.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+.tag{display:inline-block;font-size:12px;font-weight:700;border-radius:6px;padding:2px 9px;white-space:nowrap}
+.tag.good{color:var(--good);background:var(--good-bg)}
+.tag.bad{color:var(--bad);background:var(--bad-bg)}
+.tag.mute{color:var(--mute);background:var(--mute-bg)}
+tr.self td{background:var(--accent-soft)}
+tr.self td:first-child{font-weight:700}
+.evi{margin:0;padding-left:0;list-style:none;display:flex;flex-direction:column;gap:10px}
+.evi li{border-left:3px solid var(--accent);padding:2px 0 2px 12px}
+.evi .t{font-weight:700;font-size:13.5px}
+.evi .s{font-size:12.5px;color:var(--sub);overflow-wrap:anywhere}
+.gap{display:flex;flex-direction:column;gap:12px}
+.gap-item{display:flex;gap:10px;align-items:flex-start}
+.gap-item .n{flex:none;width:22px;height:22px;border-radius:50%;background:var(--accent);color:#fff;
+  font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center;margin-top:2px}
+.gap-item p{margin:0;font-size:13.5px}
+.notice{font-size:12px;color:var(--sub);line-height:1.7}
+.notice ul{margin:6px 0 0;padding-left:18px}
+footer{font-size:11.5px;color:var(--mute);text-align:center;border-top:1px solid var(--line);padding-top:14px}
+@media (max-width:480px){ h1{font-size:20px} .card{padding:16px} }
+</style>
+
+<div class="wrap">
+
+<header class="brand">
+  <span class="brandname">(주)베놈 VENOMAD</span>
+  <span class="brandnote">검색정보 운영 진단 · 자사 테스트 리포트 — 내부 참고용 · 전재 금지</span>
+</header>
+
+<section>
+  <span class="pill">TEST RUN · 실데이터</span>
+  <h1>키워드 "대구병원마케팅" — 베놈 검색정보 운영 진단</h1>
+  <div class="meta">
+    <span>대상 업체 <b>베놈 (베놈애드)</b></span>
+    <span>키워드 <b>대구병원마케팅</b></span>
+    <span>조회 기준일 <b>2026-07-03</b></span>
+    <span>출처 <b>네이버 오픈 API (비로그인)</b></span>
+  </div>
+</section>
+
+<section class="summary">
+  <div class="stat"><div class="k">플레이스(지역)</div><div class="v good">2위 · 3위</div><div class="d">상위 5건 중 2건</div></div>
+  <div class="stat"><div class="k">웹문서</div><div class="v good">1위</div><div class="d">상위 30건 중 6건</div></div>
+  <div class="stat"><div class="k">지식iN</div><div class="v good">3위</div><div class="d">답변 내 언급</div></div>
+  <div class="stat"><div class="k">블로그 · 카페 · 뉴스 · 이미지</div><div class="v bad">미노출</div><div class="d">상위 30건 내 없음</div></div>
+</section>
+
+<section class="card">
+  <h2>플레이스(지역검색) 상위 5건</h2>
+  <div class="tblwrap"><table>
+    <thead><tr><th>순번</th><th>업체명</th><th>주소</th><th>분류</th></tr></thead>
+    <tbody>
+      <tr><td class="num">1</td><td>야우린</td><td>서울 강남구 도산대로16길 15</td><td>광고대행</td></tr>
+      <tr class="self"><td class="num">2</td><td>베놈애드 대구달서점</td><td>대구 달서구 월배로80길 116</td><td>광고대행</td></tr>
+      <tr class="self"><td class="num">3</td><td>베놈애드</td><td>대구 수성구 용학로25길 54</td><td>광고대행</td></tr>
+      <tr><td class="num">4</td><td>코리아프로마케팅 대구센터</td><td>대구 서구 와룡로 307</td><td>광고대행</td></tr>
+      <tr><td class="num">5</td><td>이지컴퍼니</td><td>대구 중구 대봉로 200</td><td>광고대행</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section class="card">
+  <h2>통합검색 콘텐츠 영역별 결과</h2>
+  <div class="tblwrap"><table>
+    <thead><tr><th>영역</th><th>영역 존재</th><th>베놈 노출</th><th>위치(API 순번)</th><th>비고</th></tr></thead>
+    <tbody>
+      <tr><td>블로그</td><td><span class="tag mute">활성</span></td><td><span class="tag bad">미노출</span></td><td class="num">—</td><td>상위 30건 전부 타사 콘텐츠</td></tr>
+      <tr><td>카페</td><td><span class="tag mute">활성</span></td><td><span class="tag bad">미노출</span></td><td class="num">—</td><td>상위권은 업체 추천·비교성 글</td></tr>
+      <tr><td>웹문서</td><td><span class="tag mute">활성</span></td><td><span class="tag good">노출</span></td><td class="num">1 (총 6건)</td><td>네이버TV·자사 사이트·블로그 채널</td></tr>
+      <tr><td>뉴스</td><td><span class="tag mute">활성</span></td><td><span class="tag bad">미노출</span></td><td class="num">—</td><td>키워드 관련성 자체가 낮은 영역</td></tr>
+      <tr><td>이미지</td><td><span class="tag mute">활성</span></td><td><span class="tag bad">미노출</span></td><td class="num">—</td><td>타사 이미지가 상위</td></tr>
+      <tr><td>지식iN</td><td><span class="tag mute">활성</span></td><td><span class="tag good">노출</span></td><td class="num">3</td><td>문의 글 답변 내 베놈 언급</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section class="card">
+  <h2>노출 확인 콘텐츠 (웹문서 6건 전수 검증)</h2>
+  <ul class="evi">
+    <li><div class="t">1위 · 대구병원마케팅 베놈_마케픽 — 네이버TV 채널 소개</div><div class="s">tv.naver.com/venomad (5위에 동일 채널 목록 페이지)</div></li>
+    <li><div class="t">8위 · 대구 병원마케팅 전문 | 홈페이지 제작 · GEO · 온라인광고 | 베놈애드</div><div class="s">venomad.com — 자사 공식 사이트 메인</div></li>
+    <li><div class="t">13위 · 대구 병원 마케팅 잘하는 업체 고르는 방법 10가지 — 베놈애드</div><div class="s">venomad.com 공지 게시글</div></li>
+    <li><div class="t">15위 · 대구병원마케팅_VENOM — 공식 블로그 채널</div><div class="s">blog.naver.com/venomad (채널 페이지가 웹문서 영역에 노출 — 블로그 영역 노출과는 별개)</div></li>
+    <li><div class="t">30위 · [venom] 병원마케팅 &amp; 브랜딩 콘텐츠 마케팅 채용공고</div><div class="s">saramin.co.kr</div></li>
+  </ul>
+</section>
+
+<section class="card">
+  <h2>진단 요약과 개선 포인트</h2>
+  <div class="gap">
+    <div class="gap-item"><span class="n">1</span><p><b>블로그 영역 공백이 가장 큰 갭.</b> 이 키워드의 통합영역(스마트블록) 핵심 소스인 블로그 상위 30건에 자사 글이 없음. 공식 블로그 채널은 웹문서 영역에만 잡힘 — 키워드 최적화 포스팅 보강 필요.</p></div>
+    <div class="gap-item"><span class="n">2</span><p><b>카페 영역은 경쟁사가 선점.</b> "잘하는 곳 추천/기준" 형태의 글이 상위권 — 동일 형식의 신뢰성 있는 콘텐츠 대응 여지.</p></div>
+    <div class="gap-item"><span class="n">3</span><p><b>플레이스·웹문서·지식iN은 강세 유지.</b> 플레이스 2개 지점 동시 노출(2·3위), 웹문서 1위 확보. 현 수준 유지 관리 권장.</p></div>
+  </div>
+</section>
+
+<section class="card">
+  <h2>데이터 기준 고지</h2>
+  <div class="notice">
+    본 자료는 (주)베놈이 자사 산식으로 산출한 <b>검색정보 운영 진단</b> 결과이며, 특정 순위 달성이나 상위 노출을 보장하지 않습니다.
+    <ul>
+      <li>출처: 네이버 오픈 API (지역·블로그·카페·웹문서·뉴스·이미지·지식iN, 비로그인 방식) · 조회 기준일 2026-07-03</li>
+      <li>"미노출" = 해당 영역 API 응답 상위 30건(지역검색은 5건) 내에 업체명 포함 콘텐츠 없음 — 실제 통합검색 화면 구성·순서와 다를 수 있음</li>
+      <li>파워링크·브랜드 콘텐츠 등 광고 영역과 스마트블록 실제 배치는 공식 API 미제공으로 측정에서 제외</li>
+      <li>제목·요약 스니펫만 판정에 사용, 본문 미수집 · 노출 확인 5건은 전건 실제 베놈 콘텐츠임을 수동 검증</li>
+    </ul>
+  </div>
+</section>
+
+<footer>(주)베놈 VENOMAD · 자사 테스트 리포트 — 내부 참고용, 광고물 전재 금지</footer>
+
+</div>
