@@ -44,6 +44,7 @@ def search_local(keyword: str) -> list[dict]:
             "rank": i + 1,
             "title": _strip_tags(item.get("title")),
             "address": item.get("roadAddress") or item.get("address"),
+            "address_jibun": item.get("address"),  # 지번 — 행정동 추출용
             "category": item.get("category"),
             "link": item.get("link"),
         }
@@ -51,18 +52,30 @@ def search_local(keyword: str) -> list[dict]:
     ]
 
 
-def keyword_exposure(keyword: str, hospital_name: str) -> dict:
+def keyword_exposure(keyword: str, hospital_name: str,
+                     region_hint: str | None = None) -> dict:
     """키워드에 대한 내 병원의 공식 API 기준 노출 여부/위치.
 
     이름 정규화 일치는 초기 휴리스틱이다. 운영 시에는 주소/좌표 매칭과
     confidence_score 기반 수동 검수(0단계 성공 기준 85%)로 보강한다.
+
+    - 두 글자 이하 짧은 상호는 부분일치 오탐(예: "베놈" ⊂ "닥터베놈")이
+      잦아 업체명 완전일치만 인정하고 ambiguous=True로 표시한다.
+    - region_hint(예: "수성구")를 주면 주소에 해당 지역이 포함된 결과만
+      내 업체로 인정한다 (동명 타업체 구분).
     """
     results = search_local(keyword)
     norm = "".join(hospital_name.split())
+    ambiguous = len(norm) <= 2
     for r in results:
-        if norm in "".join((r["title"] or "").split()):
-            return {"keyword": keyword, "exposed": True, "rank": r["rank"], "results": results}
-    return {"keyword": keyword, "exposed": False, "rank": None, "results": results}
+        title = "".join((r["title"] or "").split())
+        name_hit = (title == norm) if ambiguous else (norm in title)
+        region_ok = (not region_hint) or (region_hint in (r["address"] or ""))
+        if name_hit and region_ok:
+            return {"keyword": keyword, "exposed": True, "rank": r["rank"],
+                    "ambiguous": ambiguous, "results": results}
+    return {"keyword": keyword, "exposed": False, "rank": None,
+            "ambiguous": ambiguous, "results": results}
 
 
 def _fixture_results(keyword: str) -> list[dict]:
