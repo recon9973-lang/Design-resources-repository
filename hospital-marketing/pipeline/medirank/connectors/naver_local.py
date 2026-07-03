@@ -39,6 +39,12 @@ def search_local(keyword: str) -> list[dict]:
         },
         timeout=30,
     ))
+    def _coord(v, scale=1e7):
+        try:
+            return int(v) / scale  # WGS84 × 1e7 정수 표기
+        except (TypeError, ValueError):
+            return None
+
     return [
         {
             "rank": i + 1,
@@ -47,6 +53,8 @@ def search_local(keyword: str) -> list[dict]:
             "address_jibun": item.get("address"),  # 지번 — 행정동 추출용
             "category": item.get("category"),
             "link": item.get("link"),
+            "longitude": _coord(item.get("mapx")),
+            "latitude": _coord(item.get("mapy")),
         }
         for i, item in enumerate(payload.get("items", []))
     ]

@@ -75,6 +75,34 @@ def area_stats(adm_cd: str, year: str = "2023") -> dict | None:
         return None
 
 
+STAGE_URL = "https://sgisapi.kostat.go.kr/OpenAPI3/addr/stage.json"
+
+
+def find_adm_cd(city: str, gu: str | None = None) -> str | None:
+    """지역 이름으로 SGIS 행정구역 코드를 찾는다.
+
+    city 예: '대구', '서울' / gu 예: '수성구'. gu가 없으면 시도 코드 반환.
+    """
+    token = get_access_token()
+    if not token or not city:
+        return None
+    try:
+        data = _get_json(STAGE_URL + "?" + urllib.parse.urlencode({"accessToken": token}))
+        sido = next((r for r in data.get("result", [])
+                     if city in (r.get("addr_name") or "")), None)
+        if not sido:
+            return None
+        if not gu:
+            return sido.get("cd")
+        data = _get_json(STAGE_URL + "?" + urllib.parse.urlencode(
+            {"accessToken": token, "cd": sido["cd"]}))
+        sgg = next((r for r in data.get("result", [])
+                    if gu in (r.get("addr_name") or "")), None)
+        return sgg.get("cd") if sgg else sido.get("cd")
+    except Exception:
+        return None
+
+
 def population_of(adm_cd: str, year: str = "2023") -> int | None:
     """행정구역 총인구 (하위 호환용)."""
     stats = area_stats(adm_cd, year)

@@ -1,12 +1,14 @@
 {
- "generated_at": "2026-07-03T08:50:29+00:00",
+ "generated_at": "2026-07-03T09:00:36+00:00",
  "business": {
   "rank": 2,
   "title": "베놈",
   "address": "대구광역시 수성구 용학로25길 54 4층",
   "address_jibun": "대구광역시 수성구 두산동 740-3 4층",
   "category": "광고,마케팅>광고대행",
-  "link": ""
+  "link": "",
+  "longitude": 128.6255722,
+  "latitude": 35.8259783
  },
  "region": {
   "city": "대구",
@@ -39,7 +41,9 @@
       "address": "서울특별시 중구 청구로3길 16",
       "address_jibun": "서울특별시 중구 신당동 321-8",
       "category": "서비스,산업>기업",
-      "link": ""
+      "link": "",
+      "longitude": 127.0153259,
+      "latitude": 37.5588624
      },
      {
       "rank": 2,
@@ -47,7 +51,9 @@
       "address": "서울특별시 강남구 압구정로 306 지하 1층 6-제이13호",
       "address_jibun": "서울특별시 강남구 신사동 638-2 지하 1층 6-제이13호",
       "category": "서비스,산업>기업",
-      "link": ""
+      "link": "",
+      "longitude": 127.0347602,
+      "latitude": 37.5288635
      },
      {
       "rank": 3,
@@ -55,7 +61,9 @@
       "address": "서울특별시 강서구 강서로 341 1층 1호",
       "address_jibun": "서울특별시 강서구 내발산동 655-6 1층 1호",
       "category": "컴퓨터프로그래밍,정보서비스업>소프트웨어개발",
-      "link": ""
+      "link": "",
+      "longitude": 126.837233,
+      "latitude": 37.5563484
      },
      {
       "rank": 4,
@@ -63,7 +71,9 @@
       "address": "경기도 화성시 동탄구 동탄첨단산업2로 14 동탄역 동원로얄듀크1차아파트 상가1층",
       "address_jibun": "경기도 화성시 동탄구 영천동 879 동탄역 동원로얄듀크1차아파트 상가1층",
       "category": "미용>미용실",
-      "link": "https://www.instagram.com/i.rey_venomhair"
+      "link": "https://www.instagram.com/i.rey_venomhair",
+      "longitude": 127.101259,
+      "latitude": 37.2099677
      },
      {
       "rank": 5,
@@ -71,7 +81,9 @@
       "address": "서울특별시 강북구 노해로8길 22 상가1층116호",
       "address_jibun": "서울특별시 강북구 수유동 229-49 상가1층116호",
       "category": "제조업>전자담배",
-      "link": "https://blog.naver.com/vapingclub"
+      "link": "https://blog.naver.com/vapingclub",
+      "longitude": 127.0240405,
+      "latitude": 37.6381211
      }
     ]
    },
@@ -136,7 +148,9 @@
       "address": "강원특별자치도 강릉시 강변로 636-11",
       "address_jibun": "강원특별자치도 강릉시 두산동 228-14",
       "category": "광고,마케팅>옥외,전시광고",
-      "link": "http://www.cheonji.info/"
+      "link": "http://www.cheonji.info/",
+      "longitude": 128.9298235,
+      "latitude": 37.7686365
      },
      {
       "rank": 2,
@@ -144,7 +158,9 @@
       "address": "강원특별자치도 강릉시 경강로 2500",
       "address_jibun": "강원특별자치도 강릉시 송정동 187-1",
       "category": "광고,마케팅>옥외,전시광고",
-      "link": "https://blog.naver.com/ok5581_"
+      "link": "https://blog.naver.com/ok5581_",
+      "longitude": 128.933042,
+      "latitude": 37.7744711
      },
      {
       "rank": 3,
@@ -152,7 +168,9 @@
       "address": "강원특별자치도 강릉시 경강로 2389 가동 2층 2호",
       "address_jibun": "강원특별자치도 강릉시 송정동 821-20 가동 2층 2호",
       "category": "광고,마케팅>광고대행",
-      "link": "https://blog.naver.com/theoshow_official"
+      "link": "https://blog.naver.com/theoshow_official",
+      "longitude": 128.9216001,
+      "latitude": 37.7716456
      },
      {
       "rank": 4,
@@ -160,7 +178,9 @@
       "address": "강원특별자치도 강릉시 경강로2356번길 2 4층",
       "address_jibun": "강원특별자치도 강릉시 포남동 1272-2 4층",
       "category": "광고,마케팅>광고대행",
-      "link": "https://blog.naver.com/rush4408"
+      "link": "https://blog.naver.com/rush4408",
+      "longitude": 128.9182888,
+      "latitude": 37.7695268
      },
      {
       "rank": 5,
@@ -168,7 +188,9 @@
       "address": "강원특별자치도 강릉시 경강로2326번길 4",
       "address_jibun": "강원특별자치도 강릉시 포남동 1278-173",
       "category": "광고,마케팅>광고대행",
-      "link": ""
+      "link": "",
+      "longitude": 128.9156393,
+      "latitude": 37.7677239
      }
     ]
    },
@@ -233,7 +255,9 @@
       "address": "대구광역시 수성구 알파시티1로35길 17",
       "address_jibun": "대구광역시 수성구 대흥동 855",
       "category": "전문,기술서비스>광고,마케팅",
-      "link": "http://www.theimc.co.kr/"
+      "link": "http://www.theimc.co.kr/",
+      "longitude": 128.6794549,
+      "latitude": 35.8348546
      },
      {
       "rank": 2,
@@ -241,7 +265,9 @@
       "address": "대구광역시 수성구 용학로25길 54 4층 403호",
       "address_jibun": "대구광역시 수성구 두산동 740-3 4층 403호",
       "category": "광고,마케팅>광고대행",
-      "link": ""
+      "link": "",
+      "longitude": 128.6255722,
+      "latitude": 35.8259783
      },
      {
       "rank": 3,
@@ -249,7 +275,9 @@
       "address": "대구광역시 수성구 수성로25길 58-19 2층",
       "address_jibun": "대구광역시 수성구 상동 178-2 2층",
       "category": "광고,마케팅>옥외,전시광고",
-      "link": "http://www.bestbanner.co.kr/"
+      "link": "http://www.bestbanner.co.kr/",
+      "longitude": 128.6084968,
+      "latitude": 35.8387135
      },
      {
       "rank": 4,
@@ -257,7 +285,9 @@
       "address": "대구광역시 수성구 유니버시아드로11길 18",
       "address_jibun": "대구광역시 수성구 삼덕동 118",
       "category": "전문,기술서비스>광고,마케팅",
-      "link": "http://www.zestcom.co.kr/"
+      "link": "http://www.zestcom.co.kr/",
+      "longitude": 128.676411,
+      "latitude": 35.8341538
      },
      {
       "rank": 5,
@@ -265,7 +295,9 @@
       "address": "대구광역시 수성구 들안로32길 58 3층",
       "address_jibun": "대구광역시 수성구 황금동 829-10 3층",
       "category": "광고,마케팅>광고대행",
-      "link": "https://pf.kakao.com/_jKxjqxj"
+      "link": "https://pf.kakao.com/_jKxjqxj",
+      "longitude": 128.6201545,
+      "latitude": 35.8441845
      }
     ]
    },
@@ -330,7 +362,9 @@
       "address": "대구광역시 중구 태평로 160 6층 411호",
       "address_jibun": "대구광역시 중구 북성로1가 6-1 6층 411호",
       "category": "광고,마케팅>광고대행",
-      "link": "https://blog.naver.com/goodlife4u"
+      "link": "https://blog.naver.com/goodlife4u",
+      "longitude": 128.5952361,
+      "latitude": 35.8746644
      },
      {
       "rank": 2,
@@ -338,7 +372,9 @@
       "address": "대구광역시 달서구 장기로 63 1층 화성디자인",
       "address_jibun": "대구광역시 달서구 성당동 487-6 1층 화성디자인",
       "category": "광고,마케팅>옥외,전시광고",
-      "link": "https://smartstore.naver.com/hsdesign_"
+      "link": "https://smartstore.naver.com/hsdesign_",
+      "longitude": 128.5535203,
+      "latitude": 35.8430561
      },
      {
       "rank": 3,
@@ -346,7 +382,9 @@
       "address": "대구광역시 중구 동덕로 38 백운빌딩 3층, 4층 위팩토리",
       "address_jibun": "대구광역시 중구 대봉동 109-16 백운빌딩 3층, 4층 위팩토리",
       "category": "광고,마케팅>광고대행",
-      "link": ""
+      "link": "",
+      "longitude": 128.6052047,
+      "latitude": 35.8585056
      },
      {
       "rank": 4,
@@ -354,7 +392,9 @@
       "address": "대구광역시 중구 이천로 185 나눔마케팅 2F",
       "address_jibun": "대구광역시 중구 대봉동 730-15 나눔마케팅 2F",
       "category": "광고,마케팅>광고대행",
-      "link": "http://na-num.co.kr"
+      "link": "http://na-num.co.kr",
+      "longitude": 128.5982309,
+      "latitude": 35.8576559
      },
      {
       "rank": 5,
@@ -362,7 +402,9 @@
       "address": "대구광역시 수성구 알파시티1로35길 17",
       "address_jibun": "대구광역시 수성구 대흥동 855",
       "category": "전문,기술서비스>광고,마케팅",
-      "link": "http://www.theimc.co.kr/"
+      "link": "http://www.theimc.co.kr/",
+      "longitude": 128.6794549,
+      "latitude": 35.8348546
      }
     ]
    },
@@ -427,7 +469,9 @@
       "address": "서울특별시 중구 세종대로 124 한국언론회관18층",
       "address_jibun": "서울특별시 중구 태평로1가 25 한국언론회관18층",
       "category": "전문,기술서비스>광고,마케팅",
-      "link": "http://www.sfcc.or.kr/"
+      "link": "http://www.sfcc.or.kr/",
+      "longitude": 126.9778908,
+      "latitude": 37.5674232
      },
      {
       "rank": 2,
@@ -435,7 +479,9 @@
       "address": "서울특별시 중구 세종대로21길 40 조선일보씨스퀘어빌딩 5층",
       "address_jibun": "서울특별시 중구 태평로1가 61-21 조선일보씨스퀘어빌딩 5층",
       "category": "광고,마케팅>광고매체판매",
-      "link": "http://www.chosunmediarep.net/"
+      "link": "http://www.chosunmediarep.net/",
+      "longitude": 126.9758534,
+      "latitude": 37.5682396
      },
      {
       "rank": 3,
@@ -443,7 +489,9 @@
       "address": "서울특별시 중구 남대문로9길 24",
       "address_jibun": "서울특별시 중구 다동 140",
       "category": "광고,마케팅>광고대행",
-      "link": "http://www.borderx.com"
+      "link": "http://www.borderx.com",
+      "longitude": 126.9811504,
+      "latitude": 37.5671442
      },
      {
       "rank": 4,
@@ -451,7 +499,9 @@
       "address": "서울특별시 중구 서소문로 131 7층 701호~702호",
       "address_jibun": "서울특별시 중구 서소문동 25 7층 701호~702호",
       "category": "광고,마케팅>광고대행",
-      "link": ""
+      "link": "",
+      "longitude": 126.9753753,
+      "latitude": 37.5638302
      },
      {
       "rank": 5,
@@ -459,7 +509,9 @@
       "address": "서울특별시 중구 남대문로 113 DB다동빌딩 3층",
       "address_jibun": "서울특별시 중구 다동 103 DB빌딩 3층",
       "category": "광고,마케팅>광고대행",
-      "link": ""
+      "link": "",
+      "longitude": 126.9822956,
+      "latitude": 37.5673413
      }
     ]
    },
@@ -636,7 +688,9 @@
       "address": "대구광역시 수성구 용학로25길 54 4층 403호",
       "address_jibun": "대구광역시 수성구 두산동 740-3 4층 403호",
       "category": "광고,마케팅>광고대행",
-      "link": ""
+      "link": "",
+      "longitude": 128.6255722,
+      "latitude": 35.8259783
      },
      {
       "rank": 2,
@@ -644,7 +698,9 @@
       "address": "대구광역시 달서구 월배로80길 116 3층 301호",
       "address_jibun": "대구광역시 달서구 송현동 1978-16 3층 301호",
       "category": "광고,마케팅>광고대행",
-      "link": ""
+      "link": "",
+      "longitude": 128.555978,
+      "latitude": 35.8266574
      },
      {
       "rank": 3,
@@ -652,7 +708,9 @@
       "address": "대구광역시 중구 대봉로 200 세원빌딩 3층",
       "address_jibun": "대구광역시 중구 대봉동 128-8 세원빌딩 3층",
       "category": "광고,마케팅>광고대행",
-      "link": "http://www.creative-ez.com"
+      "link": "http://www.creative-ez.com",
+      "longitude": 128.6024817,
+      "latitude": 35.8565994
      },
      {
       "rank": 4,
@@ -660,7 +718,9 @@
       "address": "대구광역시 서구 와룡로 307 8층 808호",
       "address_jibun": "대구광역시 서구 중리동 1166-1 8층 808호",
       "category": "광고,마케팅>광고대행",
-      "link": "http://www.코리아프로마케팅.kr/"
+      "link": "http://www.코리아프로마케팅.kr/",
+      "longitude": 128.536701,
+      "latitude": 35.8598687
      },
      {
       "rank": 5,
@@ -668,7 +728,9 @@
       "address": "대구광역시 수성구 용학로25길 54 4층",
       "address_jibun": "대구광역시 수성구 두산동 740-3 4층",
       "category": "광고,마케팅>광고대행",
-      "link": ""
+      "link": "",
+      "longitude": 128.6255722,
+      "latitude": 35.8259783
      }
     ]
    },
@@ -733,7 +795,9 @@
       "address": "서울특별시 중구 무교로 32 10층 1003호",
       "address_jibun": "서울특별시 중구 무교동 1 10층 1003호",
       "category": "광고,마케팅>광고대행",
-      "link": "http://www.outdo-marketing.co.kr"
+      "link": "http://www.outdo-marketing.co.kr",
+      "longitude": 126.9795793,
+      "latitude": 37.5687701
      },
      {
       "rank": 2,
@@ -741,7 +805,9 @@
       "address": "서울특별시 중구 남대문로 117 11층 1168-1호",
       "address_jibun": "서울특별시 중구 다동 88 11층 1168-1호",
       "category": "광고,마케팅>광고대행",
-      "link": "http://paranad.co.kr"
+      "link": "http://paranad.co.kr",
+      "longitude": 126.9823232,
+      "latitude": 37.5677864
      },
      {
       "rank": 3,
@@ -749,7 +815,9 @@
       "address": "서울특별시 종로구 돈화문로9가길 36 .2층 202호",
       "address_jibun": "서울특별시 종로구 돈의동 103-26 .2층 202호",
       "category": "협회,단체>광고,마케팅",
-      "link": "http://www.growads.kr/"
+      "link": "http://www.growads.kr/",
+      "longitude": 126.9904069,
+      "latitude": 37.5722356
      },
      {
       "rank": 4,
@@ -757,7 +825,9 @@
       "address": "서울특별시 중구 퇴계로 184",
       "address_jibun": "서울특별시 중구 필동1가 22-2",
       "category": "광고,마케팅>광고대행",
-      "link": "http://mdrealty.co.kr"
+      "link": "http://mdrealty.co.kr",
+      "longitude": 126.9922429,
+      "latitude": 37.5608114
      },
      {
       "rank": 5,
@@ -765,7 +835,9 @@
       "address": "서울특별시 마포구 신촌로 224 2층 201호",
       "address_jibun": "서울특별시 마포구 아현동 353-4 2층 201호",
       "category": "광고,마케팅>광고대행",
-      "link": "https://hertzlab.co.kr/"
+      "link": "https://hertzlab.co.kr/",
+      "longitude": 126.9505763,
+      "latitude": 37.5568213
      }
     ]
    },
@@ -830,7 +902,9 @@
       "address": "강원특별자치도 강릉시 경강로2356번길 2 4층",
       "address_jibun": "강원특별자치도 강릉시 포남동 1272-2 4층",
       "category": "광고,마케팅>광고대행",
-      "link": "https://blog.naver.com/rush4408"
+      "link": "https://blog.naver.com/rush4408",
+      "longitude": 128.9182888,
+      "latitude": 37.7695268
      },
      {
       "rank": 2,
@@ -838,7 +912,9 @@
       "address": "강원특별자치도 강릉시 두산동",
       "address_jibun": "강원특별자치도 강릉시 두산동",
       "category": "컴퓨터프로그래밍,정보서비스업>인터넷광고대행",
-      "link": ""
+      "link": "",
+      "longitude": 128.9287,
+      "latitude": 37.7645
      }
     ]
    },
@@ -903,7 +979,9 @@
       "address": "대구광역시 수성구 달구벌대로480길 9 상가 3층 307호, 308호",
       "address_jibun": "대구광역시 수성구 범어동 551-7 상가 3층 307호, 308호",
       "category": "컴퓨터프로그래밍,정보서비스업>인터넷광고대행",
-      "link": "http://www.haenuriad.com/"
+      "link": "http://www.haenuriad.com/",
+      "longitude": 128.6244428,
+      "latitude": 35.8583184
      },
      {
       "rank": 2,
@@ -911,7 +989,9 @@
       "address": "대구광역시 수성구 들안로81길 27 (주)엔앤피 2~4층",
       "address_jibun": "대구광역시 수성구 수성동4가 1133-32 주엔앤피 2~4층",
       "category": "컴퓨터프로그래밍,정보서비스업>인터넷광고대행",
-      "link": "http://www.nnp-onoff.co.kr"
+      "link": "http://www.nnp-onoff.co.kr",
+      "longitude": 128.6167558,
+      "latitude": 35.866189
      },
      {
       "rank": 3,
@@ -919,7 +999,9 @@
       "address": "대구광역시 수성구 신매로 34-1",
       "address_jibun": "대구광역시 수성구 신매동 593-1",
       "category": "컴퓨터프로그래밍,정보서비스업>인터넷광고대행",
-      "link": "http://www.foryoupia.com/"
+      "link": "http://www.foryoupia.com/",
+      "longitude": 128.7075992,
+      "latitude": 35.8325193
      },
      {
       "rank": 4,
@@ -927,7 +1009,9 @@
       "address": "대구광역시 수성구 수성로 367-2 3층 322호",
       "address_jibun": "대구광역시 수성구 수성동1가 38-24 3층 322호",
       "category": "컴퓨터프로그래밍,정보서비스업>인터넷광고대행",
-      "link": "https://www.소방파트너스.com"
+      "link": "https://www.소방파트너스.com",
+      "longitude": 128.6136611,
+      "latitude": 35.8586114
      },
      {
       "rank": 5,
@@ -935,7 +1019,9 @@
       "address": "대구광역시 수성구 수성로 71",
       "address_jibun": "대구광역시 수성구 상동 555",
       "category": "컴퓨터프로그래밍,정보서비스업>인터넷광고대행",
-      "link": ""
+      "link": "",
+      "longitude": 128.611005,
+      "latitude": 35.8331505
      }
     ]
    },
@@ -1000,7 +1086,9 @@
       "address": "대구광역시 남구 안지랑로5길 69",
       "address_jibun": "대구광역시 남구 대명동 585-7",
       "category": "컴퓨터프로그래밍,정보서비스업>인터넷광고대행",
-      "link": "https://blog.naver.com/heeilcommunication"
+      "link": "https://blog.naver.com/heeilcommunication",
+      "longitude": 128.5664691,
+      "latitude": 35.8328335
      },
      {
       "rank": 2,
@@ -1008,7 +1096,9 @@
       "address": "대구광역시 중구 공평로 7 린치핀 타워",
       "address_jibun": "대구광역시 중구 삼덕동1가 48 린치핀 타워",
       "category": "컴퓨터프로그래밍,정보서비스업>인터넷광고대행",
-      "link": "http://teamlinch.com/"
+      "link": "http://teamlinch.com/",
+      "longitude": 128.5994834,
+      "latitude": 35.8647611
      },
      {
       "rank": 3,
@@ -1016,7 +1106,9 @@
       "address": "대구광역시 중구 국채보상로143길 67-8",
       "address_jibun": "대구광역시 중구 동인동3가 271-31",
       "category": "컴퓨터프로그래밍,정보서비스업>인터넷광고대행",
-      "link": "http://www.consmkt.com"
+      "link": "http://www.consmkt.com",
+      "longitude": 128.6081727,
+      "latitude": 35.8719463
      },
      {
       "rank": 4,
@@ -1024,7 +1116,9 @@
       "address": "대구광역시 남구 큰골길 90 사옥",
       "address_jibun": "대구광역시 남구 대명동 496-5 사옥",
       "category": "컴퓨터프로그래밍,정보서비스업>인터넷광고대행",
-      "link": "https://www.youtube.com/@마케팅이사님"
+      "link": "https://www.youtube.com/@마케팅이사님",
+      "longitude": 128.5809412,
+      "latitude": 35.8365423
      },
      {
       "rank": 5,
@@ -1032,7 +1126,9 @@
       "address": "대구광역시 북구 신암로 107-5 601B",
       "address_jibun": "대구광역시 북구 대현동 277-54 601B",
       "category": "컴퓨터프로그래밍,정보서비스업>인터넷광고대행",
-      "link": "https://dusan16669986.creatorlink.net/index"
+      "link": "https://dusan16669986.creatorlink.net/index",
+      "longitude": 128.6106117,
+      "latitude": 35.8803191
      }
     ]
    },
@@ -1082,6 +1178,41 @@
    }
   }
  ],
+ "location": {
+  "radius_m": 1000,
+  "adm_cd": "22060",
+  "adm_nm": "대구광역시수성구",
+  "avg_age": 44.3,
+  "population_radius": 16213,
+  "demand_score": 28.2,
+  "employee_density_km2": 1838,
+  "commerce_score": 7.1
+ },
+ "resolution": {
+  "note": "",
+  "candidates": [
+   {
+    "title": "베놈애드",
+    "address": "대구광역시 수성구 용학로25길 54 4층 403호"
+   },
+   {
+    "title": "베놈",
+    "address": "대구광역시 수성구 용학로25길 54 4층"
+   },
+   {
+    "title": "베놈애드 대구달서점",
+    "address": "대구광역시 달서구 월배로80길 116 3층 301호"
+   },
+   {
+    "title": "닥터베놈",
+    "address": "서울특별시 중구 청구로3길 16"
+   },
+   {
+    "title": "럭시베놈",
+    "address": "서울특별시 강남구 압구정로 306 지하 1층 6-제이13호"
+   }
+  ]
+ },
  "summary": {
   "place_hit": 1,
   "content_hit": 7,

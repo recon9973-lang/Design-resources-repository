@@ -665,17 +665,77 @@ function renderKeywords(){
      <td class="num">${k.pos??'—'}</td>
      <td>${chip(k.grade)}</td><td>${esc(k.comp)}</td><td>${esc(k.act||actByGrade(k.grade))}</td></tr>`).join('');
 
-  /* 통합검색 콘텐츠 영역 매트릭스 (키워드별 존재 영역에 맞춰 표시) */
+  /* 통합검색 콘텐츠 영역 매트릭스 (키워드별 존재 영역에 맞춰 표시)
+     노출 셀은 위치가 상위일수록 진한 히트 컬러 (5위 이내 > 15위 이내 > 그 외) */
   const SECS=['blog','cafe','web','news','image','kin'];
   const cell=c=>{
     if(!c||c.exposed===null||c.present===null) return '<span style="color:var(--text-muted)">미검증</span>';
     if(!c.present) return '<span style="color:var(--text-muted)">—</span>';
-    if(c.exposed) return `<b style="color:var(--status-good)">○ ${c.position}</b>`;
+    if(c.exposed){
+      const mix=c.position<=5?20:c.position<=15?12:6;
+      return `<span style="display:inline-block;min-width:46px;padding:2px 7px;border-radius:6px;`
+        +`background:color-mix(in srgb, var(--status-good) ${mix}%, transparent)">`
+        +`<b style="color:var(--good-text)">○ ${c.position}</b></span>`;
+    }
     return '<span style="color:var(--status-crit);font-size:12px">미노출</span>';
   };
   $('#contentTable tbody').innerHTML=KEYWORDS.map(k=>
     `<tr><td><b>${esc(k.kw)}</b></td>${SECS.map(s=>
       `<td style="text-align:center">${cell((k.content||{})[s])}</td>`).join('')}</tr>`).join('');
+  renderCoverage();
+}
+
+/* 통합검색 영역 커버리지 — 레이더 + 영역별 노출/활성 막대 */
+const SEC_DEFS=[['blog','블로그'],['cafe','카페'],['web','웹문서'],['news','뉴스'],['image','이미지'],['kin','지식iN']];
+function renderCoverage(){
+  const radarEl=$('#radarChart'), barsEl=$('#coverBars');
+  if(!radarEl||!barsEl) return;
+  const st=SEC_DEFS.map(([k,label])=>{
+    let act=0,hit=0;
+    KEYWORDS.forEach(kw=>{const c=(kw.content||{})[k]; if(c&&c.present){act++; if(c.exposed)hit++;}});
+    return {k,label,act,hit,ratio:act?hit/act:0};
+  });
+  if(!KEYWORDS.some(k=>k.content)){
+    radarEl.innerHTML=barsEl.innerHTML=
+      '<p style="font-size:13px;color:var(--text-muted);padding:30px 10px;text-align:center">콘텐츠 영역 데이터가 아직 없습니다.</p>';
+    return;
+  }
+  const W=380,H=308,cx=W/2,cy=H/2+8,R=100,N=st.length;
+  const pt=(i,r)=>{const a=-Math.PI/2+i*2*Math.PI/N;return [cx+Math.cos(a)*r, cy+Math.sin(a)*r];};
+  let grid='';
+  [0.25,0.5,0.75,1].forEach(f=>{
+    grid+=`<polygon points="${st.map((_,i)=>pt(i,R*f).map(v=>v.toFixed(1)).join(',')).join(' ')}"
+      fill="none" stroke="var(--grid)" stroke-width="1"/>`;
+  });
+  let axes='',labels='';
+  st.forEach((s,i)=>{
+    const [x,y]=pt(i,R);
+    axes+=`<line x1="${cx}" y1="${cy}" x2="${x.toFixed(1)}" y2="${y.toFixed(1)}" stroke="var(--grid)" stroke-width="1"/>`;
+    const [lx,ly]=pt(i,R+26);
+    labels+=`<text x="${lx.toFixed(1)}" y="${(ly).toFixed(1)}" text-anchor="middle" font-size="11.5" fill="var(--text-secondary)">${s.label}</text>
+      <text x="${lx.toFixed(1)}" y="${(ly+14).toFixed(1)}" text-anchor="middle" font-size="10.5" font-weight="700"
+        fill="var(--text-primary)" style="font-variant-numeric:tabular-nums">${s.act?Math.round(s.ratio*100)+'%':'—'}</text>`;
+  });
+  const poly=st.map((s,i)=>pt(i,R*s.ratio).map(v=>v.toFixed(1)).join(',')).join(' ');
+  const dots=st.map((s,i)=>{const[x,y]=pt(i,R*s.ratio);
+    return `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="3.5" fill="var(--series-1)" stroke="var(--surface-1)" stroke-width="1.5"/>`}).join('');
+  radarEl.innerHTML=
+   `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="통합검색 영역별 노출 커버리지 레이더">
+      ${grid}${axes}
+      <polygon points="${poly}" fill="var(--series-1)" opacity="0.15"/>
+      <polygon points="${poly}" fill="none" stroke="var(--series-1)" stroke-width="2" stroke-linejoin="round"/>
+      ${dots}${labels}
+    </svg>`;
+  const total=KEYWORDS.length||1;
+  barsEl.innerHTML='<div style="display:grid;gap:11px;padding-top:6px">'+st.map(s=>`
+    <div style="display:flex;align-items:center;gap:10px;font-size:12.5px">
+      <span style="width:52px;flex:none;color:var(--text-secondary)">${s.label}</span>
+      <div style="flex:1;height:14px;border-radius:7px;background:var(--plane);overflow:hidden;position:relative">
+        <div style="position:absolute;top:0;left:0;bottom:0;width:${(100*s.act/total).toFixed(1)}%;background:var(--seq-150);border-radius:7px"></div>
+        <div style="position:absolute;top:0;left:0;bottom:0;width:${(100*s.hit/total).toFixed(1)}%;background:var(--series-1);border-radius:7px"></div>
+      </div>
+      <span style="width:76px;flex:none;text-align:right;font-variant-numeric:tabular-nums;color:var(--text-secondary)">노출 <b style="color:var(--text-primary)">${s.hit}</b> / ${s.act}</span>
+    </div>`).join('')+'</div>';
 }
 
 /* ---------- 벤치마크 ---------- */
