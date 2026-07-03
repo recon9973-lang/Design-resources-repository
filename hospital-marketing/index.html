@@ -256,6 +256,21 @@
       </table>
     </div>
     <p class="note">등급 기준 — <b>상위권</b>: 공식 API 응답 3위 이내 · <b>중위권</b>: 응답 내 노출 · <b>미노출</b>: API 응답(상위 5건)에 없음. 등급은 당사 산식에 따른 참고 지표입니다.</p>
+
+    <h2 style="margin-top:24px">통합검색 콘텐츠 영역 노출</h2>
+    <p class="sub">키워드별 통합검색 영역(블로그·카페·웹문서·뉴스·이미지·지식iN)에서 <b>병원명이 언급된 콘텐츠</b>가
+    공식 API 결과 상위 30건 안에 있는지 확인합니다. 키워드마다 영역 구성이 달라 존재하는 영역 기준으로 판정합니다.</p>
+    <div class="card table-card">
+      <table id="contentTable">
+        <thead><tr><th>키워드</th><th style="text-align:center">블로그</th><th style="text-align:center">카페</th>
+          <th style="text-align:center">웹문서</th><th style="text-align:center">뉴스</th>
+          <th style="text-align:center">이미지</th><th style="text-align:center">지식iN</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <p class="note">○ N = 해당 영역 API 결과 내 위치 · "—" = 이 키워드에는 해당 영역 콘텐츠 없음.
+    파워링크(광고)·브랜드 콘텐츠·스마트블록의 실제 화면 배치는 공식 API 미제공으로 측정 범위에서 제외됩니다
+    (법무 검토상 화면 수집 보류 — 승인 시 월간 참고 스냅샷으로 보완 예정).</p>
   </section>
 
   <!-- ================= 경쟁 벤치마크 ================= -->
@@ -336,6 +351,14 @@ let KEYWORDS = [
   {kw:'강남 기미레이저', type:'시술',       api:false,pos:null,snap:null,grade:'none',comp:'A피부과',        act:'시술 카테고리 등록 검토'},
   {kw:'강남 흉터치료',   type:'고민',       api:false,pos:null,snap:null,grade:'none',comp:'G의원',          act:'콘텐츠 커버리지 신설'}
 ];
+/* 목업 통합검색 콘텐츠 노출 (실서비스에서는 export_dashboard.py가 실측값 주입) */
+KEYWORDS.forEach((k,i)=>{k.content={
+  blog:{present:true,exposed:i<4,position:[5,12,22,28][i]??null},
+  cafe:{present:true,exposed:i===0,position:i===0?9:null},
+  web:{present:true,exposed:false,position:null},
+  news:{present:i<6,exposed:false,position:null},
+  image:{present:true,exposed:i<2,position:[3,15][i]??null},
+  kin:{present:i<8,exposed:false,position:null}};});
 let BENCH = [
   {name:'A피부과',        me:false, dist:320, cover:90, reviews:412, rating:4.6, photos:180},
   {name:'C의원',          me:false, dist:540, cover:80, reviews:388, rating:4.5, photos:95},
@@ -548,6 +571,18 @@ function renderKeywords(){
      <td>${k.api?'노출':'미노출'}</td>
      <td class="num">${k.pos??'—'}</td>
      <td>${chip(k.grade)}</td><td>${esc(k.comp)}</td><td>${esc(k.act||actByGrade(k.grade))}</td></tr>`).join('');
+
+  /* 통합검색 콘텐츠 영역 매트릭스 (키워드별 존재 영역에 맞춰 표시) */
+  const SECS=['blog','cafe','web','news','image','kin'];
+  const cell=c=>{
+    if(!c||c.exposed===null||c.present===null) return '<span style="color:var(--text-muted)">미검증</span>';
+    if(!c.present) return '<span style="color:var(--text-muted)">—</span>';
+    if(c.exposed) return `<b style="color:var(--status-good)">○ ${c.position}</b>`;
+    return '<span style="color:var(--status-crit);font-size:12px">미노출</span>';
+  };
+  $('#contentTable tbody').innerHTML=KEYWORDS.map(k=>
+    `<tr><td><b>${esc(k.kw)}</b></td>${SECS.map(s=>
+      `<td style="text-align:center">${cell((k.content||{})[s])}</td>`).join('')}</tr>`).join('');
 }
 
 /* ---------- 벤치마크 ---------- */
@@ -640,7 +675,7 @@ function applyLiveData(j){
       comp:{exposure:d.comp.exposure, density:d.comp.density, demand:d.comp.demand, place:d.comp.place}};
   }
   KEYWORDS=j.keywords.map(k=>({kw:k.kw, type:k.type, api:k.api, pos:k.pos,
-    snap:null, grade:k.grade, comp:k.comp}));
+    snap:null, grade:k.grade, comp:k.comp, content:k.content||null}));
   MAP_POINTS=j.map_points.map(p=>({name:p.name, dist:Math.round(p.distance_m),
     ang:(p.bearing_deg-90)*Math.PI/180, same:!!p.same_department, grade:null}));
   MAP_POINTS.sort((a,b)=>a.dist-b.dist);

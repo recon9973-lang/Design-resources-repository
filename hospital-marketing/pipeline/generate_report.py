@@ -18,9 +18,9 @@ from string import Template
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-from medirank import config, scoring                       # noqa: E402
-from medirank.connectors import hira, naver_local, sgis    # noqa: E402
-from medirank.geo import haversine_m                       # noqa: E402
+from medirank import config, scoring                                     # noqa: E402
+from medirank.connectors import hira, naver_content, naver_local, sgis   # noqa: E402
+from medirank.geo import haversine_m                                     # noqa: E402
 
 DEFAULT_KEYWORDS = [
     "강남 피부과", "역삼역 피부과", "테헤란로 피부과", "강남 리프팅",
@@ -50,7 +50,9 @@ def collect(args) -> dict:
         grade = ("top" if r["exposed"] and r["rank"] and r["rank"] <= 3
                  else "mid" if r["exposed"] else "none")
         top1 = r["results"][0]["title"] if r["results"] else "-"
-        keyword_results.append({**r, "grade": grade, "top1": top1})
+        # 통합검색 콘텐츠 영역 (블로그·카페·웹문서·뉴스·이미지·지식iN)
+        content = naver_content.content_exposure(kw, args.name)
+        keyword_results.append({**r, "grade": grade, "top1": top1, "content": content})
 
     stats = sgis.area_stats(args.adm_cd)
     import math
@@ -93,6 +95,18 @@ def build_actions(data: dict) -> list[dict]:
                      "커버리지를 우선 확보하세요."),
             "basis": f"근거: 경쟁 밀도 점수 {data['scores']['density']}점 · "
                      f"반경 내 경쟁 {len(data['competitors'])}곳"})
+    # 통합검색 콘텐츠 커버리지 (블로그 기준) — 대행 컨설팅 연결 포인트
+    contents = [k.get("content") or {} for k in data["keywords"]]
+    blog_present = sum(1 for c in contents if (c.get("blog") or {}).get("present"))
+    blog_exposed = sum(1 for c in contents if (c.get("blog") or {}).get("exposed"))
+    if blog_present and blog_exposed / blog_present < 0.3:
+        actions.append({
+            "title": "통합검색 콘텐츠 커버리지 확보",
+            "body": ("통합검색의 블로그·카페 영역에서 병원명이 언급된 콘텐츠가 "
+                     "거의 검색되지 않습니다. 의료광고 규정을 준수하는 정보성 콘텐츠"
+                     "(진료 안내, 시설·장비, 오시는 길 등) 발행을 검토하세요. "
+                     "치료 효과·후기성 콘텐츠는 제외합니다."),
+            "basis": f"근거: 블로그 영역 활성 키워드 {blog_present}개 중 노출 {blog_exposed}개"})
     actions.append({
         "title": "네이버 플레이스 기본 정보 최신화",
         "body": ("대표 사진, 진료시간, 주차, 예약 링크를 실제 운영 상태와 맞추고 "
@@ -194,6 +208,15 @@ TEMPLATE = Template("""<!DOCTYPE html>
   <table><thead><tr><th>키워드</th><th>API 기준</th><th class="num">API 내 위치</th><th>등급</th>
     <th>해당 키워드 1위 업체</th></tr></thead>
   <tbody>$keyword_rows</tbody></table>
+
+  <h2>통합검색 콘텐츠 영역 노출 (병원명 언급 콘텐츠 · API 상위 30건 기준)</h2>
+  <p style="font-size:10.5px;color:var(--ink2);margin:2px 0 6px">$content_summary</p>
+  <table><thead><tr><th>키워드</th>$content_heads</tr></thead>
+  <tbody>$content_rows</tbody></table>
+  <p style="font-size:10px;color:var(--muted)">○ N = 해당 영역 API 결과 내 병원명 언급 콘텐츠의 위치 · "—" = 이 키워드에는 해당 영역 콘텐츠가 없음 ·
+  키워드마다 통합검색 영역 구성이 다르므로 존재하는 영역 기준으로 판정합니다.
+  파워링크(광고)·브랜드 콘텐츠·스마트블록의 실제 화면 배치는 공식 API가 제공하지 않아 측정 범위에서 제외됩니다
+  (법무 검토상 화면 수집 보류 — 승인 시 월간 참고 스냅샷으로 보완 예정).</p>
   <h2>반경 내 인접 경쟁 병원 (건강보험심사평가원 기준)</h2>
   <table><thead><tr><th>병원</th><th class="num">거리</th><th>주소</th></tr></thead>
   <tbody>$competitor_rows</tbody></table>
@@ -259,6 +282,30 @@ def render(args, data: dict) -> str:
         f"노출되고 있으며, 경쟁 밀도가 높은 상권 특성상 세분 지역 키워드 공략과 커버리지 확대가 "
         f"이번 달 개선 포인트입니다.")
 
+    # 통합검색 콘텐츠 영역 표 (키워드별 존재 영역에 맞춰 동적 판정)
+    content_heads = "".join(
+        f"<th style='text-align:center'>{lbl}</th>"
+        for lbl, _, _ in naver_content.SECTIONS.values())
+    content_rows = []
+    for k in data["keywords"]:
+        cells = []
+        for sec in naver_content.SECTIONS:
+            c = (k.get("content") or {}).get(sec) or {}
+            if c.get("present") is None or c.get("exposed") is None:
+                cell = "<span style='color:var(--muted)'>미검증</span>"
+            elif not c.get("present"):
+                cell = "<span style='color:var(--muted)'>—</span>"
+            elif c.get("exposed"):
+                cell = f"<b style='color:var(--good)'>○ {c['position']}</b>"
+            else:
+                cell = "<span style='color:var(--crit)'>미노출</span>"
+            cells.append(f"<td style='text-align:center'>{cell}</td>")
+        content_rows.append(f"<tr><td><b>{esc(k['keyword'])}</b></td>{''.join(cells)}</tr>")
+    cov = naver_content.coverage_summary([k.get("content") or {} for k in data["keywords"]])
+    content_summary = " · ".join(
+        f"{v['label']} {v['exposed']}/{v['present']}"
+        for v in cov["sections"].values()) + f" (노출 키워드 수 / 영역 활성 키워드 수, 총 {cov['total_keywords']}개)"
+
     # 등급 분포 인포그래픽 (분할 막대 + 범례)
     cnt = {"top": 0, "mid": 0, "none": 0}
     for k in data["keywords"]:
@@ -280,6 +327,8 @@ def render(args, data: dict) -> str:
         hospital=esc(args.name), month_label=f"{y}년 {int(m)}월",
         gauge_dash=gauge_dash,
         grade_segments=grade_segments, grade_legend=grade_legend,
+        content_heads=content_heads, content_rows="".join(content_rows),
+        content_summary=content_summary,
         radius_label=f"{args.radius / 1000:g}km",
         issued=date.today().isoformat(),
         report_id=f"RPT-{month}-LIVE",

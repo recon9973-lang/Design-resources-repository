@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-07-02T10:43:42+00:00",
+ "generated_at": "2026-07-03T07:54:32+00:00",
  "month": "2026-07",
  "live": true,
  "hospital": {
@@ -30,7 +30,7 @@
   },
   "1500": {
    "score": 32,
-   "competitors": 494,
+   "competitors": 493,
    "comp": {
     "exposure": 12,
     "density": 20,
@@ -56,7 +56,45 @@
    "api": false,
    "pos": null,
    "grade": "none",
-   "comp": "아도의원 강남"
+   "comp": "아도의원 강남",
+   "content": {
+    "blog": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "블로그"
+    },
+    "cafe": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "카페"
+    },
+    "web": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "웹문서"
+    },
+    "news": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "뉴스"
+    },
+    "image": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "이미지"
+    },
+    "kin": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "지식iN"
+    }
+   }
   },
   {
    "kw": "역삼역 피부과",
@@ -64,7 +102,45 @@
    "api": false,
    "pos": null,
    "grade": "none",
-   "comp": "강남 셀리팅의원"
+   "comp": "강남 셀리팅의원",
+   "content": {
+    "blog": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "블로그"
+    },
+    "cafe": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "카페"
+    },
+    "web": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "웹문서"
+    },
+    "news": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "뉴스"
+    },
+    "image": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "이미지"
+    },
+    "kin": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "지식iN"
+    }
+   }
   },
   {
    "kw": "테헤란로 피부과",
@@ -72,7 +148,45 @@
    "api": false,
    "pos": null,
    "grade": "none",
-   "comp": "코르디아의원"
+   "comp": "코르디아의원",
+   "content": {
+    "blog": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "블로그"
+    },
+    "cafe": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "카페"
+    },
+    "web": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "웹문서"
+    },
+    "news": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "뉴스"
+    },
+    "image": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "이미지"
+    },
+    "kin": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "지식iN"
+    }
+   }
   },
   {
    "kw": "강남 리프팅",
@@ -80,7 +194,45 @@
    "api": false,
    "pos": null,
    "grade": "none",
-   "comp": "굿모닝 리프팅센터"
+   "comp": "굿모닝 리프팅센터",
+   "content": {
+    "blog": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "블로그"
+    },
+    "cafe": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "카페"
+    },
+    "web": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "웹문서"
+    },
+    "news": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "뉴스"
+    },
+    "image": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "이미지"
+    },
+    "kin": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "지식iN"
+    }
+   }
   },
   {
    "kw": "강남 보톡스",
@@ -88,7 +240,45 @@
    "api": false,
    "pos": null,
    "grade": "none",
-   "comp": "역삼밴스피부과의원"
+   "comp": "역삼밴스피부과의원",
+   "content": {
+    "blog": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "블로그"
+    },
+    "cafe": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "카페"
+    },
+    "web": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "웹문서"
+    },
+    "news": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "뉴스"
+    },
+    "image": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "이미지"
+    },
+    "kin": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "지식iN"
+    }
+   }
   },
   {
    "kw": "강남 여드름치료",
@@ -96,7 +286,45 @@
    "api": true,
    "pos": 1,
    "grade": "top",
-   "comp": "라메스피부과의원"
+   "comp": "라메스피부과의원",
+   "content": {
+    "blog": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "블로그"
+    },
+    "cafe": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "카페"
+    },
+    "web": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "웹문서"
+    },
+    "news": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "뉴스"
+    },
+    "image": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "이미지"
+    },
+    "kin": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "지식iN"
+    }
+   }
   },
   {
    "kw": "강남 탈모치료",
@@ -104,7 +332,45 @@
    "api": false,
    "pos": null,
    "grade": "none",
-   "comp": "모아이의원"
+   "comp": "모아이의원",
+   "content": {
+    "blog": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "블로그"
+    },
+    "cafe": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "카페"
+    },
+    "web": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "웹문서"
+    },
+    "news": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "뉴스"
+    },
+    "image": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "이미지"
+    },
+    "kin": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "지식iN"
+    }
+   }
   },
   {
    "kw": "강남 기미레이저",
@@ -112,7 +378,45 @@
    "api": false,
    "pos": null,
    "grade": "none",
-   "comp": "청담연세피부과의원"
+   "comp": "청담연세피부과의원",
+   "content": {
+    "blog": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "블로그"
+    },
+    "cafe": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "카페"
+    },
+    "web": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "웹문서"
+    },
+    "news": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "뉴스"
+    },
+    "image": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "이미지"
+    },
+    "kin": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "지식iN"
+    }
+   }
   }
  ],
  "map_points": [
@@ -2325,12 +2629,6 @@
    "same_department": true
   },
   {
-   "name": "네임드성형외과의원",
-   "distance_m": 1362.2,
-   "bearing_deg": 220.9,
-   "same_department": true
-  },
-  {
    "name": "라클라쎄의원",
    "distance_m": 1362.2,
    "bearing_deg": 220.9,
@@ -2512,6 +2810,12 @@
   },
   {
    "name": "블리비의원",
+   "distance_m": 1380.7,
+   "bearing_deg": 231.8,
+   "same_department": true
+  },
+  {
+   "name": "아이러브피부과의원",
    "distance_m": 1380.7,
    "bearing_deg": 231.8,
    "same_department": true
