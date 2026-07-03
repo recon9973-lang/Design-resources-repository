@@ -99,6 +99,7 @@
 
 <nav class="tabs"><div class="wrap tabs-inner" role="tablist">
   <button class="tab" role="tab" data-p="leads" aria-selected="true">신청 관리 <span class="n">6</span></button>
+  <button class="tab" role="tab" data-p="deep" aria-selected="false">상세 분석</button>
   <button class="tab" role="tab" data-p="abuse" aria-selected="false">어뷰징 모니터 <span class="n alert">2</span></button>
   <button class="tab" role="tab" data-p="suppress" aria-selected="false">수신거부 목록 <span class="n">4</span></button>
   <button class="tab" role="tab" data-p="evidence" aria-selected="false">증빙 검수 <span class="n">7</span></button>
@@ -129,6 +130,36 @@
     </table></div>
     <p class="note">동의 증적(일시·IP·문구 버전)은 신청 레코드에 저장됩니다. 광고성 연락 전 반드시 해당 채널 동의와
     수신거부 목록을 확인하세요. 광고성 수신 동의는 2년마다 재확인 대상입니다.</p>
+  </section>
+
+  <!-- ============ 상세 분석 ============ -->
+  <section class="panel" id="panel-deep">
+    <h1>상세 분석 (자동 진단 결과 열람)</h1>
+    <p class="sub">업체명 하나로 실행한 자동 진단(<code>auto_diagnose.py</code>)의 <b>전체판(마킹 없음)</b> 결과입니다.
+    키워드 산출 근거·영역별 원본 위치·플레이스 상위 5건·검증 플래그까지 내부용으로 모두 노출합니다.</p>
+    <div class="filters">
+      <span class="count">진단 실행: <code>python3 pipeline/auto_diagnose.py --name 업체명 [--region 지역] --out data/auto-diagnose-슬러그.json</code></span>
+    </div>
+    <div class="filters">
+      <input id="deepFile" value="auto-diagnose-venom.json" style="font:inherit;font-size:12.5px;padding:6px 9px;
+        border:1px solid var(--grid);border-radius:8px;background:var(--surface-1);color:var(--text-primary);min-width:250px">
+      <button class="btn" id="deepLoad">불러오기</button>
+      <span class="count" id="deepStatus">data/ 폴더의 결과 JSON 파일명</span>
+    </div>
+    <div id="deepBody" style="display:none">
+      <div class="card" style="padding:13px 16px;margin-bottom:12px" id="deepBiz"></div>
+      <div class="cards" id="deepKpi"></div>
+      <div class="card table-card"><table id="deepTbl">
+        <thead><tr><th></th><th>키워드</th><th>유형</th><th>플레이스</th>
+          <th style="text-align:center">블로그</th><th style="text-align:center">카페</th>
+          <th style="text-align:center">웹문서</th><th style="text-align:center">뉴스</th>
+          <th style="text-align:center">이미지</th><th style="text-align:center">지식iN</th></tr></thead>
+        <tbody></tbody>
+      </table></div>
+      <p class="note">○ N = 해당 영역 공식 API 결과 내 위치(화면 순위 아님) · ✕ = 상위 30건(플레이스는 5건) 내 없음 ·
+      "—" = 영역 비활성 · ⚠ = 두 글자 이하 상호라 동명 오탐 가능(수동 검증 필요).
+      이 화면은 내부 전체판입니다 — 고객 제공 시에는 리포트 산출물(마킹 정책 적용)만 사용하세요.</p>
+    </div>
   </section>
 
   <!-- ============ 어뷰징 모니터 ============ -->
@@ -229,6 +260,61 @@ function renderLeads(){
 }
 $('#fStatus').addEventListener('change',renderLeads);
 renderLeads();
+
+/* ---- 상세 분석: auto_diagnose 결과 JSON 열람 ---- */
+const DEEP_SECS=[['blog','블로그'],['cafe','카페'],['web','웹문서'],['news','뉴스'],['image','이미지'],['kin','지식iN']];
+function deepCell(c){
+  if(!c||c.exposed===null) return '<span style="color:var(--text-muted)">미검증</span>';
+  if(!c.present) return '<span style="color:var(--text-muted)">—</span>';
+  if(c.exposed) return `<b style="color:var(--status-good)">○ ${c.position}</b>`;
+  return '<span style="color:var(--status-crit)">✕</span>';
+}
+function renderDeep(j){
+  const b=j.business, r=j.region||{}, cls=j.classification||{};
+  $('#deepBiz').innerHTML=
+    `<b style="font-size:15px">${esc(b.title)}</b>
+     <span class="pill ${cls.is_hospital?'p-good':'p-mute'}" style="margin-left:8px"><span class="dot"></span>${cls.is_hospital?('병원'+(cls.dept?' · '+esc(cls.dept):'')):'일반 업체'}</span><br>
+     <span style="color:var(--text-secondary)">${esc(b.address||'')} · ${esc(b.category||'')}</span><br>
+     <span style="color:var(--text-muted);font-size:12px">지역축: ${esc(r.dong||'-')} / ${esc(r.gu||'-')} / ${esc(r.city||'-')} · 수집 ${esc((j.generated_at||'').slice(0,10))}</span>`;
+  const s=j.summary||{};
+  $('#deepKpi').innerHTML=
+    `<div class="kpi"><div class="l">자동 산출 키워드</div><div class="v">${s.total??(j.keywords||[]).length}</div><div class="d">동/구/시/메인 × 업종·시술</div></div>
+     <div class="kpi"><div class="l">플레이스 노출</div><div class="v">${s.place_hit??'—'}</div><div class="d">공식 API 상위 5건 기준</div></div>
+     <div class="kpi"><div class="l">콘텐츠 노출 키워드</div><div class="v">${s.content_hit??'—'}</div><div class="d">6영역 중 1곳 이상</div></div>
+     <div class="kpi ${s.ambiguous?'alert':''}"><div class="l">검증 플래그</div><div class="v">${s.ambiguous?'⚠':'양호'}</div><div class="d">${s.ambiguous?'짧은 상호 — 오탐 검증 필요':'자동 판정 신뢰 가능'}</div></div>`;
+  $('#deepTbl tbody').innerHTML=(j.keywords||[]).map((k,i)=>{
+    const pl=k.place||{};
+    const place=pl.exposed?`<b style="color:var(--status-good)">○ ${pl.rank}</b>`:'<span style="color:var(--status-crit)">✕</span>';
+    const amb=pl.ambiguous?' <span title="동명 오탐 가능">⚠</span>':'';
+    const top=(pl.results||[]).map(x=>`${x.rank}. ${esc(x.title)} <span style="color:var(--text-muted)">${esc((x.address||'').slice(0,22))}</span>`).join('<br>');
+    return `<tr>
+      <td><button class="btn deep-x" data-i="${i}" aria-expanded="false">+</button></td>
+      <td><b>${esc(k.kw)}</b></td><td>${esc(k.type)}</td><td>${place}${amb}</td>
+      ${DEEP_SECS.map(([key])=>`<td style="text-align:center">${deepCell((k.content||{})[key])}</td>`).join('')}
+    </tr>
+    <tr class="deep-detail" data-i="${i}" style="display:none"><td></td>
+      <td colspan="9" style="font-size:12px;color:var(--text-secondary)">
+        <b>플레이스 상위 5</b> (지역 검증 포함)<br>${top||'결과 없음'}</td></tr>`;
+  }).join('');
+  $$('#deepTbl .deep-x').forEach(btn=>btn.addEventListener('click',()=>{
+    const row=document.querySelector(`.deep-detail[data-i="${btn.dataset.i}"]`);
+    const open=row.style.display==='none';
+    row.style.display=open?'':'none';
+    btn.textContent=open?'−':'+';
+    btn.setAttribute('aria-expanded',open);
+  }));
+  $('#deepBody').style.display='';
+}
+function loadDeep(){
+  const f=($('#deepFile').value||'').trim();
+  if(!/^[\w.\-]+\.json$/.test(f)){$('#deepStatus').textContent='파일명 형식이 올바르지 않습니다';return;}
+  $('#deepStatus').textContent='불러오는 중…';
+  fetch('../data/'+f).then(r=>{if(!r.ok)throw 0;return r.json()})
+    .then(j=>{renderDeep(j);$('#deepStatus').textContent='로드 완료: '+f;})
+    .catch(()=>{$('#deepStatus').textContent='불러오기 실패 — data/'+f+' 존재 여부를 확인하세요';});
+}
+$('#deepLoad').addEventListener('click',loadDeep);
+loadDeep();
 
 /* ---- 어뷰징 모니터 (목업) ---- */
 const ABUSE=[

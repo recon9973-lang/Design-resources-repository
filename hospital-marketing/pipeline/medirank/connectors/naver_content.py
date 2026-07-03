@@ -89,23 +89,30 @@ def content_exposure(keyword: str, hospital_name: str,
                 for k, (lbl, _, _) in SECTIONS.items()}
 
     norm_h = _norm(hospital_name)
+    # 두 글자 이하 상호는 동명 콘텐츠(영화·타 브랜드 등) 오탐이 잦다.
+    # 제목만 대조하고 ambiguous=True로 표시해 화면에서 검증 필요를 안내한다.
+    ambiguous = len(norm_h) <= 2
     out = {}
     for key, (label, url, _desc) in SECTIONS.items():
         try:
             items = _search(url, keyword, display)
         except Exception:
-            out[key] = {"present": None, "exposed": None, "position": None, "label": label}
+            out[key] = {"present": None, "exposed": None, "position": None,
+                        "label": label, "ambiguous": ambiguous}
             continue
         present = len(items) > 0
         exposed, position = False, None
         for i, item in enumerate(items):
-            text = _TAG_RE.sub("", (item.get("title") or "") + " "
-                               + (item.get("description") or ""))
+            if ambiguous:
+                text = _TAG_RE.sub("", item.get("title") or "")
+            else:
+                text = _TAG_RE.sub("", (item.get("title") or "") + " "
+                                   + (item.get("description") or ""))
             if norm_h and norm_h in "".join(text.split()):
                 exposed, position = True, i + 1
                 break
         out[key] = {"present": present, "exposed": exposed if present else False,
-                    "position": position, "label": label}
+                    "position": position, "label": label, "ambiguous": ambiguous}
     return out
 
 

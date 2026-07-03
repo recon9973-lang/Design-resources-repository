@@ -218,6 +218,19 @@
         <div class="actions" id="homeActions"></div>
       </div>
     </div>
+
+    <div class="grid2" style="margin-top:14px">
+      <div class="card chart-card">
+        <p class="chart-title">진단 점수는 이렇게 만들어졌습니다</p>
+        <p class="chart-sub">항목별 점수 × 가중치 = 기여 점수 · 반경 <span class="rEcho">1km</span> 기준</p>
+        <div id="contribChart"></div>
+      </div>
+      <div class="card chart-card">
+        <p class="chart-title">분석 반경별 진단 점수</p>
+        <p class="chart-sub">생활권 범위를 넓힐수록 경쟁 환경이 어떻게 달라지는지</p>
+        <div id="radiusChart"></div>
+      </div>
+    </div>
   </section>
 
   <!-- ================= 지도 분석 ================= -->
@@ -271,6 +284,19 @@
     <p class="note">○ N = 해당 영역 API 결과 내 위치 · "—" = 이 키워드에는 해당 영역 콘텐츠 없음.
     파워링크(광고)·브랜드 콘텐츠·스마트블록의 실제 화면 배치는 공식 API 미제공으로 측정 범위에서 제외됩니다
     (법무 검토상 화면 수집 보류 — 승인 시 월간 참고 스냅샷으로 보완 예정).</p>
+
+    <div class="grid2" style="margin-top:14px">
+      <div class="card chart-card">
+        <p class="chart-title">통합검색 영역 커버리지 레이더</p>
+        <p class="chart-sub">영역별 · 활성 키워드 가운데 병원명 콘텐츠가 노출된 비율</p>
+        <div id="radarChart"></div>
+      </div>
+      <div class="card chart-card">
+        <p class="chart-title">영역별 노출 키워드 수</p>
+        <p class="chart-sub">옅은 막대 = 영역이 활성인 키워드 · 진한 채움 = 그중 노출된 키워드</p>
+        <div id="coverBars"></div>
+      </div>
+    </div>
   </section>
 
   <!-- ================= 경쟁 벤치마크 ================= -->
@@ -462,6 +488,73 @@ function renderHome(){
        <div class="track"><div class="fill" style="width:${v}%"></div></div></div>`);
   });
   renderTrend();
+  renderContrib();
+  renderRadiusChart();
+}
+
+/* 점수 구성 기여도 — "왜 이 점수인가"를 한눈에 */
+const COMP_COLORS=['var(--series-1)','var(--series-2)','var(--series-3)','var(--seq-600)'];
+function renderContrib(){
+  const d=RADIUS_DATA[radius];
+  const parts=COMPONENTS.map((c,i)=>({name:c.name, w:c.weight, v:d.comp[c.key],
+    pts:d.comp[c.key]*c.weight/100, color:COMP_COLORS[i]}));
+  const total=parts.reduce((s,p)=>s+p.pts,0);
+  const segs=parts.map(p=>
+    `<div title="${p.name}" style="flex:${p.pts.toFixed(1)};background:${p.color};height:100%"></div>`).join('');
+  const gap=Math.max(0,100-total);
+  const rows=parts.map(p=>{
+    const full=p.w; // 이 항목이 채울 수 있는 최대 기여 점수
+    const pct=full?Math.round(100*p.pts/full):0;
+    return `<div style="display:flex;align-items:center;gap:10px;font-size:12.5px">
+      <span style="width:10px;height:10px;border-radius:3px;background:${p.color};flex:none"></span>
+      <span style="width:92px;flex:none;color:var(--text-secondary)">${p.name}</span>
+      <div style="flex:1;height:7px;border-radius:4px;background:var(--plane);overflow:hidden">
+        <div style="width:${pct}%;height:100%;background:${p.color};border-radius:4px"></div>
+      </div>
+      <span style="width:120px;flex:none;text-align:right;font-variant-numeric:tabular-nums;color:var(--text-secondary)">
+        ${p.v}점×${p.w}% = <b style="color:var(--text-primary)">${p.pts.toFixed(1)}</b></span>
+    </div>`;}).join('');
+  $('#contribChart').innerHTML=`
+    <div style="display:flex;height:22px;border-radius:8px;overflow:hidden;background:var(--plane);gap:2px">
+      ${segs}${gap?`<div style="flex:${gap.toFixed(1)};background:transparent;border:1px dashed var(--grid);border-radius:0 8px 8px 0"></div>`:''}
+    </div>
+    <div style="display:flex;justify-content:space-between;font-size:11.5px;color:var(--text-muted);margin:4px 2px 12px">
+      <span>합계 <b style="color:var(--text-primary)">${Math.round(total)}점</b></span><span>남은 개선 여지 ${Math.round(gap)}점</span>
+    </div>
+    <div style="display:grid;gap:8px">${rows}</div>`;
+}
+
+/* 반경 4단계 점수·경쟁 비교 — 현재 선택 반경 강조 */
+function renderRadiusChart(){
+  const radii=[500,1000,1500,2000];
+  const W=460,H=210,P={l:34,r:10,t:16,b:44};
+  const bw=(W-P.l-P.r)/radii.length;
+  const y=v=>P.t+(H-P.t-P.b)*(1-v/100);
+  let g='';
+  for(let v=0;v<=100;v+=25){
+    g+=`<line x1="${P.l}" x2="${W-P.r}" y1="${y(v)}" y2="${y(v)}" stroke="var(--grid)" stroke-width="1"/>
+        <text x="${P.l-6}" y="${y(v)+4}" text-anchor="end" font-size="10.5" fill="var(--text-muted)" style="font-variant-numeric:tabular-nums">${v}</text>`;
+  }
+  let bars='';
+  radii.forEach((r,i)=>{
+    const d=RADIUS_DATA[r]; if(!d)return;
+    const cx=P.l+bw*i+bw/2, w=Math.min(52,bw*0.5), sel=r===radius;
+    bars+=`<rect class="rb" data-r="${r}" x="${(cx-w/2).toFixed(1)}" y="${y(d.score).toFixed(1)}" width="${w}" height="${(y(0)-y(d.score)).toFixed(1)}"
+        fill="${sel?'var(--series-1)':'var(--seq-250)'}" style="cursor:pointer"/>
+      <text x="${cx}" y="${y(d.score)-6}" text-anchor="middle" font-size="12.5" font-weight="${sel?'750':'500'}"
+        fill="var(--text-primary)" style="font-variant-numeric:tabular-nums">${d.score}</text>
+      <text x="${cx}" y="${H-26}" text-anchor="middle" font-size="11.5" font-weight="${sel?'700':'400'}" fill="var(--text-secondary)">${fmtR(r)}</text>
+      <text x="${cx}" y="${H-11}" text-anchor="middle" font-size="10.5" fill="var(--text-muted)">경쟁 ${d.competitors}곳</text>`;
+  });
+  $('#radiusChart').innerHTML=
+   `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="반경별 진단 점수 비교">
+      ${g}<line x1="${P.l}" x2="${W-P.r}" y1="${y(0)}" y2="${y(0)}" stroke="var(--baseline)" stroke-width="1"/>${bars}
+    </svg>`;
+  $$('#radiusChart .rb').forEach(b=>b.addEventListener('click',()=>{
+    radius=+b.dataset.r;
+    $$('#radiusSeg button').forEach(x=>x.setAttribute('aria-pressed',+x.dataset.r===radius));
+    renderAll();
+  }));
 }
 
 /* 추이 라인 차트 (단일 시리즈 → 범례 없음, 끝값 직접 라벨) */
@@ -572,17 +665,77 @@ function renderKeywords(){
      <td class="num">${k.pos??'—'}</td>
      <td>${chip(k.grade)}</td><td>${esc(k.comp)}</td><td>${esc(k.act||actByGrade(k.grade))}</td></tr>`).join('');
 
-  /* 통합검색 콘텐츠 영역 매트릭스 (키워드별 존재 영역에 맞춰 표시) */
+  /* 통합검색 콘텐츠 영역 매트릭스 (키워드별 존재 영역에 맞춰 표시)
+     노출 셀은 위치가 상위일수록 진한 히트 컬러 (5위 이내 > 15위 이내 > 그 외) */
   const SECS=['blog','cafe','web','news','image','kin'];
   const cell=c=>{
     if(!c||c.exposed===null||c.present===null) return '<span style="color:var(--text-muted)">미검증</span>';
     if(!c.present) return '<span style="color:var(--text-muted)">—</span>';
-    if(c.exposed) return `<b style="color:var(--status-good)">○ ${c.position}</b>`;
+    if(c.exposed){
+      const mix=c.position<=5?20:c.position<=15?12:6;
+      return `<span style="display:inline-block;min-width:46px;padding:2px 7px;border-radius:6px;`
+        +`background:color-mix(in srgb, var(--status-good) ${mix}%, transparent)">`
+        +`<b style="color:var(--good-text)">○ ${c.position}</b></span>`;
+    }
     return '<span style="color:var(--status-crit);font-size:12px">미노출</span>';
   };
   $('#contentTable tbody').innerHTML=KEYWORDS.map(k=>
     `<tr><td><b>${esc(k.kw)}</b></td>${SECS.map(s=>
       `<td style="text-align:center">${cell((k.content||{})[s])}</td>`).join('')}</tr>`).join('');
+  renderCoverage();
+}
+
+/* 통합검색 영역 커버리지 — 레이더 + 영역별 노출/활성 막대 */
+const SEC_DEFS=[['blog','블로그'],['cafe','카페'],['web','웹문서'],['news','뉴스'],['image','이미지'],['kin','지식iN']];
+function renderCoverage(){
+  const radarEl=$('#radarChart'), barsEl=$('#coverBars');
+  if(!radarEl||!barsEl) return;
+  const st=SEC_DEFS.map(([k,label])=>{
+    let act=0,hit=0;
+    KEYWORDS.forEach(kw=>{const c=(kw.content||{})[k]; if(c&&c.present){act++; if(c.exposed)hit++;}});
+    return {k,label,act,hit,ratio:act?hit/act:0};
+  });
+  if(!KEYWORDS.some(k=>k.content)){
+    radarEl.innerHTML=barsEl.innerHTML=
+      '<p style="font-size:13px;color:var(--text-muted);padding:30px 10px;text-align:center">콘텐츠 영역 데이터가 아직 없습니다.</p>';
+    return;
+  }
+  const W=380,H=308,cx=W/2,cy=H/2+8,R=100,N=st.length;
+  const pt=(i,r)=>{const a=-Math.PI/2+i*2*Math.PI/N;return [cx+Math.cos(a)*r, cy+Math.sin(a)*r];};
+  let grid='';
+  [0.25,0.5,0.75,1].forEach(f=>{
+    grid+=`<polygon points="${st.map((_,i)=>pt(i,R*f).map(v=>v.toFixed(1)).join(',')).join(' ')}"
+      fill="none" stroke="var(--grid)" stroke-width="1"/>`;
+  });
+  let axes='',labels='';
+  st.forEach((s,i)=>{
+    const [x,y]=pt(i,R);
+    axes+=`<line x1="${cx}" y1="${cy}" x2="${x.toFixed(1)}" y2="${y.toFixed(1)}" stroke="var(--grid)" stroke-width="1"/>`;
+    const [lx,ly]=pt(i,R+26);
+    labels+=`<text x="${lx.toFixed(1)}" y="${(ly).toFixed(1)}" text-anchor="middle" font-size="11.5" fill="var(--text-secondary)">${s.label}</text>
+      <text x="${lx.toFixed(1)}" y="${(ly+14).toFixed(1)}" text-anchor="middle" font-size="10.5" font-weight="700"
+        fill="var(--text-primary)" style="font-variant-numeric:tabular-nums">${s.act?Math.round(s.ratio*100)+'%':'—'}</text>`;
+  });
+  const poly=st.map((s,i)=>pt(i,R*s.ratio).map(v=>v.toFixed(1)).join(',')).join(' ');
+  const dots=st.map((s,i)=>{const[x,y]=pt(i,R*s.ratio);
+    return `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="3.5" fill="var(--series-1)" stroke="var(--surface-1)" stroke-width="1.5"/>`}).join('');
+  radarEl.innerHTML=
+   `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="통합검색 영역별 노출 커버리지 레이더">
+      ${grid}${axes}
+      <polygon points="${poly}" fill="var(--series-1)" opacity="0.15"/>
+      <polygon points="${poly}" fill="none" stroke="var(--series-1)" stroke-width="2" stroke-linejoin="round"/>
+      ${dots}${labels}
+    </svg>`;
+  const total=KEYWORDS.length||1;
+  barsEl.innerHTML='<div style="display:grid;gap:11px;padding-top:6px">'+st.map(s=>`
+    <div style="display:flex;align-items:center;gap:10px;font-size:12.5px">
+      <span style="width:52px;flex:none;color:var(--text-secondary)">${s.label}</span>
+      <div style="flex:1;height:14px;border-radius:7px;background:var(--plane);overflow:hidden;position:relative">
+        <div style="position:absolute;top:0;left:0;bottom:0;width:${(100*s.act/total).toFixed(1)}%;background:var(--seq-150);border-radius:7px"></div>
+        <div style="position:absolute;top:0;left:0;bottom:0;width:${(100*s.hit/total).toFixed(1)}%;background:var(--series-1);border-radius:7px"></div>
+      </div>
+      <span style="width:76px;flex:none;text-align:right;font-variant-numeric:tabular-nums;color:var(--text-secondary)">노출 <b style="color:var(--text-primary)">${s.hit}</b> / ${s.act}</span>
+    </div>`).join('')+'</div>';
 }
 
 /* ---------- 벤치마크 ---------- */
