@@ -53,6 +53,9 @@ def main() -> None:
     ap.add_argument("--lng", type=float, required=True)
     ap.add_argument("--dgsbjt", default="14")
     ap.add_argument("--adm-cd", default="11230")
+    ap.add_argument("--biz-type", default="hospital",
+                    choices=["hospital", "law", "beauty", "general"],
+                    help="화면 명칭 적응용 업종. 대시보드가 경쟁 병원↔경쟁 업체 등으로 자동 치환")
     ap.add_argument("--keywords", nargs="*", default=DEFAULT_KEYWORDS)
     ap.add_argument("--out", default=str(Path(__file__).parent.parent / "data" / "dashboard-live.json"))
     args = ap.parse_args()
@@ -118,6 +121,7 @@ def main() -> None:
         "generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         "month": date.today().strftime("%Y-%m"),
         "live": True,
+        "biz_type": args.biz_type,
         "hospital": {"name": args.name, "department": args.department,
                      "address": args.address},
         "radius_data": radius_data,
