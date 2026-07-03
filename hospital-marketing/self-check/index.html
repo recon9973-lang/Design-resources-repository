@@ -156,8 +156,8 @@
 <body>
 
 <header class="top"><div class="wrap top-in">
-  <span class="mark">V</span>
-  <span class="brand-name">베놈 체크업 <span class="sub">VENOM Checkup</span></span>
+  <a class="mark" href="../checkup/" title="베놈 체크업 홈" style="text-decoration:none">V</a>
+  <a class="brand-name" href="../checkup/" style="color:inherit;text-decoration:none">베놈 체크업 <span class="sub">VENOM Checkup</span></a>
   <span class="free-badge">100% 무료 · 회원가입 없이</span>
 </div></header>
 
@@ -284,11 +284,16 @@
 const $=s=>document.querySelector(s), $$=s=>document.querySelectorAll(s);
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 
-/* 탭 */
-$$('.tab').forEach(t=>t.addEventListener('click',()=>{
-  $$('.tab').forEach(x=>x.setAttribute('aria-selected',x===t));
-  $$('.panel').forEach(p=>p.classList.toggle('active',p.id==='panel-'+t.dataset.p));
-}));
+/* 탭 (해시 딥링크 지원: #risk/#cost/#journey) */
+function openTab(name){
+  const tab=[...$$('.tab')].find(t=>t.dataset.p===name); if(!tab)return;
+  $$('.tab').forEach(x=>x.setAttribute('aria-selected',x===tab));
+  $$('.panel').forEach(p=>p.classList.toggle('active',p.id==='panel-'+name));
+}
+$$('.tab').forEach(t=>t.addEventListener('click',()=>{openTab(t.dataset.p);
+  history.replaceState(null,'','#'+t.dataset.p);}));
+if(/^#(risk|cost|journey)$/.test(location.hash)) openTab(location.hash.slice(1));
+window.addEventListener('hashchange',()=>{if(/^#(risk|cost|journey)$/.test(location.hash))openTab(location.hash.slice(1));});
 
 /* ============ 리스크 진단 ============ */
 /* 의료법 제56조·시행령 제23조·제27조 기반 규칙. sev: c=위험, w=주의 */
