@@ -88,7 +88,10 @@ def main() -> None:
     ap.add_argument("--region", default=None, help="동명 업체 구분용 지역 힌트 (예: 대구, 수성구)")
     ap.add_argument("--max-keywords", type=int, default=12)
     ap.add_argument("--out", default=None, help="결과 JSON 저장 경로")
-    ap.add_argument("--html", default=None, help="공유용 리포트 HTML 저장 경로")
+    ap.add_argument("--html", default=None, help="공유용 리포트 HTML 저장 경로 (전체판)")
+    ap.add_argument("--html-masked", default=None,
+                    help="마킹판 HTML 저장 경로 — 세부 수치를 산출 단계에서 제외(소스에도 없음), "
+                         "무료 회원 열람 시 전체판 제공 모델용")
     ap.add_argument("--no-location", action="store_true", help="입지 분석 생략")
     args = ap.parse_args()
 
@@ -180,13 +183,26 @@ def main() -> None:
         p.parent.mkdir(parents=True, exist_ok=True)
         p.write_text(render_html(result), encoding="utf-8")
         print(f"HTML 저장: {p}")
+    if args.html_masked:
+        p = Path(args.html_masked)
+        p.parent.mkdir(parents=True, exist_ok=True)
+        p.write_text(render_html(result, masked=True), encoding="utf-8")
+        print(f"HTML(마킹판) 저장: {p}")
 
 
-def render_html(j: dict) -> str:
-    """자기완결 공유용 리포트 HTML (외부 의존성 0, CSP·noindex 포함)."""
+def render_html(j: dict, masked: bool = False) -> str:
+    """자기완결 공유용 리포트 HTML (외부 의존성 0, CSP·noindex 포함).
+
+    masked=True — 무료 배포용 마킹판. 노출 여부(○/✕/—)와 요약 개수는 공개하되
+    세부 수치(위치 순번, 입지 수치)는 **HTML 생성 단계에서 제외**한다.
+    (CSS 블러가 아니라 데이터 자체가 없으므로 소스 보기로도 확인 불가)
+    문구는 법무 지침 준수 — 순위·보장 표현 없이 중립적으로 안내.
+    """
     e = html_mod.escape
     b, r, cls, s = j["business"], j["region"], j["classification"], j["summary"]
     loc = j.get("location")
+
+    LOCK = '<span class="lock" title="무료 회원 열람 시 공개">회원 공개</span>'
 
     def cell_html(c):
         if not c or c.get("exposed") is None:
@@ -194,15 +210,24 @@ def render_html(j: dict) -> str:
         if not c.get("present"):
             return '<td class="c mut">—</td>'
         if c.get("exposed"):
+            if masked:
+                return f'<td class="c"><span class="hit">○</span> {LOCK}</td>'
             mix = 20 if c["position"] <= 5 else 12 if c["position"] <= 15 else 6
             return (f'<td class="c"><span class="hit" style="background:'
                     f'color-mix(in srgb, var(--good) {mix}%, transparent)">○ {c["position"]}</span></td>')
         return '<td class="c bad">✕</td>'
 
+    def place_html(pl):
+        if not pl.get("exposed"):
+            return '<td class="c bad">✕</td>'
+        amb = " ⚠" if pl.get("ambiguous") else ""
+        if masked:
+            return f'<td class="c good">○ {LOCK}</td>'
+        return f'<td class="c good">○ {pl["rank"]}{amb}</td>'
+
     kw_rows = "".join(
         f'<tr><td><b>{e(k["kw"])}</b></td><td>{e(k["type"])}</td>'
-        + ('<td class="c good">○ ' + str(k["place"]["rank"]) + (" ⚠" if k["place"].get("ambiguous") else "") + "</td>"
-           if k["place"]["exposed"] else '<td class="c bad">✕</td>')
+        + place_html(k["place"])
         + "".join(cell_html((k["content"] or {}).get(key)) for key in SEC_KEYS)
         + "</tr>"
         for k in j["keywords"])
@@ -211,14 +236,23 @@ def render_html(j: dict) -> str:
 
     loc_html = ""
     if loc:
-        cards = [
-            ("행정구역", e(loc.get("adm_nm") or "-"), f'평균연령 {loc.get("avg_age") or "-"}세'),
-            ("반경 1km 인구(추정)", f'{loc["population_radius"]:,}명', f'잠재 수요 점수 {loc["demand_score"]}'),
-            ("종사자 밀도", f'{loc["employee_density_km2"]:,}/km²', f'상권 활동 점수 {loc["commerce_score"]}'),
-        ]
-        if "competitors" in loc:
-            cards.append(("같은 진료과 경쟁 (1km)", f'{loc["competitors"]}곳',
-                          f'경쟁 여유 {loc["competition_score"]} · 입지 참고 {loc["site_score"]}점'))
+        if masked:
+            cards = [
+                ("행정구역", e(loc.get("adm_nm") or "-"), "인구·연령 지표는 회원 공개"),
+                ("반경 1km 인구(추정)", LOCK, "잠재 수요 점수 포함"),
+                ("종사자 밀도·상권", LOCK, "상권 활동 점수 포함"),
+            ]
+            if "competitors" in loc:
+                cards.append(("같은 진료과 경쟁 (1km)", LOCK, "경쟁 수·입지 참고 점수 포함"))
+        else:
+            cards = [
+                ("행정구역", e(loc.get("adm_nm") or "-"), f'평균연령 {loc.get("avg_age") or "-"}세'),
+                ("반경 1km 인구(추정)", f'{loc["population_radius"]:,}명', f'잠재 수요 점수 {loc["demand_score"]}'),
+                ("종사자 밀도", f'{loc["employee_density_km2"]:,}/km²', f'상권 활동 점수 {loc["commerce_score"]}'),
+            ]
+            if "competitors" in loc:
+                cards.append(("같은 진료과 경쟁 (1km)", f'{loc["competitors"]}곳',
+                              f'경쟁 여유 {loc["competition_score"]} · 입지 참고 {loc["site_score"]}점'))
         cs = "".join(f'<div class="stat"><div class="k">{k}</div><div class="v">{v}</div>'
                      f'<div class="d">{d}</div></div>' for k, v, d in cards)
         note = ("" if "competitors" in loc else
@@ -234,6 +268,16 @@ def render_html(j: dict) -> str:
 
     amb_html = ('<p class="warn">⚠ 두 글자 이하 상호 특성상 동명 콘텐츠 오탐이 가능해 완전일치·제목 기준으로만 '
                 '판정했으며, 노출 건은 수동 검증을 권장합니다.</p>' if s["ambiguous"] else "")
+
+    mask_banner = ""
+    if masked:
+        locked_n = sum(1 for k in j["keywords"] if k["place"]["exposed"]) + sum(
+            1 for k in j["keywords"] for key in SEC_KEYS
+            if ((k["content"] or {}).get(key) or {}).get("exposed"))
+        mask_banner = (f'<p class="warn" style="border-left:3px solid var(--accent)">'
+                       f'이 리포트는 무료 배포판입니다. 세부 진단 항목 {locked_n}건(노출 위치·입지 수치)은 '
+                       f'표시하지 않았으며, <b>무료 회원 열람 시 별도 비용 없이 전체가 공개</b>됩니다. '
+                       f'노출 여부(○/✕) 판정과 요약은 그대로 확인하실 수 있습니다.</p>')
 
     return f'''<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -268,6 +312,8 @@ td.c{{text-align:center;white-space:nowrap}}.good{{color:var(--good);font-weight
 .hit{{display:inline-block;min-width:44px;padding:1px 7px;border-radius:6px;color:var(--good);font-weight:700}}
 .warn{{background:color-mix(in srgb, var(--bad) 8%, transparent);border:1px solid var(--line);
 border-radius:8px;padding:9px 13px;font-size:12.5px;color:var(--sub)}}
+.lock{{display:inline-block;font-size:10.5px;font-weight:700;color:var(--accent);
+background:var(--accent-soft);border-radius:99px;padding:1px 8px;white-space:nowrap}}
 footer{{font-size:11px;color:var(--mut);text-align:center;border-top:1px solid var(--line);padding-top:12px}}
 </style>
 <div class="wrap">
@@ -286,7 +332,7 @@ footer{{font-size:11px;color:var(--mut);text-align:center;border-top:1px solid v
 <div class="stat"><div class="k">플레이스 노출</div><div class="v">{s["place_hit"]} / {s["total"]}</div><div class="d">공식 API 상위 5건 기준</div></div>
 <div class="stat"><div class="k">콘텐츠 노출 키워드</div><div class="v">{s["content_hit"]} / {s["total"]}</div><div class="d">6개 영역 중 1곳 이상</div></div>
 </section>
-{amb_html}
+{mask_banner}{amb_html}
 <section class="card"><h2>키워드별 노출 매트릭스</h2>
 <div class="tw"><table>
 <thead><tr><th>키워드</th><th>유형</th><th>플레이스</th><th>블로그</th><th>카페</th><th>웹문서</th><th>뉴스</th><th>이미지</th><th>지식iN</th></tr></thead>
