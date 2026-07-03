@@ -8,7 +8,9 @@
 - 단일 파일 정적 페이지 · 모바일 반응형
 
 ## 🚀 배포 (GitHub Pages)
-Settings → Pages → Branch `main` / `/(root)` 선택 → 저장.
+Settings → Pages → Branch 를 **이 저장소의 기본 브랜치**(현재 `main` 브랜치는 없으므로
+배포에 사용할 브랜치)로 선택하고 폴더는 `/(root)` → 저장.
+`index.html`이 루트에 있어 별도 빌드 없이 그대로 서빙됩니다.
 공개 주소: https://recon9973-lang.github.io/Design-resources-repository/
 
 ## 📜 출처 / 라이선스
