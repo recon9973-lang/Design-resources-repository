@@ -197,7 +197,7 @@
     </div>
 
     <div class="cards" style="margin-top:14px">
-      <div class="card"><div class="label">반경 내 경쟁 병원</div><div class="value" id="cCompetitors">32곳</div><div class="delta flat" id="cCompetitorsD">± 0 전월 대비</div></div>
+      <div class="card"><div class="label">반경 내 <span class="t-comp">경쟁 병원</span></div><div class="value" id="cCompetitors">32곳</div><div class="delta flat" id="cCompetitorsD">± 0 전월 대비</div></div>
       <div class="card"><div class="label">핵심 키워드 (공식 API 기준 노출)</div><div class="value" id="cExposed">7 / 10</div><div class="delta up" id="cExposedD">▲ 1 전월 대비</div></div>
       <div class="card"><div class="label">미노출 키워드</div><div class="value" id="cWeak">3개</div><div class="delta down">개선 필요</div></div>
       <div class="card"><div class="label">상위권 (API 3위 이내)</div><div class="value" id="cTop">3개</div><div class="delta up" id="cTopD">▲ 1 전월 대비</div></div>
@@ -235,20 +235,20 @@
 
   <!-- ================= 지도 분석 ================= -->
   <section class="panel" id="panel-map">
-    <h2>반경 내 경쟁 병원 지도</h2>
-    <p class="sub">내 병원 중심 · 선택 반경 <span class="rEcho">1km</span> · 점을 누르거나 올리면 상세가 보입니다. (개략 위치 목업)</p>
+    <h2>반경 내 <span class="t-comp">경쟁 병원</span> 지도</h2>
+    <p class="sub"><span class="t-mine">내 병원</span> 중심 · 선택 반경 <span class="rEcho">1km</span> · 점을 누르거나 올리면 상세가 보입니다. (개략 위치 목업)</p>
     <div class="card chart-card" style="padding:10px">
       <div id="mapChart"></div>
       <div class="legend" id="mapLegend">
-        <span class="key"><span class="sw" style="background:var(--series-1)"></span>내 병원</span>
-        <span class="key"><span class="sw" style="background:var(--series-6)"></span>같은 진료과 (피부과)</span>
-        <span class="key"><span class="sw" style="background:var(--series-3)"></span>유사 키워드 진료과</span>
+        <span class="key"><span class="sw" style="background:var(--series-1)"></span><span class="t-mine">내 병원</span></span>
+        <span class="key"><span class="sw" style="background:var(--series-6)"></span><span class="t-peer">같은 진료과</span> <span class="t-peer-dept">(피부과)</span></span>
+        <span class="key"><span class="sw" style="background:var(--series-3)"></span><span class="t-similar">유사 키워드 진료과</span></span>
       </div>
     </div>
     <p class="note">인구 밀집도·행정동 수요 레이어는 SGIS 통계지리정보 연동 후 제공됩니다. 병원 위치는 건강보험심사평가원 병원정보서비스 기준이며, 개원/폐업 반영에 시차가 있을 수 있습니다.</p>
     <div class="card table-card">
       <table id="mapTable">
-        <thead><tr><th>병원명</th><th>구분</th><th class="num">거리</th><th>API 노출 등급</th></tr></thead>
+        <thead><tr><th class="t-name">병원명</th><th>구분</th><th class="num">거리</th><th>API 노출 등급</th></tr></thead>
         <tbody></tbody>
       </table>
     </div>
@@ -301,8 +301,8 @@
 
   <!-- ================= 경쟁 벤치마크 ================= -->
   <section class="panel" id="panel-bench">
-    <h2>경쟁 병원 벤치마크</h2>
-    <p class="sub">반경 <span class="rEcho">1km</span> 내 인접 경쟁 병원 · 리뷰 수/평점/사진 수는 <b>병원이 직접 확인해 입력한 값</b>만 사용하며 리뷰 본문은 수집·분석하지 않습니다.</p>
+    <h2><span class="t-comp">경쟁 병원</span> 벤치마크</h2>
+    <p class="sub">반경 <span class="rEcho">1km</span> 내 인접 <span class="t-comp">경쟁 병원</span> · 리뷰 수/평점/사진 수는 <b><span class="t-biz">병원</span>이 직접 확인해 입력한 값</b>만 사용하며 리뷰 본문은 수집·분석하지 않습니다.</p>
     <div class="grid2">
       <div class="card chart-card">
         <p class="chart-title">방문자 리뷰 수 비교</p>
@@ -311,7 +311,7 @@
       </div>
       <div class="card table-card">
         <table id="benchTable">
-          <thead><tr><th>병원</th><th class="num">거리</th><th class="num">키워드 커버리지</th><th class="num">리뷰</th><th class="num">평점</th><th class="num">사진</th></tr></thead>
+          <thead><tr><th class="t-biz">병원</th><th class="num">거리</th><th class="num">키워드 커버리지</th><th class="num">리뷰</th><th class="num">평점</th><th class="num">사진</th></tr></thead>
           <tbody></tbody>
         </table>
       </div>
@@ -421,6 +421,34 @@ let MAP_POINTS=[];
   }
   MAP_POINTS.sort((a,b)=>a.dist-b.dist);
 })();
+
+/* ---------- 업종 적응형 용어 ----------
+   병원이 아닌 업체(로펌·기업 등)도 이 도구를 쓰므로, 화면의 "경쟁 병원/같은 진료과"
+   같은 명칭을 업종에 맞게 바꾼다. 실데이터의 업종(biz_type/category)으로 자동 판별. */
+const BIZ_TERMS={
+  hospital:{biz:'병원', comp:'경쟁 병원', peer:'같은 진료과', similar:'유사 진료과', name:'병원명', mine:'내 병원', hasDept:true},
+  law:     {biz:'사무소', comp:'경쟁 로펌', peer:'같은 분야', similar:'유사 분야', name:'상호', mine:'내 사무소', hasDept:false},
+  beauty:  {biz:'매장', comp:'경쟁 매장', peer:'같은 업종', similar:'유사 업종', name:'상호', mine:'내 매장', hasDept:false},
+  general: {biz:'업체', comp:'경쟁 업체', peer:'같은 업종', similar:'유사 업종', name:'상호', mine:'내 업체', hasDept:false},
+};
+function bizTypeFromCategory(cat){
+  const s=String(cat||'');
+  if(/병원|의원|치과|한의원|한방|클리닉|피부과|성형|정형|내과|안과|이비인후|산부인|비뇨|재활|요양|가정의학|신경|정신|외과/.test(s)) return 'hospital';
+  if(/법무|변호사|로펌|법률|세무|회계|노무|특허|변리/.test(s)) return 'law';
+  if(/미용|네일|피부관리|헤어|에스테틱|왁싱|뷰티/.test(s)) return 'beauty';
+  return 'general';
+}
+let TERMS=BIZ_TERMS.hospital, DEPT='피부과';
+function applyTerms(){
+  document.querySelectorAll('.t-comp').forEach(e=>e.textContent=TERMS.comp);
+  document.querySelectorAll('.t-mine').forEach(e=>e.textContent=TERMS.mine);
+  document.querySelectorAll('.t-biz').forEach(e=>e.textContent=TERMS.biz);
+  document.querySelectorAll('.t-peer').forEach(e=>e.textContent=TERMS.peer);
+  document.querySelectorAll('.t-similar').forEach(e=>e.textContent=TERMS.similar);
+  document.querySelectorAll('.t-name').forEach(e=>e.textContent=TERMS.name);
+  document.querySelectorAll('.t-peer-dept').forEach(e=>{
+    e.textContent=TERMS.hasDept&&DEPT?`(${DEPT})`:''; e.style.display=TERMS.hasDept&&DEPT?'':'none';});
+}
 
 /* ---------- 상태 ---------- */
 let radius = 1000;
@@ -617,18 +645,18 @@ function renderMap(){
       <circle cx="${cx}" cy="${cy}" r="${radius*scale}" fill="var(--series-1)" opacity="0.05"/>
       ${rings}${pts}
       <circle cx="${cx}" cy="${cy}" r="8" fill="var(--series-1)" stroke="var(--surface-1)" stroke-width="2.5"/>
-      <text x="${cx}" y="${cy+24}" text-anchor="middle" font-size="11.5" font-weight="650" fill="var(--text-primary)">내 병원</text>
+      <text x="${cx}" y="${cy+24}" text-anchor="middle" font-size="11.5" font-weight="650" fill="var(--text-primary)">${TERMS.mine}</text>
     </svg>`;
   $$('#mapChart .mp').forEach(c=>{
     const p=MAP_POINTS[+c.dataset.i];
     const html=`<div class="t-title">${esc(p.name)}</div>
-      <div class="t-row">${p.same?'같은 진료과 표방':'유사 키워드 진료과'} · ${p.dist}m</div>
+      <div class="t-row">${p.same?TERMS.peer+' 표방':TERMS.similar} · ${p.dist}m</div>
       ${p.grade?`<div class="t-row">API 노출 등급: ${esc(p.grade)}</div>`:''}`;
     c.addEventListener('mousemove',e=>showTip(html,e.clientX,e.clientY));
     c.addEventListener('mouseleave',hideTip);
   });
   const rows=MAP_POINTS.filter(p=>p.dist<=radius).slice(0,12).map(p=>
-    `<tr><td>${esc(p.name)}</td><td>${p.same?'같은 진료과':'유사 진료과'}</td><td class="num">${p.dist}m</td><td>${esc(p.grade||'미측정')}</td></tr>`).join('');
+    `<tr><td>${esc(p.name)}</td><td>${p.same?TERMS.peer:TERMS.similar}</td><td class="num">${p.dist}m</td><td>${esc(p.grade||'미측정')}</td></tr>`).join('');
   $('#mapTable tbody').innerHTML=rows+
     `<tr><td colspan="4" style="color:var(--text-muted);font-size:12px">가까운 12곳 표시 · 전체 ${MAP_POINTS.filter(p=>p.dist<=radius).length}곳 (반경 ${fmtR(radius)})</td></tr>`;
 }
@@ -767,8 +795,8 @@ function renderBench(){
    `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="경쟁 병원 리뷰 수 비교">
       <line x1="${P.l}" x2="${P.l}" y1="${P.t}" y2="${H-P.b}" stroke="var(--baseline)" stroke-width="1"/>${bars}
     </svg>
-    <div class="legend"><span class="key"><span class="sw" style="background:var(--series-1)"></span>내 병원</span>
-    <span class="key"><span class="sw" style="background:var(--seq-250)"></span>경쟁 병원</span></div>`;
+    <div class="legend"><span class="key"><span class="sw" style="background:var(--series-1)"></span>${TERMS.mine}</span>
+    <span class="key"><span class="sw" style="background:var(--seq-250)"></span>${TERMS.comp}</span></div>`;
   $$('#benchChart .bb').forEach(r=>{
     const b=BENCH[+r.dataset.i];
     r.addEventListener('mousemove',e=>showTip(
@@ -777,7 +805,7 @@ function renderBench(){
     r.addEventListener('mouseleave',hideTip);
   });
   $('#benchTable tbody').innerHTML=BENCH.map(b=>
-    `<tr${b.me?' class="me"':''}><td>${b.name}${b.me?' (내 병원)':''}</td><td class="num">${b.me?'—':b.dist+'m'}</td>
+    `<tr${b.me?' class="me"':''}><td>${b.name}${b.me?' ('+TERMS.mine+')':''}</td><td class="num">${b.me?'—':b.dist+'m'}</td>
      <td class="num">${b.cover}%</td><td class="num">${b.reviews.toLocaleString()}</td>
      <td class="num">${b.rating.toFixed(1)}</td><td class="num">${b.photos}</td></tr>`).join('');
 }
@@ -813,6 +841,7 @@ function renderActions(){
 /* ---------- 전체 렌더 ---------- */
 function renderAll(){
   $$('.rEcho').forEach(e=>e.textContent=fmtR(radius));
+  applyTerms();
   renderHome(); renderMap(); renderKeywords(); renderBench(); renderActions();
 }
 
@@ -833,8 +862,11 @@ function applyLiveData(j){
     ang:(p.bearing_deg-90)*Math.PI/180, same:!!p.same_department, grade:null}));
   MAP_POINTS.sort((a,b)=>a.dist-b.dist);
   const h=j.hospital;
+  // 업종 판별 — biz_type 우선, 없으면 진료과/카테고리 문자열로 추정
+  TERMS=BIZ_TERMS[j.biz_type&&BIZ_TERMS[j.biz_type]?j.biz_type:bizTypeFromCategory(h.department||h.category)];
+  DEPT=h.department||'';
   document.querySelector('.hospital-id').innerHTML=
-    `<b id="hName">${esc(h.name)}</b> · ${esc(h.department)}<br>${h.address?esc(h.address)+' · ':''}${esc(j.month)} 리포트`;
+    `<b id="hName">${esc(h.name)}</b>${h.department?' · '+esc(h.department):''}<br>${h.address?esc(h.address)+' · ':''}${esc(j.month)} 리포트`;
   document.querySelector('.brand small').textContent='실데이터 · '+j.month+' 기준';
 }
 fetch('data/dashboard-live.json')

@@ -1,0 +1,14 @@
+{
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "p=$(jq -r '.prompt // \"\"'); echo \"$p\" | grep -qE '보고|리서치|기획' && printf '%s' '{\"hookSpecificOutput\":{\"hookEventName\":\"UserPromptSubmit\",\"additionalContext\":\"[자동 트리거] 이 요청에 보고서/리서치/보고/기획 관련 단어가 포함됨. 즉답하지 말고 체계적 조사·기획 접근을 취할 것: (1) 사실·시장 근거가 필요하면 deep-research 스킬 또는 WebSearch로 조사하고 출처를 남긴다 (2) 산출물은 구조화된 문서(배경→분석→선택지→권장→근거)로 정리해 hospital-marketing/docs/ 에 저장한다 (3) 법무 v2 정합(무상·콜드금지·본문 미수집·과장/보장 표현 금지)을 지킨다 (4) 완료 후 main 병합·배포까지 진행한다. 단순 사실 질문이면 이 안내는 무시.\"}}' || true"
+          }
+        ]
+      }
+    ]
+  }
+}
