@@ -745,10 +745,49 @@ DECKS = [
     (6, "살아남는 마케터의 2~3년 준비", I6),
 ]
 
+
+def _row_to_demo(row):
+    when, tag, what, q, say = row
+    return dict(
+        when=when.replace("\n", " · "),
+        tag=tag,
+        what=what,
+        q=q.replace("\n", "   "),
+        say=say,
+    )
+
+
+def expand_demo_tables(slides):
+    """밀집한 '시연 시나리오 D1~D5' 표 → 풀폭 시연 카드 2슬라이드로 재구성."""
+    out = []
+    for name, kw in slides:
+        if name == "table" and str(kw.get("title", "")).startswith("시연 시나리오"):
+            rows = kw["rows"]
+            demos = [_row_to_demo(r) for r in rows]
+            half = 3 if len(demos) >= 5 else (len(demos) + 1) // 2
+            first, second = demos[:half], demos[half:]
+            r1 = "".join(d["when"].split(" · ")[0] for d in first[:1]) + "~" + first[-1]["when"].split(" · ")[0]
+            r2 = second[0]["when"].split(" · ")[0] + "~" + second[-1]["when"].split(" · ")[0]
+            out.append(("demos", dict(
+                title=f"라이브 시연 시나리오 ① ({r1})",
+                sub="유형 태그로 화면을 구분하고, '검색/링크'는 그대로 입력, '멘트'는 그 자리에서 말할 문장입니다.",
+                demos=first,
+            )))
+            out.append(("demos", dict(
+                title=f"라이브 시연 시나리오 ② ({r2})",
+                demos=second,
+                note="모든 링크·검색어는 수업 전날 접속·노출을 확인하세요. AI 결과는 시점·계정·지역에 따라 달라집니다.",
+            )))
+        else:
+            out.append((name, kw))
+    return out
+
+
 if __name__ == "__main__":
     os.makedirs(OUT, exist_ok=True)
     for num, topic, slides in DECKS:
         theme = th(num, topic)
+        slides = expand_demo_tables(slides)
         fname = f"{num}회차_강사용_미션_시연가이드.pptx"
         path = os.path.join(OUT, fname)
         n = build_deck(path, theme, slides)
