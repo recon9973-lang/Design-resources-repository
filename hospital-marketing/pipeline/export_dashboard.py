@@ -18,9 +18,9 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-from medirank import config, scoring                       # noqa: E402
-from medirank.connectors import hira, naver_local, sgis    # noqa: E402
-from medirank.geo import haversine_m                       # noqa: E402
+from medirank import config, scoring                                     # noqa: E402
+from medirank.connectors import hira, naver_content, naver_local, sgis   # noqa: E402
+from medirank.geo import haversine_m                                     # noqa: E402
 
 DEFAULT_KEYWORDS = [
     "강남 피부과", "역삼역 피부과", "테헤란로 피부과", "강남 리프팅",
@@ -89,6 +89,7 @@ def main() -> None:
             "kw": kw, "type": KEYWORD_TYPE.get(kw, "기타"),
             "api": r["exposed"], "pos": r["rank"], "grade": grade,
             "comp": r["results"][0]["title"] if r["results"] else "-",
+            "content": naver_content.content_exposure(kw, args.name),
         })
     exposure = scoring.exposure_score(
         [{"exposed": k["api"], "rank": k["pos"]} for k in kw_results])
