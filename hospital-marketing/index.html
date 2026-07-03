@@ -6,874 +6,181 @@
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; base-uri 'self'; frame-ancestors 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="robots" content="noindex">
-<title>(주)베놈 검색정보 진단 대시보드 (MVP 프로토타입)</title>
-<meta name="description" content="우리 병원, 주변 1km 안에서 얼마나 잘 보이고 있나요? 공공데이터와 공식 API 기반 병원 검색 노출 경쟁력 진단 대시보드 프로토타입.">
+<title>베놈 체크업 — 우리 병원·우리 매장 마케팅 무료 건강검진</title>
+<meta name="description" content="베놈 체크업 — 병원·소상공인을 위한 마케팅 무료 자가검진. 노출·의료법 위험·광고비 효율·환자 유입 동선·개원 입지를 공식 근거로 진단합니다. (주)베놈 무료 배포.">
 <style>
-  .viz-root, :root{
-    --surface-1:#fcfcfb; --plane:#f9f9f7;
-    --text-primary:#0b0b0b; --text-secondary:#52514e; --text-muted:#898781;
-    --grid:#e1e0d9; --baseline:#c3c2b7; --hairline:rgba(11,11,11,.10);
-    --series-1:#2a78d6; --series-2:#1baf7a; --series-3:#eda100; --series-6:#e34948;
-    --seq-150:#b7d3f6; --seq-250:#86b6ef; --seq-450:#2a78d6; --seq-600:#184f95;
-    --status-good:#0ca30c; --status-warn:#fab219; --status-serious:#ec835a; --status-crit:#d03b3b;
-    --good-text:#006300;
-    --shadow:rgba(0,55,112,.08) 0 1px 3px;
+  :root{
+    --plane:#f7f8fa; --surface:#ffffff; --raise:#fbfbfa;
+    --ink:#0e1116; --ink-2:#4a5568; --muted:#8a94a3;
+    --line:#e4e8ee; --hairline:rgba(14,17,22,.06);
+    --brand:#2a78d6; --brand-soft:#e8f1fc; --brand-deep:#184f95;
+    --good:#0ca30c; --warn:#e08600; --crit:#d03b3b; --teal:#1baf7a; --gold:#eda100;
+    --shadow:rgba(20,50,90,.08) 0 2px 10px;
   }
   @media (prefers-color-scheme: dark){
-    .viz-root, :root{
-      --surface-1:#1a1a19; --plane:#0d0d0d;
-      --text-primary:#ffffff; --text-secondary:#c3c2b7; --text-muted:#898781;
-      --grid:#2c2c2a; --baseline:#383835; --hairline:rgba(255,255,255,.10);
-      --series-1:#3987e5; --series-2:#199e70; --series-3:#c98500; --series-6:#e66767;
-      --seq-150:#0d366b; --seq-250:#104281; --seq-450:#3987e5; --seq-600:#184f95;
-      --good-text:#0ca30c;
-      --shadow:rgba(0,0,0,.4) 0 1px 3px;
+    :root{
+      --plane:#0c0f14; --surface:#161a21; --raise:#1c2129;
+      --ink:#f0f3f7; --ink-2:#b3becd; --muted:#7a8494;
+      --line:#272d37; --hairline:rgba(255,255,255,.06);
+      --brand:#3f8ce8; --brand-soft:#152538; --brand-deep:#6aa8ee;
+      --good:#3fb93f; --warn:#e2a021; --crit:#e15b5b; --teal:#22b884; --gold:#d6a520;
+      --shadow:rgba(0,0,0,.45) 0 2px 12px;
     }
   }
   *{box-sizing:border-box}
   body{margin:0;font-family:system-ui,-apple-system,"Segoe UI","Apple SD Gothic Neo","Noto Sans KR",sans-serif;
-    background:var(--plane);color:var(--text-primary);line-height:1.55;-webkit-font-smoothing:antialiased}
-  .wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+    background:var(--plane);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1000px;margin:0 auto;padding:0 20px}
 
-  header.top{border-bottom:1px solid var(--grid);background:var(--surface-1)}
-  .top-inner{display:flex;align-items:center;gap:14px;padding:14px 0;flex-wrap:wrap}
-  .brand{font-weight:800;letter-spacing:.02em;font-size:17px;display:flex;align-items:center;gap:8px}
-  .brand .mark{width:26px;height:26px;border-radius:7px;background:var(--series-1);color:#fff;
-    display:inline-flex;align-items:center;justify-content:center;font-size:13px;font-weight:900}
-  .brand small{font-weight:600;color:var(--text-muted);font-size:11px;border:1px solid var(--grid);
-    border-radius:99px;padding:1px 8px}
-  .hospital-id{margin-left:auto;text-align:right;font-size:13px;color:var(--text-secondary)}
-  .hospital-id b{color:var(--text-primary)}
+  header.top{background:var(--surface);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20}
+  .top-in{display:flex;align-items:center;gap:11px;padding:14px 0}
+  .mark{width:32px;height:32px;border-radius:9px;background:var(--brand);color:#fff;display:inline-flex;
+    align-items:center;justify-content:center;font-weight:900;font-size:16px;flex:none}
+  .bname{font-weight:800;font-size:17px;letter-spacing:.01em}
+  .bname .en{font-weight:600;color:var(--muted);font-size:12px;margin-left:2px}
+  .top-cta{margin-left:auto;font-size:13px;font-weight:700;color:#fff;background:var(--brand);
+    border-radius:9px;padding:8px 15px}
+  .top-cta:hover{background:var(--brand-deep)}
 
-  nav.tabs{background:var(--surface-1);border-bottom:1px solid var(--grid);position:sticky;top:0;z-index:30}
-  .tabs-inner{display:flex;gap:2px;overflow-x:auto}
-  .tab{appearance:none;border:0;background:none;font:inherit;font-size:14px;font-weight:600;
-    color:var(--text-secondary);padding:12px 14px;cursor:pointer;border-bottom:2px solid transparent;white-space:nowrap}
-  .tab[aria-selected="true"]{color:var(--text-primary);border-bottom-color:var(--series-1)}
-  .tab:hover{color:var(--text-primary)}
+  .hero{text-align:center;padding:52px 0 30px}
+  .hero .eyebrow{display:inline-block;font-size:12px;font-weight:800;letter-spacing:.08em;color:var(--brand);
+    background:var(--brand-soft);border-radius:99px;padding:5px 14px;margin-bottom:18px}
+  .hero h1{font-size:34px;line-height:1.28;margin:0 0 14px;letter-spacing:-.6px;text-wrap:balance}
+  .hero h1 b{color:var(--brand)}
+  .hero p{font-size:15.5px;color:var(--ink-2);max-width:56ch;margin:0 auto 22px}
+  .hero .free{display:inline-flex;gap:8px;align-items:center;font-size:13px;color:var(--ink-2)}
+  .hero .free b{color:var(--good)}
+  .hero .dot{width:5px;height:5px;border-radius:50%;background:var(--line)}
 
-  main{padding:22px 0 60px}
-  section.panel{display:none}
-  section.panel.active{display:block}
-  h2{font-size:18px;margin:26px 0 6px}
-  h2:first-child{margin-top:0}
-  .sub{color:var(--text-secondary);font-size:13px;margin:0 0 14px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin:8px 0 10px}
+  .tool{display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--line);
+    border-radius:16px;padding:22px;box-shadow:var(--shadow);transition:transform .14s,border-color .14s}
+  .tool:hover{transform:translateY(-3px);border-color:var(--brand)}
+  .tool .ic{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:14px}
+  .tool .ic svg{width:24px;height:24px}
+  .tool h3{font-size:17px;margin:0 0 3px;display:flex;align-items:center;gap:7px}
+  .tool .tag{font-size:10.5px;font-weight:800;color:var(--brand);background:var(--brand-soft);border-radius:5px;padding:1px 6px}
+  .tool .one{font-size:13px;color:var(--ink-2);margin:0 0 12px;min-height:38px}
+  .tool ul{margin:0 0 16px;padding:0;list-style:none;display:flex;flex-direction:column;gap:5px}
+  .tool li{font-size:12.5px;color:var(--ink-2);display:flex;gap:7px;align-items:flex-start}
+  .tool li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--brand);margin-top:6px;flex:none}
+  .tool .go{margin-top:auto;font-size:13.5px;font-weight:700;color:var(--brand);display:inline-flex;align-items:center;gap:6px}
+  .tool:hover .go{gap:9px}
 
-  .controls{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:0 0 18px}
-  .controls .lbl{font-size:13px;color:var(--text-secondary);font-weight:600}
-  .seg{display:inline-flex;border:1px solid var(--grid);border-radius:9px;overflow:hidden;background:var(--surface-1)}
-  .seg button{appearance:none;border:0;background:none;font:inherit;font-size:13px;font-weight:600;
-    color:var(--text-secondary);padding:7px 14px;cursor:pointer;border-right:1px solid var(--grid)}
-  .seg button:last-child{border-right:0}
-  .seg button[aria-pressed="true"]{background:var(--series-1);color:#fff}
-  .month-chip{font-size:13px;color:var(--text-secondary);border:1px solid var(--grid);border-radius:9px;
-    padding:7px 12px;background:var(--surface-1)}
+  .flow{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:24px;margin:26px 0;box-shadow:var(--shadow)}
+  .flow h2{font-size:18px;margin:0 0 4px;text-align:center}
+  .flow .sub{font-size:13px;color:var(--muted);text-align:center;margin:0 0 20px}
+  .steps{display:flex;align-items:stretch;gap:8px;flex-wrap:wrap;justify-content:center}
+  .step{flex:1;min-width:150px;background:var(--raise);border:1px solid var(--line);border-radius:12px;padding:15px 16px;position:relative}
+  .step .n{font-size:11px;font-weight:800;color:var(--brand)}
+  .step .t{font-size:14px;font-weight:700;margin:3px 0 2px}
+  .step .d{font-size:12px;color:var(--ink-2)}
+  .step .arw{position:absolute;right:-13px;top:50%;transform:translateY(-50%);color:var(--line);font-size:16px;z-index:1}
+  @media(max-width:640px){.step .arw{display:none}}
 
-  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-bottom:14px}
-  .card{background:var(--surface-1);border:1px solid var(--grid);border-radius:12px;padding:16px;box-shadow:var(--shadow)}
-  .card .label{font-size:12.5px;color:var(--text-secondary);margin-bottom:4px}
-  .card .value{font-size:26px;font-weight:650;letter-spacing:-.5px}
-  .card .delta{font-size:12.5px;margin-top:2px}
-  .delta.up{color:var(--good-text)} .delta.down{color:var(--status-crit)} .delta.flat{color:var(--text-muted)}
+  .cta{background:linear-gradient(135deg,var(--brand),var(--brand-deep));color:#fff;border-radius:18px;
+    padding:34px 28px;text-align:center;margin:8px 0 12px}
+  .cta h2{font-size:22px;margin:0 0 8px}
+  .cta p{font-size:14px;opacity:.94;max-width:48ch;margin:0 auto 18px}
+  .cta a.btn{display:inline-block;background:#fff;color:var(--brand-deep);font-size:15px;font-weight:800;
+    border-radius:11px;padding:13px 26px}
+  .cta a.btn:hover{background:#eaf2fc}
+  .cta .fine{font-size:11.5px;opacity:.82;margin-top:12px}
 
-  .hero-card{display:flex;gap:26px;align-items:center;flex-wrap:wrap}
-  .hero-num{font-size:56px;font-weight:700;letter-spacing:-2px;line-height:1}
-  .hero-num small{font-size:20px;font-weight:600;color:var(--text-muted);letter-spacing:0}
-  .meters{flex:1;min-width:280px;display:grid;gap:10px}
-  .meter .m-head{display:flex;justify-content:space-between;font-size:12.5px;color:var(--text-secondary)}
-  .meter .m-head b{color:var(--text-primary);font-weight:650}
-  .meter .track{height:8px;border-radius:4px;background:var(--seq-150);margin-top:3px;overflow:hidden}
-  .meter .fill{height:100%;border-radius:4px 4px 4px 4px;background:var(--seq-450)}
-
-  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-  @media (max-width:840px){.grid2{grid-template-columns:1fr}}
-
-  .chart-card{position:relative}
-  .chart-title{font-size:14px;font-weight:650;margin:0 0 2px}
-  .chart-sub{font-size:12px;color:var(--text-muted);margin:0 0 10px}
-  svg text{font-family:inherit}
-  .tooltip{position:absolute;pointer-events:none;background:var(--surface-1);border:1px solid var(--grid);
-    border-radius:8px;box-shadow:var(--shadow);padding:7px 10px;font-size:12.5px;color:var(--text-primary);
-    display:none;z-index:40;max-width:230px}
-  .tooltip .t-title{font-weight:650;margin-bottom:2px}
-  .tooltip .t-row{color:var(--text-secondary)}
-
-  details.tbl{margin-top:8px}
-  details.tbl summary{font-size:12.5px;color:var(--text-muted);cursor:pointer}
-  table{border-collapse:collapse;width:100%;font-size:13.5px;background:var(--surface-1)}
-  th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--grid);vertical-align:top}
-  th{font-size:12px;color:var(--text-secondary);font-weight:650;white-space:nowrap}
-  td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
-  .table-card{padding:0;overflow-x:auto}
-  .table-card table{min-width:640px}
-  #benchTable{min-width:460px}
-  tr.me td{background:color-mix(in srgb, var(--series-1) 7%, transparent);font-weight:600}
-
-  .chip{display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:650;border-radius:99px;
-    padding:2px 9px;white-space:nowrap;border:1px solid var(--hairline);color:var(--text-primary)}
-  .chip .dot{width:8px;height:8px;border-radius:50%;flex:none}
-  .chip.top .dot{background:var(--status-good)}
-  .chip.mid .dot{background:var(--status-warn)}
-  .chip.none .dot{background:var(--status-crit)}
-
-  .legend{display:flex;gap:16px;flex-wrap:wrap;font-size:12.5px;color:var(--text-secondary);margin:8px 0 0}
-  .legend .key{display:inline-flex;align-items:center;gap:6px}
-  .legend .sw{width:10px;height:10px;border-radius:50%;flex:none;box-shadow:0 0 0 2px var(--surface-1)}
-
-  .actions{display:grid;gap:12px}
-  .action{display:flex;gap:14px;align-items:flex-start}
-  .action .pri{flex:none;width:30px;height:30px;border-radius:9px;background:var(--series-1);color:#fff;
-    display:inline-flex;align-items:center;justify-content:center;font-weight:800;font-size:14px}
-  .action h3{margin:0 0 3px;font-size:15px}
-  .action p{margin:0;font-size:13.5px;color:var(--text-secondary)}
-  .action .basis{font-size:12px;color:var(--text-muted);margin-top:4px}
-
-  .note{border:1px solid var(--grid);border-left:3px solid var(--status-warn);border-radius:8px;
-    background:var(--surface-1);padding:10px 14px;font-size:12.5px;color:var(--text-secondary);margin:16px 0}
-
-  footer.basis{border-top:1px solid var(--grid);margin-top:40px;padding:18px 0 30px;
-    font-size:12px;color:var(--text-muted)}
-  footer.basis b{color:var(--text-secondary)}
-
-  .print-btn{appearance:none;border:1px solid var(--grid);border-radius:9px;background:var(--surface-1);
-    font:inherit;font-size:13px;font-weight:600;color:var(--text-primary);padding:7px 14px;cursor:pointer}
-  .print-btn:hover{border-color:var(--series-1)}
-
-  @media print{
-    nav.tabs,.print-btn,.controls .seg,details.tbl summary{display:none}
-    section.panel{display:block !important;page-break-inside:avoid;margin-bottom:24px}
-    details.tbl{display:block} details.tbl[open]{display:block}
-    body{background:#fff}
-  }
+  footer.basis{border-top:1px solid var(--line);margin-top:34px;padding:22px 0 50px;font-size:12px;color:var(--muted);text-align:center}
+  footer.basis b{color:var(--ink-2)}
+  footer.basis .row{margin-top:6px}
 </style>
 </head>
-<body class="viz-root">
+<body>
 
-<header class="top">
-  <div class="wrap top-inner">
-    <div class="brand"><a class="mark" href="checkup/" title="베놈 체크업 홈" style="text-decoration:none">V</a> <a href="checkup/" style="color:inherit;text-decoration:none">베놈 체크업</a> <small>종합검진 · MVP 프로토타입</small></div>
-    <div class="hospital-id">
-      <b id="hName">밝은빛피부과의원</b> · 피부과<br>
-      서울 강남구 테헤란로 000 · <span id="hMonth">2026년 7월</span> 리포트
-    </div>
-  </div>
-</header>
+<header class="top"><div class="wrap top-in">
+  <a class="mark" href="./">V</a>
+  <span class="bname">베놈 체크업 <span class="en">VENOM Checkup</span></span>
+  <a class="top-cta" href="landing/">무료 검진 신청</a>
+</div></header>
 
-<nav class="tabs" aria-label="화면">
-  <div class="wrap tabs-inner" role="tablist">
-    <button class="tab" role="tab" data-panel="home" aria-selected="true">대시보드 홈</button>
-    <button class="tab" role="tab" data-panel="map" aria-selected="false">지도 분석</button>
-    <button class="tab" role="tab" data-panel="kw" aria-selected="false">키워드 노출</button>
-    <button class="tab" role="tab" data-panel="bench" aria-selected="false">경쟁 벤치마크</button>
-    <button class="tab" role="tab" data-panel="report" aria-selected="false">액션 리포트</button>
-  </div>
-</nav>
+<div class="wrap">
+  <section class="hero">
+    <span class="eyebrow">병원·소상공인 마케팅 무료 자가검진</span>
+    <h1>우리 가게, 검색에서<br><b>제대로 보이고 있을까요?</b></h1>
+    <p>환자에게 건강검진이 필요하듯, 마케팅에도 검진이 필요합니다. 광고비를 쓰기 전에
+    노출·의료법 위험·비용 효율·유입 동선을 <b>공식 데이터와 근거</b>로 무료 진단해 드립니다.</p>
+    <span class="free"><b>100% 무료</b><span class="dot"></span>회원가입 없이<span class="dot"></span>설치 없이<span class="dot"></span>판매 목적 아님</span>
+  </section>
 
-<main class="wrap">
+  <div class="grid" id="toolGrid"></div>
 
-  <div class="controls">
-    <span class="lbl">분석 반경</span>
-    <div class="seg" id="radiusSeg" role="group" aria-label="반경 선택">
-      <button data-r="500" aria-pressed="false">500m</button>
-      <button data-r="1000" aria-pressed="true">1km</button>
-      <button data-r="1500" aria-pressed="false">1.5km</button>
-      <button data-r="2000" aria-pressed="false">2km</button>
-    </div>
-    <span class="month-chip">기준월 2026-07 · 전월 대비</span>
-    <button class="print-btn" onclick="window.print()">PDF로 저장 (인쇄)</button>
-  </div>
-
-  <!-- ================= 대시보드 홈 ================= -->
-  <section class="panel active" id="panel-home">
-    <div class="card hero-card">
-      <div style="display:flex;align-items:center;gap:14px">
-        <div id="heroGauge"></div>
-        <div>
-          <div class="label" style="font-size:13px;color:var(--text-secondary)">검색정보 운영 진단 점수<br><span style="font-size:11px;color:var(--text-muted)">당사 산식 · 0~100</span></div>
-          <div class="delta up" id="heroDelta" style="margin-top:6px">▲ 2점 · 전월 대비</div>
-        </div>
-      </div>
-      <div class="meters" id="meters"></div>
-    </div>
-
-    <div class="cards" style="margin-top:14px">
-      <div class="card"><div class="label">반경 내 <span class="t-comp">경쟁 병원</span></div><div class="value" id="cCompetitors">32곳</div><div class="delta flat" id="cCompetitorsD">± 0 전월 대비</div></div>
-      <div class="card"><div class="label">핵심 키워드 (공식 API 기준 노출)</div><div class="value" id="cExposed">7 / 10</div><div class="delta up" id="cExposedD">▲ 1 전월 대비</div></div>
-      <div class="card"><div class="label">미노출 키워드</div><div class="value" id="cWeak">3개</div><div class="delta down">개선 필요</div></div>
-      <div class="card"><div class="label">상위권 (API 3위 이내)</div><div class="value" id="cTop">3개</div><div class="delta up" id="cTopD">▲ 1 전월 대비</div></div>
-    </div>
-
-    <div class="grid2">
-      <div class="card chart-card">
-        <p class="chart-title">경쟁력 점수 추이</p>
-        <p class="chart-sub">최근 6개월 · 반경 <span class="rEcho">1km</span> 기준</p>
-        <div id="trendChart"></div>
-        <details class="tbl"><summary>표로 보기</summary>
-          <table id="trendTable"><thead><tr><th>월</th><th class="num">점수</th></tr></thead><tbody></tbody></table>
-        </details>
-      </div>
-      <div class="card">
-        <p class="chart-title">이번 달 우선 개선 액션 3가지</p>
-        <p class="chart-sub">의료광고 리스크를 제거한 운영·정보 정비 중심 제안</p>
-        <div class="actions" id="homeActions"></div>
-      </div>
-    </div>
-
-    <div class="grid2" style="margin-top:14px">
-      <div class="card chart-card">
-        <p class="chart-title">진단 점수는 이렇게 만들어졌습니다</p>
-        <p class="chart-sub">항목별 점수 × 가중치 = 기여 점수 · 반경 <span class="rEcho">1km</span> 기준</p>
-        <div id="contribChart"></div>
-      </div>
-      <div class="card chart-card">
-        <p class="chart-title">분석 반경별 진단 점수</p>
-        <p class="chart-sub">생활권 범위를 넓힐수록 경쟁 환경이 어떻게 달라지는지</p>
-        <div id="radiusChart"></div>
-      </div>
+  <section class="flow">
+    <h2>검진은 이렇게 이어집니다</h2>
+    <p class="sub">무료 검진 → 소견서 → (원하실 때만) 정밀 진단. 부담 없이 검진만 받으셔도 됩니다.</p>
+    <div class="steps">
+      <div class="step"><div class="n">STEP 1</div><div class="t">무료 자가검진</div><div class="d">아래 도구로 3분 안에 스스로 점검</div><span class="arw">→</span></div>
+      <div class="step"><div class="n">STEP 2</div><div class="t">정밀검진 신청</div><div class="d">업체명 하나로 실데이터 정밀 진단 리포트</div><span class="arw">→</span></div>
+      <div class="step"><div class="n">STEP 3</div><div class="t">맞춤 소견·상담</div><div class="d">원하실 때만 개선 상담 (강요 없음)</div></div>
     </div>
   </section>
 
-  <!-- ================= 지도 분석 ================= -->
-  <section class="panel" id="panel-map">
-    <h2>반경 내 <span class="t-comp">경쟁 병원</span> 지도</h2>
-    <p class="sub"><span class="t-mine">내 병원</span> 중심 · 선택 반경 <span class="rEcho">1km</span> · 점을 누르거나 올리면 상세가 보입니다. (개략 위치 목업)</p>
-    <div class="card chart-card" style="padding:10px">
-      <div id="mapChart"></div>
-      <div class="legend" id="mapLegend">
-        <span class="key"><span class="sw" style="background:var(--series-1)"></span><span class="t-mine">내 병원</span></span>
-        <span class="key"><span class="sw" style="background:var(--series-6)"></span><span class="t-peer">같은 진료과</span> <span class="t-peer-dept">(피부과)</span></span>
-        <span class="key"><span class="sw" style="background:var(--series-3)"></span><span class="t-similar">유사 키워드 진료과</span></span>
-      </div>
-    </div>
-    <p class="note">인구 밀집도·행정동 수요 레이어는 SGIS 통계지리정보 연동 후 제공됩니다. 병원 위치는 건강보험심사평가원 병원정보서비스 기준이며, 개원/폐업 반영에 시차가 있을 수 있습니다.</p>
-    <div class="card table-card">
-      <table id="mapTable">
-        <thead><tr><th class="t-name">병원명</th><th>구분</th><th class="num">거리</th><th>API 노출 등급</th></tr></thead>
-        <tbody></tbody>
-      </table>
-    </div>
-  </section>
-
-  <!-- ================= 키워드 노출 ================= -->
-  <section class="panel" id="panel-kw">
-    <h2>키워드별 노출 진단</h2>
-    <p class="sub">네이버 지역 검색 <b>공식 API 기준(상위 5건)</b> 지표입니다. 실제 검색화면과 다를 수 있으며, 실시간 순위가 아닙니다.</p>
-    <div class="card" id="gradeStrip" style="margin-bottom:12px"></div>
-    <div class="card table-card">
-      <table id="kwTable">
-        <thead><tr>
-          <th>키워드</th><th>유형</th><th>API 기준</th><th class="num">API 응답 내 위치</th>
-          <th>등급</th><th>해당 키워드 상위 업체</th><th>추천 액션</th>
-        </tr></thead>
-        <tbody></tbody>
-      </table>
-    </div>
-    <p class="note">등급 기준 — <b>상위권</b>: 공식 API 응답 3위 이내 · <b>중위권</b>: 응답 내 노출 · <b>미노출</b>: API 응답(상위 5건)에 없음. 등급은 당사 산식에 따른 참고 지표입니다.</p>
-
-    <h2 style="margin-top:24px">통합검색 콘텐츠 영역 노출</h2>
-    <p class="sub">키워드별 통합검색 영역(블로그·카페·웹문서·뉴스·이미지·지식iN)에서 <b>병원명이 언급된 콘텐츠</b>가
-    공식 API 결과 상위 30건 안에 있는지 확인합니다. 키워드마다 영역 구성이 달라 존재하는 영역 기준으로 판정합니다.</p>
-    <div class="card table-card">
-      <table id="contentTable">
-        <thead><tr><th>키워드</th><th style="text-align:center">블로그</th><th style="text-align:center">카페</th>
-          <th style="text-align:center">웹문서</th><th style="text-align:center">뉴스</th>
-          <th style="text-align:center">이미지</th><th style="text-align:center">지식iN</th></tr></thead>
-        <tbody></tbody>
-      </table>
-    </div>
-    <p class="note">○ N = 해당 영역 API 결과 내 위치 · "—" = 이 키워드에는 해당 영역 콘텐츠 없음.
-    파워링크(광고)·브랜드 콘텐츠·스마트블록의 실제 화면 배치는 공식 API 미제공으로 측정 범위에서 제외됩니다
-    (법무 검토상 화면 수집 보류 — 승인 시 월간 참고 스냅샷으로 보완 예정).</p>
-
-    <div class="grid2" style="margin-top:14px">
-      <div class="card chart-card">
-        <p class="chart-title">통합검색 영역 커버리지 레이더</p>
-        <p class="chart-sub">영역별 · 활성 키워드 가운데 병원명 콘텐츠가 노출된 비율</p>
-        <div id="radarChart"></div>
-      </div>
-      <div class="card chart-card">
-        <p class="chart-title">영역별 노출 키워드 수</p>
-        <p class="chart-sub">옅은 막대 = 영역이 활성인 키워드 · 진한 채움 = 그중 노출된 키워드</p>
-        <div id="coverBars"></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= 경쟁 벤치마크 ================= -->
-  <section class="panel" id="panel-bench">
-    <h2><span class="t-comp">경쟁 병원</span> 벤치마크</h2>
-    <p class="sub">반경 <span class="rEcho">1km</span> 내 인접 <span class="t-comp">경쟁 병원</span> · 리뷰 수/평점/사진 수는 <b><span class="t-biz">병원</span>이 직접 확인해 입력한 값</b>만 사용하며 리뷰 본문은 수집·분석하지 않습니다.</p>
-    <div class="grid2">
-      <div class="card chart-card">
-        <p class="chart-title">방문자 리뷰 수 비교</p>
-        <p class="chart-sub">공개 집계값 · 2026-07-01 기준</p>
-        <div id="benchChart"></div>
-      </div>
-      <div class="card table-card">
-        <table id="benchTable">
-          <thead><tr><th class="t-biz">병원</th><th class="num">거리</th><th class="num">키워드 커버리지</th><th class="num">리뷰</th><th class="num">평점</th><th class="num">사진</th></tr></thead>
-          <tbody></tbody>
-        </table>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= 액션 리포트 ================= -->
-  <section class="panel" id="panel-report">
-    <h2>2026년 7월 액션 리포트</h2>
-    <p class="sub">근거 지표와 함께 이번 달 개선 우선순위를 제안합니다. 상단 "PDF로 저장"으로 월간 리포트를 출력할 수 있습니다.</p>
-    <div class="card"><div class="actions" id="reportActions"></div></div>
-    <h2>이렇게 하지 않습니다</h2>
-    <div class="card" style="font-size:13.5px;color:var(--text-secondary)">
-      <ul style="margin:0;padding-left:18px">
-        <li>치료 효과를 보장하는 표현, 전후사진 성과 강조, 환자 치료경험담의 광고 활용은 제안하지 않습니다.</li>
-        <li>특정 경쟁 병원에 대한 비방이나 단정적 비교우위를 표현하지 않습니다.</li>
-        <li>"상위노출 보장", "실시간 순위 추적"을 약속하지 않습니다.</li>
-      </ul>
-    </div>
+  <section class="cta">
+    <h2>업체명 하나로, 정밀검진 받아보세요</h2>
+    <p>자가검진은 1차 스크리닝입니다. 병원·매장명만 알려주시면 실제 검색 데이터로 측정한
+    정밀 진단 리포트와 개선안을 <b>무료로</b> 보내드립니다.</p>
+    <a class="btn" href="landing/">무료 정밀검진 신청하기 →</a>
+    <div class="fine">개인정보는 진단 리포트 발송에만 사용하며, 광고성 연락은 별도 동의 시에만 드립니다. 콜드콜을 하지 않습니다.</div>
   </section>
 
   <footer class="basis">
-    <b>병원 내부 운영 참고용 — 환자 대상 광고·홍보물 전재 금지.</b> 본 화면의 진단 점수·등급은 (주)베놈 산식에 따른
-    참고 지표이며, 특정 검색 순위 달성, 환자 유입, 매출 증가를 보장하지 않습니다.<br>
-    <b>데이터 출처·기준</b> — 건강보험심사평가원 병원정보서비스(2026-06 갱신) · 소상공인시장진흥공단 상가(상권)정보(2026-2Q) ·
-    행정안전부 법정동코드 · SGIS 통계지리정보 · 네이버 지역 검색 API(2026-07-01 수집, 비로그인, 결과 상위 5건).<br>
-    공식 API 결과는 실제 검색화면과 다를 수 있습니다. 인구·상권 지표는 잠재 수요 참고지표이며 실제 방문 수요를 보장하지 않습니다.
-    <b>본 화면은 목업 데이터 기반 MVP 프로토타입입니다.</b>
+    <b>베놈 체크업</b>은 (주)베놈이 병원·소상공인에게 <b>무료로 배포</b>하는 마케팅 자가검진 도구 모음입니다.
+    수익이 아니라 정확한 진단과 신뢰 형성을 목적으로 합니다.
+    <div class="row">진단 점수·등급은 당사 산식에 따른 참고 지표이며 특정 순위·매출·효과를 보장하지 않습니다. 리스크 진단은 규칙 기반 1차 스크리닝으로 법적 자문이 아닙니다.</div>
+    <div class="row"><b>근거·출처</b> — 네이버 오픈 API · 건강보험심사평가원 · SGIS 통계지리정보 · 의료법 제56조·제27조 및 시행령</div>
   </footer>
-</main>
-
-<div class="tooltip" id="tip"></div>
+</div>
 
 <script>
 "use strict";
-/* ---------- 목업 데이터 (data/dashboard-live.json이 있으면 실데이터로 대체) ---------- */
-let IS_LIVE = false;
-let RADIUS_DATA = {
-  500:  { score:63, delta:+1, competitors:14, compDelta:'▲ 1 전월 대비', comp:{exposure:58, density:64, demand:70, place:66} },
-  1000: { score:62, delta:+2, competitors:32, compDelta:'± 0 전월 대비', comp:{exposure:58, density:52, demand:78, place:66} },
-  1500: { score:60, delta:+2, competitors:51, compDelta:'▲ 2 전월 대비', comp:{exposure:58, density:44, demand:80, place:66} },
-  2000: { score:59, delta:+1, competitors:74, compDelta:'▲ 3 전월 대비', comp:{exposure:58, density:36, demand:82, place:66} }
+/* 아이콘: 인라인 SVG (외부 의존성 0). stroke는 currentColor로 카드별 색 상속 */
+const I = {
+  oneclick:'<path d="M4 4l7 16 2-7 7-2z"/>',
+  gauge:'<path d="M4 18a8 8 0 1 1 16 0"/><path d="M12 18l4-5"/>',
+  shield:'<path d="M12 3l7 3v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/><path d="M12 9v3.5"/><path d="M12 15.5h.01"/>',
+  coin:'<ellipse cx="12" cy="7" rx="7" ry="3.2"/><path d="M5 7v6c0 1.8 3.1 3.2 7 3.2s7-1.4 7-3.2V7"/>',
+  route:'<circle cx="6" cy="6" r="2.3"/><circle cx="18" cy="18" r="2.3"/><path d="M8 6h6a3 3 0 0 1 0 6H10a3 3 0 0 0 0 6h6"/>',
+  pin:'<path d="M12 21c5-5 7-8 7-11a7 7 0 1 0-14 0c0 3 2 6 7 11z"/><circle cx="12" cy="10" r="2.4"/>',
 };
-const TREND = { // 최근 6개월, 반경별
-  labels:['2월','3월','4월','5월','6월','7월'],
-  500:[57,58,60,59,62,63], 1000:[55,56,58,57,60,62], 1500:[54,55,56,56,58,60], 2000:[53,54,55,55,58,59]
-};
-const COMPONENTS = [
-  {key:'exposure', name:'노출', weight:40},
-  {key:'density',  name:'경쟁 밀도', weight:25},
-  {key:'demand',   name:'수요·입지', weight:20},
-  {key:'place',    name:'플레이스 품질', weight:15}
+function icon(name,color){
+  return `<span class="ic" style="background:${color}1a;color:${color}">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${I[name]}</svg></span>`;
+}
+const TOOLS = [
+  {ic:'oneclick', c:'var(--brand)', name:'원클릭 검진', tag:'추천', href:'landing/',
+   one:'업체명 하나만 입력하면 실데이터로 전 영역을 자동 진단합니다.',
+   pts:['키워드 자동 산출 + 노출 측정','통합검색 6개 영역 커버리지','즉시 소견 → 정밀 리포트'], go:'무료로 신청하기'},
+  {ic:'gauge', c:'var(--brand)', name:'종합검진', tag:'', href:'dashboard/',
+   one:'노출·경쟁·키워드를 한 화면에서 종합 진단하는 대시보드.',
+   pts:['검진 점수 + 항목별 기여도','반경별 경쟁·수요 비교','통합검색 커버리지 레이더'], go:'대시보드 열기'},
+  {ic:'shield', c:'var(--crit)', name:'리스크 진단', tag:'인기', href:'self-check/#risk',
+   one:'광고 문구의 의료법 위반 위험을 조항 근거와 함께 점검합니다.',
+   pts:['금지 표현 자동 하이라이트','위반 조항 + 순화 예시','위험·주의·양호 등급'], go:'문구 진단하기'},
+  {ic:'coin', c:'var(--gold)', name:'비용 진단', tag:'', href:'self-check/#cost',
+   one:'광고비 대비 효율(CPA·CVR·ROAS)과 돈 새는 지점을 계산합니다.',
+   pts:['신환 1인 획득비(CPA)','전환율·광고비 회수배수','효율 구간 시각화'], go:'효율 계산하기'},
+  {ic:'route', c:'var(--teal)', name:'동선 진단', tag:'', href:'self-check/#journey',
+   one:'환자 검색여정 3단계에서 어디가 뚫려 있는지 점검합니다.',
+   pts:['정보 탐색 → 비교 → 검증','비어 있는 이탈 지점 표시','단계별 보완 가이드'], go:'동선 점검하기'},
+  {ic:'pin', c:'var(--brand-deep)', name:'입지 진단', tag:'', href:'location/',
+   one:'개원·출점 후보지의 경쟁·수요·상권을 비교 분석합니다.',
+   pts:['같은 업종 경쟁 밀도','반경 인구·수요 점수','상권 활동 지표'], go:'입지 비교하기'},
 ];
-let KEYWORDS = [
-  {kw:'테헤란로 피부과', type:'지역+진료과', api:true, pos:2,  snap:3,   grade:'top', comp:'A피부과',        act:'현 상태 유지, 월간 추적'},
-  {kw:'역삼역 피부과',   type:'지역+진료과', api:true, pos:3,  snap:5,   grade:'top', comp:'B의원',          act:'플레이스 사진 최신화'},
-  {kw:'강남 보톡스',     type:'시술',       api:true, pos:3,  snap:null,grade:'top', comp:'C의원',          act:'진료 항목 문구 점검'},
-  {kw:'강남 피부과',     type:'지역+진료과', api:true, pos:4,  snap:11,  grade:'mid', comp:'A피부과, B의원',  act:'소개·카테고리 정비'},
-  {kw:'강남 리프팅',     type:'시술',       api:true, pos:7,  snap:7,   grade:'mid', comp:'C의원',          act:'시술 정보 페이지 보강'},
-  {kw:'강남 여드름치료', type:'고민',       api:true, pos:9,  snap:null,grade:'mid', comp:'E피부과',        act:'FAQ 구조 점검'},
-  {kw:'강남 피부관리',   type:'시술',       api:true, pos:12, snap:null,grade:'mid', comp:'F클리닉',        act:'키워드-진료항목 매칭'},
-  {kw:'강남 탈모치료',   type:'고민',       api:false,pos:null,snap:null,grade:'none',comp:'D의원',          act:'진료 항목·소개에 키워드 반영'},
-  {kw:'강남 기미레이저', type:'시술',       api:false,pos:null,snap:null,grade:'none',comp:'A피부과',        act:'시술 카테고리 등록 검토'},
-  {kw:'강남 흉터치료',   type:'고민',       api:false,pos:null,snap:null,grade:'none',comp:'G의원',          act:'콘텐츠 커버리지 신설'}
-];
-/* 목업 통합검색 콘텐츠 노출 (실서비스에서는 export_dashboard.py가 실측값 주입) */
-KEYWORDS.forEach((k,i)=>{k.content={
-  blog:{present:true,exposed:i<4,position:[5,12,22,28][i]??null},
-  cafe:{present:true,exposed:i===0,position:i===0?9:null},
-  web:{present:true,exposed:false,position:null},
-  news:{present:i<6,exposed:false,position:null},
-  image:{present:true,exposed:i<2,position:[3,15][i]??null},
-  kin:{present:i<8,exposed:false,position:null}};});
-let BENCH = [
-  {name:'A피부과',        me:false, dist:320, cover:90, reviews:412, rating:4.6, photos:180},
-  {name:'C의원',          me:false, dist:540, cover:80, reviews:388, rating:4.5, photos:95},
-  {name:'B의원',          me:false, dist:210, cover:70, reviews:267, rating:4.3, photos:60},
-  {name:'밝은빛피부과의원', me:true,  dist:0,   cover:70, reviews:154, rating:4.4, photos:44},
-  {name:'D의원',          me:false, dist:880, cover:50, reviews:141, rating:4.1, photos:38}
-];
-const ACTIONS = [
-  {t:'네이버 플레이스 기본 정보 최신화', p:'대표 사진(44장, 경쟁 상위 평균 112장), 진료시간, 주차, 예약 링크를 실제 운영 상태와 맞추세요.', b:'근거: 플레이스 품질 점수 66점 · 사진 수 하위 40%'},
-  {t:'미노출 키워드 3개 커버리지 정비', p:'"강남 탈모치료·기미레이저·흉터치료"가 공식 API 결과에 없습니다. 병원 소개·진료 항목·FAQ에 해당 진료를 실제 제공하는 경우에만 반영하세요.', b:'근거: 키워드 10개 중 3개 미노출 · 노출 점수 58점'},
-  {t:'리뷰 운영 프로세스 정비', p:'반경 1km 상위 경쟁 병원 평균 리뷰 356개 대비 154개입니다. 합법적인 만족도 조사와 재방문 안내 절차를 정비하세요. (대가성 리뷰 유도는 제안하지 않습니다)', b:'근거: 리뷰 수 상위 3개 병원 대비 57% 부족'}
-];
-
-/* 지도 점: 시드 고정 난수로 74곳 생성 (거리 오름차순) */
-function mulberry32(a){return function(){a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
-const rng = mulberry32(20260702);
-const DEPTS_SAME=['피부과'], DEPTS_SIM=['성형외과','의원(미용시술)','한의원'];
-const NAMES=['하늘','미소','라온','더맑은','청담','새봄','유앤','리더스','온유','바른','세란','늘푸른','도담','가온','해온','예그린','다온','휴','채움','솔'];
-let MAP_POINTS=[];
-(function(){
-  const counts={500:14,1000:32,1500:51,2000:74};
-  let made=0;
-  const bands=[[0,500,counts[500]],[500,1000,counts[1000]-counts[500]],[1000,1500,counts[1500]-counts[1000]],[1500,2000,counts[2000]-counts[1500]]];
-  for(const [lo,hi,n] of bands){
-    for(let i=0;i<n;i++){
-      const d=lo+(hi-lo)*(0.15+0.85*rng());
-      const ang=rng()*Math.PI*2;
-      const same=rng()<0.42;
-      const nm=NAMES[Math.floor(rng()*NAMES.length)]+(same?'피부과':' '+DEPTS_SIM[Math.floor(rng()*DEPTS_SIM.length)]);
-      const grade=['상위권','중위권','미노출'][Math.floor(rng()*3)];
-      MAP_POINTS.push({name:nm, dist:Math.round(d), ang, same, grade});
-      made++;
-    }
-  }
-  MAP_POINTS.sort((a,b)=>a.dist-b.dist);
-})();
-
-/* ---------- 업종 적응형 용어 ----------
-   병원이 아닌 업체(로펌·기업 등)도 이 도구를 쓰므로, 화면의 "경쟁 병원/같은 진료과"
-   같은 명칭을 업종에 맞게 바꾼다. 실데이터의 업종(biz_type/category)으로 자동 판별. */
-const BIZ_TERMS={
-  hospital:{biz:'병원', comp:'경쟁 병원', peer:'같은 진료과', similar:'유사 진료과', name:'병원명', mine:'내 병원', hasDept:true},
-  law:     {biz:'사무소', comp:'경쟁 로펌', peer:'같은 분야', similar:'유사 분야', name:'상호', mine:'내 사무소', hasDept:false},
-  beauty:  {biz:'매장', comp:'경쟁 매장', peer:'같은 업종', similar:'유사 업종', name:'상호', mine:'내 매장', hasDept:false},
-  general: {biz:'업체', comp:'경쟁 업체', peer:'같은 업종', similar:'유사 업종', name:'상호', mine:'내 업체', hasDept:false},
-};
-function bizTypeFromCategory(cat){
-  const s=String(cat||'');
-  if(/병원|의원|치과|한의원|한방|클리닉|피부과|성형|정형|내과|안과|이비인후|산부인|비뇨|재활|요양|가정의학|신경|정신|외과/.test(s)) return 'hospital';
-  if(/법무|변호사|로펌|법률|세무|회계|노무|특허|변리/.test(s)) return 'law';
-  if(/미용|네일|피부관리|헤어|에스테틱|왁싱|뷰티/.test(s)) return 'beauty';
-  return 'general';
-}
-let TERMS=BIZ_TERMS.hospital, DEPT='피부과';
-function applyTerms(){
-  document.querySelectorAll('.t-comp').forEach(e=>e.textContent=TERMS.comp);
-  document.querySelectorAll('.t-mine').forEach(e=>e.textContent=TERMS.mine);
-  document.querySelectorAll('.t-biz').forEach(e=>e.textContent=TERMS.biz);
-  document.querySelectorAll('.t-peer').forEach(e=>e.textContent=TERMS.peer);
-  document.querySelectorAll('.t-similar').forEach(e=>e.textContent=TERMS.similar);
-  document.querySelectorAll('.t-name').forEach(e=>e.textContent=TERMS.name);
-  document.querySelectorAll('.t-peer-dept').forEach(e=>{
-    e.textContent=TERMS.hasDept&&DEPT?`(${DEPT})`:''; e.style.display=TERMS.hasDept&&DEPT?'':'none';});
-}
-
-/* ---------- 상태 ---------- */
-let radius = 1000;
-const $=s=>document.querySelector(s), $$=s=>document.querySelectorAll(s);
-// 병원명 등 API 유래 문자열은 innerHTML 삽입 전 반드시 이스케이프 (XSS 방지)
-const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const tip=$('#tip');
-function showTip(html,x,y){tip.innerHTML=html;tip.style.display='block';
-  const r=tip.getBoundingClientRect();
-  tip.style.left=Math.min(x+12,window.innerWidth-r.width-8)+window.scrollX+'px';
-  tip.style.top=(y-r.height-10+window.scrollY)+'px';}
-function hideTip(){tip.style.display='none'}
-const fmtR=r=>r>=1000?(r/1000)+'km':r+'m';
-
-/* ---------- 탭 ---------- */
-$$('.tab').forEach(t=>t.addEventListener('click',()=>{
-  $$('.tab').forEach(x=>x.setAttribute('aria-selected',x===t));
-  $$('.panel').forEach(p=>p.classList.toggle('active',p.id==='panel-'+t.dataset.panel));
-}));
-
-/* ---------- 반경 선택 ---------- */
-$('#radiusSeg').addEventListener('click',e=>{
-  const b=e.target.closest('button'); if(!b)return;
-  radius=+b.dataset.r;
-  $$('#radiusSeg button').forEach(x=>x.setAttribute('aria-pressed',x===b));
-  renderAll();
-});
-
-/* ---------- 홈 렌더 ---------- */
-function drawGauge(el,score){ // 반원 게이지 — 점수의 시각 앵커
-  const r=44,cx=56,cy=58,circ=Math.PI*r;
-  const frac=Math.max(0,Math.min(score,100))/100;
-  el.innerHTML=`<svg width="112" height="70" viewBox="0 0 112 70" role="img" aria-label="진단 점수 ${score}점">
-    <path d="M ${cx-r} ${cy} A ${r} ${r} 0 0 1 ${cx+r} ${cy}" fill="none" stroke="var(--seq-150)" stroke-width="11" stroke-linecap="round"/>
-    <path d="M ${cx-r} ${cy} A ${r} ${r} 0 0 1 ${cx+r} ${cy}" fill="none" stroke="var(--seq-450)" stroke-width="11"
-      stroke-linecap="round" stroke-dasharray="${(circ*frac).toFixed(1)} ${circ.toFixed(1)}"/>
-    <text x="${cx}" y="${cy-6}" text-anchor="middle" font-size="27" font-weight="750" fill="var(--text-primary)">${score}</text>
-  </svg>`;
-}
-function renderHome(){
-  const d=RADIUS_DATA[radius];
-  drawGauge($('#heroGauge'),d.score);
-  const hd=$('#heroDelta');
-  if(IS_LIVE){
-    hd.textContent='기준월 첫 리포트 · 실데이터';
-    hd.className='delta flat';
-  }else{
-    hd.textContent=(d.delta>0?'▲ ':'▼ ')+Math.abs(d.delta)+'점 · 전월 대비';
-    hd.className='delta '+(d.delta>0?'up':d.delta<0?'down':'flat');
-  }
-  $('#cCompetitors').textContent=d.competitors+'곳';
-  $('#cCompetitorsD').textContent=IS_LIVE?'HIRA 표방 기준':d.compDelta;
-  const exposed=KEYWORDS.filter(k=>k.api).length, top=KEYWORDS.filter(k=>k.grade==='top').length,
-        weak=KEYWORDS.filter(k=>k.grade==='none').length;
-  $('#cExposed').textContent=`${exposed} / ${KEYWORDS.length}`;
-  $('#cWeak').textContent=weak+'개';
-  $('#cTop').textContent=top+'개';
-  if(IS_LIVE){$('#cExposedD').textContent='공식 API 상위 5위 기준';$('#cExposedD').className='delta flat';
-    $('#cTopD').textContent='API 3위 이내';$('#cTopD').className='delta flat';}
-  const m=$('#meters'); m.innerHTML='';
-  COMPONENTS.forEach(c=>{
-    const v=d.comp[c.key];
-    m.insertAdjacentHTML('beforeend',
-      `<div class="meter"><div class="m-head"><span>${c.name} <span style="color:var(--text-muted)">(가중치 ${c.weight}%)</span></span><b>${v}점</b></div>
-       <div class="track"><div class="fill" style="width:${v}%"></div></div></div>`);
-  });
-  renderTrend();
-  renderContrib();
-  renderRadiusChart();
-}
-
-/* 점수 구성 기여도 — "왜 이 점수인가"를 한눈에 */
-const COMP_COLORS=['var(--series-1)','var(--series-2)','var(--series-3)','var(--seq-600)'];
-function renderContrib(){
-  const d=RADIUS_DATA[radius];
-  const parts=COMPONENTS.map((c,i)=>({name:c.name, w:c.weight, v:d.comp[c.key],
-    pts:d.comp[c.key]*c.weight/100, color:COMP_COLORS[i]}));
-  const total=parts.reduce((s,p)=>s+p.pts,0);
-  const segs=parts.map(p=>
-    `<div title="${p.name}" style="flex:${p.pts.toFixed(1)};background:${p.color};height:100%"></div>`).join('');
-  const gap=Math.max(0,100-total);
-  const rows=parts.map(p=>{
-    const full=p.w; // 이 항목이 채울 수 있는 최대 기여 점수
-    const pct=full?Math.round(100*p.pts/full):0;
-    return `<div style="display:flex;align-items:center;gap:10px;font-size:12.5px">
-      <span style="width:10px;height:10px;border-radius:3px;background:${p.color};flex:none"></span>
-      <span style="width:92px;flex:none;color:var(--text-secondary)">${p.name}</span>
-      <div style="flex:1;height:7px;border-radius:4px;background:var(--plane);overflow:hidden">
-        <div style="width:${pct}%;height:100%;background:${p.color};border-radius:4px"></div>
-      </div>
-      <span style="width:120px;flex:none;text-align:right;font-variant-numeric:tabular-nums;color:var(--text-secondary)">
-        ${p.v}점×${p.w}% = <b style="color:var(--text-primary)">${p.pts.toFixed(1)}</b></span>
-    </div>`;}).join('');
-  $('#contribChart').innerHTML=`
-    <div style="display:flex;height:22px;border-radius:8px;overflow:hidden;background:var(--plane);gap:2px">
-      ${segs}${gap?`<div style="flex:${gap.toFixed(1)};background:transparent;border:1px dashed var(--grid);border-radius:0 8px 8px 0"></div>`:''}
-    </div>
-    <div style="display:flex;justify-content:space-between;font-size:11.5px;color:var(--text-muted);margin:4px 2px 12px">
-      <span>합계 <b style="color:var(--text-primary)">${Math.round(total)}점</b></span><span>남은 개선 여지 ${Math.round(gap)}점</span>
-    </div>
-    <div style="display:grid;gap:8px">${rows}</div>`;
-}
-
-/* 반경 4단계 점수·경쟁 비교 — 현재 선택 반경 강조 */
-function renderRadiusChart(){
-  const radii=[500,1000,1500,2000];
-  const W=460,H=210,P={l:34,r:10,t:16,b:44};
-  const bw=(W-P.l-P.r)/radii.length;
-  const y=v=>P.t+(H-P.t-P.b)*(1-v/100);
-  let g='';
-  for(let v=0;v<=100;v+=25){
-    g+=`<line x1="${P.l}" x2="${W-P.r}" y1="${y(v)}" y2="${y(v)}" stroke="var(--grid)" stroke-width="1"/>
-        <text x="${P.l-6}" y="${y(v)+4}" text-anchor="end" font-size="10.5" fill="var(--text-muted)" style="font-variant-numeric:tabular-nums">${v}</text>`;
-  }
-  let bars='';
-  radii.forEach((r,i)=>{
-    const d=RADIUS_DATA[r]; if(!d)return;
-    const cx=P.l+bw*i+bw/2, w=Math.min(52,bw*0.5), sel=r===radius;
-    bars+=`<rect class="rb" data-r="${r}" x="${(cx-w/2).toFixed(1)}" y="${y(d.score).toFixed(1)}" width="${w}" height="${(y(0)-y(d.score)).toFixed(1)}"
-        fill="${sel?'var(--series-1)':'var(--seq-250)'}" style="cursor:pointer"/>
-      <text x="${cx}" y="${y(d.score)-6}" text-anchor="middle" font-size="12.5" font-weight="${sel?'750':'500'}"
-        fill="var(--text-primary)" style="font-variant-numeric:tabular-nums">${d.score}</text>
-      <text x="${cx}" y="${H-26}" text-anchor="middle" font-size="11.5" font-weight="${sel?'700':'400'}" fill="var(--text-secondary)">${fmtR(r)}</text>
-      <text x="${cx}" y="${H-11}" text-anchor="middle" font-size="10.5" fill="var(--text-muted)">경쟁 ${d.competitors}곳</text>`;
-  });
-  $('#radiusChart').innerHTML=
-   `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="반경별 진단 점수 비교">
-      ${g}<line x1="${P.l}" x2="${W-P.r}" y1="${y(0)}" y2="${y(0)}" stroke="var(--baseline)" stroke-width="1"/>${bars}
-    </svg>`;
-  $$('#radiusChart .rb').forEach(b=>b.addEventListener('click',()=>{
-    radius=+b.dataset.r;
-    $$('#radiusSeg button').forEach(x=>x.setAttribute('aria-pressed',+x.dataset.r===radius));
-    renderAll();
-  }));
-}
-
-/* 추이 라인 차트 (단일 시리즈 → 범례 없음, 끝값 직접 라벨) */
-function renderTrend(){
-  if(IS_LIVE){
-    $('#trendChart').innerHTML='<p style="font-size:13px;color:var(--text-muted);padding:30px 10px;text-align:center">'
-      +'첫 리포트입니다. 점수 추이는 2개월차부터 표시됩니다.</p>';
-    $('#trendTable').closest('details').style.display='none';
-    return;
-  }
-  const data=TREND[radius], labels=TREND.labels;
-  const W=460,H=210,P={l:34,r:44,t:14,b:26};
-  const min=Math.floor(Math.min(...data)/5)*5-5, max=Math.ceil(Math.max(...data)/5)*5+5;
-  const x=i=>P.l+(W-P.l-P.r)*i/(data.length-1);
-  const y=v=>P.t+(H-P.t-P.b)*(1-(v-min)/(max-min));
-  let g='';
-  for(let v=min;v<=max;v+=5){
-    g+=`<line x1="${P.l}" x2="${W-P.r}" y1="${y(v)}" y2="${y(v)}" stroke="var(--grid)" stroke-width="1"/>
-        <text x="${P.l-6}" y="${y(v)+4}" text-anchor="end" font-size="10.5" fill="var(--text-muted)" style="font-variant-numeric:tabular-nums">${v}</text>`;
-  }
-  const path=data.map((v,i)=>(i?'L':'M')+x(i)+' '+y(v)).join(' ');
-  let dots='';
-  data.forEach((v,i)=>{dots+=`<circle class="pt" data-i="${i}" cx="${x(i)}" cy="${y(v)}" r="${i===data.length-1?5:4}"
-    fill="var(--series-1)" stroke="var(--surface-1)" stroke-width="2"/>`});
-  const last=data.length-1;
-  const labelsSvg=labels.map((l,i)=>`<text x="${x(i)}" y="${H-8}" text-anchor="middle" font-size="10.5" fill="var(--text-muted)">${l}</text>`).join('');
-  $('#trendChart').innerHTML=
-   `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="최근 6개월 경쟁력 점수 추이">
-      ${g}
-      <line x1="${P.l}" x2="${W-P.r}" y1="${H-P.b}" y2="${H-P.b}" stroke="var(--baseline)" stroke-width="1"/>
-      <path d="${path} L ${x(last)} ${H-P.b} L ${P.l} ${H-P.b} Z" fill="var(--series-1)" opacity="0.1"/>
-      <path d="${path}" fill="none" stroke="var(--series-1)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      ${dots}
-      <text x="${x(last)+9}" y="${y(data[last])+4}" font-size="12" font-weight="650" fill="var(--text-primary)">${data[last]}점</text>
-      ${labelsSvg}
-    </svg>`;
-  const tb=$('#trendTable tbody'); tb.innerHTML=labels.map((l,i)=>`<tr><td>2026년 ${l}</td><td class="num">${data[i]}</td></tr>`).join('');
-  $$('#trendChart .pt').forEach(c=>{
-    c.addEventListener('mousemove',e=>{const i=+c.dataset.i;
-      showTip(`<div class="t-title">2026년 ${labels[i]}</div><div class="t-row">경쟁력 점수 <b>${data[i]}점</b> · 반경 ${fmtR(radius)}</div>`,e.clientX,e.clientY)});
-    c.addEventListener('mouseleave',hideTip);
-  });
-}
-
-/* ---------- 지도 렌더 ---------- */
-function renderMap(){
-  const W=720,H=520,cx=W/2,cy=H/2;
-  const scale=(Math.min(W,H)/2-24)/2000; // 2km가 화면 안에
-  const rings=[500,1000,1500,2000].map(r=>
-    `<circle cx="${cx}" cy="${cy}" r="${r*scale}" fill="none" stroke="${r<=radius?'var(--baseline)':'var(--grid)'}"
-       stroke-width="1" ${r<=radius?'':'stroke-dasharray="none" opacity="0.45"'}/>
-     <text x="${cx+4}" y="${cy-r*scale-4}" font-size="10" fill="var(--text-muted)">${fmtR(r)}</text>`).join('');
-  const pts=MAP_POINTS.filter(p=>p.dist<=radius).map((p,i)=>{
-    const px=cx+Math.cos(p.ang)*p.dist*scale, py=cy+Math.sin(p.ang)*p.dist*scale;
-    return `<circle class="mp" data-i="${MAP_POINTS.indexOf(p)}" cx="${px.toFixed(1)}" cy="${py.toFixed(1)}" r="5.5"
-      fill="${p.same?'var(--series-6)':'var(--series-3)'}" stroke="var(--surface-1)" stroke-width="2" style="cursor:pointer"/>`;
-  }).join('');
-  $('#mapChart').innerHTML=
-   `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="반경 내 경쟁 병원 지도(개략)">
-      <circle cx="${cx}" cy="${cy}" r="${radius*scale}" fill="var(--series-1)" opacity="0.05"/>
-      ${rings}${pts}
-      <circle cx="${cx}" cy="${cy}" r="8" fill="var(--series-1)" stroke="var(--surface-1)" stroke-width="2.5"/>
-      <text x="${cx}" y="${cy+24}" text-anchor="middle" font-size="11.5" font-weight="650" fill="var(--text-primary)">${TERMS.mine}</text>
-    </svg>`;
-  $$('#mapChart .mp').forEach(c=>{
-    const p=MAP_POINTS[+c.dataset.i];
-    const html=`<div class="t-title">${esc(p.name)}</div>
-      <div class="t-row">${p.same?TERMS.peer+' 표방':TERMS.similar} · ${p.dist}m</div>
-      ${p.grade?`<div class="t-row">API 노출 등급: ${esc(p.grade)}</div>`:''}`;
-    c.addEventListener('mousemove',e=>showTip(html,e.clientX,e.clientY));
-    c.addEventListener('mouseleave',hideTip);
-  });
-  const rows=MAP_POINTS.filter(p=>p.dist<=radius).slice(0,12).map(p=>
-    `<tr><td>${esc(p.name)}</td><td>${p.same?TERMS.peer:TERMS.similar}</td><td class="num">${p.dist}m</td><td>${esc(p.grade||'미측정')}</td></tr>`).join('');
-  $('#mapTable tbody').innerHTML=rows+
-    `<tr><td colspan="4" style="color:var(--text-muted);font-size:12px">가까운 12곳 표시 · 전체 ${MAP_POINTS.filter(p=>p.dist<=radius).length}곳 (반경 ${fmtR(radius)})</td></tr>`;
-}
-
-/* ---------- 키워드 표 ---------- */
-function actByGrade(g){
-  return g==='top'?'현 상태 유지, 월간 추적'
-    :g==='mid'?'소개·진료 항목 콘텐츠 보강'
-    :'실제 제공 진료라면 커버리지 반영';
-}
-function renderKeywords(){
-  const chip=g=>g==='top'?'<span class="chip top"><span class="dot"></span>상위권</span>'
-    :g==='mid'?'<span class="chip mid"><span class="dot"></span>중위권</span>'
-    :'<span class="chip none"><span class="dot"></span>미노출</span>';
-  /* 등급 요약 분할 막대 — 한눈에 커버리지 파악 */
-  const cnt={top:0,mid:0,none:0};
-  KEYWORDS.forEach(k=>cnt[k.grade]++);
-  const total=KEYWORDS.length||1;
-  const seg=(n,color)=>n?`<div style="flex:${n};background:${color};height:100%"></div>`:'';
-  $('#gradeStrip').innerHTML=`
-    <p class="chart-title" style="margin:0 0 8px">키워드 ${total}개 등급 분포</p>
-    <div style="display:flex;gap:2px;height:16px;border-radius:8px;overflow:hidden;background:var(--plane)">
-      ${seg(cnt.top,'var(--status-good)')}${seg(cnt.mid,'var(--status-warn)')}${seg(cnt.none,'var(--status-crit)')}
-    </div>
-    <div class="legend" style="margin-top:8px">
-      <span class="key"><span class="sw" style="background:var(--status-good)"></span>상위권 <b>${cnt.top}</b></span>
-      <span class="key"><span class="sw" style="background:var(--status-warn)"></span>중위권 <b>${cnt.mid}</b></span>
-      <span class="key"><span class="sw" style="background:var(--status-crit)"></span>미노출 <b>${cnt.none}</b></span>
-      <span class="key" style="color:var(--text-muted)">API 응답 3위 이내 / 응답 내 / 응답 밖(상위 5건)</span>
-    </div>`;
-  $('#kwTable tbody').innerHTML=KEYWORDS.map(k=>
-    `<tr><td><b>${esc(k.kw)}</b></td><td>${esc(k.type)}</td>
-     <td>${k.api?'노출':'미노출'}</td>
-     <td class="num">${k.pos??'—'}</td>
-     <td>${chip(k.grade)}</td><td>${esc(k.comp)}</td><td>${esc(k.act||actByGrade(k.grade))}</td></tr>`).join('');
-
-  /* 통합검색 콘텐츠 영역 매트릭스 (키워드별 존재 영역에 맞춰 표시)
-     노출 셀은 위치가 상위일수록 진한 히트 컬러 (5위 이내 > 15위 이내 > 그 외) */
-  const SECS=['blog','cafe','web','news','image','kin'];
-  const cell=c=>{
-    if(!c||c.exposed===null||c.present===null) return '<span style="color:var(--text-muted)">미검증</span>';
-    if(!c.present) return '<span style="color:var(--text-muted)">—</span>';
-    if(c.exposed){
-      const mix=c.position<=5?20:c.position<=15?12:6;
-      return `<span style="display:inline-block;min-width:46px;padding:2px 7px;border-radius:6px;`
-        +`background:color-mix(in srgb, var(--status-good) ${mix}%, transparent)">`
-        +`<b style="color:var(--good-text)">○ ${c.position}</b></span>`;
-    }
-    return '<span style="color:var(--status-crit);font-size:12px">미노출</span>';
-  };
-  $('#contentTable tbody').innerHTML=KEYWORDS.map(k=>
-    `<tr><td><b>${esc(k.kw)}</b></td>${SECS.map(s=>
-      `<td style="text-align:center">${cell((k.content||{})[s])}</td>`).join('')}</tr>`).join('');
-  renderCoverage();
-}
-
-/* 통합검색 영역 커버리지 — 레이더 + 영역별 노출/활성 막대 */
-const SEC_DEFS=[['blog','블로그'],['cafe','카페'],['web','웹문서'],['news','뉴스'],['image','이미지'],['kin','지식iN']];
-function renderCoverage(){
-  const radarEl=$('#radarChart'), barsEl=$('#coverBars');
-  if(!radarEl||!barsEl) return;
-  const st=SEC_DEFS.map(([k,label])=>{
-    let act=0,hit=0;
-    KEYWORDS.forEach(kw=>{const c=(kw.content||{})[k]; if(c&&c.present){act++; if(c.exposed)hit++;}});
-    return {k,label,act,hit,ratio:act?hit/act:0};
-  });
-  if(!KEYWORDS.some(k=>k.content)){
-    radarEl.innerHTML=barsEl.innerHTML=
-      '<p style="font-size:13px;color:var(--text-muted);padding:30px 10px;text-align:center">콘텐츠 영역 데이터가 아직 없습니다.</p>';
-    return;
-  }
-  const W=380,H=308,cx=W/2,cy=H/2+8,R=100,N=st.length;
-  const pt=(i,r)=>{const a=-Math.PI/2+i*2*Math.PI/N;return [cx+Math.cos(a)*r, cy+Math.sin(a)*r];};
-  let grid='';
-  [0.25,0.5,0.75,1].forEach(f=>{
-    grid+=`<polygon points="${st.map((_,i)=>pt(i,R*f).map(v=>v.toFixed(1)).join(',')).join(' ')}"
-      fill="none" stroke="var(--grid)" stroke-width="1"/>`;
-  });
-  let axes='',labels='';
-  st.forEach((s,i)=>{
-    const [x,y]=pt(i,R);
-    axes+=`<line x1="${cx}" y1="${cy}" x2="${x.toFixed(1)}" y2="${y.toFixed(1)}" stroke="var(--grid)" stroke-width="1"/>`;
-    const [lx,ly]=pt(i,R+26);
-    labels+=`<text x="${lx.toFixed(1)}" y="${(ly).toFixed(1)}" text-anchor="middle" font-size="11.5" fill="var(--text-secondary)">${s.label}</text>
-      <text x="${lx.toFixed(1)}" y="${(ly+14).toFixed(1)}" text-anchor="middle" font-size="10.5" font-weight="700"
-        fill="var(--text-primary)" style="font-variant-numeric:tabular-nums">${s.act?Math.round(s.ratio*100)+'%':'—'}</text>`;
-  });
-  const poly=st.map((s,i)=>pt(i,R*s.ratio).map(v=>v.toFixed(1)).join(',')).join(' ');
-  const dots=st.map((s,i)=>{const[x,y]=pt(i,R*s.ratio);
-    return `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="3.5" fill="var(--series-1)" stroke="var(--surface-1)" stroke-width="1.5"/>`}).join('');
-  radarEl.innerHTML=
-   `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="통합검색 영역별 노출 커버리지 레이더">
-      ${grid}${axes}
-      <polygon points="${poly}" fill="var(--series-1)" opacity="0.15"/>
-      <polygon points="${poly}" fill="none" stroke="var(--series-1)" stroke-width="2" stroke-linejoin="round"/>
-      ${dots}${labels}
-    </svg>`;
-  const total=KEYWORDS.length||1;
-  barsEl.innerHTML='<div style="display:grid;gap:11px;padding-top:6px">'+st.map(s=>`
-    <div style="display:flex;align-items:center;gap:10px;font-size:12.5px">
-      <span style="width:52px;flex:none;color:var(--text-secondary)">${s.label}</span>
-      <div style="flex:1;height:14px;border-radius:7px;background:var(--plane);overflow:hidden;position:relative">
-        <div style="position:absolute;top:0;left:0;bottom:0;width:${(100*s.act/total).toFixed(1)}%;background:var(--seq-150);border-radius:7px"></div>
-        <div style="position:absolute;top:0;left:0;bottom:0;width:${(100*s.hit/total).toFixed(1)}%;background:var(--series-1);border-radius:7px"></div>
-      </div>
-      <span style="width:76px;flex:none;text-align:right;font-variant-numeric:tabular-nums;color:var(--text-secondary)">노출 <b style="color:var(--text-primary)">${s.hit}</b> / ${s.act}</span>
-    </div>`).join('')+'</div>';
-}
-
-/* ---------- 벤치마크 ---------- */
-function renderBench(){
-  if(IS_LIVE){
-    $('#benchChart').innerHTML='<p style="font-size:13px;color:var(--text-muted);padding:30px 10px;text-align:center">'
-      +'리뷰 수·평점 등 플레이스 공개 집계값 비교는 다음 단계(플레이스 실측 수집 모듈)에서 제공됩니다.</p>';
-    $('#benchTable tbody').innerHTML=MAP_POINTS.filter(p=>p.dist<=radius).slice(0,5).map(p=>
-      `<tr><td>${esc(p.name)}</td><td class="num">${p.dist}m</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td class="num">—</td></tr>`).join('')
-      +'<tr><td colspan="6" style="color:var(--text-muted);font-size:12px">가까운 5곳 · 집계값 수집 예정</td></tr>';
-    return;
-  }
-  const W=460, rowH=34, P={l:150,r:56,t:6,b:22};
-  const H=P.t+P.b+BENCH.length*rowH;
-  const max=Math.max(...BENCH.map(b=>b.reviews));
-  const xw=v=>(W-P.l-P.r)*v/max;
-  let bars='';
-  BENCH.forEach((b,i)=>{
-    const y=P.t+i*rowH+ (rowH-22)/2;
-    const w=xw(b.reviews);
-    const fill=b.me?'var(--series-1)':'var(--seq-250)';
-    bars+=`<text x="${P.l-8}" y="${y+15}" text-anchor="end" font-size="11.5"
-        font-weight="${b.me?'700':'400'}" fill="var(--text-primary)">${b.name.length>9?b.name.slice(0,9)+'…':b.name}</text>
-      <rect class="bb" data-i="${i}" x="${P.l}" y="${y}" width="${w.toFixed(1)}" height="22" rx="0" fill="${fill}"/>
-      <rect x="${P.l+Math.max(w-4,0)}" y="${y}" width="4" height="22" rx="2" fill="${fill}"/>
-      <text x="${P.l+w+6}" y="${y+15}" font-size="11.5" fill="var(--text-secondary)" style="font-variant-numeric:tabular-nums">${b.reviews.toLocaleString()}</text>`;
-  });
-  $('#benchChart').innerHTML=
-   `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="경쟁 병원 리뷰 수 비교">
-      <line x1="${P.l}" x2="${P.l}" y1="${P.t}" y2="${H-P.b}" stroke="var(--baseline)" stroke-width="1"/>${bars}
-    </svg>
-    <div class="legend"><span class="key"><span class="sw" style="background:var(--series-1)"></span>${TERMS.mine}</span>
-    <span class="key"><span class="sw" style="background:var(--seq-250)"></span>${TERMS.comp}</span></div>`;
-  $$('#benchChart .bb').forEach(r=>{
-    const b=BENCH[+r.dataset.i];
-    r.addEventListener('mousemove',e=>showTip(
-      `<div class="t-title">${b.name}</div><div class="t-row">리뷰 ${b.reviews.toLocaleString()}개 · 평점 ${b.rating}</div>
-       <div class="t-row">거리 ${b.me?'—':b.dist+'m'} · 키워드 커버리지 ${b.cover}%</div>`,e.clientX,e.clientY));
-    r.addEventListener('mouseleave',hideTip);
-  });
-  $('#benchTable tbody').innerHTML=BENCH.map(b=>
-    `<tr${b.me?' class="me"':''}><td>${b.name}${b.me?' ('+TERMS.mine+')':''}</td><td class="num">${b.me?'—':b.dist+'m'}</td>
-     <td class="num">${b.cover}%</td><td class="num">${b.reviews.toLocaleString()}</td>
-     <td class="num">${b.rating.toFixed(1)}</td><td class="num">${b.photos}</td></tr>`).join('');
-}
-
-/* ---------- 액션 ---------- */
-function renderActions(){
-  let acts=ACTIONS;
-  if(IS_LIVE){
-    const weak=KEYWORDS.filter(k=>k.grade==='none').map(k=>k.kw);
-    const d=RADIUS_DATA[radius];
-    acts=[];
-    if(weak.length)acts.push({
-      t:`미노출 키워드 ${weak.length}개 커버리지 정비`,
-      p:`"${esc(weak.slice(0,3).join('·'))}" 등이 공식 API 결과(상위 5위)에 없습니다. 해당 진료를 실제 제공하는 경우에만 플레이스 소개·진료 항목·FAQ에 반영하세요.`,
-      b:`근거: 키워드 ${KEYWORDS.length}개 중 ${weak.length}개 미노출 · 노출 점수 ${d.comp.exposure}점`});
-    if(d.comp.density<40)acts.push({
-      t:'생활권 세분 키워드로 경쟁 우회',
-      p:'반경 내 경쟁 강도가 매우 높습니다. 광역 키워드 대신 역·동 단위 지역 수식어와 세부 시술 조합 키워드의 커버리지를 우선 확보하세요.',
-      b:`근거: 경쟁 밀도 점수 ${d.comp.density}점 · 반경 내 경쟁 ${d.competitors}곳`});
-    acts.push({
-      t:'네이버 플레이스 기본 정보 최신화',
-      p:'대표 사진, 진료시간, 주차, 예약 링크를 실제 운영 상태와 맞추고 진료 카테고리가 실제 진료 항목과 일치하는지 점검하세요.',
-      b:'근거: 플레이스 품질 지표는 다음 단계에서 실측 수집 예정'});
-    acts=acts.slice(0,3);
-  }
-  const html=acts.map((a,i)=>
-    `<div class="action"><div class="pri">${i+1}</div>
-      <div><h3>${a.t}</h3><p>${a.p}</p><div class="basis">${a.b}</div></div></div>`).join('');
-  $('#homeActions').innerHTML=html;
-  $('#reportActions').innerHTML=html;
-}
-
-/* ---------- 전체 렌더 ---------- */
-function renderAll(){
-  $$('.rEcho').forEach(e=>e.textContent=fmtR(radius));
-  applyTerms();
-  renderHome(); renderMap(); renderKeywords(); renderBench(); renderActions();
-}
-
-/* ---------- 실데이터 로더 ----------
-   pipeline/export_dashboard.py가 만든 data/dashboard-live.json이 있으면
-   목업 대신 실데이터를 표시한다. (file:// 직접 열람 시에는 목업으로 동작) */
-function applyLiveData(j){
-  IS_LIVE=true;
-  RADIUS_DATA={};
-  for(const r of [500,1000,1500,2000]){
-    const d=j.radius_data[String(r)];
-    RADIUS_DATA[r]={score:d.score, delta:0, competitors:d.competitors, compDelta:'',
-      comp:{exposure:d.comp.exposure, density:d.comp.density, demand:d.comp.demand, place:d.comp.place}};
-  }
-  KEYWORDS=j.keywords.map(k=>({kw:k.kw, type:k.type, api:k.api, pos:k.pos,
-    snap:null, grade:k.grade, comp:k.comp, content:k.content||null}));
-  MAP_POINTS=j.map_points.map(p=>({name:p.name, dist:Math.round(p.distance_m),
-    ang:(p.bearing_deg-90)*Math.PI/180, same:!!p.same_department, grade:null}));
-  MAP_POINTS.sort((a,b)=>a.dist-b.dist);
-  const h=j.hospital;
-  // 업종 판별 — biz_type 우선, 없으면 진료과/카테고리 문자열로 추정
-  TERMS=BIZ_TERMS[j.biz_type&&BIZ_TERMS[j.biz_type]?j.biz_type:bizTypeFromCategory(h.department||h.category)];
-  DEPT=h.department||'';
-  document.querySelector('.hospital-id').innerHTML=
-    `<b id="hName">${esc(h.name)}</b>${h.department?' · '+esc(h.department):''}<br>${h.address?esc(h.address)+' · ':''}${esc(j.month)} 리포트`;
-  document.querySelector('.brand small').textContent='실데이터 · '+j.month+' 기준';
-}
-fetch('data/dashboard-live.json')
-  .then(r=>r.ok?r.json():null)
-  .then(j=>{ if(j&&j.live) applyLiveData(j); })
-  .catch(()=>{})
-  .finally(renderAll);
+document.getElementById('toolGrid').innerHTML = TOOLS.map(t=>`
+  <a class="tool" href="${t.href}">
+    ${icon(t.ic,t.c)}
+    <h3>${t.name}${t.tag?`<span class="tag">${t.tag}</span>`:''}</h3>
+    <p class="one">${t.one}</p>
+    <ul>${t.pts.map(p=>`<li>${p}</li>`).join('')}</ul>
+    <span class="go">${t.go} →</span>
+  </a>`).join('');
 </script>
 </body>
 </html>
