@@ -102,7 +102,7 @@
   <button class="tab" role="tab" data-p="deep" aria-selected="false">상세 분석</button>
   <button class="tab" role="tab" data-p="abuse" aria-selected="false">어뷰징 모니터 <span class="n alert">2</span></button>
   <button class="tab" role="tab" data-p="suppress" aria-selected="false">수신거부 목록 <span class="n">4</span></button>
-  <button class="tab" role="tab" data-p="evidence" aria-selected="false">증빙 검수 <span class="n">7</span></button>
+  <button class="tab" role="tab" data-p="evidence" aria-selected="false">근거 자료함 <span class="n">4</span></button>
   <button class="tab" role="tab" data-p="traffic" aria-selected="false">방문 통계</button>
 </div></nav>
 
@@ -193,15 +193,18 @@
     수동 전화 전에도 반드시 조회하세요.</p>
   </section>
 
-  <!-- ============ 증빙 검수 (기존) ============ -->
+  <!-- ============ 근거 자료함 ============ -->
   <section class="panel" id="panel-evidence">
-    <h1>증빙 자료 검수</h1>
-    <p class="sub">internal_evidence_items — 법무 승인 전에는 고객 노출 등급(customer_safe_summary)으로 승격 불가 (DB 트리거 강제).</p>
+    <h1>근거 자료함</h1>
+    <p class="sub"><b>한 줄 정의:</b> 이용자에게 "노출/미노출"이라고 말한 근거(API 원본 응답 등)를 보관하는 내부 보관함입니다.
+    결과에 대한 문의·분쟁 시 이 자료로 소명합니다. 각 행 = 근거 1건.</p>
     <div class="card table-card"><table>
-      <thead><tr><th>ID</th><th>유형</th><th>병원/키워드</th><th>수집일</th><th>위험도</th><th>법무 상태</th><th>노출 범위</th></tr></thead>
+      <thead><tr><th>ID</th><th>자료 종류</th><th>대상 / 키워드</th><th>수집일</th><th>민감도</th><th>고객 자료 사용</th></tr></thead>
       <tbody id="evTbl"></tbody>
     </table></div>
-    <p class="note">원본(스냅샷·HTML·payload) 열람은 감사 로그 기록. 검색화면 스냅샷 기능은 법무 승인 전 보류 상태입니다.</p>
+    <p class="note"><b>"고객 자료 사용"</b> = 이 근거를 이용자 리포트에 인용해도 되는지의 상태
+    (가능 / 내부만 — 법무 결재 전에는 DB가 승격을 막습니다). 원본 열람은 감사 로그에 기록됩니다.
+    검색화면 캡처·광고영역 관찰류는 법무 보류로 <b>수집하지 않으므로</b> 이 보관함에 존재하지 않습니다.</p>
   </section>
 
   <!-- ============ 방문 통계 ============ -->
@@ -347,21 +350,17 @@ $('#supTbl').innerHTML=SUP.map(s=>
   `<tr><td>${s.d}</td><td><span class="pill p-crit"><span class="dot"></span>${esc(s.ch)}</span></td>
    <td style="font-variant-numeric:tabular-nums">${esc(s.id)}</td><td>${esc(s.rs)}</td><td>${esc(s.src)}</td></tr>`).join('');
 
-/* ---- 증빙 검수 (기존 목업 요약) ---- */
+/* ---- 근거 자료함 (목업 — 실제 수집하는 자료 종류만 예시) ---- */
 const EV=[
-  {id:'EV-1043',t:'raw_api_payload',hk:'밝은빛피부과의원 / 테헤란로 피부과',d:'07-01',risk:['p-warn','medium'],lg:['p-good','approved'],sc:'customer_safe_summary'},
-  {id:'EV-1041',t:'serp_screenshot',hk:'밝은빛피부과의원 / 강남 피부과',d:'07-01',risk:['p-serious','high'],lg:['p-warn','pending'],sc:'internal_admin_only'},
-  {id:'EV-1042',t:'serp_screenshot',hk:'밝은빛피부과의원 / 강남 리프팅',d:'07-01',risk:['p-serious','high'],lg:['p-serious','in_review'],sc:'internal_legal_only'},
-  {id:'EV-1044',t:'ad_section_observation',hk:'밝은빛피부과의원 / 강남 보톡스',d:'07-01',risk:['p-crit','critical'],lg:['p-warn','pending'],sc:'internal_admin_only'},
-  {id:'EV-1045',t:'collection_error_log',hk:'밝은빛피부과의원 / 강남 탈모치료',d:'07-01',risk:['p-warn','medium'],lg:['p-mute','not_required'],sc:'internal_admin_only'},
-  {id:'EV-1046',t:'serp_html',hk:'밝은빛피부과의원 / 강남 피부과',d:'06-01',risk:['p-serious','high'],lg:['p-crit','rejected'],sc:'blocked'},
-  {id:'EV-1047',t:'manual_review_note',hk:'병원 매칭 검수',d:'07-02',risk:['p-good','low'],lg:['p-mute','not_required'],sc:'internal_admin_only'},
+  {id:'EV-1043',t:'API 원본 응답',hk:'밝은빛피부과의원 / 테헤란로 피부과',d:'07-01',risk:['p-warn','보통'],use:['p-good','가능 (결재 완료)']},
+  {id:'EV-1045',t:'수집 오류 기록',hk:'밝은빛피부과의원 / 강남 탈모치료',d:'07-01',risk:['p-warn','보통'],use:['p-mute','내부만 (인용 안 함)']},
+  {id:'EV-1047',t:'수동 검수 메모',hk:'병원 매칭 확인',d:'07-02',risk:['p-good','낮음'],use:['p-mute','내부만 (인용 안 함)']},
+  {id:'EV-1048',t:'API 원본 응답',hk:'베놈애드 / 대구병원마케팅',d:'07-03',risk:['p-warn','보통'],use:['p-warn','내부만 (결재 대기)']},
 ];
 $('#evTbl').innerHTML=EV.map(e=>
   `<tr><td>${e.id}</td><td>${esc(e.t)}</td><td>${esc(e.hk)}</td><td>${e.d}</td>
    <td><span class="pill ${e.risk[0]}"><span class="dot"></span>${e.risk[1]}</span></td>
-   <td><span class="pill ${e.lg[0]}"><span class="dot"></span>${e.lg[1]}</span></td>
-   <td style="font-size:11.5px">${esc(e.sc)}</td></tr>`).join('');
+   <td><span class="pill ${e.use[0]}"><span class="dot"></span>${e.use[1]}</span></td></tr>`).join('');
 </script>
 </body>
 </html>
