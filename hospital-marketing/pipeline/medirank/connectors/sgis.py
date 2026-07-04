@@ -103,6 +103,37 @@ def find_adm_cd(city: str, gu: str | None = None) -> str | None:
         return None
 
 
+def pop_weighted_density(adm_cd: str, year: str = "2023") -> float | None:
+    """행정동 분해(low_search=1)로 계산한 인구가중 밀도(체감 밀도, 명/km²).
+
+    넓은 시(춘천 등)는 외곽 읍·면이 '시 평균 밀도'를 크게 끌어내려, 도심 업체의
+    실제 생활권 밀도를 과소평가한다. 인구가중 밀도 = Σ(인구×밀도)/Σ(인구) 는
+    '사람이 실제로 몰려 사는 곳의 밀도'라, 도심 상권 기준으로 훨씬 현실적이다.
+    서울 강남처럼 전역이 고밀도인 지역은 평균과 거의 같아 부작용이 없다.
+    """
+    token = get_access_token()
+    if not token or not adm_cd:
+        return None
+    q = urllib.parse.urlencode({
+        "accessToken": token, "year": year, "adm_cd": adm_cd, "low_search": "1",
+    })
+    try:
+        res = _get_json(POP_URL + "?" + q).get("result", [])
+        num = den = 0.0
+        for r in res:
+            p, d = r.get("tot_ppltn"), r.get("ppltn_dnsty")
+            if p in (None, "N/A") or d in (None, "N/A"):
+                continue
+            p, d = float(p), float(d)
+            if d <= 0 or p <= 0:
+                continue
+            num += p * d
+            den += p
+        return round(num / den, 1) if den else None
+    except Exception:
+        return None
+
+
 def population_of(adm_cd: str, year: str = "2023") -> int | None:
     """행정구역 총인구 (하위 호환용)."""
     stats = area_stats(adm_cd, year)

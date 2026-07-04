@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-07-04T08:07:02+00:00",
+ "generated_at": "2026-07-04T09:09:49+00:00",
  "business": {
   "rank": 1,
   "title": "그랜드아름다운의원",
@@ -2902,14 +2902,15 @@
   "adm_cd": "32010",
   "adm_nm": "강원특별자치도춘천시",
   "avg_age": 44.0,
-  "population_radius": 824,
-  "demand_score": 1.7,
-  "employee_density_km2": 115,
-  "commerce_score": 0.5,
+  "density_basis": "체감(인구가중)",
+  "population_radius": 22307,
+  "demand_score": 36.6,
+  "employee_density_km2": 3109,
+  "commerce_score": 11.7,
   "competitors": 22,
   "competition_score": 47.8,
-  "saturation_per_10k": 267.0,
-  "site_score": 24.5
+  "saturation_per_10k": 9.9,
+  "site_score": 37.2
  },
  "resolution": {
   "note": "",

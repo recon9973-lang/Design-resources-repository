@@ -53,15 +53,21 @@ def analyze_location(biz: dict, region: dict, cls: dict, radius_m: int = 1000) -
            "adm_nm": (stats or {}).get("adm_nm"),
            "avg_age": (stats or {}).get("avg_age")}
 
-    dnsty = (stats or {}).get("ppltn_dnsty") or 13000.0
+    # 체감(인구가중) 밀도 우선 — 넓은 시의 외곽 읍·면이 도심 밀도를 희석하는 문제 보정.
+    avg_dnsty = (stats or {}).get("ppltn_dnsty")
+    w_dnsty = sgis.pop_weighted_density(adm_cd) if adm_cd else None
+    dnsty = w_dnsty or avg_dnsty or 13000.0
+    out["density_basis"] = "체감(인구가중)" if w_dnsty else ("시·구 평균" if avg_dnsty else "기본값")
     pop_radius = int(dnsty * math.pi * (radius_m / 1000.0) ** 2)
     demand = scoring.demand_score(pop_radius, 0.45, radius_m)
     out.update({"population_radius": pop_radius, "demand_score": demand})
 
+    # 종사자 밀도도 같은 체감 기준으로 스케일 (기하평균 종사자밀도 × 체감/평균 배율)
     emp_density = 0.0
-    if stats and stats.get("employee_cnt") and stats.get("tot_ppltn") and dnsty:
-        gu_area = stats["tot_ppltn"] / dnsty
-        emp_density = stats["employee_cnt"] / gu_area if gu_area else 0.0
+    if stats and stats.get("employee_cnt") and stats.get("tot_ppltn") and avg_dnsty:
+        real_area = stats["tot_ppltn"] / avg_dnsty
+        emp_base = stats["employee_cnt"] / real_area if real_area else 0.0
+        emp_density = emp_base * (dnsty / avg_dnsty)
     commerce = round(100.0 * (1.0 - math.exp(-emp_density / 25000.0)), 1)
     out.update({"employee_density_km2": round(emp_density), "commerce_score": commerce})
 
@@ -270,9 +276,9 @@ def render_html(j: dict, masked: bool = False) -> str:
         loc_html = f'''
 <section class="card"><h2>입지 참고 분석</h2>
   <div class="summary">{cs}</div>{note}
-  <p class="mut" style="font-size:12px;margin:10px 0 0"><b>반경 인구·상권 지표는 시·구 평균 밀도 기준 추정</b>이라,
-  도심·번화가(예: 춘천 중앙로처럼 넓은 시의 중심가)는 실제보다 낮게 나올 수 있습니다 — 절대값이 아니라 후보지 간 상대 비교용으로 보세요.
-  임대료·접근성·건물 조건 등 핵심 입지 변수를 포함하지 않는 참고 지표이며, 개원·영업 성과를 보장하지 않습니다.
+  <p class="mut" style="font-size:12px;margin:10px 0 0">반경 인구·상권은 <b>{e(loc.get("density_basis") or "시·구 평균")} 밀도</b> 기준 추정입니다.
+  {"넓은 시의 외곽(읍·면)이 도심 밀도를 희석하지 않도록, 사람이 실제 몰려 사는 곳의 밀도로 보정했습니다." if loc.get("density_basis","").startswith("체감") else ""}
+  임대료·접근성·건물 조건 등 핵심 입지 변수는 포함하지 않는 참고 지표이며(절대값보다 후보지 간 상대 비교용), 개원·영업 성과를 보장하지 않습니다.
   출처: SGIS 통계지리정보{" · 건강보험심사평가원 병원정보서비스" if "competitors" in loc else ""}.</p>
 </section>'''
 
