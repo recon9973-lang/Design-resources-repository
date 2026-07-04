@@ -372,6 +372,71 @@ def render_html(j: dict, masked: bool = False) -> str:
         badge = '' if hit else ' <span class="bad" style="font-size:11px">전 영역 미노출</span>'
         return f'<details class="top5"><summary>{e(k["kw"])}{badge}</summary>{inner}</details>'
 
+    # ── 노출 한눈에 보기: 같은 데이터를 링 게이지·영역별 막대·단계별 막대로 다양화 ──
+    def donut(hit, total, label):
+        pct = round(100 * hit / total) if total else 0
+        r, cc = 26, 163.36  # 2πr, r=26
+        frac = max(0, min(pct, 100)) / 100
+        col = "var(--good)" if pct >= 50 else "var(--warn)" if pct >= 20 else "var(--bad)"
+        return (f'<div class="donut"><svg viewBox="0 0 72 72" width="76" height="76" role="img" '
+                f'aria-label="{label} {pct}%"><circle cx="36" cy="36" r="{r}" fill="none" '
+                f'stroke="var(--track)" stroke-width="8"/><circle cx="36" cy="36" r="{r}" fill="none" '
+                f'stroke="{col}" stroke-width="8" stroke-linecap="round" '
+                f'stroke-dasharray="{cc*frac:.1f} {cc:.1f}" transform="rotate(-90 36 36)"/>'
+                f'<text x="36" y="41" text-anchor="middle" font-size="16" font-weight="800" '
+                f'fill="var(--ink)">{pct}%</text></svg>'
+                f'<div class="dl">{label}</div><div class="ds">{hit}/{total} 키워드</div></div>')
+
+    def bar_row(label, over, under, total):
+        uw = 100 * under / total if total else 0
+        ow = 100 * over / total if total else 0
+        return (f'<div class="brow"><span class="bl">{label}</span>'
+                f'<span class="bt"><span class="under" style="width:{uw:.0f}%"></span>'
+                f'<span class="over" style="width:{ow:.0f}%"></span></span>'
+                f'<span class="bv">노출 <b>{over}</b>/{under}</span></div>')
+
+    overview_html = ""
+    if not masked:
+        kws = j["keywords"]
+        total = len(kws) or 1
+        place_hit = s["place_hit"]
+        content_hit = s["content_hit"]
+        overall = sum(1 for k in kws if k["place"]["exposed"]
+                      or any(((k["content"] or {}).get(x) or {}).get("exposed") for x, _ in SEC_LABELS))
+        donuts = (donut(overall, total, "종합 노출")
+                  + donut(place_hit, total, "플레이스")
+                  + donut(content_hit, total, "콘텐츠 영역"))
+        # 영역별 커버리지 (활성 키워드 중 노출)
+        area_rows = ""
+        for key, label in SEC_LABELS:
+            act = sum(1 for k in kws if ((k["content"] or {}).get(key) or {}).get("present"))
+            hit = sum(1 for k in kws if ((k["content"] or {}).get(key) or {}).get("exposed"))
+            area_rows += bar_row(label, hit, act, total)
+        # 지역 단계별 노출 (브랜드/동/구/시/메인)
+        order = ["브랜드", "동단위", "구단위", "시단위", "메인"]
+        lv = {}
+        for k in kws:
+            t = k["type"]
+            ex = k["place"]["exposed"] or any(((k["content"] or {}).get(x) or {}).get("exposed") for x, _ in SEC_LABELS)
+            d = lv.setdefault(t, [0, 0])
+            d[1] += 1
+            if ex:
+                d[0] += 1
+        level_rows = "".join(
+            bar_row(t, lv[t][0], lv[t][1], total) for t in order if t in lv)
+        overview_html = f'''
+<section class="card"><h2>노출 한눈에 보기</h2>
+  <div class="donuts">{donuts}</div>
+  <div class="leglow"><span><i style="background:var(--accent)"></i>노출</span>
+    <span><i style="background:var(--accent-soft)"></i>영역 활성(노출 가능)</span>
+    <span style="color:var(--mut)">막대 전체 = 전체 키워드 {total}개</span></div>
+  <div class="ovgrid" style="margin-top:14px">
+    <div><p class="ovh">영역별 노출 커버리지</p>{area_rows}</div>
+    <div><p class="ovh">지역 단계별 노출</p>{level_rows}
+      <p class="ds" style="margin-top:8px">동·구·시 순으로 좁힐수록 노출이 잡히는지 확인</p></div>
+  </div>
+</section>'''
+
     top5_html = "".join(top5_block(k) for k in j["keywords"])
     top5_section = (f'''
 <section class="card"><h2>영역별 상위 5 노출 현황</h2>
@@ -445,6 +510,23 @@ border:2px solid var(--card);box-shadow:0 0 0 1px rgba(0,0,0,.15)}}
 font-size:9px;color:var(--sub);white-space:nowrap}}
 .sm-scale{{display:flex;justify-content:space-between;font-size:9.5px;color:var(--mut);margin-top:4px}}
 .sm-mean{{font-size:11px;color:var(--sub);margin-top:3px}}
+.donuts{{display:flex;gap:18px;flex-wrap:wrap;justify-content:center;margin:6px 0 4px}}
+.donut{{text-align:center;flex:1;min-width:110px}}
+.donut .dl{{font-size:12px;font-weight:700;margin-top:4px}}
+.donut .ds{{font-size:11px;color:var(--mut)}}
+.ovgrid{{display:grid;grid-template-columns:1fr 1fr;gap:16px 26px;margin-top:6px}}
+@media (max-width:600px){{.ovgrid{{grid-template-columns:1fr}}}}
+.ovh{{font-size:12.5px;font-weight:700;margin:0 0 8px}}
+.brow{{display:flex;align-items:center;gap:9px;font-size:12px;margin:5px 0}}
+.brow .bl{{width:52px;flex:none;color:var(--sub)}}
+.brow .bt{{flex:1;height:13px;border-radius:7px;background:var(--track);position:relative;overflow:hidden}}
+.brow .bt .under{{position:absolute;top:0;left:0;bottom:0;background:var(--accent-soft);border-radius:7px}}
+.brow .bt .over{{position:absolute;top:0;left:0;bottom:0;background:var(--accent);border-radius:7px}}
+.brow .bv{{width:72px;flex:none;text-align:right;color:var(--sub);font-variant-numeric:tabular-nums}}
+.brow .bv b{{color:var(--ink)}}
+.leglow{{font-size:11px;color:var(--mut);margin-top:8px;display:flex;gap:14px;flex-wrap:wrap}}
+.leglow span{{display:inline-flex;align-items:center;gap:5px}}
+.leglow i{{width:10px;height:10px;border-radius:3px;display:inline-block}}
 footer{{font-size:11px;color:var(--mut);text-align:center;border-top:1px solid var(--line);padding-top:12px}}
 </style>
 <div class="wrap">
@@ -464,6 +546,7 @@ footer{{font-size:11px;color:var(--mut);text-align:center;border-top:1px solid v
 <div class="stat"><div class="k">콘텐츠 노출 키워드</div><div class="v">{s["content_hit"]} / {s["total"]}</div><div class="d">6개 영역 중 1곳 이상</div></div>
 </section>
 {mask_banner}{amb_html}
+{overview_html}
 <section class="card"><h2>키워드별 노출 매트릭스</h2>
 <div class="tw"><table>
 <thead><tr><th>키워드</th><th>유형</th><th>플레이스</th><th>블로그</th><th>카페</th><th>웹문서</th><th>뉴스</th><th>이미지</th><th>지식iN</th></tr></thead>
