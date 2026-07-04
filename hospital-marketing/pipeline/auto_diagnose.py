@@ -249,26 +249,55 @@ def render_html(j: dict, masked: bool = False) -> str:
 
     cands = " · ".join(e(c["title"]) for c in j["resolution"]["candidates"])
 
-    def score_meter(label, score, meaning):
-        """0~100 점수를 평균 기준선(50)과 함께 눈금·상태로 보여주는 미터."""
-        s = max(0.0, min(float(score), 100.0))
-        if s >= 65:
-            lab, col = "우수", "var(--good)"
-        elif s >= 55:
-            lab, col = "평균 이상", "var(--good)"
-        elif s >= 45:
-            lab, col = "평균 수준", "var(--warn)"
-        elif s >= 30:
-            lab, col = "평균 이하", "var(--warn)"
-        else:
-            lab, col = "낮음", "var(--bad)"
-        return (f'<div class="smeter"><div class="sm-head"><span class="sm-l">{label}</span>'
-                f'<span class="sm-v"><b style="color:{col}">{score}</b> · '
-                f'<span style="color:{col};font-weight:700">{lab}</span></span></div>'
-                f'<div class="sm-track"><div class="sm-fill" style="width:{s:.1f}%;background:{col}"></div>'
-                f'<div class="sm-avg" style="left:50%"></div>'
-                f'<div class="sm-dot" style="left:{s:.1f}%;background:{col}"></div></div>'
-                f'<div class="sm-scale"><span>0</span><span>50</span><span>100</span></div>'
+    def _band(sc):
+        if sc >= 60:
+            return "var(--good)", "우수"
+        if sc >= 40:
+            return "var(--warn)", "보통"
+        return "var(--bad)", "낮음"
+
+    def gauge_semi(score, label):
+        """반원 속도계 게이지 — 낮음/보통/우수 구간 + 바늘로 기준 대비 위치를 직관화."""
+        sc = max(0.0, min(float(score), 100.0))
+
+        def pt(r, v):
+            a = math.radians(180 - 1.8 * v)
+            return (100 + r * math.cos(a), 100 - r * math.sin(a))
+
+        def arc(r, v0, v1, color, w):
+            x0, y0 = pt(r, v0)
+            x1, y1 = pt(r, v1)
+            return (f'<path d="M {x0:.1f} {y0:.1f} A {r} {r} 0 0 1 {x1:.1f} {y1:.1f}" '
+                    f'fill="none" stroke="{color}" stroke-width="{w}" stroke-linecap="round"/>')
+
+        nx, ny = pt(64, sc)
+        col, lab = _band(sc)
+        lab = "보통(평균권)" if lab == "보통" else lab
+        zones = (arc(80, 0, 39, "color-mix(in srgb,var(--bad) 55%,var(--track))", 13)
+                 + arc(80, 41, 59, "color-mix(in srgb,var(--warn) 62%,var(--track))", 13)
+                 + arc(80, 61, 100, "color-mix(in srgb,var(--good) 55%,var(--track))", 13))
+        return (f'<div class="gaugew"><svg viewBox="0 0 200 118" width="230" role="img" '
+                f'aria-label="{label} {score}점">{zones}'
+                f'<line x1="100" y1="100" x2="{nx:.1f}" y2="{ny:.1f}" stroke="var(--ink)" '
+                f'stroke-width="3" stroke-linecap="round"/><circle cx="100" cy="100" r="5" fill="var(--ink)"/>'
+                f'<text x="14" y="114" font-size="9" fill="var(--mut)">0</text>'
+                f'<text x="100" y="18" font-size="9" fill="var(--mut)" text-anchor="middle">50·평균</text>'
+                f'<text x="186" y="114" font-size="9" fill="var(--mut)" text-anchor="end">100</text></svg>'
+                f'<div class="gv" style="color:{col}">{score}<span>/100</span></div>'
+                f'<div class="gs" style="color:{col}">{lab}</div><div class="gl">{label}</div></div>')
+
+    def zone_bar(label, score, meaning):
+        """낮음/보통/우수 색 구간 위에 점수 마커 — 기준 대비 위치를 한눈에."""
+        sc = max(0.0, min(float(score), 100.0))
+        col, lab = _band(sc)
+        return (f'<div class="zbar"><div class="zb-head"><span class="zl">{label}</span>'
+                f'<span><b style="color:{col}">{score}</b> · <span style="color:{col};font-weight:700">{lab}</span></span></div>'
+                f'<div class="zb-track">'
+                f'<span class="zb-seg" style="flex:40;background:color-mix(in srgb,var(--bad) 20%,transparent)"></span>'
+                f'<span class="zb-seg" style="flex:20;background:color-mix(in srgb,var(--warn) 26%,transparent)"></span>'
+                f'<span class="zb-seg" style="flex:40;background:color-mix(in srgb,var(--good) 20%,transparent)"></span>'
+                f'<span class="zb-mark" style="left:{sc:.1f}%"></span></div>'
+                f'<div class="zb-scale"><span>낮음 0~40</span><span>보통</span><span>우수 60~100</span></div>'
                 f'<div class="sm-mean">{meaning}</div></div>')
 
     loc_html = ""
@@ -291,20 +320,20 @@ def render_html(j: dict, masked: bool = False) -> str:
             ]
             if "competitors" in loc:
                 cards.append(("같은 진료과 경쟁 (1km)", f'{loc["competitors"]}곳', '가까울수록 경쟁 치열'))
-            meters = []
+            hero = (f'<div class="gcol">{gauge_semi(loc["site_score"], "입지 참고 점수 · 종합")}</div>'
+                    if "competitors" in loc else "")
+            zbars = ""
             if "competitors" in loc:
-                meters.append(score_meter("경쟁 여유", loc["competition_score"],
-                                          "경쟁 밀도 대비 여유 — 높을수록 경쟁이 덜 치열"))
-            meters.append(score_meter("잠재 수요", loc["demand_score"],
-                                      "반경 내 거주 인구 기반 수요 잠재력"))
-            meters.append(score_meter("상권 활동", loc["commerce_score"],
-                                      "종사자 밀도 기반 상권 활동성(직장인 유동 근사)"))
-            if "competitors" in loc:
-                meters.append(score_meter("입지 참고 점수", loc["site_score"],
-                                          "경쟁 여유 50% + 수요 30% + 상권 20% 종합"))
-            meters_html = (f'<h3 class="sm-title">점수 해설 '
-                           f'<span>0~100 · 50 = 평균 기준선 · 높을수록 좋음</span></h3>'
-                           f'<div class="smeters">{"".join(meters)}</div>')
+                zbars += zone_bar("경쟁 여유", loc["competition_score"],
+                                  "경쟁 밀도 대비 여유 — 높을수록 경쟁이 덜 치열")
+            zbars += zone_bar("잠재 수요", loc["demand_score"], "반경 내 거주 인구 기반 수요 잠재력")
+            zbars += zone_bar("상권 활동", loc["commerce_score"], "종사자 밀도 기반 상권 활동성")
+            meters_html = (
+                f'<h3 class="sm-title">점수 해설 '
+                f'<span>기준 · <b style="color:var(--bad)">낮음</b> 0~40 · '
+                f'<b style="color:var(--warn)">보통</b> 40~60(50=평균) · '
+                f'<b style="color:var(--good)">우수</b> 60~100</span></h3>'
+                f'<div class="scoregrid">{hero}<div class="zbars">{zbars}</div></div>')
         cs = "".join(f'<div class="stat"><div class="k">{k}</div><div class="v">{v}</div>'
                      f'<div class="d">{d}</div></div>' for k, v, d in cards)
         note = ("" if "competitors" in loc else
@@ -510,6 +539,22 @@ border:2px solid var(--card);box-shadow:0 0 0 1px rgba(0,0,0,.15)}}
 font-size:9px;color:var(--sub);white-space:nowrap}}
 .sm-scale{{display:flex;justify-content:space-between;font-size:9.5px;color:var(--mut);margin-top:4px}}
 .sm-mean{{font-size:11px;color:var(--sub);margin-top:3px}}
+.scoregrid{{display:flex;gap:22px;flex-wrap:wrap;align-items:center;margin-top:10px}}
+.gcol{{flex:none;margin:0 auto}}
+.gaugew{{text-align:center}}
+.gaugew svg{{max-width:230px;width:100%;height:auto}}
+.gaugew .gv{{font-size:27px;font-weight:800;line-height:1;margin-top:-8px}}
+.gaugew .gv span{{font-size:13px;color:var(--sub);font-weight:600}}
+.gaugew .gs{{font-size:13.5px;font-weight:800}}
+.gaugew .gl{{font-size:12px;color:var(--sub);margin-top:1px}}
+.zbars{{flex:1;min-width:250px;display:grid;gap:13px}}
+.zbar .zb-head{{display:flex;justify-content:space-between;font-size:12.5px;margin-bottom:5px}}
+.zbar .zb-head .zl{{font-weight:700}}
+.zb-track{{position:relative;height:16px;border-radius:8px;overflow:hidden;display:flex}}
+.zb-seg{{height:100%}}
+.zb-mark{{position:absolute;top:-2px;bottom:-2px;width:3px;background:var(--ink);border-radius:2px;
+transform:translateX(-50%);box-shadow:0 0 0 1.5px var(--card)}}
+.zb-scale{{display:flex;justify-content:space-between;font-size:9.5px;color:var(--mut);margin-top:3px}}
 .donuts{{display:flex;gap:18px;flex-wrap:wrap;justify-content:center;margin:6px 0 4px}}
 .donut{{text-align:center;flex:1;min-width:110px}}
 .donut .dl{{font-size:12px;font-weight:700;margin-top:4px}}
