@@ -8,23 +8,21 @@ https://sgis.kostat.go.kr/developer/
 """
 
 import json
-import os
 import urllib.parse
 
 from .. import httpx
-from .. import config  # noqa: F401  (.env 로딩 side effect)
+from .. import config
 
 AUTH_URL = "https://sgisapi.kostat.go.kr/OpenAPI3/auth/authentication.json"
 POP_URL = "https://sgisapi.kostat.go.kr/OpenAPI3/stats/population.json"
 
 
 def _keys() -> tuple[str, str]:
-    return (os.environ.get("SGIS_CONSUMER_KEY", ""),
-            os.environ.get("SGIS_CONSUMER_SECRET", ""))
+    return config.sgis_creds()
 
 
 def available() -> bool:
-    return all(_keys())
+    return config.sgis_available()
 
 
 def _get_json(url: str) -> dict:
