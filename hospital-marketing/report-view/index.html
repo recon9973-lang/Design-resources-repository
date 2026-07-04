@@ -1,0 +1,117 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'unsafe-inline'; style-src 'unsafe-inline'; connect-src 'self' https://*.supabase.co; img-src 'self' data:; frame-src 'self'; base-uri 'none'; form-action 'none'">
+<meta name="robots" content="noindex, nofollow">
+<title>베놈 체크업 리포트</title>
+<style>
+:root{--bg:#f6f8fb;--card:#fff;--ink:#1d2735;--sub:#5b6a7e;--line:#dfe6ef;--accent:#2a78d6;--accent2:#1e8a4a;--mut:#8a97a8}
+@media(prefers-color-scheme:dark){:root{--bg:#10161f;--card:#182130;--ink:#e8edf4;--sub:#9db0c5;--line:#2a3648;--accent:#5b9ee8;--accent2:#4cc07a;--mut:#71809a}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);
+font-family:"Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",system-ui,sans-serif}
+.wrap{max-width:900px;margin:0 auto;padding:18px 14px 60px}
+.topbar{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.brand{font-weight:800;font-size:15px;color:var(--accent)}
+.frame{width:100%;height:78vh;border:1px solid var(--line);border-radius:12px;background:var(--card)}
+.gate{border:1px solid var(--line);border-radius:14px;background:var(--card);padding:20px 18px;margin-top:14px}
+.gate h2{font-size:17px;margin:0 0 6px}.gate p{font-size:13.5px;color:var(--sub);margin:0 0 14px;line-height:1.6}
+.row{display:flex;gap:8px;flex-wrap:wrap}
+input[type=email]{flex:1;min-width:200px;padding:11px 13px;border:1px solid var(--line);border-radius:10px;
+background:var(--bg);color:var(--ink);font-size:14px}
+.btn{padding:11px 18px;border:0;border-radius:10px;background:var(--accent);color:#fff;font-weight:700;font-size:14px;cursor:pointer}
+.btn:disabled{opacity:.6;cursor:default}
+.msg{font-size:13px;margin-top:10px}.msg.ok{color:var(--accent2)}.msg.err{color:#c23a3a}
+.badge{font-size:11.5px;font-weight:700;padding:3px 9px;border-radius:999px;background:var(--accent);color:#fff}
+.badge.full{background:var(--accent2)}
+.note{font-size:11.5px;color:var(--mut);margin-top:12px;line-height:1.6}
+.hint{font-size:12px;color:var(--mut)}
+</style>
+<div class="wrap">
+  <div class="topbar"><span class="brand">🩺 베놈 체크업</span><span id="state" class="badge">미리보기</span></div>
+  <iframe id="frame" class="frame" sandbox="allow-same-origin" title="진단 리포트"></iframe>
+
+  <div class="gate" id="gate" style="display:none">
+    <h2>전체 리포트를 무료로 열어보세요</h2>
+    <p>지금은 <b>미리보기(일부 마킹)</b>입니다. 이메일로 <b>무료 회원가입</b>하면 마킹 없이 전체 진단 결과를
+    바로 볼 수 있어요. 비밀번호 없이 메일 링크 한 번이면 됩니다.</p>
+    <div class="row">
+      <input type="email" id="email" placeholder="이메일 주소" autocomplete="email">
+      <button class="btn" id="send">무료로 전체 보기</button>
+    </div>
+    <div class="msg" id="msg"></div>
+    <p class="note">입력하신 이메일은 회원 식별·리포트 열람에만 쓰입니다. 광고성 정보 수신은 별도 동의 시에만 발송됩니다.</p>
+  </div>
+  <p class="hint" id="hint"></p>
+</div>
+<script>
+// ── 설정 (배포 시 교체) ──────────────────────────────────────────
+const SUPABASE_URL   = '';   // 예: https://xxxx.supabase.co
+const SUPABASE_ANON  = '';   // anon public key
+const REPORTS_ENDPOINT = ''; // 예: https://xxxx.supabase.co/functions/v1/reports
+// ────────────────────────────────────────────────────────────────
+
+const $ = id => document.getElementById(id);
+const qs = new URLSearchParams(location.search);
+const reportToken = qs.get('token') || '';
+const TKEY = 'venom_at';
+
+// 매직링크 복귀: URL 해시(#access_token=…)에서 세션 토큰 회수
+(function grabSession(){
+  if (!location.hash) return;
+  const h = new URLSearchParams(location.hash.slice(1));
+  const at = h.get('access_token');
+  if (at){ try{ sessionStorage.setItem(TKEY, at); }catch{};
+    history.replaceState(null,'',location.pathname+location.search); }
+})();
+const token = () => { try{ return sessionStorage.getItem(TKEY)||''; }catch{ return ''; } };
+
+function render(data){
+  const f = $('frame');
+  f.srcdoc = data.html || '<p style="font:14px sans-serif;padding:20px">리포트 본문을 불러올 수 없습니다.</p>';
+  const unlocked = !!data.unlocked;
+  $('state').textContent = unlocked ? '전체 공개' : '미리보기';
+  $('state').className = 'badge' + (unlocked ? ' full' : '');
+  $('gate').style.display = unlocked ? 'none' : 'block';
+}
+
+async function api(method, body){
+  const headers = { 'content-type':'application/json' };
+  const at = token(); if (at) headers['Authorization'] = 'Bearer ' + at;
+  if (SUPABASE_ANON) headers['apikey'] = SUPABASE_ANON;
+  const url = method === 'GET'
+    ? REPORTS_ENDPOINT + '?token=' + encodeURIComponent(reportToken)
+    : REPORTS_ENDPOINT;
+  const res = await fetch(url, { method, headers, body: body?JSON.stringify(body):undefined });
+  return res.json();
+}
+
+async function load(){
+  if (!REPORTS_ENDPOINT || !reportToken){
+    $('hint').textContent = '데모 화면입니다 — 리포트 토큰/서버 미설정(REPORTS_ENDPOINT).';
+    $('gate').style.display = 'block'; return;
+  }
+  try{
+    // 로그인 상태로 처음 들어오면 자동 해제 시도(POST), 아니면 조회(GET)
+    let data = token() ? await api('POST', { token: reportToken }) : await api('GET');
+    if (!data.ok){ $('hint').textContent = '리포트를 찾을 수 없습니다.'; return; }
+    render(data);
+  }catch(e){ $('hint').textContent = '네트워크 오류로 리포트를 불러오지 못했습니다.'; }
+}
+
+$('send').addEventListener('click', async () => {
+  const email = $('email').value.trim();
+  if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){ $('msg').className='msg err'; $('msg').textContent='이메일 형식을 확인해 주세요.'; return; }
+  if (!SUPABASE_URL || !SUPABASE_ANON){ $('msg').className='msg err'; $('msg').textContent='로그인 서버가 아직 설정되지 않았습니다.'; return; }
+  $('send').disabled = true; $('msg').className='msg'; $('msg').textContent='메일 발송 중…';
+  try{
+    const res = await fetch(SUPABASE_URL + '/auth/v1/otp', {
+      method:'POST', headers:{ 'content-type':'application/json', 'apikey': SUPABASE_ANON },
+      body: JSON.stringify({ email, create_user:true, options:{ email_redirect_to: location.href } }),
+    });
+    if (res.ok){ $('msg').className='msg ok'; $('msg').textContent='메일함을 확인해 주세요 — 링크를 누르면 전체 리포트가 열립니다.'; }
+    else { $('msg').className='msg err'; $('msg').textContent='메일 발송에 실패했습니다. 잠시 후 다시 시도해 주세요.'; }
+  }catch{ $('msg').className='msg err'; $('msg').textContent='네트워크 오류가 발생했습니다.'; }
+  finally{ $('send').disabled = false; }
+});
+
+load();
+</script>
