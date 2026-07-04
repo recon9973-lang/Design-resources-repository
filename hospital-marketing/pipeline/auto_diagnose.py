@@ -15,6 +15,7 @@ import html as html_mod
 import json
 import math
 import sys
+import urllib.parse
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -360,11 +361,14 @@ def render_html(j: dict, masked: bool = False) -> str:
         note = ("" if "competitors" in loc else
                 "<p class='mut' style='font-size:12px;margin:10px 0 0'>경쟁 지표는 병원(HIRA 등록 기관) 전용입니다 — "
                 "일반 업체는 인구·상권 지표만 제공합니다.</p>")
+        nq = urllib.parse.quote((f'{b["title"]} {b.get("address") or ""}').strip())
+        nmap = f'https://map.naver.com/p/search/{nq}'
         map_html = ("" if masked else
                     f'<div class="mapwrap"><div class="mapbox">{radius_map(loc.get("competitors"))}</div>'
                     f'<div class="mapcap">반경 1km 개략도 · '
                     f'{("같은 진료과 " + str(loc["competitors"]) + "곳") if "competitors" in loc else "인구·상권 기준"}'
-                    f'<br><span class="mut">실제 지도가 아닌 위치·경쟁 밀도 개략 표현입니다.</span></div></div>')
+                    f'<br><a href="{nmap}" target="_blank" rel="noopener" style="color:var(--accent);font-weight:700">네이버 지도에서 실제 위치 보기 →</a>'
+                    f'<br><span class="ds">개략도는 실제 지도가 아닌 위치·경쟁 밀도 표현입니다. 실제 지도는 위 링크로 확인하세요.</span></div></div>')
         loc_html = f'''
 <section class="card"><h2>입지 참고 분석</h2>
   <div class="summary">{cs}</div>{note}
@@ -616,7 +620,7 @@ header{{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align
 border-bottom:2px solid var(--accent);padding-bottom:12px}}
 .brand{{font-weight:800;color:var(--accent);white-space:nowrap}}
 .bn{{font-size:11.5px;color:var(--sub)}}
-h1{{font-size:22px;margin:8px 0 4px}}h2{{font-size:15.5px;margin:0 0 10px}}
+h1{{font-size:24px;margin:8px 0 4px}}h2{{font-size:16.5px;margin:0 0 10px}}h3{{font-size:13.5px;margin:0}}
 .meta{{font-size:13px;color:var(--sub)}}.meta b{{color:var(--ink)}}
 .card{{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px 20px}}
 .summary{{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}}
@@ -707,10 +711,10 @@ display:flex;align-items:center;justify-content:center;font-weight:800;font-size
 .donuts{{display:flex;gap:18px;flex-wrap:wrap;justify-content:center;margin:6px 0 4px}}
 .donut{{text-align:center;flex:1;min-width:110px}}
 .donut .dl{{font-size:12px;font-weight:700;margin-top:4px}}
-.donut .ds{{font-size:11px;color:var(--mut)}}
+.ds{{font-size:10.5px;color:var(--mut);line-height:1.5}}
 .ovgrid{{display:grid;grid-template-columns:1fr 1fr;gap:16px 26px;margin-top:6px}}
 @media (max-width:600px){{.ovgrid{{grid-template-columns:1fr}}}}
-.ovh{{font-size:12.5px;font-weight:700;margin:0 0 8px}}
+.ovh{{font-size:13px;font-weight:700;margin:0 0 8px}}
 .brow{{display:flex;align-items:center;gap:9px;font-size:12px;margin:5px 0}}
 .brow .bl{{width:52px;flex:none;color:var(--sub)}}
 .brow .bt{{flex:1;height:13px;border-radius:3px;background:var(--track);position:relative;overflow:hidden}}
