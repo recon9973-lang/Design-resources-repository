@@ -30,6 +30,12 @@ python3 validate_stage0.py --name 라메스피부과의원 --lat 37.5079 --lng 1
 | `DATA_GO_KR_SERVICE_KEY` | [공공데이터포털](https://www.data.go.kr) → 병원정보서비스 활용신청 |
 | `NAVER_CLIENT_ID/SECRET` | [네이버 개발자센터](https://developers.naver.com) → 애플리케이션 등록 |
 | `SGIS_CONSUMER_KEY/SECRET` | [SGIS 개발자센터](https://sgis.kostat.go.kr/developer/) → 인증키 신청 |
+| `NAVER_AD_API_KEY` · `NAVER_AD_SECRET_KEY` · `NAVER_AD_CUSTOMER_ID` | [네이버 검색광고](https://searchad.naver.com) → 도구 > API 사용 관리 (절대 검색량·연관검색어) |
+
+검색량·연관검색어는 오픈 API(비로그인)에 없고 **검색광고 키워드도구 API에서만** 제공된다.
+위 3종 키를 채우면 리포트에 `월 검색량` 열과 `검색 수요·연관 검색어` 섹션이 자동 표시되고,
+키가 없으면 두 요소는 렌더 단계에서 완전히 생략된다(기존 리포트와 동일). 광고 집행·과금 없이
+키만 발급해도 조회 가능. 서명은 HMAC-SHA256(`{ts}.GET./keywordstool`).
 
 2026-07-02 실키 검증 완료: HIRA 반경검색(거리 교차검증 0건 불일치), 네이버
 노출 감지(노출/미노출 양방향 확인), SGIS 인구·상권 지표(강남구) 정상.
@@ -48,6 +54,9 @@ medirank/
   report.py            # 월간 지표 JSON 빌더 (고객 안전 요약값만 포함)
   connectors/hira.py   # 건강보험심사평가원 병원정보서비스
   connectors/naver_local.py  # 네이버 지역 검색 API (display 최대 5, 한도 준수)
+  connectors/naver_content.py # 통합검색 6영역(블로그·카페·웹·뉴스·이미지·지식iN) 노출 판정
+  connectors/sgis.py   # SGIS 인구·상권 (인구가중 체감밀도 포함)
+  connectors/searchad.py # 네이버 검색광고 키워드도구 (절대 검색량·연관검색어, HMAC 서명)
 fixtures/              # 목업 데이터 (강남 샘플 병원 12곳, 키워드 10개)
 tests/                 # 단위 테스트
 ```

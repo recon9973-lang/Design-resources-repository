@@ -28,6 +28,11 @@ DATA_GO_KR_SERVICE_KEY = os.environ.get("DATA_GO_KR_SERVICE_KEY", "")
 NAVER_CLIENT_ID = os.environ.get("NAVER_CLIENT_ID", "")
 NAVER_CLIENT_SECRET = os.environ.get("NAVER_CLIENT_SECRET", "")
 
+# 네이버 검색광고(광고주) API — 절대 검색량·연관검색어 (키워드도구)
+NAVER_AD_API_KEY = os.environ.get("NAVER_AD_API_KEY", "")
+NAVER_AD_SECRET_KEY = os.environ.get("NAVER_AD_SECRET_KEY", "")
+NAVER_AD_CUSTOMER_ID = os.environ.get("NAVER_AD_CUSTOMER_ID", "")
+
 VALID_RADII_M = (500, 1000, 1500, 2000)
 
 
@@ -37,3 +42,7 @@ def hira_available() -> bool:
 
 def naver_available() -> bool:
     return bool(NAVER_CLIENT_ID and NAVER_CLIENT_SECRET)
+
+
+def searchad_available() -> bool:
+    return bool(NAVER_AD_API_KEY and NAVER_AD_SECRET_KEY and NAVER_AD_CUSTOMER_ID)
