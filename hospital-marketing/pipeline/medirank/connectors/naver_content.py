@@ -85,7 +85,8 @@ def content_exposure(keyword: str, hospital_name: str,
     - position       → API 결과 내 1-기준 순번 (실제 화면 순위 아님)
     """
     if not config.naver_available():
-        return {k: {"present": False, "exposed": None, "position": None, "label": lbl}
+        return {k: {"present": False, "exposed": None, "position": None,
+                    "label": lbl, "top": []}
                 for k, (lbl, _, _) in SECTIONS.items()}
 
     norm_h = _norm(hospital_name)
@@ -98,7 +99,7 @@ def content_exposure(keyword: str, hospital_name: str,
             items = _search(url, keyword, display)
         except Exception:
             out[key] = {"present": None, "exposed": None, "position": None,
-                        "label": label, "ambiguous": ambiguous}
+                        "label": label, "ambiguous": ambiguous, "top": []}
             continue
         present = len(items) > 0
         exposed, position = False, None
@@ -111,8 +112,15 @@ def content_exposure(keyword: str, hospital_name: str,
             if norm_h and norm_h in "".join(text.split()):
                 exposed, position = True, i + 1
                 break
+        # 상위 5건 노출 현황 — "미노출"일 때 '그럼 누가 뜨는가'를 함께 보여준다.
+        top = []
+        for i, item in enumerate(items[:5]):
+            title = _TAG_RE.sub("", item.get("title") or "").strip()
+            is_me = position == i + 1
+            top.append({"rank": i + 1, "title": title, "is_me": is_me})
         out[key] = {"present": present, "exposed": exposed if present else False,
-                    "position": position, "label": label, "ambiguous": ambiguous}
+                    "position": position, "label": label, "ambiguous": ambiguous,
+                    "top": top}
     return out
 
 

@@ -53,15 +53,21 @@ def analyze_location(biz: dict, region: dict, cls: dict, radius_m: int = 1000) -
            "adm_nm": (stats or {}).get("adm_nm"),
            "avg_age": (stats or {}).get("avg_age")}
 
-    dnsty = (stats or {}).get("ppltn_dnsty") or 13000.0
+    # 체감(인구가중) 밀도 우선 — 넓은 시의 외곽 읍·면이 도심 밀도를 희석하는 문제 보정.
+    avg_dnsty = (stats or {}).get("ppltn_dnsty")
+    w_dnsty = sgis.pop_weighted_density(adm_cd) if adm_cd else None
+    dnsty = w_dnsty or avg_dnsty or 13000.0
+    out["density_basis"] = "체감(인구가중)" if w_dnsty else ("시·구 평균" if avg_dnsty else "기본값")
     pop_radius = int(dnsty * math.pi * (radius_m / 1000.0) ** 2)
     demand = scoring.demand_score(pop_radius, 0.45, radius_m)
     out.update({"population_radius": pop_radius, "demand_score": demand})
 
+    # 종사자 밀도도 같은 체감 기준으로 스케일 (기하평균 종사자밀도 × 체감/평균 배율)
     emp_density = 0.0
-    if stats and stats.get("employee_cnt") and stats.get("tot_ppltn") and dnsty:
-        gu_area = stats["tot_ppltn"] / dnsty
-        emp_density = stats["employee_cnt"] / gu_area if gu_area else 0.0
+    if stats and stats.get("employee_cnt") and stats.get("tot_ppltn") and avg_dnsty:
+        real_area = stats["tot_ppltn"] / avg_dnsty
+        emp_base = stats["employee_cnt"] / real_area if real_area else 0.0
+        emp_density = emp_base * (dnsty / avg_dnsty)
     commerce = round(100.0 * (1.0 - math.exp(-emp_density / 25000.0)), 1)
     out.update({"employee_density_km2": round(emp_density), "commerce_score": commerce})
 
@@ -101,7 +107,16 @@ def main() -> None:
         print(f"업체를 찾지 못했습니다: {args.name} ({res['note']})")
         sys.exit(1)
     biz = res["chosen"]
-    region = keywordgen.parse_region(biz.get("address_jibun") or biz["address"] or "")
+    # 도로명주소(도·시 포함)와 지번주소(법정동 포함)를 합쳐 지역축을 잡는다.
+    # 네이버 지번주소엔 도(강원 등)가 빠져 '춘천시'만 오는 경우가 있어, 둘을 병합해야
+    # SGIS 인구·상권이 시·구 기준으로 정확히 조회된다.
+    r_road = keywordgen.parse_region(biz.get("address") or "")
+    r_jibun = keywordgen.parse_region(biz.get("address_jibun") or "")
+    region = {
+        "city": r_road["city"] or r_jibun["city"],
+        "gu": r_road["gu"] or r_jibun["gu"],
+        "dong": r_jibun["dong"] or r_road["dong"],
+    }
     cls = keywordgen.classify(biz.get("category") or "")
     print("=" * 72)
     print(f"[업체 특정] {biz['title']}")
@@ -261,9 +276,10 @@ def render_html(j: dict, masked: bool = False) -> str:
         loc_html = f'''
 <section class="card"><h2>입지 참고 분석</h2>
   <div class="summary">{cs}</div>{note}
-  <p class="mut" style="font-size:12px;margin:10px 0 0">임대료·접근성·건물 조건 등 핵심 입지 변수를 포함하지 않는
-  참고 지표이며, 개원·영업 성과를 보장하지 않습니다. 출처: SGIS 통계지리정보{
-    " · 건강보험심사평가원 병원정보서비스" if "competitors" in loc else ""}.</p>
+  <p class="mut" style="font-size:12px;margin:10px 0 0">반경 인구·상권은 <b>{e(loc.get("density_basis") or "시·구 평균")} 밀도</b> 기준 추정입니다.
+  {"넓은 시의 외곽(읍·면)이 도심 밀도를 희석하지 않도록, 사람이 실제 몰려 사는 곳의 밀도로 보정했습니다." if loc.get("density_basis","").startswith("체감") else ""}
+  임대료·접근성·건물 조건 등 핵심 입지 변수는 포함하지 않는 참고 지표이며(절대값보다 후보지 간 상대 비교용), 개원·영업 성과를 보장하지 않습니다.
+  출처: SGIS 통계지리정보{" · 건강보험심사평가원 병원정보서비스" if "competitors" in loc else ""}.</p>
 </section>'''
 
     amb_html = ('<p class="warn">⚠ 두 글자 이하 상호 특성상 동명 콘텐츠 오탐이 가능해 완전일치·제목 기준으로만 '
@@ -278,6 +294,52 @@ def render_html(j: dict, masked: bool = False) -> str:
                        f'이 리포트는 무료 배포판입니다. 세부 진단 항목 {locked_n}건(노출 위치·입지 수치)은 '
                        f'표시하지 않았으며, <b>무료 회원 열람 시 별도 비용 없이 전체가 공개</b>됩니다. '
                        f'노출 여부(○/✕) 판정과 요약은 그대로 확인하실 수 있습니다.</p>')
+
+    # 영역별 상위 5 노출 현황 — '미노출'일 때 그 자리에 누가 떠 있는지 함께 보여준다.
+    SEC_LABELS = [("blog", "블로그"), ("cafe", "카페"), ("web", "웹문서"),
+                  ("news", "뉴스"), ("image", "이미지"), ("kin", "지식iN")]
+
+    def _items_html(rows, me_pred):
+        return "".join(
+            f'<li class="{"me" if me_pred(it) else ""}"><span class="r">{it["rank"]}</span>'
+            f'<span class="tt">{e((it.get("title") or "")[:70])}</span>'
+            + (f'<span class="ad">{e((it.get("address") or "")[:22])}</span>' if it.get("address") else "")
+            + "</li>"
+            for it in rows)
+
+    def top5_block(k):
+        secs = []
+        pl = k["place"] or {}
+        if pl.get("results"):
+            st = (f'<span class="good">○ 상위 {pl["rank"]}위</span>' if pl.get("exposed")
+                  else '<span class="bad">미노출</span> · 이 자리 상위 5')
+            body = _items_html(pl["results"][:5],
+                               lambda it: pl.get("exposed") and it.get("rank") == pl.get("rank"))
+            secs.append(("플레이스(지역)", st, body))
+        for key, label in SEC_LABELS:
+            c = (k["content"] or {}).get(key) or {}
+            if not c.get("present") or not c.get("top"):
+                continue
+            st = (f'<span class="good">○ {c["position"]}위</span>' if c.get("exposed")
+                  else '<span class="bad">미노출</span> · 이 자리 상위 5')
+            body = _items_html(c["top"], lambda it: it.get("is_me"))
+            secs.append((label, st, body))
+        if not secs:
+            return ""
+        inner = "".join(
+            f'<div class="sec"><div class="sec-h"><b>{lbl}</b>{st}</div>'
+            f'<ol class="items">{body}</ol></div>' for lbl, st, body in secs)
+        hit = k["place"].get("exposed") or any(
+            ((k["content"] or {}).get(kk) or {}).get("exposed") for kk, _ in SEC_LABELS)
+        badge = '' if hit else ' <span class="bad" style="font-size:11px">전 영역 미노출</span>'
+        return f'<details class="top5"><summary>{e(k["kw"])}{badge}</summary>{inner}</details>'
+
+    top5_html = "".join(top5_block(k) for k in j["keywords"])
+    top5_section = (f'''
+<section class="card"><h2>영역별 상위 5 노출 현황</h2>
+<p class="mut" style="font-size:12px;margin:-4px 0 12px">키워드를 펼치면 각 영역의 <b>상위 5건</b>을 보여줍니다.
+미노출 영역도 "그 자리에 지금 누가 떠 있는지"를 함께 확인하세요. <b>파란 강조 = 우리 업체</b>.</p>
+{top5_html}</section>''' if top5_html else "")
 
     return f'''<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -314,6 +376,21 @@ td.c{{text-align:center;white-space:nowrap}}.good{{color:var(--good);font-weight
 border-radius:8px;padding:9px 13px;font-size:12.5px;color:var(--sub)}}
 .lock{{display:inline-block;font-size:10.5px;font-weight:700;color:var(--accent);
 background:var(--accent-soft);border-radius:99px;padding:1px 8px;white-space:nowrap}}
+.top5{{border:1px solid var(--line);border-radius:9px;margin-bottom:8px;background:var(--bg)}}
+.top5>summary{{cursor:pointer;padding:10px 13px;font-weight:700;font-size:13.5px;list-style:none}}
+.top5>summary::-webkit-details-marker{{display:none}}
+.top5>summary::before{{content:"▸ ";color:var(--accent)}}
+.top5[open]>summary::before{{content:"▾ "}}
+.top5 .sec{{padding:2px 13px 10px}}
+.top5 .sec-h{{display:flex;justify-content:space-between;align-items:baseline;font-size:12.5px;
+border-bottom:1px solid var(--line);padding:6px 0 4px;margin-bottom:4px}}
+.top5 .items{{margin:0;padding:0;list-style:none}}
+.top5 .items li{{display:flex;gap:7px;align-items:baseline;font-size:12px;padding:2px 0;color:var(--sub)}}
+.top5 .items li.me{{background:var(--accent-soft);color:var(--ink);font-weight:700;border-radius:5px;
+padding:2px 6px;margin:1px -6px}}
+.top5 .items .r{{flex:none;width:16px;color:var(--mut);font-variant-numeric:tabular-nums;text-align:right}}
+.top5 .items .tt{{flex:1;overflow:hidden;text-overflow:ellipsis}}
+.top5 .items .ad{{flex:none;color:var(--mut);font-size:11px}}
 footer{{font-size:11px;color:var(--mut);text-align:center;border-top:1px solid var(--line);padding-top:12px}}
 </style>
 <div class="wrap">
@@ -341,6 +418,7 @@ footer{{font-size:11px;color:var(--mut);text-align:center;border-top:1px solid v
 ✕ = 상위 30건(플레이스 5건) 내 없음 · — = 이 키워드에는 해당 영역 없음.
 파워링크(광고)·브랜드 콘텐츠·스마트블록 배치는 공식 API 미제공으로 측정 제외.</p>
 </section>
+{top5_section}
 {loc_html}
 <section class="card"><h2>데이터 기준 고지</h2>
 <p class="mut" style="font-size:12.5px;margin:0">본 자료는 (주)베놈이 당사 산식으로 산출한 검색정보 운영 진단
