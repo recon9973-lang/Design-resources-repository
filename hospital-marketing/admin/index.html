@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; base-uri 'self'; frame-ancestors 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'unsafe-inline'; img-src 'self' data:; connect-src 'self' https://*.supabase.co; base-uri 'self'; frame-ancestors 'none'">
 <meta name="referrer" content="no-referrer">
 <title>(주)베놈 검색정보 진단 · 통합 관리자단 (프로토타입)</title>
 <meta name="robots" content="noindex">
@@ -247,23 +247,61 @@ const LEADS=[
   {d:'06-30',h:'라인성형외과의원',n:'최OO 원장',dv:'이메일',ch:['전화'],st:'received',memo:'리포트 생성 중'},
   {d:'06-30',h:'밝은빛피부과의원',n:'김OO 원장',dv:'이메일',ch:[],st:'rejected',memo:'동일 병원 월 1회 초과'},
 ];
-const ST={received:['p-warn','접수'],sent:['p-good','발송'],consulting:['p-good','상담'],
+const ST={received:['p-warn','접수'],generating:['p-warn','생성중'],sent:['p-good','발송'],consulting:['p-good','상담'],
   converted:['p-good','전환'],rejected:['p-crit','반려'],blocked:['p-crit','차단']};
+
+// ── 실데이터 연결 (관리자 로그인 시). 미설정/미로그인 시 아래 목업 유지 ──
+const ADMIN_ENDPOINT=''; // 예: https://xxxx.supabase.co/functions/v1/admin-leads
+const adminToken=()=>{try{return sessionStorage.getItem('venom_at')||'';}catch{return'';}};
+const CHMAP=[['consent_ad_sms','문자'],['consent_ad_email','이메일'],['consent_ad_call','전화']];
+const mapLead=r=>({id:r.id, d:(r.created_at||'').slice(5,10).replace('-','-'), h:r.hospital_name,
+  n:r.applicant_name+(r.applicant_role?' '+r.applicant_role:''), dv:r.delivery_method,
+  ch:CHMAP.filter(([k])=>r[k]).map(([,v])=>v), st:r.status,
+  memo:r.reject_reason||(r.consult_wanted?'상담 희망':'')});
+let LEADS_VIEW=LEADS, LIVE=false;
+
+function statusCell(l){
+  const [cls,label]=ST[l.st]||['p-mute',l.st];
+  if(!LIVE) return `<span class="pill ${cls}"><span class="dot"></span>${label}</span>`;
+  return `<select class="stSel" data-id="${l.id}" style="font:inherit;font-size:12px;padding:3px 6px">`+
+    Object.entries(ST).map(([k,v])=>`<option value="${k}"${k===l.st?' selected':''}>${v[1]}</option>`).join('')+`</select>`;
+}
 function renderLeads(){
   const f=$('#fStatus').value;
-  const list=LEADS.filter(l=>!f||l.st===f);
-  $('#leadCount').textContent=`${list.length}건 / 전체 ${LEADS.length}건`;
-  $('#leadTbl tbody').innerHTML=list.map(l=>{
-    const [cls,label]=ST[l.st];
-    return `<tr><td>${l.d}</td><td><b>${esc(l.h)}</b></td><td>${esc(l.n)}</td><td>${esc(l.dv)}</td>
+  const list=LEADS_VIEW.filter(l=>!f||l.st===f);
+  $('#leadCount').textContent=`${list.length}건 / 전체 ${LEADS_VIEW.length}건`+(LIVE?' · 실데이터':' · 목업');
+  $('#leadTbl tbody').innerHTML=list.map(l=>`<tr><td>${esc(l.d)}</td><td><b>${esc(l.h)}</b></td><td>${esc(l.n)}</td><td>${esc(l.dv)}</td>
       <td>${l.ch.length?l.ch.map(c=>`<span class="pill p-good"><span class="dot"></span>${esc(c)}</span>`).join(' ')
         :'<span class="pill p-mute"><span class="dot"></span>동의 없음</span>'}</td>
-      <td><span class="pill ${cls}"><span class="dot"></span>${label}</span></td>
-      <td style="color:var(--text-muted)">${esc(l.memo)}</td></tr>`;
-  }).join('');
+      <td>${statusCell(l)}</td>
+      <td style="color:var(--text-muted)">${esc(l.memo)}</td></tr>`).join('');
+  $$('#leadTbl .stSel').forEach(s=>s.addEventListener('change',()=>patchStatus(+s.dataset.id, s.value)));
+}
+async function patchStatus(id,status){
+  try{
+    const res=await fetch(ADMIN_ENDPOINT,{method:'PATCH',
+      headers:{'content-type':'application/json','Authorization':'Bearer '+adminToken()},
+      body:JSON.stringify({id,status})});
+    const d=await res.json().catch(()=>({}));
+    if(res.ok&&d.ok){const row=LEADS_VIEW.find(l=>l.id===id); if(row)row.st=status;}
+    else alert('상태 변경 실패');
+  }catch{alert('네트워크 오류로 상태를 변경하지 못했습니다.');}
+}
+async function loadLeads(){
+  if(ADMIN_ENDPOINT && adminToken()){
+    try{
+      const res=await fetch(ADMIN_ENDPOINT,{headers:{'Authorization':'Bearer '+adminToken()}});
+      const d=await res.json();
+      if(res.ok&&d.ok){ LEADS_VIEW=d.leads.map(mapLead); LIVE=true;
+        const role=document.querySelector('.role');
+        if(role) role.innerHTML='로그인: 관리자 · 역할 admin · <b style="color:var(--status-good)">실데이터 연결됨</b>';
+      }
+    }catch{/* 목업 유지 */}
+  }
+  renderLeads();
 }
 $('#fStatus').addEventListener('change',renderLeads);
-renderLeads();
+loadLeads();
 
 /* ---- 상세 분석: auto_diagnose 결과 JSON 열람 ---- */
 const DEEP_SECS=[['blog','블로그'],['cafe','카페'],['web','웹문서'],['news','뉴스'],['image','이미지'],['kin','지식iN']];
