@@ -11,6 +11,9 @@
 Settings → Pages → Branch `main` / `/(root)` 선택 → 저장.
 공개 주소: https://recon9973-lang.github.io/Design-resources-repository/
 
+## 🏥 서브 프로젝트
+- [`hospital-marketing/`](hospital-marketing/) — 병원 마케팅 경쟁력 진단 SaaS (기획서 + 대시보드 프로토타입 + DB/API 설계)
+
 ## 📜 출처 / 라이선스
 - 원본: [bradtraversy/design-resources-for-developers](https://github.com/bradtraversy/design-resources-for-developers) (MIT)
 - 위 목록을 카테고리별 한국어 설명과 함께 재구성. 각 리소스 저작권은 해당 사이트를 따름.

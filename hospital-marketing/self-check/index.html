@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; base-uri 'self'; frame-ancestors 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="robots" content="noindex">
+<title>베놈 체크업 — 우리 병원 마케팅 3분 자가검진</title>
+<meta name="description" content="병원 마케팅 무료 자가검진 — 의료법 위반 위험, 광고비 효율, 환자 유입 동선을 공식 근거로 점검합니다. (주)베놈 무료 배포.">
+<style>
+  :root{
+    --surface-1:#fcfcfb; --plane:#f9f9f7; --raise:#ffffff;
+    --text-primary:#0b0b0b; --text-secondary:#52514e; --text-muted:#898781;
+    --grid:#e1e0d9; --baseline:#c3c2b7; --hairline:rgba(11,11,11,.08);
+    --brand:#2a78d6; --brand-soft:#e8f1fc; --brand-deep:#184f95;
+    --series-2:#1baf7a; --series-3:#eda100;
+    --good:#0ca30c; --good-bg:#e7f6e7; --good-tx:#067006;
+    --warn:#e08600; --warn-bg:#fbf0dd; --warn-tx:#9a5b00;
+    --crit:#d03b3b; --crit-bg:#fbe9e9; --crit-tx:#a62222;
+    --shadow:rgba(0,55,112,.07) 0 1px 3px;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --surface-1:#1a1a19; --plane:#0d0d0d; --raise:#232322;
+      --text-primary:#ffffff; --text-secondary:#c3c2b7; --text-muted:#898781;
+      --grid:#2c2c2a; --baseline:#383835; --hairline:rgba(255,255,255,.08);
+      --brand:#3987e5; --brand-soft:#16263c; --brand-deep:#5b9ee8;
+      --series-2:#199e70; --series-3:#c98500;
+      --good:#3fb93f; --good-bg:#122b12; --good-tx:#5cc65c;
+      --warn:#e2a021; --warn-bg:#2e2410; --warn-tx:#e2a021;
+      --crit:#e15b5b; --crit-bg:#2f1616; --crit-tx:#e88;
+      --shadow:rgba(0,0,0,.4) 0 1px 3px;
+    }
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,"Segoe UI","Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+    background:var(--plane);color:var(--text-primary);line-height:1.6;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:900px;margin:0 auto;padding:0 18px}
+
+  header.top{background:var(--surface-1);border-bottom:1px solid var(--grid)}
+  .top-in{display:flex;align-items:center;gap:11px;padding:13px 0;flex-wrap:wrap}
+  .mark{width:30px;height:30px;border-radius:8px;background:var(--brand);color:#fff;display:inline-flex;
+    align-items:center;justify-content:center;font-weight:900;font-size:15px;flex:none}
+  .brand-name{font-weight:800;font-size:17px;letter-spacing:.01em;white-space:nowrap}
+  .brand-name .sub{font-weight:600;color:var(--text-muted);font-size:12px}
+  .free-badge{margin-left:auto;font-size:11.5px;font-weight:700;color:var(--good-tx);
+    background:var(--good-bg);border-radius:99px;padding:3px 11px;white-space:nowrap}
+
+  .hero{padding:26px 0 6px}
+  .hero h1{font-size:25px;margin:0 0 8px;line-height:1.32;letter-spacing:-.3px}
+  .hero h1 b{color:var(--brand)}
+  .hero p{color:var(--text-secondary);font-size:14px;margin:0;max-width:60ch}
+
+  nav.tabs{position:sticky;top:0;z-index:20;background:var(--plane);padding:16px 0 4px}
+  .tabs-in{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px}
+  .tab{appearance:none;border:1px solid var(--grid);background:var(--surface-1);border-radius:10px;
+    font:inherit;font-size:13.5px;font-weight:700;color:var(--text-secondary);padding:9px 15px;
+    cursor:pointer;white-space:nowrap;display:flex;align-items:center;gap:7px}
+  .tab .ico{font-size:15px}
+  .tab[aria-selected="true"]{background:var(--brand);color:#fff;border-color:var(--brand)}
+
+  main{padding:14px 0 40px}
+  section.panel{display:none} section.panel.active{display:block;animation:fade .25s ease}
+  @keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+
+  .card{background:var(--surface-1);border:1px solid var(--grid);border-radius:14px;padding:20px;
+    box-shadow:var(--shadow);margin-bottom:16px}
+  .card h2{font-size:17px;margin:0 0 3px}
+  .card .lead{font-size:13px;color:var(--text-secondary);margin:0 0 16px}
+
+  label.fld{display:block;font-size:12.5px;font-weight:700;color:var(--text-secondary);margin:0 0 5px}
+  textarea,input[type=number]{width:100%;font:inherit;font-size:14px;color:var(--text-primary);
+    background:var(--raise);border:1px solid var(--grid);border-radius:10px;padding:11px 13px}
+  textarea{min-height:130px;resize:vertical;line-height:1.6}
+  textarea:focus,input:focus{outline:2px solid var(--brand);outline-offset:-1px;border-color:var(--brand)}
+  .btn{appearance:none;border:0;border-radius:10px;background:var(--brand);color:#fff;font:inherit;
+    font-size:14px;font-weight:700;padding:11px 20px;cursor:pointer;margin-top:12px}
+  .btn:hover{background:var(--brand-deep)}
+  .btn.ghost{background:var(--surface-1);color:var(--text-primary);border:1px solid var(--grid)}
+
+  .grade-band{display:flex;align-items:center;gap:14px;border-radius:12px;padding:15px 18px;margin:2px 0 14px}
+  .grade-band.g{background:var(--good-bg)} .grade-band.w{background:var(--warn-bg)} .grade-band.c{background:var(--crit-bg)}
+  .grade-band .lbl{font-size:26px;font-weight:800;letter-spacing:-.5px;white-space:nowrap}
+  .grade-band.g .lbl{color:var(--good-tx)} .grade-band.w .lbl{color:var(--warn-tx)} .grade-band.c .lbl{color:var(--crit-tx)}
+  .grade-band .desc{font-size:13px;color:var(--text-secondary)}
+
+  .hl{border-radius:4px;padding:1px 3px;font-weight:700;cursor:help;border-bottom:2px solid}
+  .hl.c{background:var(--crit-bg);color:var(--crit-tx);border-color:var(--crit)}
+  .hl.w{background:var(--warn-bg);color:var(--warn-tx);border-color:var(--warn)}
+  .rendered{background:var(--raise);border:1px solid var(--grid);border-radius:10px;padding:14px;
+    font-size:14px;line-height:2;white-space:pre-wrap;word-break:break-word;max-height:280px;overflow:auto}
+
+  .findings{display:flex;flex-direction:column;gap:9px;margin-top:14px}
+  .finding{display:flex;gap:11px;align-items:flex-start;border:1px solid var(--grid);border-radius:10px;
+    padding:11px 13px;background:var(--raise)}
+  .finding .sev{flex:none;font-size:11px;font-weight:800;border-radius:6px;padding:2px 8px;white-space:nowrap}
+  .finding .sev.c{background:var(--crit-bg);color:var(--crit-tx)} .finding .sev.w{background:var(--warn-bg);color:var(--warn-tx)}
+  .finding .body{font-size:13px}
+  .finding .body b{color:var(--text-primary)}
+  .finding .body .law{color:var(--text-muted);font-size:11.5px;display:block;margin-top:2px}
+  .finding .body .fix{color:var(--good-tx);font-size:12px;display:block;margin-top:3px}
+
+  .stat-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:11px;margin:4px 0 14px}
+  .stat{background:var(--raise);border:1px solid var(--grid);border-radius:11px;padding:14px}
+  .stat .k{font-size:12px;color:var(--text-secondary)}
+  .stat .v{font-size:27px;font-weight:800;letter-spacing:-1px;font-variant-numeric:tabular-nums;margin-top:2px}
+  .stat .u{font-size:13px;font-weight:600;color:var(--text-muted)}
+  .stat .note{font-size:11.5px;color:var(--text-muted);margin-top:3px}
+
+  .bandbar{margin:6px 0 2px}
+  .bandbar .track{position:relative;height:34px;border-radius:8px;overflow:hidden;display:flex}
+  .bandbar .seg{height:100%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#fff}
+  .bandbar .marker{position:absolute;top:-4px;bottom:-4px;width:3px;background:var(--text-primary);border-radius:2px}
+  .bandbar .marker::after{content:attr(data-lbl);position:absolute;top:-20px;left:50%;transform:translateX(-50%);
+    font-size:11px;font-weight:800;color:var(--text-primary);white-space:nowrap}
+  .bandbar .scale{display:flex;justify-content:space-between;font-size:10.5px;color:var(--text-muted);margin-top:5px}
+
+  .funnel{display:flex;flex-direction:column;gap:3px;margin:6px 0 14px}
+  .stage{border:1px solid var(--grid);border-radius:10px;overflow:hidden}
+  .stage-head{display:flex;align-items:center;gap:10px;padding:12px 14px;background:var(--raise)}
+  .stage-head .num{flex:none;width:26px;height:26px;border-radius:50%;background:var(--brand);color:#fff;
+    display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px}
+  .stage-head .ttl{font-weight:700;font-size:14px}
+  .stage-head .ttl small{display:block;font-weight:500;color:var(--text-muted);font-size:11.5px}
+  .stage-head .cov{margin-left:auto;font-size:12px;font-weight:800}
+  .stage-body{padding:2px 14px 12px 50px;display:flex;flex-direction:column;gap:7px}
+  .chk{display:flex;align-items:flex-start;gap:9px;font-size:13px;color:var(--text-secondary);cursor:pointer}
+  .chk input{margin-top:3px;flex:none;width:16px;height:16px;accent-color:var(--brand)}
+  .funnel-arrow{text-align:center;color:var(--text-muted);font-size:13px;line-height:1}
+  .leak{color:var(--crit-tx);font-weight:700}
+
+  .evidence{border:1px solid var(--grid);border-left:3px solid var(--brand);border-radius:8px;
+    background:var(--raise);padding:12px 15px;font-size:12px;color:var(--text-secondary);margin-top:14px}
+  .evidence h4{margin:0 0 6px;font-size:12.5px;color:var(--text-primary)}
+  .evidence ul{margin:0;padding-left:17px} .evidence li{margin:2px 0}
+  .evidence .disc{margin-top:8px;color:var(--text-muted)}
+
+  .cta{background:linear-gradient(135deg,var(--brand),var(--brand-deep));color:#fff;border-radius:14px;
+    padding:22px;margin-top:8px}
+  .cta h3{margin:0 0 6px;font-size:18px}
+  .cta p{margin:0 0 14px;font-size:13.5px;opacity:.92}
+  .cta .btn{background:#fff;color:var(--brand-deep)}
+  .cta .btn:hover{background:#eaf2fc}
+  .cta .fine{font-size:11px;opacity:.8;margin-top:10px}
+
+  footer.basis{border-top:1px solid var(--grid);margin-top:30px;padding:18px 0 40px;font-size:11.5px;color:var(--text-muted)}
+  footer.basis b{color:var(--text-secondary)}
+  footer.basis a{color:var(--brand-deep)}
+  .other-tools{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 0}
+  .other-tools a{font-size:12px;font-weight:600;color:var(--text-secondary);border:1px solid var(--grid);
+    border-radius:99px;padding:4px 11px;text-decoration:none;background:var(--surface-1)}
+  .other-tools a:hover{border-color:var(--brand);color:var(--brand)}
+</style>
+</head>
+<body>
+
+<header class="top"><div class="wrap top-in">
+  <a class="mark" href="../" title="베놈 체크업 홈" style="text-decoration:none">V</a>
+  <a class="brand-name" href="../" style="color:inherit;text-decoration:none">베놈 체크업 <span class="sub">VENOM Checkup</span></a>
+  <span class="free-badge">100% 무료 · 회원가입 없이</span>
+</div></header>
+
+<div class="wrap">
+  <div class="hero">
+    <h1>우리 병원 마케팅,<br><b>3분 만에 건강검진</b> 받아보세요.</h1>
+    <p>환자에게 검진이 필요하듯, 병원 마케팅도 검진이 필요합니다. 광고비를 쓰기 전에
+    <b>의료법 위험·광고비 효율·환자 유입 동선</b>을 공식 근거로 점검해 드립니다. 설치도, 로그인도 없습니다.</p>
+  </div>
+
+  <nav class="tabs"><div class="tabs-in" role="tablist">
+    <button class="tab" role="tab" data-p="risk" aria-selected="true"><span class="ico">⚠️</span>리스크 진단</button>
+    <button class="tab" role="tab" data-p="cost" aria-selected="false"><span class="ico">💰</span>비용 진단</button>
+    <button class="tab" role="tab" data-p="journey" aria-selected="false"><span class="ico">🧭</span>동선 진단</button>
+  </div></nav>
+
+  <main>
+  <!-- ========== 리스크 진단 ========== -->
+  <section class="panel active" id="panel-risk">
+    <div class="card">
+      <h2>⚠️ 리스크 진단 — 의료법 위반 위험 자가점검</h2>
+      <p class="lead">지금 쓰고 있는 블로그·홈페이지·플레이스 문구를 붙여넣으면, 의료법상 문제가 될 수 있는
+      표현을 찾아 <b>위험 등급</b>과 <b>해당 조항·순화 예시</b>를 보여드립니다.</p>
+      <label class="fld" for="riskDept">진료과 (선택하면 과별로 특히 단속되는 표현을 추가 점검)</label>
+      <select id="riskDept" style="width:100%;font:inherit;font-size:14px;padding:10px 12px;border:1px solid var(--grid);border-radius:10px;background:var(--raise);color:var(--text-primary);margin-bottom:12px">
+        <option value="">전체 (공통 규칙만)</option>
+        <option value="derm">피부과 · 성형외과</option>
+        <option value="dental">치과</option>
+        <option value="ortho">정형외과 · 통증의학과</option>
+        <option value="oriental">한의원</option>
+        <option value="ophthal">안과</option>
+      </select>
+      <label class="fld" for="riskText">점검할 광고 문구 (블로그 글·소개글·이벤트 문구 등)</label>
+      <textarea id="riskText" placeholder="예) 저희는 강남 최고의 병원으로, 100% 완치를 보장합니다. 부작용은 전혀 없으며, 지금 예약 시 첫 방문 30% 할인 이벤트를 진행합니다. 실제 환자 후기를 확인해보세요!"></textarea>
+      <button class="btn" id="riskRun">문구 진단하기</button>
+      <button class="btn ghost" id="riskSample">예시 문구 넣기</button>
+      <div id="riskResult" style="display:none">
+        <div id="riskDeptNote"></div>
+        <div class="grade-band" id="riskGrade"></div>
+        <div style="font-size:12.5px;font-weight:700;color:var(--text-secondary);margin:10px 0 6px">문구 내 위험 표현 표시</div>
+        <div class="rendered" id="riskRendered"></div>
+        <div class="findings" id="riskFindings"></div>
+      </div>
+      <div class="evidence">
+        <h4>📚 판정 근거</h4>
+        <ul>
+          <li><b>의료법 제56조 제2항</b> — 거짓·과장, 소비자 현혹(최고·유일 등), 비교·비방, 치료경험담, 부작용 등 중요정보 누락 광고 금지</li>
+          <li><b>의료법 시행령 제23조</b> — "최고·제일" 등 절대적 표현, "완치·보장" 등 치료효과 보장 표현의 구체 기준</li>
+          <li><b>의료법 제27조 제3항</b> — 금품·할인·무료 등 영리 목적 <b>환자 유인·알선</b> 금지</li>
+          <li>규칙 기반 1차 스크리닝입니다 — <b>법적 자문이 아니며</b>, 최종 판단은 의료광고 자율심의기구·법무 검토를 따릅니다.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 비용 진단 ========== -->
+  <section class="panel" id="panel-cost">
+    <div class="card">
+      <h2>💰 비용 진단 — 광고비 효율(CPA·CVR) 계산</h2>
+      <p class="lead">숫자 두세 개만 넣으면, 환자 한 명을 데려오는 데 드는 비용(CPA)과
+      방문자가 실제 신환으로 이어지는 비율(CVR)을 계산해 <b>어디서 돈이 새는지</b> 짚어드립니다.</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:4px">
+        <div><label class="fld" for="cCost">① 월 마케팅 비용 (원)</label><input type="number" id="cCost" placeholder="5000000" min="0"></div>
+        <div><label class="fld" for="cNew">② 월 신환 수 (명)</label><input type="number" id="cNew" placeholder="33" min="0"></div>
+        <div><label class="fld" for="cVisit">③ 월 방문자/조회 수 (선택)</label><input type="number" id="cVisit" placeholder="8000" min="0"></div>
+        <div><label class="fld" for="cMargin">④ 신환 1인 평균 매출 (선택, 원)</label><input type="number" id="cMargin" placeholder="400000" min="0"></div>
+      </div>
+      <button class="btn" id="costRun">효율 계산하기</button>
+      <button class="btn ghost" id="costSample">예시 넣기</button>
+      <div id="costResult" style="display:none">
+        <div class="stat-row" id="costStats"></div>
+        <div style="font-size:12.5px;font-weight:700;color:var(--text-secondary);margin:6px 0 22px">신환 1인당 획득 비용(CPA) 위치 <span style="font-weight:500;color:var(--text-muted)">— 참고 범위(추정) 대비</span></div>
+        <div class="bandbar" id="cpaBand"></div>
+        <div class="findings" id="costFindings"></div>
+      </div>
+      <div class="evidence">
+        <h4>📚 계산·해석 근거</h4>
+        <ul>
+          <li><b>CPA</b>(신환 1인 획득비) = 월 마케팅비 ÷ 월 신환 수 · <b>CVR</b>(전환율) = 월 신환 ÷ 방문자 × 100</li>
+          <li><b>ROAS</b>(광고비 회수배수, ④ 입력 시) = (신환 수 × 1인 매출) ÷ 마케팅비</li>
+          <li>참고 범위는 진료과·지역에 따라 크게 달라 <b>공식 통계가 아닌 당사 참고 추정치</b>입니다. 절대 기준이 아니라 상대적 위치 파악용입니다.</li>
+          <li>CVR 0.5% 미만 = "노출은 되나 콘텐츠 설득력 부족" 신호(당사 기준). 노출이 아니라 콘텐츠를 점검할 단계입니다.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 동선 진단 ========== -->
+  <section class="panel" id="panel-journey">
+    <div class="card">
+      <h2>🧭 동선 진단 — 환자 검색여정 3단계 점검</h2>
+      <p class="lead">환자는 아플 때부터 병원을 고르기까지 <b>3단계</b>로 검색합니다. 우리 병원이 어느 길목을
+      지키고 어디가 뚫려 있는지 체크해보세요. 해당하면 체크하세요.</p>
+      <div class="funnel" id="journeyFunnel"></div>
+      <div class="grade-band" id="journeyGrade" style="display:none"></div>
+      <div class="findings" id="journeyFindings"></div>
+      <div class="evidence">
+        <h4>📚 진단 근거</h4>
+        <ul>
+          <li>환자 검색여정 3단계 모델 — <b>①정보 탐색(증상)</b> → <b>②비교 분석(지역+치료)</b> → <b>③최종 검증(병원명·평판)</b></li>
+          <li>대부분의 병원이 ②지역 키워드 광고에만 집중해 ①증상 단계와 ③평판 단계가 비어 환자가 중간 이탈합니다.</li>
+          <li>본 점검은 원장님 자가응답 기반입니다. 실제 키워드별 노출은 <b>원클릭 검진</b>으로 데이터 측정이 가능합니다.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 공통 CTA -->
+  <div class="cta">
+    <h3 id="ctaTitle">정밀 소견서 + 맞춤 개선안이 필요하신가요?</h3>
+    <p id="ctaDesc">자가검진은 1차 스크리닝입니다. 병원명 하나만 주시면 실제 데이터로 측정한
+    <b>정밀 진단 리포트</b>와 개선안을 무료로 보내드립니다. (모두 무료 — 판매 목적이 아닙니다.)</p>
+    <a class="btn" href="../landing/">무료 정밀검진 신청하기 →</a>
+    <div class="fine">개인정보는 진단 리포트 발송 목적에만 사용하며, 광고성 연락은 별도 동의가 있을 때만 드립니다. 콜드콜을 하지 않습니다.</div>
+  </div>
+
+  <footer class="basis">
+    <b>베놈 체크업</b>은 (주)베놈이 병원·소상공인에게 <b>무료로 배포</b>하는 마케팅 자가검진 도구입니다.
+    수익이 아니라 정확한 진단과 신뢰 형성을 목적으로 합니다.<br>
+    본 도구의 등급·점수는 당사 산식에 따른 <b>참고 지표</b>이며 특정 순위·매출·효과를 보장하지 않습니다.
+    리스크 진단은 규칙 기반 1차 스크리닝으로 법적 자문이 아닙니다.<br>
+    <b>근거·출처</b> — 의료법 제56조·제27조, 의료법 시행령 제23조·제24조, 의료광고 자율심의기준 · 진단 데이터는 네이버 오픈 API·공공데이터 기반(원클릭 검진).<br>
+    <b>다른 검진 도구</b>
+    <span class="other-tools">
+      <a href="../dashboard/">종합검진(대시보드)</a>
+      <a href="../location/">입지 진단</a>
+      <a href="../landing/">검진 신청</a>
+    </span>
+  </footer>
+</div>
+
+<script>
+"use strict";
+const $=s=>document.querySelector(s), $$=s=>document.querySelectorAll(s);
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+/* 탭 (해시 딥링크 지원: #risk/#cost/#journey) */
+function openTab(name){
+  const tab=[...$$('.tab')].find(t=>t.dataset.p===name); if(!tab)return;
+  $$('.tab').forEach(x=>x.setAttribute('aria-selected',x===tab));
+  $$('.panel').forEach(p=>p.classList.toggle('active',p.id==='panel-'+name));
+}
+$$('.tab').forEach(t=>t.addEventListener('click',()=>{openTab(t.dataset.p);
+  history.replaceState(null,'','#'+t.dataset.p);}));
+if(/^#(risk|cost|journey)$/.test(location.hash)) openTab(location.hash.slice(1));
+window.addEventListener('hashchange',()=>{if(/^#(risk|cost|journey)$/.test(location.hash))openTab(location.hash.slice(1));});
+
+/* ============ 리스크 진단 ============ */
+/* 의료법 제56조·시행령 제23조·제27조 기반 규칙. sev: c=위험, w=주의 */
+const RISK_RULES=[
+  {re:/최고|최상|제일|최고급|가장\s*(좋|우수|잘)|유일(?!무이한 예외)|국내\s*유일|세계\s*최초|국내\s*최초|업계\s*1위|넘버\s*원|no\.?\s*1|1위|베스트|최우수/gi,
+   cat:'절대적 표현(소비자 현혹)', sev:'c', law:'의료법 제56조 제2항 · 시행령 제23조 — "최고·제일·유일" 등 객관적 근거 없는 절대적 표현 금지',
+   fix:'"다수의 임상 경험" 등 사실 기반 표현으로 대체'},
+  {re:/완치|100\s*%|백\s*퍼센트|확실히\s*(낫|치료|효과)|반드시\s*(낫|효과)|무조건|보장(?!보험)|틀림없이|영구적으로/gi,
+   cat:'치료효과 보장', sev:'c', law:'의료법 시행령 제23조 — 치료 효과를 보장하거나 오인하게 하는 표현 금지',
+   fix:'"개인차가 있을 수 있습니다" 등 한계 고지와 함께 사실만 기술'},
+  {re:/부작용\s*(이|은)?\s*(전혀\s*)?없|부작용\s*제로|무통증|통증\s*없|흉터\s*없|무흉터|안전하게\s*100|절대\s*안전/gi,
+   cat:'부작용 등 중요정보 누락', sev:'c', law:'의료법 제56조 제2항 — 부작용 등 중요 정보를 누락·축소하는 광고 금지',
+   fix:'가능한 부작용·주의사항을 함께 고지'},
+  {re:/할인|이벤트가|첫\s*방문\s*할인|무료\s*(시술|시침|검사|이벤트)|사은품|증정|경품|페이백|최저가|반값|공짜|1\s*\+\s*1/gi,
+   cat:'환자 유인·알선 소지', sev:'w', law:'의료법 제27조 제3항 — 금품·할인 등으로 환자를 유인·알선하는 행위 제한(비급여 진료 특히 주의)',
+   fix:'가격 할인 소구 대신 진료 내용·전문성 중심으로 전환'},
+  {re:/다른\s*(병원|의원|곳)\s*(보다|과\s*달리)|타\s*병원\s*(보다|대비)|어디\s*보다도|비교할\s*수\s*없/gi,
+   cat:'비교·비방 광고', sev:'w', law:'의료법 제56조 제2항 — 다른 의료기관과 비교하거나 비방하는 광고 금지',
+   fix:'경쟁 비교 없이 우리 병원의 강점만 사실대로 기술'},
+  {re:/후기|체험기|치료\s*경험담|효과\s*(를)?\s*(봤|보았|본)|추천합니다|강추|재방문\s*의사/gi,
+   cat:'치료경험담 소비자 오인', sev:'w', law:'의료법 제56조 제2항 — 치료경험담으로 소비자를 오인하게 하는 광고 금지',
+   fix:'환자 후기 인용 대신 진료 정보·통계로 신뢰 전달'},
+];
+/* 진료과별 추가 규칙·주의 — 과별로 특히 자주 단속되는 표현 */
+const SPECIALTY_RULES={
+  derm:[{re:/비포\s*애프터|전후\s*사진|before\s*after|시술\s*전\s*후/gi,cat:'전후사진 조건 미준수 위험',sev:'w',law:'의료광고 심의기준 — 치료 전후 비교 사진은 동일 조건 촬영·부작용·치료기간 명시 등 요건 필요',fix:'전후사진은 촬영조건·경과기간·개인차를 함께 고지하거나 비게시'}],
+  dental:[{re:/임플란트\s*\d|임플란트\s*(가격|비용|특가|이벤트)|충치\s*무료|스케일링\s*무료/gi,cat:'비급여 가격 할인 유인',sev:'w',law:'의료법 제27조 제3항 — 비급여(임플란트 등) 가격 할인·이벤트로 환자 유인 주의',fix:'가격 소구 대신 진료 과정·안전관리 중심으로 전환'}],
+  ortho:[{re:/도수치료\s*(효과|완치)|디스크\s*(완치|수술\s*없이\s*완치)|비수술\s*완치|주사\s*한\s*방/gi,cat:'비수술·완치 효과 보장',sev:'c',law:'의료법 시행령 제23조 — 완치·비수술 완치 등 효과 보장 표현 금지',fix:'"호전을 기대할 수 있습니다" 등 한계를 함께 고지'}],
+  oriental:[{re:/면역력\s*(완성|강화\s*보장)|체질\s*개선\s*보장|검증된\s*효능|만병통치|한\s*번에\s*완치/gi,cat:'검증되지 않은 효능 표방',sev:'c',law:'의료법 제56조 — 과학적 근거 없는 효능·효과 광고 금지',fix:'입증되지 않은 효능 주장을 삭제'}],
+  ophthal:[{re:/라식\s*부작용\s*없|라섹\s*부작용\s*없|시력\s*(회복\s*보장|100)|평생\s*시력|무통증\s*라식/gi,cat:'시력 회복·부작용 보장',sev:'c',law:'의료법 시행령 제23조 — 부작용 없음·효과 보장 표현 금지',fix:'부작용 가능성·정밀검사 필요성을 고지'}],
+};
+const SPECIALTY_NOTE={
+  derm:'피부과·성형외과는 비급여 비중이 높아 이벤트·가격·전후사진 규제가 특히 엄격합니다.',
+  dental:'치과는 임플란트 등 비급여 가격 광고·할인 유인이 주요 단속 대상입니다.',
+  ortho:'정형·통증의학과는 "완치·비수술 완치" 등 효과 보장 표현을 특히 주의하세요.',
+  oriental:'한의원은 검증되지 않은 효능(면역력·체질개선) 표방이 위반 소지가 큽니다.',
+  ophthal:'안과는 시력교정술의 부작용·효과 보장 표현이 민감합니다.',
+};
+function runRisk(){
+  const raw=$('#riskText').value||'';
+  if(!raw.trim()){alert('점검할 문구를 입력해주세요.');return;}
+  const dept=$('#riskDept').value;
+  const rules=RISK_RULES.concat(SPECIALTY_RULES[dept]||[]);
+  const dn=$('#riskDeptNote');
+  if(dept&&SPECIALTY_NOTE[dept]){
+    dn.innerHTML=`<div class="finding" style="margin-bottom:12px;background:var(--brand-soft);border-color:var(--brand)">
+      <span class="sev" style="background:var(--brand);color:#fff">${$('#riskDept').selectedOptions[0].text}</span>
+      <div class="body">${esc(SPECIALTY_NOTE[dept])}</div></div>`;
+  } else dn.innerHTML='';
+  // 매칭 수집
+  let hits=[]; const catMap={};
+  rules.forEach(rule=>{
+    rule.re.lastIndex=0; let m;
+    while((m=rule.re.exec(raw))!==null){
+      hits.push({start:m.index,end:m.index+m[0].length,sev:rule.sev});
+      if(!catMap[rule.cat]) catMap[rule.cat]={...rule,samples:new Set()};
+      catMap[rule.cat].samples.add(m[0]);
+      if(m.index===rule.re.lastIndex) rule.re.lastIndex++;
+    }
+  });
+  // 하이라이트 렌더 (겹침 방지: 위치순 병합)
+  hits.sort((a,b)=>a.start-b.start||b.end-a.end);
+  let merged=[],last=-1;
+  hits.forEach(h=>{if(h.start>=last){merged.push(h);last=h.end;}});
+  let html='',cur=0;
+  merged.forEach(h=>{
+    html+=esc(raw.slice(cur,h.start));
+    html+=`<span class="hl ${h.sev}">${esc(raw.slice(h.start,h.end))}</span>`;
+    cur=h.end;
+  });
+  html+=esc(raw.slice(cur));
+  $('#riskRendered').innerHTML=html||'<span style="color:var(--text-muted)">표시할 내용이 없습니다.</span>';
+  // 등급
+  const cats=Object.values(catMap);
+  const crit=cats.filter(c=>c.sev==='c').length, warn=cats.filter(c=>c.sev==='w').length;
+  const gb=$('#riskGrade');
+  if(crit>0){gb.className='grade-band c';gb.innerHTML=`<span class="lbl">위험</span><span class="desc"><b>영업정지·과태료 소지가 높은 표현 ${crit}종</b>이 발견됐습니다. 게시 전 반드시 수정·심의 검토가 필요합니다.</span>`;}
+  else if(warn>0){gb.className='grade-band w';gb.innerHTML=`<span class="lbl">주의</span><span class="desc">위반 소지가 있는 표현 ${warn}종이 있습니다. 표현을 다듬고 심의 기준을 확인하세요.</span>`;}
+  else{gb.className='grade-band g';gb.innerHTML=`<span class="lbl">양호</span><span class="desc">규칙 기반 스크리닝에서 뚜렷한 금지 표현이 발견되지 않았습니다. 다만 이는 1차 점검이며 최종 판단은 심의 기준을 따릅니다.</span>`;}
+  // 소견
+  cats.sort((a,b)=>(a.sev==='c'?0:1)-(b.sev==='c'?0:1));
+  $('#riskFindings').innerHTML=cats.map(c=>{
+    const ssm=[...c.samples].slice(0,4).map(esc).join(', ');
+    return `<div class="finding"><span class="sev ${c.sev}">${c.sev==='c'?'위험':'주의'}</span>
+      <div class="body"><b>${esc(c.cat)}</b> — 발견: ${ssm}
+      <span class="law">근거: ${esc(c.law)}</span>
+      <span class="fix">↳ 순화 예시: ${esc(c.fix)}</span></div></div>`;
+  }).join('')||'<div class="finding"><span class="sev" style="background:var(--good-bg);color:var(--good-tx)">양호</span><div class="body">발견된 금지 표현이 없습니다.</div></div>';
+  $('#riskResult').style.display='block';
+  $('#ctaTitle').textContent=crit>0?'지금 이 문구, 그대로 두면 위험합니다':'정밀 소견서 + 맞춤 개선안이 필요하신가요?';
+}
+$('#riskRun').addEventListener('click',runRisk);
+$('#riskSample').addEventListener('click',()=>{
+  $('#riskText').value='저희는 강남 최고의 병원으로, 100% 완치를 보장합니다. 부작용은 전혀 없으며, 지금 예약 시 첫 방문 30% 할인 이벤트를 진행합니다. 다른 병원과 비교할 수 없는 실력, 실제 환자 후기로 확인해보세요!';
+  runRisk();
+});
+
+/* ============ 비용 진단 ============ */
+/* CPA 참고 범위(추정, 원): 효율 구간 시각화용 — 공식 통계 아님 */
+const CPA_BANDS=[
+  {to:50000,  label:'매우 효율',  color:'var(--good)'},
+  {to:100000, label:'양호',       color:'var(--series-2)'},
+  {to:200000, label:'평균권',     color:'var(--series-3)'},
+  {to:400000, label:'개선 필요',  color:'var(--warn)'},
+  {to:Infinity,label:'과다',      color:'var(--crit)'},
+];
+const CPA_MAX=500000;
+function won(n){return n.toLocaleString('ko-KR');}
+function runCost(){
+  const cost=+$('#cCost').value, nw=+$('#cNew').value, vis=+$('#cVisit').value, mrg=+$('#cMargin').value;
+  if(!cost||!nw){alert('① 월 마케팅 비용과 ② 월 신환 수는 필수입니다.');return;}
+  const cpa=cost/nw;
+  const cvr=vis?nw/vis*100:null;
+  const roas=mrg?(nw*mrg)/cost:null;
+  // 통계 카드
+  let stats=`<div class="stat"><div class="k">신환 1인 획득 비용 (CPA)</div><div class="v">${won(Math.round(cpa))}<span class="u">원</span></div><div class="note">월 ${won(cost)}원 ÷ ${nw}명</div></div>`;
+  if(cvr!==null) stats+=`<div class="stat"><div class="k">전환율 (CVR)</div><div class="v">${cvr.toFixed(2)}<span class="u">%</span></div><div class="note">방문 ${won(vis)} → 신환 ${nw}</div></div>`;
+  if(roas!==null) stats+=`<div class="stat"><div class="k">광고비 회수배수 (ROAS)</div><div class="v">${roas.toFixed(1)}<span class="u">배</span></div><div class="note">${roas>=1?'광고비 이상 회수':'광고비 미회수'}</div></div>`;
+  $('#costStats').innerHTML=stats;
+  // CPA 밴드바
+  let segHtml='',acc=0;
+  CPA_BANDS.forEach(b=>{
+    const to=Math.min(b.to,CPA_MAX);
+    const w=(to-acc)/CPA_MAX*100; acc=to;
+    if(w>0) segHtml+=`<div class="seg" style="flex:${w};background:${b.color}">${b.label}</div>`;
+  });
+  const pos=Math.min(cpa/CPA_MAX*100,99.2);
+  $('#cpaBand').innerHTML=`<div class="track">${segHtml}<div class="marker" style="left:${pos}%" data-lbl="우리 ${won(Math.round(cpa))}원"></div></div>
+    <div class="scale"><span>0원</span><span>10만</span><span>20만</span><span>30만</span><span>40만</span><span>50만+</span></div>`;
+  // 소견
+  let f=[];
+  const band=CPA_BANDS.find(b=>cpa<=b.to);
+  if(cpa>200000) f.push({sev:'c',b:`CPA ${won(Math.round(cpa))}원 — 참고 범위상 '${band.label}' 구간`,t:'환자 1명 데려오는 비용이 높습니다. 노출량(트래픽)이 아니라 전환(내원)이 새는 지점을 점검해야 합니다.'});
+  else if(cpa>100000) f.push({sev:'w',b:`CPA ${won(Math.round(cpa))}원 — '${band.label}' 구간`,t:'나쁘지 않지만 개선 여지가 있습니다. 세부 키워드·콘텐츠 설득력을 점검하세요.'});
+  else f.push({sev:'w',b:`CPA ${won(Math.round(cpa))}원 — '${band.label}' 구간`,t:'효율적인 편입니다. 현 채널을 유지하며 규모를 늘릴 수 있는지 검토하세요.',good:true});
+  if(cvr!==null && cvr<0.5) f.push({sev:'c',b:`전환율 ${cvr.toFixed(2)}% — 0.5% 미만`,t:'노출은 되는데 방문자가 신환으로 거의 이어지지 않습니다. "밑 빠진 독" 상태 — 노출이 아니라 콘텐츠 설득력(글·사진·리뷰·예약 동선)을 전면 점검할 단계입니다.'});
+  if(roas!==null && roas<1) f.push({sev:'c',b:`ROAS ${roas.toFixed(1)}배 — 광고비 미회수`,t:'신환 매출이 광고비보다 적습니다. 단가·재방문·객단가를 함께 봐야 합니다.'});
+  $('#costFindings').innerHTML=f.map(x=>`<div class="finding"><span class="sev ${x.sev==='c'?'c':'w'}">${x.sev==='c'?'점검':'참고'}</span>
+    <div class="body"><b>${esc(x.b)}</b><span class="fix" style="color:${x.good?'var(--good-tx)':'var(--text-secondary)'}">↳ ${esc(x.t)}</span></div></div>`).join('');
+  $('#costResult').style.display='block';
+}
+$('#costRun').addEventListener('click',runCost);
+$('#costSample').addEventListener('click',()=>{
+  $('#cCost').value=5000000;$('#cNew').value=33;$('#cVisit').value=8000;$('#cMargin').value=400000;runCost();
+});
+
+/* ============ 동선 진단 ============ */
+const JOURNEY=[
+  {n:1,ttl:'정보 탐색 단계',sub:'환자가 증상으로 검색할 때 (예: "어깨가 안 올라가요")',
+   items:['증상·질환 키워드로 검색하면 우리 병원 콘텐츠(블로그 등)가 노출된다','환자가 궁금해할 증상을 다룬 글이 5개 이상 있다']},
+  {n:2,ttl:'비교 분석 단계',sub:'지역+치료법으로 병원을 고를 때 (예: "OO동 오십견 잘하는 곳")',
+   items:['지역명+진료과/치료법 키워드에서 플레이스·검색 상위에 노출된다','치료 과정·비용·차별점을 설명한 페이지가 있다']},
+  {n:3,ttl:'최종 검증 단계',sub:'병원 이름으로 마지막 확인할 때 (예: "OO병원 후기")',
+   items:['병원명 검색 시 지식iN·카페에 방치된 악성 글이 없다','최근 리뷰·평점이 관리되고 있고 답글이 달려 있다']},
+];
+function renderJourney(){
+  $('#journeyFunnel').innerHTML=JOURNEY.map((s,i)=>`
+    ${i>0?'<div class="funnel-arrow">▼</div>':''}
+    <div class="stage" data-stage="${s.n}">
+      <div class="stage-head"><span class="num">${s.n}</span>
+        <span class="ttl">${esc(s.ttl)}<small>${esc(s.sub)}</small></span>
+        <span class="cov" data-cov="${s.n}">—</span></div>
+      <div class="stage-body">
+        ${s.items.map((it,j)=>`<label class="chk"><input type="checkbox" data-stage="${s.n}" data-idx="${j}">${esc(it)}</label>`).join('')}
+      </div>
+    </div>`).join('');
+  $$('#journeyFunnel input').forEach(c=>c.addEventListener('change',scoreJourney));
+}
+function scoreJourney(){
+  let covered=0;
+  JOURNEY.forEach(s=>{
+    const boxes=[...$$(`#journeyFunnel input[data-stage="${s.n}"]`)];
+    const on=boxes.filter(b=>b.checked).length;
+    const cov=$(`.cov[data-cov="${s.n}"]`);
+    const full=on===boxes.length, half=on>0;
+    cov.textContent=full?'지키는 중 ✓':half?'일부 노출':'비어 있음';
+    cov.style.color=full?'var(--good-tx)':half?'var(--warn-tx)':'var(--crit-tx)';
+    if(full) covered++;
+  });
+  const gb=$('#journeyGrade'); gb.style.display='flex';
+  const leaks=JOURNEY.filter(s=>{const b=[...$$(`#journeyFunnel input[data-stage="${s.n}"]`)];return b.filter(x=>x.checked).length===0;});
+  if(covered===3){gb.className='grade-band g';gb.innerHTML='<span class="lbl">양호</span><span class="desc">3단계 길목을 모두 지키고 있습니다. 환자가 이탈 없이 내원까지 이어질 수 있는 구조입니다.</span>';}
+  else if(leaks.length){gb.className='grade-band c';gb.innerHTML=`<span class="lbl">위험</span><span class="desc"><b>${leaks.map(l=>l.n+'단계').join('·')}가 비어 있습니다.</b> 이 구간에서 환자가 경쟁 병원으로 이탈합니다.</span>`;}
+  else{gb.className='grade-band w';gb.innerHTML='<span class="lbl">주의</span><span class="desc">일부 단계만 노출되고 있습니다. 빈 항목을 채우면 유입이 끊기지 않습니다.</span>';}
+  $('#journeyFindings').innerHTML=leaks.map(l=>`<div class="finding"><span class="sev c">구멍</span>
+    <div class="body"><b>${esc(l.ttl)}가 비어 있습니다</b><span class="fix" style="color:var(--text-secondary)">↳ ${l.n===1?'증상·질환을 다룬 콘텐츠가 없어, 아픈 초기 환자를 놓치고 있습니다.':l.n===2?'지역+치료 키워드 노출이 약해, 병원을 비교하는 단계에서 밀립니다.':'병원명 평판이 관리되지 않아, 마지막에 마음을 돌리는 환자가 생깁니다.'}</span></div></div>`).join('');
+}
+renderJourney();
+</script>
+</body>
+</html>

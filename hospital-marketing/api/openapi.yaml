@@ -1,0 +1,332 @@
+openapi: 3.0.3
+info:
+  title: 병원 로컬 검색 노출 경쟁력 진단 API
+  version: 0.1.0
+  description: |
+    병원 원장용 반경 기반 마케팅 경쟁력 대시보드 API 초안 (기획서 9장).
+    고객용 API와 관리자 전용 증빙 API를 분리하며, 관리자 API 접근은 감사 로그를 남긴다.
+servers:
+  - url: /api
+
+tags:
+  - name: hospitals
+  - name: dashboard
+  - name: keywords
+  - name: reports
+  - name: admin
+    description: 관리자/법무/데이터 운영 전용. 고객 계정 접근 불가.
+
+paths:
+  /hospitals/resolve:
+    post:
+      tags: [hospitals]
+      summary: 병원 등록 — 공공데이터/네이버 지역 API 매칭 후보 반환
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [name, address, department]
+              properties:
+                name: { type: string, example: 밝은빛피부과의원 }
+                address: { type: string, example: 서울 강남구 테헤란로 000 }
+                department: { type: string, example: 피부과 }
+                naver_place_url: { type: string, nullable: true }
+      responses:
+        "200":
+          description: 매칭 후보 목록. 사용자가 확인 단계에서 최종 선택한다.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  matched_hospital_candidates:
+                    type: array
+                    items: { $ref: "#/components/schemas/HospitalCandidate" }
+                  geocoded_location: { $ref: "#/components/schemas/GeoPoint" }
+                  confidence_score: { type: number, format: float, example: 0.92 }
+
+  /dashboard/{hospitalProfileId}:
+    get:
+      tags: [dashboard]
+      summary: 대시보드 홈 — 점수/경쟁/취약 키워드/액션
+      parameters:
+        - $ref: "#/components/parameters/HospitalProfileId"
+        - $ref: "#/components/parameters/RadiusM"
+        - $ref: "#/components/parameters/Month"
+      responses:
+        "200":
+          description: 월간 대시보드 요약
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  final_marketing_score: { type: number, example: 62 }
+                  radius_metrics: { $ref: "#/components/schemas/RadiusMetrics" }
+                  top_competitors:
+                    type: array
+                    items: { $ref: "#/components/schemas/CompetitorSummary" }
+                  weak_keywords:
+                    type: array
+                    items: { $ref: "#/components/schemas/KeywordResult" }
+                  action_recommendations:
+                    type: array
+                    maxItems: 3
+                    items: { $ref: "#/components/schemas/ActionRecommendation" }
+                  data_basis: { $ref: "#/components/schemas/DataBasis" }
+
+  /hospitals/{hospitalProfileId}/competitors:
+    get:
+      tags: [hospitals]
+      summary: 지도 분석 — 반경 내 경쟁 병원
+      parameters:
+        - $ref: "#/components/parameters/HospitalProfileId"
+        - $ref: "#/components/parameters/RadiusM"
+        - name: department
+          in: query
+          schema: { type: string }
+        - name: keyword_id
+          in: query
+          schema: { type: integer }
+      responses:
+        "200":
+          description: 경쟁 병원 목록 (거리/가중치/노출 요약)
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  competitors:
+                    type: array
+                    items: { $ref: "#/components/schemas/CompetitorSummary" }
+
+  /hospitals/{hospitalProfileId}/keywords:
+    get:
+      tags: [keywords]
+      summary: 키워드 노출 조회 — 공식 API 지표와 참고 스냅샷 분리 표기
+      parameters:
+        - $ref: "#/components/parameters/HospitalProfileId"
+        - $ref: "#/components/parameters/Month"
+        - $ref: "#/components/parameters/RadiusM"
+      responses:
+        "200":
+          description: 키워드별 노출 결과
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  keyword_results:
+                    type: array
+                    items: { $ref: "#/components/schemas/KeywordResult" }
+
+  /reports/monthly:
+    post:
+      tags: [reports]
+      summary: 월간 PDF 리포트 생성
+      description: 고객용 PDF에는 요약 지표·기준일·측정 조건만 포함한다. 원천 증빙은 포함하지 않는다.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [hospital_profile_id, month, radius_m]
+              properties:
+                hospital_profile_id: { type: integer }
+                month: { type: string, example: "2026-07" }
+                radius_m: { type: integer, enum: [500, 1000, 1500, 2000] }
+                include_snapshot_evidence:
+                  type: boolean
+                  default: false
+                  description: true여도 법무 승인(customer_safe_summary)된 요약값만 포함된다.
+      responses:
+        "202":
+          description: 리포트 생성 접수
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  report_id: { type: string }
+                  download_url: { type: string }
+                  generated_at: { type: string, format: date-time }
+
+  /admin/evidence:
+    get:
+      tags: [admin]
+      summary: 관리자 전용 증빙 조회 (감사 로그 기록)
+      security:
+        - bearerAuth: []
+      description: |
+        admin / legal_reviewer / data_operator 역할만 접근 가능.
+        원본 스냅샷·HTML·API payload 접근은 audit_logs에 기록된다.
+      parameters:
+        - name: hospital_profile_id
+          in: query
+          required: true
+          schema: { type: integer }
+        - name: keyword_id
+          in: query
+          schema: { type: integer }
+        - $ref: "#/components/parameters/Month"
+        - name: risk_level
+          in: query
+          schema: { type: string, enum: [low, medium, high, critical] }
+        - name: legal_review_status
+          in: query
+          schema: { type: string, enum: [not_required, pending, in_review, approved, rejected] }
+      responses:
+        "200":
+          description: 증빙 항목 목록
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  evidence_items:
+                    type: array
+                    items: { $ref: "#/components/schemas/EvidenceItem" }
+        "403":
+          description: 고객/대행사 계정 접근 불가
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+
+  parameters:
+    HospitalProfileId:
+      name: hospitalProfileId
+      in: path
+      required: true
+      schema: { type: integer }
+    RadiusM:
+      name: radius_m
+      in: query
+      schema: { type: integer, enum: [500, 1000, 1500, 2000], default: 1000 }
+    Month:
+      name: month
+      in: query
+      schema: { type: string, example: "2026-07" }
+
+  schemas:
+    GeoPoint:
+      type: object
+      properties:
+        latitude: { type: number, example: 37.5006 }
+        longitude: { type: number, example: 127.0364 }
+
+    HospitalCandidate:
+      type: object
+      properties:
+        hospital_id: { type: integer }
+        name: { type: string }
+        address: { type: string }
+        department_name: { type: string }
+        source: { type: string, example: hira }
+        confidence_score: { type: number }
+
+    RadiusMetrics:
+      type: object
+      properties:
+        radius_m: { type: integer }
+        snapshot_month: { type: string, example: "2026-07" }
+        competitor_count: { type: integer }
+        exposure_score: { type: number, description: 노출 40% }
+        weighted_competition_score: { type: number, description: 경쟁 밀도 25% }
+        demand_score: { type: number, description: 수요/입지 20% }
+        place_quality_score: { type: number, description: 플레이스 품질 15% }
+        final_marketing_score: { type: number }
+        delta_from_last_month: { type: number }
+
+    CompetitorSummary:
+      type: object
+      properties:
+        hospital_id: { type: integer }
+        name: { type: string }
+        distance_m: { type: number }
+        department_name: { type: string }
+        competition_weight: { type: number }
+        api_exposure_frequency: { type: string, enum: [high, medium, low] }
+        keyword_coverage: { type: number, description: 핵심 키워드 커버리지 비율 }
+        review_count: { type: integer, description: 공개 집계값만 사용 }
+        rating: { type: number }
+        photo_count: { type: integer }
+        location: { $ref: "#/components/schemas/GeoPoint" }
+
+    KeywordResult:
+      type: object
+      properties:
+        keyword_id: { type: integer }
+        keyword: { type: string, example: 강남 피부과 }
+        keyword_type:
+          type: string
+          enum: [region_department, procedure, symptom, comparison, brand, local_modifier]
+        api_exposure_status:
+          type: string
+          enum: [exposed, not_exposed]
+          description: 네이버 공식 API 기준. "실시간 순위"로 표기하지 않는다.
+        api_rank_position: { type: integer, nullable: true }
+        snapshot_reference_status:
+          type: string
+          enum: [verified, unverified, none]
+          description: 월간 참고 스냅샷 존재/검증 여부
+        snapshot_reference_rank: { type: integer, nullable: true }
+        grade:
+          type: string
+          enum: [top, mid, not_exposed]
+          description: 고객 화면에는 등급화된 결과만 노출
+        top_competitors:
+          type: array
+          items: { type: string }
+        recommended_action: { type: string }
+
+    ActionRecommendation:
+      type: object
+      properties:
+        priority: { type: integer }
+        action_type: { type: string, example: place_info }
+        title: { type: string, example: 플레이스 기본 정보 최신화 }
+        explanation: { type: string }
+        evidence_metric: { type: object, additionalProperties: true }
+        compliance_status: { type: string, enum: [safe, needs_review, blocked] }
+
+    DataBasis:
+      type: object
+      description: 데이터 출처/기준일/측정 조건 요약 — 모든 고객 화면과 PDF에 표기
+      properties:
+        sources:
+          type: array
+          items: { type: string }
+          example: [건강보험심사평가원 병원정보서비스, 네이버 지역 검색 API, SGIS]
+        collected_at: { type: string, format: date-time }
+        measurement_conditions: { type: string, example: 비로그인, 모바일 기준, 월 1회 }
+        disclaimer:
+          type: string
+          example: 공식 API 결과는 실제 검색화면과 다를 수 있으며, 인구 지표는 잠재 수요 참고지표입니다.
+
+    EvidenceItem:
+      type: object
+      description: storage_ref는 관리자 응답에만 존재. 고객용 API 응답에 절대 포함 금지.
+      properties:
+        id: { type: integer }
+        evidence_type:
+          type: string
+          enum: [raw_api_payload, serp_screenshot, serp_html, ad_section_observation,
+                 place_section_observation, collection_error_log, manual_review_note]
+        source_provider: { type: string }
+        collected_at: { type: string, format: date-time }
+        risk_level: { type: string, enum: [low, medium, high, critical] }
+        legal_review_status:
+          type: string
+          enum: [not_required, pending, in_review, approved, rejected]
+        visibility_scope:
+          type: string
+          enum: [internal_admin_only, internal_legal_only, customer_safe_summary, blocked]
+        storage_ref: { type: string }
+        redacted_summary: { type: object, additionalProperties: true }
+        collection_context: { type: object, additionalProperties: true }

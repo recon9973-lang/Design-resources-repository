@@ -1,0 +1,62 @@
+{
+ "generated_at": "2026-07-02T13:35:56+00:00",
+ "month": "2026-07",
+ "department": "피부과",
+ "radius_m": 1000,
+ "weights": {
+  "competition": 0.5,
+  "demand": 0.3,
+  "commerce": 0.2
+ },
+ "sites": [
+  {
+   "name": "마포 홍대입구",
+   "lat": 37.5563,
+   "lng": 126.9236,
+   "adm_cd": "11140",
+   "adm_nm": "서울특별시마포구",
+   "competitors": 74,
+   "competition_score": 27.2,
+   "population_radius": 47612,
+   "demand_score": 61.7,
+   "avg_age": 42.2,
+   "employee_density_km2": 11801,
+   "commerce_score": 37.6,
+   "saturation_per_10k": 15.5,
+   "site_score": 39.6
+  },
+  {
+   "name": "노원 상계",
+   "lat": 37.6543,
+   "lng": 127.0568,
+   "adm_cd": "11110",
+   "adm_nm": "서울특별시노원구",
+   "competitors": 71,
+   "competition_score": 32.7,
+   "population_radius": 43547,
+   "demand_score": 58.5,
+   "avg_age": 44.2,
+   "employee_density_km2": 3498,
+   "commerce_score": 13.1,
+   "saturation_per_10k": 16.3,
+   "site_score": 36.5
+  },
+  {
+   "name": "강남 역삼",
+   "lat": 37.5006,
+   "lng": 127.0364,
+   "adm_cd": "11230",
+   "adm_nm": "서울특별시강남구",
+   "competitors": 298,
+   "competition_score": 14.6,
+   "population_radius": 40692,
+   "demand_score": 56.1,
+   "avg_age": 42.5,
+   "employee_density_km2": 19505,
+   "commerce_score": 54.2,
+   "saturation_per_10k": 73.2,
+   "site_score": 35.0
+  }
+ ],
+ "disclaimer": "입지 참고 점수는 당사 산식에 따른 참고 지표이며 임대료·접근성·건물 조건 등 핵심 입지 변수를 포함하지 않습니다. 개원 성과를 보장하지 않습니다."
+}

@@ -1,0 +1,2841 @@
+{
+ "generated_at": "2026-07-03T07:54:32+00:00",
+ "month": "2026-07",
+ "live": true,
+ "hospital": {
+  "name": "라메스피부과의원",
+  "department": "피부과",
+  "address": "서울 강남구 언주로 563"
+ },
+ "radius_data": {
+  "500": {
+   "score": 33,
+   "competitors": 29,
+   "comp": {
+    "exposure": 12,
+    "density": 25,
+    "demand": 56,
+    "place": 69
+   }
+  },
+  "1000": {
+   "score": 34,
+   "competitors": 93,
+   "comp": {
+    "exposure": 12,
+    "density": 31,
+    "demand": 56,
+    "place": 69
+   }
+  },
+  "1500": {
+   "score": 32,
+   "competitors": 493,
+   "comp": {
+    "exposure": 12,
+    "density": 20,
+    "demand": 56,
+    "place": 69
+   }
+  },
+  "2000": {
+   "score": 31,
+   "competitors": 999,
+   "comp": {
+    "exposure": 12,
+    "density": 16,
+    "demand": 56,
+    "place": 69
+   }
+  }
+ },
+ "keywords": [
+  {
+   "kw": "강남 피부과",
+   "type": "지역+진료과",
+   "api": false,
+   "pos": null,
+   "grade": "none",
+   "comp": "아도의원 강남",
+   "content": {
+    "blog": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "블로그"
+    },
+    "cafe": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "카페"
+    },
+    "web": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "웹문서"
+    },
+    "news": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "뉴스"
+    },
+    "image": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "이미지"
+    },
+    "kin": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "지식iN"
+    }
+   }
+  },
+  {
+   "kw": "역삼역 피부과",
+   "type": "지역+진료과",
+   "api": false,
+   "pos": null,
+   "grade": "none",
+   "comp": "강남 셀리팅의원",
+   "content": {
+    "blog": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "블로그"
+    },
+    "cafe": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "카페"
+    },
+    "web": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "웹문서"
+    },
+    "news": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "뉴스"
+    },
+    "image": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "이미지"
+    },
+    "kin": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "지식iN"
+    }
+   }
+  },
+  {
+   "kw": "테헤란로 피부과",
+   "type": "지역+진료과",
+   "api": false,
+   "pos": null,
+   "grade": "none",
+   "comp": "코르디아의원",
+   "content": {
+    "blog": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "블로그"
+    },
+    "cafe": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "카페"
+    },
+    "web": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "웹문서"
+    },
+    "news": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "뉴스"
+    },
+    "image": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "이미지"
+    },
+    "kin": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "지식iN"
+    }
+   }
+  },
+  {
+   "kw": "강남 리프팅",
+   "type": "시술",
+   "api": false,
+   "pos": null,
+   "grade": "none",
+   "comp": "굿모닝 리프팅센터",
+   "content": {
+    "blog": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "블로그"
+    },
+    "cafe": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "카페"
+    },
+    "web": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "웹문서"
+    },
+    "news": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "뉴스"
+    },
+    "image": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "이미지"
+    },
+    "kin": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "지식iN"
+    }
+   }
+  },
+  {
+   "kw": "강남 보톡스",
+   "type": "시술",
+   "api": false,
+   "pos": null,
+   "grade": "none",
+   "comp": "역삼밴스피부과의원",
+   "content": {
+    "blog": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "블로그"
+    },
+    "cafe": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "카페"
+    },
+    "web": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "웹문서"
+    },
+    "news": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "뉴스"
+    },
+    "image": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "이미지"
+    },
+    "kin": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "지식iN"
+    }
+   }
+  },
+  {
+   "kw": "강남 여드름치료",
+   "type": "고민",
+   "api": true,
+   "pos": 1,
+   "grade": "top",
+   "comp": "라메스피부과의원",
+   "content": {
+    "blog": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "블로그"
+    },
+    "cafe": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "카페"
+    },
+    "web": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "웹문서"
+    },
+    "news": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "뉴스"
+    },
+    "image": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "이미지"
+    },
+    "kin": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "지식iN"
+    }
+   }
+  },
+  {
+   "kw": "강남 탈모치료",
+   "type": "고민",
+   "api": false,
+   "pos": null,
+   "grade": "none",
+   "comp": "모아이의원",
+   "content": {
+    "blog": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "블로그"
+    },
+    "cafe": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "카페"
+    },
+    "web": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "웹문서"
+    },
+    "news": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "뉴스"
+    },
+    "image": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "이미지"
+    },
+    "kin": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "지식iN"
+    }
+   }
+  },
+  {
+   "kw": "강남 기미레이저",
+   "type": "시술",
+   "api": false,
+   "pos": null,
+   "grade": "none",
+   "comp": "청담연세피부과의원",
+   "content": {
+    "blog": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "블로그"
+    },
+    "cafe": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "카페"
+    },
+    "web": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "웹문서"
+    },
+    "news": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "뉴스"
+    },
+    "image": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "이미지"
+    },
+    "kin": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "지식iN"
+    }
+   }
+  }
+ ],
+ "map_points": [
+  {
+   "name": "닥터송포유의원",
+   "distance_m": 46.6,
+   "bearing_deg": 306.6,
+   "same_department": true
+  },
+  {
+   "name": "더건강의원",
+   "distance_m": 75.4,
+   "bearing_deg": 222.9,
+   "same_department": true
+  },
+  {
+   "name": "아미스킨의원",
+   "distance_m": 84.9,
+   "bearing_deg": 266.6,
+   "same_department": true
+  },
+  {
+   "name": "바른성모재활의학과의원",
+   "distance_m": 142.4,
+   "bearing_deg": 52.8,
+   "same_department": true
+  },
+  {
+   "name": "청담이지함피부과의원",
+   "distance_m": 142.4,
+   "bearing_deg": 52.8,
+   "same_department": true
+  },
+  {
+   "name": "셀더영의원",
+   "distance_m": 168.1,
+   "bearing_deg": 263.3,
+   "same_department": true
+  },
+  {
+   "name": "디토셀의원",
+   "distance_m": 185.9,
+   "bearing_deg": 105.9,
+   "same_department": true
+  },
+  {
+   "name": "바노바기피부과의원",
+   "distance_m": 189.1,
+   "bearing_deg": 279.9,
+   "same_department": true
+  },
+  {
+   "name": "모델라인의원",
+   "distance_m": 189.7,
+   "bearing_deg": 260.0,
+   "same_department": true
+  },
+  {
+   "name": "미소안피부과의원",
+   "distance_m": 243.2,
+   "bearing_deg": 273.0,
+   "same_department": true
+  },
+  {
+   "name": "오큐라의원",
+   "distance_m": 259.5,
+   "bearing_deg": 271.6,
+   "same_department": true
+  },
+  {
+   "name": "삼성아이비의원",
+   "distance_m": 275.5,
+   "bearing_deg": 270.1,
+   "same_department": true
+  },
+  {
+   "name": "씨비케이성형외과의원",
+   "distance_m": 275.5,
+   "bearing_deg": 270.1,
+   "same_department": true
+  },
+  {
+   "name": "웰가의원",
+   "distance_m": 275.5,
+   "bearing_deg": 270.1,
+   "same_department": true
+  },
+  {
+   "name": "벧엘피부과의원",
+   "distance_m": 285.2,
+   "bearing_deg": 61.2,
+   "same_department": true
+  },
+  {
+   "name": "글로리의원",
+   "distance_m": 306.2,
+   "bearing_deg": 268.2,
+   "same_department": true
+  },
+  {
+   "name": "예젤의원",
+   "distance_m": 320.4,
+   "bearing_deg": 122.1,
+   "same_department": true
+  },
+  {
+   "name": "인샤인피부과의원",
+   "distance_m": 333.5,
+   "bearing_deg": 255.4,
+   "same_department": true
+  },
+  {
+   "name": "좋은아침외과의원",
+   "distance_m": 333.5,
+   "bearing_deg": 255.4,
+   "same_department": true
+  },
+  {
+   "name": "서울비29이비인후과의원",
+   "distance_m": 351.1,
+   "bearing_deg": 255.4,
+   "same_department": true
+  },
+  {
+   "name": "리오셀의원",
+   "distance_m": 361.6,
+   "bearing_deg": 265.1,
+   "same_department": true
+  },
+  {
+   "name": "아이러브강남의원",
+   "distance_m": 365.2,
+   "bearing_deg": 268.9,
+   "same_department": true
+  },
+  {
+   "name": "연세다엘마취통증의학과내과의원",
+   "distance_m": 411.1,
+   "bearing_deg": 241.0,
+   "same_department": true
+  },
+  {
+   "name": "올림안과의원",
+   "distance_m": 419.0,
+   "bearing_deg": 217.0,
+   "same_department": true
+  },
+  {
+   "name": "아메르의원",
+   "distance_m": 445.9,
+   "bearing_deg": 274.5,
+   "same_department": true
+  },
+  {
+   "name": "청담란셀의원",
+   "distance_m": 447.4,
+   "bearing_deg": 56.9,
+   "same_department": true
+  },
+  {
+   "name": "알에이의원",
+   "distance_m": 457.5,
+   "bearing_deg": 222.7,
+   "same_department": true
+  },
+  {
+   "name": "신소애여성의원",
+   "distance_m": 496.1,
+   "bearing_deg": 214.5,
+   "same_department": true
+  },
+  {
+   "name": "제이준성형외과의원",
+   "distance_m": 497.5,
+   "bearing_deg": 203.6,
+   "same_department": true
+  },
+  {
+   "name": "지속가능한아름다움지아의원",
+   "distance_m": 500.4,
+   "bearing_deg": 58.4,
+   "same_department": true
+  },
+  {
+   "name": "데카비의원",
+   "distance_m": 543.8,
+   "bearing_deg": 340.3,
+   "same_department": true
+  },
+  {
+   "name": "골드해피미래의원",
+   "distance_m": 550.8,
+   "bearing_deg": 292.8,
+   "same_department": true
+  },
+  {
+   "name": "김정일정신건강의학과의원",
+   "distance_m": 566.5,
+   "bearing_deg": 56.0,
+   "same_department": true
+  },
+  {
+   "name": "제이드의원",
+   "distance_m": 584.7,
+   "bearing_deg": 65.9,
+   "same_department": true
+  },
+  {
+   "name": "뚜뚜의원",
+   "distance_m": 587.4,
+   "bearing_deg": 240.4,
+   "same_department": true
+  },
+  {
+   "name": "수피부과의원",
+   "distance_m": 601.3,
+   "bearing_deg": 201.4,
+   "same_department": true
+  },
+  {
+   "name": "리우라인의원",
+   "distance_m": 601.7,
+   "bearing_deg": 59.7,
+   "same_department": true
+  },
+  {
+   "name": "청담더오피부과의원",
+   "distance_m": 601.7,
+   "bearing_deg": 59.7,
+   "same_department": true
+  },
+  {
+   "name": "바노바기성형외과의원",
+   "distance_m": 620.6,
+   "bearing_deg": 200.1,
+   "same_department": true
+  },
+  {
+   "name": "스토리피부과의원",
+   "distance_m": 628.8,
+   "bearing_deg": 153.3,
+   "same_department": true
+  },
+  {
+   "name": "전앤후의원",
+   "distance_m": 630.8,
+   "bearing_deg": 199.1,
+   "same_department": true
+  },
+  {
+   "name": "청담오라클피부과의원",
+   "distance_m": 635.1,
+   "bearing_deg": 51.0,
+   "same_department": true
+  },
+  {
+   "name": "아니다웰니스의원",
+   "distance_m": 664.2,
+   "bearing_deg": 36.6,
+   "same_department": true
+  },
+  {
+   "name": "서울배내과의원",
+   "distance_m": 691.1,
+   "bearing_deg": 195.1,
+   "same_department": true
+  },
+  {
+   "name": "그림성형외과의원",
+   "distance_m": 727.1,
+   "bearing_deg": 336.5,
+   "same_department": true
+  },
+  {
+   "name": "청담이든의원",
+   "distance_m": 733.8,
+   "bearing_deg": 159.1,
+   "same_department": true
+  },
+  {
+   "name": "연세라인업의원",
+   "distance_m": 734.7,
+   "bearing_deg": 161.5,
+   "same_department": true
+  },
+  {
+   "name": "리앤웰성형외과의원",
+   "distance_m": 744.3,
+   "bearing_deg": 166.1,
+   "same_department": true
+  },
+  {
+   "name": "알앤비성형외과의원",
+   "distance_m": 744.3,
+   "bearing_deg": 166.1,
+   "same_department": true
+  },
+  {
+   "name": "서울ND(엔디)의원",
+   "distance_m": 744.9,
+   "bearing_deg": 29.5,
+   "same_department": true
+  },
+  {
+   "name": "압구정탑라인의원",
+   "distance_m": 748.4,
+   "bearing_deg": 149.7,
+   "same_department": true
+  },
+  {
+   "name": "역삼이창훈이비인후과의원",
+   "distance_m": 756.9,
+   "bearing_deg": 191.9,
+   "same_department": true
+  },
+  {
+   "name": "조아라산부인과의원",
+   "distance_m": 756.9,
+   "bearing_deg": 191.9,
+   "same_department": true
+  },
+  {
+   "name": "에스앤유피부과의원",
+   "distance_m": 761.5,
+   "bearing_deg": 221.6,
+   "same_department": true
+  },
+  {
+   "name": "오로라의원",
+   "distance_m": 767.2,
+   "bearing_deg": 338.5,
+   "same_department": true
+  },
+  {
+   "name": "마스크성형외과의원",
+   "distance_m": 788.0,
+   "bearing_deg": 217.7,
+   "same_department": true
+  },
+  {
+   "name": "원셀의원",
+   "distance_m": 800.3,
+   "bearing_deg": 30.1,
+   "same_department": true
+  },
+  {
+   "name": "봉봉성형외과의원",
+   "distance_m": 806.0,
+   "bearing_deg": 309.6,
+   "same_department": true
+  },
+  {
+   "name": "선릉다나아이비인후과의원",
+   "distance_m": 812.1,
+   "bearing_deg": 134.0,
+   "same_department": true
+  },
+  {
+   "name": "본앤미의원",
+   "distance_m": 813.7,
+   "bearing_deg": 189.6,
+   "same_department": true
+  },
+  {
+   "name": "강남웰남성의원",
+   "distance_m": 855.5,
+   "bearing_deg": 114.2,
+   "same_department": true
+  },
+  {
+   "name": "누브의원",
+   "distance_m": 856.9,
+   "bearing_deg": 135.8,
+   "same_department": true
+  },
+  {
+   "name": "아이엘의원",
+   "distance_m": 870.2,
+   "bearing_deg": 321.5,
+   "same_department": true
+  },
+  {
+   "name": "지세븐의원",
+   "distance_m": 876.2,
+   "bearing_deg": 200.4,
+   "same_department": true
+  },
+  {
+   "name": "스마트정형외과의원",
+   "distance_m": 894.1,
+   "bearing_deg": 201.3,
+   "same_department": true
+  },
+  {
+   "name": "시그니처피부과의원",
+   "distance_m": 894.1,
+   "bearing_deg": 201.3,
+   "same_department": true
+  },
+  {
+   "name": "에이펙스성형외과의원",
+   "distance_m": 894.1,
+   "bearing_deg": 201.3,
+   "same_department": true
+  },
+  {
+   "name": "더이쁨풀의원",
+   "distance_m": 900.0,
+   "bearing_deg": 106.4,
+   "same_department": true
+  },
+  {
+   "name": "스테이영피부과의원",
+   "distance_m": 902.6,
+   "bearing_deg": 346.5,
+   "same_department": true
+  },
+  {
+   "name": "엠플러스의원",
+   "distance_m": 913.6,
+   "bearing_deg": 319.8,
+   "same_department": true
+  },
+  {
+   "name": "셀린피부과의원",
+   "distance_m": 915.7,
+   "bearing_deg": 327.5,
+   "same_department": true
+  },
+  {
+   "name": "예지인피부과의원",
+   "distance_m": 916.9,
+   "bearing_deg": 105.6,
+   "same_department": true
+  },
+  {
+   "name": "강남쏘울의원",
+   "distance_m": 922.1,
+   "bearing_deg": 8.3,
+   "same_department": true
+  },
+  {
+   "name": "재단법인서울의과학연구소 하나로리더스의원",
+   "distance_m": 923.8,
+   "bearing_deg": 121.9,
+   "same_department": true
+  },
+  {
+   "name": "닥터웰니스의원",
+   "distance_m": 925.3,
+   "bearing_deg": 23.7,
+   "same_department": true
+  },
+  {
+   "name": "서울레전드피부과의원",
+   "distance_m": 925.3,
+   "bearing_deg": 23.7,
+   "same_department": true
+  },
+  {
+   "name": "맑은선의원",
+   "distance_m": 932.8,
+   "bearing_deg": 107.2,
+   "same_department": true
+  },
+  {
+   "name": "마이미의원",
+   "distance_m": 942.9,
+   "bearing_deg": 112.4,
+   "same_department": true
+  },
+  {
+   "name": "연세베러의원",
+   "distance_m": 943.3,
+   "bearing_deg": 192.4,
+   "same_department": true
+  },
+  {
+   "name": "미예담산부인과의원",
+   "distance_m": 943.9,
+   "bearing_deg": 328.6,
+   "same_department": true
+  },
+  {
+   "name": "선릉탑비뇨기과의원",
+   "distance_m": 945.0,
+   "bearing_deg": 108.2,
+   "same_department": true
+  },
+  {
+   "name": "닥터퀸스의원",
+   "distance_m": 947.5,
+   "bearing_deg": 169.3,
+   "same_department": true
+  },
+  {
+   "name": "매직피부과의원",
+   "distance_m": 963.9,
+   "bearing_deg": 119.1,
+   "same_department": true
+  },
+  {
+   "name": "선릉닥터에버스의원",
+   "distance_m": 963.9,
+   "bearing_deg": 119.1,
+   "same_department": true
+  },
+  {
+   "name": "수이비인후과의원",
+   "distance_m": 963.9,
+   "bearing_deg": 119.1,
+   "same_department": true
+  },
+  {
+   "name": "로즈여성의원",
+   "distance_m": 971.2,
+   "bearing_deg": 273.9,
+   "same_department": true
+  },
+  {
+   "name": "강남초이스병원",
+   "distance_m": 977.0,
+   "bearing_deg": 111.0,
+   "same_department": true
+  },
+  {
+   "name": "더리즈의원",
+   "distance_m": 977.0,
+   "bearing_deg": 111.0,
+   "same_department": true
+  },
+  {
+   "name": "청담지온유의원",
+   "distance_m": 980.9,
+   "bearing_deg": 11.0,
+   "same_department": true
+  },
+  {
+   "name": "모멘텀헤어라인의원",
+   "distance_m": 985.4,
+   "bearing_deg": 110.6,
+   "same_department": true
+  },
+  {
+   "name": "인코드의원",
+   "distance_m": 985.4,
+   "bearing_deg": 110.6,
+   "same_department": true
+  },
+  {
+   "name": "닥터윤뷰티플의원",
+   "distance_m": 993.4,
+   "bearing_deg": 283.9,
+   "same_department": true
+  },
+  {
+   "name": "와이앤티디알여성의원",
+   "distance_m": 993.4,
+   "bearing_deg": 283.9,
+   "same_department": true
+  },
+  {
+   "name": "예인피부과의원",
+   "distance_m": 1002.1,
+   "bearing_deg": 107.8,
+   "same_department": true
+  },
+  {
+   "name": "루피엘의원",
+   "distance_m": 1005.6,
+   "bearing_deg": 15.7,
+   "same_department": true
+  },
+  {
+   "name": "서울에이치피부과의원",
+   "distance_m": 1005.6,
+   "bearing_deg": 15.7,
+   "same_department": true
+  },
+  {
+   "name": "우호철비뇨기과의원",
+   "distance_m": 1005.6,
+   "bearing_deg": 15.7,
+   "same_department": true
+  },
+  {
+   "name": "오엘의원",
+   "distance_m": 1008.5,
+   "bearing_deg": 278.1,
+   "same_department": true
+  },
+  {
+   "name": "강남더의원",
+   "distance_m": 1008.9,
+   "bearing_deg": 13.6,
+   "same_department": true
+  },
+  {
+   "name": "순백의원",
+   "distance_m": 1008.9,
+   "bearing_deg": 13.6,
+   "same_department": true
+  },
+  {
+   "name": "아이라인성형외과의원",
+   "distance_m": 1008.9,
+   "bearing_deg": 13.6,
+   "same_department": true
+  },
+  {
+   "name": "청담연세피부과의원",
+   "distance_m": 1008.9,
+   "bearing_deg": 13.6,
+   "same_department": true
+  },
+  {
+   "name": "베스트이화의원",
+   "distance_m": 1014.6,
+   "bearing_deg": 276.5,
+   "same_department": true
+  },
+  {
+   "name": "에이스성형외과의원",
+   "distance_m": 1015.7,
+   "bearing_deg": 7.5,
+   "same_department": true
+  },
+  {
+   "name": "연세에스의원",
+   "distance_m": 1018.0,
+   "bearing_deg": 312.0,
+   "same_department": true
+  },
+  {
+   "name": "셀피아의료생활협동조합셀피아의원",
+   "distance_m": 1020.7,
+   "bearing_deg": 151.8,
+   "same_department": true
+  },
+  {
+   "name": "니오베의원",
+   "distance_m": 1022.2,
+   "bearing_deg": 67.4,
+   "same_department": true
+  },
+  {
+   "name": "뉴연세의원",
+   "distance_m": 1023.9,
+   "bearing_deg": 187.5,
+   "same_department": true
+  },
+  {
+   "name": "라르떼의원",
+   "distance_m": 1024.9,
+   "bearing_deg": 108.6,
+   "same_department": true
+  },
+  {
+   "name": "모아이의원",
+   "distance_m": 1024.9,
+   "bearing_deg": 108.6,
+   "same_department": true
+  },
+  {
+   "name": "더멘토성형외과의원",
+   "distance_m": 1029.0,
+   "bearing_deg": 8.8,
+   "same_department": true
+  },
+  {
+   "name": "더제이의원",
+   "distance_m": 1029.0,
+   "bearing_deg": 8.8,
+   "same_department": true
+  },
+  {
+   "name": "오라(AURA)성형외과의원",
+   "distance_m": 1029.0,
+   "bearing_deg": 8.8,
+   "same_department": true
+  },
+  {
+   "name": "아빈의원",
+   "distance_m": 1035.5,
+   "bearing_deg": 152.1,
+   "same_department": true
+  },
+  {
+   "name": "미드나잇의원",
+   "distance_m": 1044.8,
+   "bearing_deg": 281.9,
+   "same_department": true
+  },
+  {
+   "name": "엔슬림의원",
+   "distance_m": 1046.0,
+   "bearing_deg": 199.6,
+   "same_department": true
+  },
+  {
+   "name": "우유빛의원",
+   "distance_m": 1047.6,
+   "bearing_deg": 254.5,
+   "same_department": true
+  },
+  {
+   "name": "라인마스터의원",
+   "distance_m": 1052.4,
+   "bearing_deg": 107.5,
+   "same_department": true
+  },
+  {
+   "name": "선릉디온의원",
+   "distance_m": 1052.4,
+   "bearing_deg": 107.5,
+   "same_department": true
+  },
+  {
+   "name": "연세코코이비인후과의원",
+   "distance_m": 1052.4,
+   "bearing_deg": 107.5,
+   "same_department": true
+  },
+  {
+   "name": "이혜미산부인과의원",
+   "distance_m": 1052.4,
+   "bearing_deg": 107.5,
+   "same_department": true
+  },
+  {
+   "name": "므두셀라의원",
+   "distance_m": 1056.0,
+   "bearing_deg": 325.7,
+   "same_department": true
+  },
+  {
+   "name": "닥터주비뇨의학과의원",
+   "distance_m": 1061.3,
+   "bearing_deg": 9.5,
+   "same_department": true
+  },
+  {
+   "name": "솔린의원",
+   "distance_m": 1061.3,
+   "bearing_deg": 9.5,
+   "same_department": true
+  },
+  {
+   "name": "강남365가정의학과의원",
+   "distance_m": 1066.2,
+   "bearing_deg": 15.1,
+   "same_department": true
+  },
+  {
+   "name": "루엘의원",
+   "distance_m": 1069.1,
+   "bearing_deg": 254.2,
+   "same_department": true
+  },
+  {
+   "name": "비브이의원",
+   "distance_m": 1069.1,
+   "bearing_deg": 254.2,
+   "same_department": true
+  },
+  {
+   "name": "아이델성형외과의원",
+   "distance_m": 1069.1,
+   "bearing_deg": 254.2,
+   "same_department": true
+  },
+  {
+   "name": "앤퍼센트의원",
+   "distance_m": 1069.1,
+   "bearing_deg": 254.2,
+   "same_department": true
+  },
+  {
+   "name": "온우의원",
+   "distance_m": 1069.5,
+   "bearing_deg": 245.1,
+   "same_department": true
+  },
+  {
+   "name": "제일이비인후과의원",
+   "distance_m": 1081.2,
+   "bearing_deg": 308.4,
+   "same_department": true
+  },
+  {
+   "name": "디에이성형외과의원",
+   "distance_m": 1086.7,
+   "bearing_deg": 211.6,
+   "same_department": true
+  },
+  {
+   "name": "모리의원",
+   "distance_m": 1089.6,
+   "bearing_deg": 117.2,
+   "same_department": true
+  },
+  {
+   "name": "강남미의원",
+   "distance_m": 1093.2,
+   "bearing_deg": 206.6,
+   "same_department": true
+  },
+  {
+   "name": "디마레의원",
+   "distance_m": 1094.1,
+   "bearing_deg": 251.2,
+   "same_department": true
+  },
+  {
+   "name": "삼사오성형외과의원",
+   "distance_m": 1094.1,
+   "bearing_deg": 251.2,
+   "same_department": true
+  },
+  {
+   "name": "세라성형외과의원",
+   "distance_m": 1109.3,
+   "bearing_deg": 64.6,
+   "same_department": true
+  },
+  {
+   "name": "유브의원",
+   "distance_m": 1109.3,
+   "bearing_deg": 64.6,
+   "same_department": true
+  },
+  {
+   "name": "본라인의원",
+   "distance_m": 1117.6,
+   "bearing_deg": 118.0,
+   "same_department": true
+  },
+  {
+   "name": "세이의원",
+   "distance_m": 1117.6,
+   "bearing_deg": 118.0,
+   "same_department": true
+  },
+  {
+   "name": "갤러리의원",
+   "distance_m": 1127.9,
+   "bearing_deg": 118.5,
+   "same_department": true
+  },
+  {
+   "name": "비테라의원",
+   "distance_m": 1127.9,
+   "bearing_deg": 118.5,
+   "same_department": true
+  },
+  {
+   "name": "강남셀리팅의원",
+   "distance_m": 1133.7,
+   "bearing_deg": 213.4,
+   "same_department": true
+  },
+  {
+   "name": "디케이의원",
+   "distance_m": 1133.7,
+   "bearing_deg": 213.4,
+   "same_department": true
+  },
+  {
+   "name": "로웰성형외과의원",
+   "distance_m": 1133.7,
+   "bearing_deg": 213.4,
+   "same_department": true
+  },
+  {
+   "name": "아이백의원",
+   "distance_m": 1133.7,
+   "bearing_deg": 213.4,
+   "same_department": true
+  },
+  {
+   "name": "에스여성의원",
+   "distance_m": 1133.7,
+   "bearing_deg": 213.4,
+   "same_department": true
+  },
+  {
+   "name": "이즈의원",
+   "distance_m": 1133.7,
+   "bearing_deg": 213.4,
+   "same_department": true
+  },
+  {
+   "name": "이노벨의원",
+   "distance_m": 1134.0,
+   "bearing_deg": 9.6,
+   "same_department": true
+  },
+  {
+   "name": "강남브엘의원",
+   "distance_m": 1137.6,
+   "bearing_deg": 254.5,
+   "same_department": true
+  },
+  {
+   "name": "강남삼성내과의원",
+   "distance_m": 1137.6,
+   "bearing_deg": 254.5,
+   "same_department": true
+  },
+  {
+   "name": "리메이크강남의원",
+   "distance_m": 1137.6,
+   "bearing_deg": 280.5,
+   "same_department": true
+  },
+  {
+   "name": "애프터눈성형외과의원",
+   "distance_m": 1137.6,
+   "bearing_deg": 254.5,
+   "same_department": true
+  },
+  {
+   "name": "더새로이의원",
+   "distance_m": 1144.8,
+   "bearing_deg": 350.0,
+   "same_department": true
+  },
+  {
+   "name": "세레스의원",
+   "distance_m": 1144.8,
+   "bearing_deg": 350.0,
+   "same_department": true
+  },
+  {
+   "name": "셀러블153강남의원",
+   "distance_m": 1144.8,
+   "bearing_deg": 350.0,
+   "same_department": true
+  },
+  {
+   "name": "오셀의원",
+   "distance_m": 1144.8,
+   "bearing_deg": 350.0,
+   "same_department": true
+  },
+  {
+   "name": "골드제이의원",
+   "distance_m": 1148.6,
+   "bearing_deg": 109.6,
+   "same_department": true
+  },
+  {
+   "name": "리무브의원",
+   "distance_m": 1149.9,
+   "bearing_deg": 251.1,
+   "same_department": true
+  },
+  {
+   "name": "아도의원",
+   "distance_m": 1149.9,
+   "bearing_deg": 251.1,
+   "same_department": true
+  },
+  {
+   "name": "아르네의원",
+   "distance_m": 1149.9,
+   "bearing_deg": 251.1,
+   "same_department": true
+  },
+  {
+   "name": "벨포인트의원",
+   "distance_m": 1151.9,
+   "bearing_deg": 254.2,
+   "same_department": true
+  },
+  {
+   "name": "247외과의원",
+   "distance_m": 1168.4,
+   "bearing_deg": 251.2,
+   "same_department": true
+  },
+  {
+   "name": "닥터망고의원",
+   "distance_m": 1168.4,
+   "bearing_deg": 251.2,
+   "same_department": true
+  },
+  {
+   "name": "더난성형외과의원",
+   "distance_m": 1168.4,
+   "bearing_deg": 251.2,
+   "same_department": true
+  },
+  {
+   "name": "더하다성형외과의원",
+   "distance_m": 1168.4,
+   "bearing_deg": 251.2,
+   "same_department": true
+  },
+  {
+   "name": "메이트성형외과의원",
+   "distance_m": 1168.4,
+   "bearing_deg": 251.2,
+   "same_department": true
+  },
+  {
+   "name": "아이탑성형외과의원",
+   "distance_m": 1168.4,
+   "bearing_deg": 251.2,
+   "same_department": true
+  },
+  {
+   "name": "일치성형외과의원",
+   "distance_m": 1168.4,
+   "bearing_deg": 251.2,
+   "same_department": true
+  },
+  {
+   "name": "뷰성형외과의원",
+   "distance_m": 1171.0,
+   "bearing_deg": 253.9,
+   "same_department": true
+  },
+  {
+   "name": "세라미크의원",
+   "distance_m": 1187.2,
+   "bearing_deg": 241.3,
+   "same_department": true
+  },
+  {
+   "name": "에스듈의원",
+   "distance_m": 1191.7,
+   "bearing_deg": 115.6,
+   "same_department": true
+  },
+  {
+   "name": "연세기쁜내과의원",
+   "distance_m": 1193.3,
+   "bearing_deg": 158.2,
+   "same_department": true
+  },
+  {
+   "name": "365코이의원",
+   "distance_m": 1196.0,
+   "bearing_deg": 261.3,
+   "same_department": true
+  },
+  {
+   "name": "루센느의원",
+   "distance_m": 1201.3,
+   "bearing_deg": 254.1,
+   "same_department": true
+  },
+  {
+   "name": "스타라인성형외과의원",
+   "distance_m": 1201.3,
+   "bearing_deg": 254.1,
+   "same_department": true
+  },
+  {
+   "name": "알파모의원",
+   "distance_m": 1201.3,
+   "bearing_deg": 254.1,
+   "same_department": true
+  },
+  {
+   "name": "연세더블유여성의원",
+   "distance_m": 1202.7,
+   "bearing_deg": 117.0,
+   "same_department": true
+  },
+  {
+   "name": "서울리샤인의원",
+   "distance_m": 1209.2,
+   "bearing_deg": 118.8,
+   "same_department": true
+  },
+  {
+   "name": "더나인(The Nine)피부과의원",
+   "distance_m": 1214.1,
+   "bearing_deg": 111.2,
+   "same_department": true
+  },
+  {
+   "name": "맥스웰피부과의원",
+   "distance_m": 1215.2,
+   "bearing_deg": 211.5,
+   "same_department": true
+  },
+  {
+   "name": "셀리데이의원",
+   "distance_m": 1215.2,
+   "bearing_deg": 211.5,
+   "same_department": true
+  },
+  {
+   "name": "연세아이미스템의원",
+   "distance_m": 1215.2,
+   "bearing_deg": 211.5,
+   "same_department": true
+  },
+  {
+   "name": "골든발란스의원",
+   "distance_m": 1220.0,
+   "bearing_deg": 249.9,
+   "same_department": true
+  },
+  {
+   "name": "더픽스성형외과의원",
+   "distance_m": 1220.0,
+   "bearing_deg": 249.9,
+   "same_department": true
+  },
+  {
+   "name": "미파문피부과의원",
+   "distance_m": 1220.0,
+   "bearing_deg": 249.9,
+   "same_department": true
+  },
+  {
+   "name": "앤드성형외과의원",
+   "distance_m": 1220.0,
+   "bearing_deg": 249.9,
+   "same_department": true
+  },
+  {
+   "name": "솜씨좋은산부인과의원",
+   "distance_m": 1220.2,
+   "bearing_deg": 211.7,
+   "same_department": true
+  },
+  {
+   "name": "강남유앤아이의원",
+   "distance_m": 1222.0,
+   "bearing_deg": 251.0,
+   "same_department": true
+  },
+  {
+   "name": "라라성형외과의원",
+   "distance_m": 1222.0,
+   "bearing_deg": 251.0,
+   "same_department": true
+  },
+  {
+   "name": "리브의원",
+   "distance_m": 1222.0,
+   "bearing_deg": 251.0,
+   "same_department": true
+  },
+  {
+   "name": "예쁨주의쁨의원",
+   "distance_m": 1222.0,
+   "bearing_deg": 251.0,
+   "same_department": true
+  },
+  {
+   "name": "라엘르의원",
+   "distance_m": 1223.2,
+   "bearing_deg": 113.6,
+   "same_department": true
+  },
+  {
+   "name": "강남타임의원",
+   "distance_m": 1224.3,
+   "bearing_deg": 254.1,
+   "same_department": true
+  },
+  {
+   "name": "델픽의원",
+   "distance_m": 1224.3,
+   "bearing_deg": 254.1,
+   "same_department": true
+  },
+  {
+   "name": "바이브성형외과의원",
+   "distance_m": 1224.3,
+   "bearing_deg": 254.1,
+   "same_department": true
+  },
+  {
+   "name": "바탕성형외과의원",
+   "distance_m": 1224.3,
+   "bearing_deg": 254.1,
+   "same_department": true
+  },
+  {
+   "name": "밴스성형외과의원",
+   "distance_m": 1224.3,
+   "bearing_deg": 254.1,
+   "same_department": true
+  },
+  {
+   "name": "세이예스의원",
+   "distance_m": 1224.3,
+   "bearing_deg": 254.1,
+   "same_department": true
+  },
+  {
+   "name": "제이디리체스의원",
+   "distance_m": 1224.3,
+   "bearing_deg": 254.1,
+   "same_department": true
+  },
+  {
+   "name": "조은날의원",
+   "distance_m": 1224.3,
+   "bearing_deg": 254.1,
+   "same_department": true
+  },
+  {
+   "name": "더행복한흉부외과의원",
+   "distance_m": 1225.4,
+   "bearing_deg": 61.3,
+   "same_department": true
+  },
+  {
+   "name": "강남닥터에버스의원",
+   "distance_m": 1225.7,
+   "bearing_deg": 245.8,
+   "same_department": true
+  },
+  {
+   "name": "닥터뉴셀의원",
+   "distance_m": 1225.7,
+   "bearing_deg": 245.8,
+   "same_department": true
+  },
+  {
+   "name": "리모성형외과의원",
+   "distance_m": 1225.7,
+   "bearing_deg": 245.8,
+   "same_department": true
+  },
+  {
+   "name": "모던스탠다드의원",
+   "distance_m": 1225.7,
+   "bearing_deg": 245.8,
+   "same_department": true
+  },
+  {
+   "name": "시크릿의원",
+   "distance_m": 1225.7,
+   "bearing_deg": 245.8,
+   "same_department": true
+  },
+  {
+   "name": "닥터베이직의원",
+   "distance_m": 1227.5,
+   "bearing_deg": 255.2,
+   "same_department": true
+  },
+  {
+   "name": "링크성형외과의원",
+   "distance_m": 1227.5,
+   "bearing_deg": 255.2,
+   "same_department": true
+  },
+  {
+   "name": "뽐나게빼의원",
+   "distance_m": 1227.5,
+   "bearing_deg": 255.2,
+   "same_department": true
+  },
+  {
+   "name": "뉴헤어모발성형외과의원",
+   "distance_m": 1228.0,
+   "bearing_deg": 215.9,
+   "same_department": true
+  },
+  {
+   "name": "더도어성형외과의원",
+   "distance_m": 1228.0,
+   "bearing_deg": 215.9,
+   "same_department": true
+  },
+  {
+   "name": "유넬의원",
+   "distance_m": 1228.0,
+   "bearing_deg": 215.9,
+   "same_department": true
+  },
+  {
+   "name": "유로스메디컬의원",
+   "distance_m": 1228.0,
+   "bearing_deg": 215.9,
+   "same_department": true
+  },
+  {
+   "name": "삼성중앙리더스피부과의원",
+   "distance_m": 1231.0,
+   "bearing_deg": 65.0,
+   "same_department": true
+  },
+  {
+   "name": "뮤즈의원",
+   "distance_m": 1233.6,
+   "bearing_deg": 242.8,
+   "same_department": true
+  },
+  {
+   "name": "디에이치페이스업의원",
+   "distance_m": 1234.8,
+   "bearing_deg": 256.2,
+   "same_department": true
+  },
+  {
+   "name": "수아이성형외과의원",
+   "distance_m": 1234.8,
+   "bearing_deg": 256.2,
+   "same_department": true
+  },
+  {
+   "name": "네오유여성비뇨기과의원",
+   "distance_m": 1238.6,
+   "bearing_deg": 240.2,
+   "same_department": true
+  },
+  {
+   "name": "디케이서울의원",
+   "distance_m": 1238.6,
+   "bearing_deg": 240.2,
+   "same_department": true
+  },
+  {
+   "name": "땡큐성형외과의원",
+   "distance_m": 1238.6,
+   "bearing_deg": 240.2,
+   "same_department": true
+  },
+  {
+   "name": "루미에의원",
+   "distance_m": 1238.6,
+   "bearing_deg": 240.2,
+   "same_department": true
+  },
+  {
+   "name": "아이앤지성형외과의원",
+   "distance_m": 1238.6,
+   "bearing_deg": 240.2,
+   "same_department": true
+  },
+  {
+   "name": "유에이치셀의원",
+   "distance_m": 1239.9,
+   "bearing_deg": 207.0,
+   "same_department": true
+  },
+  {
+   "name": "신논현톡스앤필의원",
+   "distance_m": 1240.0,
+   "bearing_deg": 258.1,
+   "same_department": true
+  },
+  {
+   "name": "아트인휴먼피부과의원",
+   "distance_m": 1240.3,
+   "bearing_deg": 153.8,
+   "same_department": true
+  },
+  {
+   "name": "라비체의원",
+   "distance_m": 1243.2,
+   "bearing_deg": 259.6,
+   "same_department": true
+  },
+  {
+   "name": "스카이라인의원",
+   "distance_m": 1243.2,
+   "bearing_deg": 259.6,
+   "same_department": true
+  },
+  {
+   "name": "시아의원",
+   "distance_m": 1243.2,
+   "bearing_deg": 259.6,
+   "same_department": true
+  },
+  {
+   "name": "역삼밴스피부과의원",
+   "distance_m": 1245.6,
+   "bearing_deg": 212.6,
+   "same_department": true
+  },
+  {
+   "name": "권오정리얼뷰티의원",
+   "distance_m": 1245.7,
+   "bearing_deg": 115.4,
+   "same_department": true
+  },
+  {
+   "name": "노드의원",
+   "distance_m": 1246.8,
+   "bearing_deg": 210.3,
+   "same_department": true
+  },
+  {
+   "name": "데이뷰의원",
+   "distance_m": 1248.0,
+   "bearing_deg": 262.2,
+   "same_department": true
+  },
+  {
+   "name": "뷰티라운지의원",
+   "distance_m": 1248.9,
+   "bearing_deg": 238.5,
+   "same_department": true
+  },
+  {
+   "name": "바이슈의원",
+   "distance_m": 1251.4,
+   "bearing_deg": 261.1,
+   "same_department": true
+  },
+  {
+   "name": "우아성형외과의원",
+   "distance_m": 1252.5,
+   "bearing_deg": 261.2,
+   "same_department": true
+  },
+  {
+   "name": "제이필의원",
+   "distance_m": 1255.1,
+   "bearing_deg": 236.1,
+   "same_department": true
+  },
+  {
+   "name": "더왈츠의원",
+   "distance_m": 1257.0,
+   "bearing_deg": 220.9,
+   "same_department": true
+  },
+  {
+   "name": "밸런스퀀텀의원",
+   "distance_m": 1257.0,
+   "bearing_deg": 220.9,
+   "same_department": true
+  },
+  {
+   "name": "강남비엘에스의원",
+   "distance_m": 1260.3,
+   "bearing_deg": 233.8,
+   "same_department": true
+  },
+  {
+   "name": "루쎄여성의원",
+   "distance_m": 1260.3,
+   "bearing_deg": 233.8,
+   "same_department": true
+  },
+  {
+   "name": "리디아여성의원",
+   "distance_m": 1260.3,
+   "bearing_deg": 233.8,
+   "same_department": true
+  },
+  {
+   "name": "에반스연세의원",
+   "distance_m": 1260.3,
+   "bearing_deg": 233.8,
+   "same_department": true
+  },
+  {
+   "name": "자연예쁨의원",
+   "distance_m": 1260.3,
+   "bearing_deg": 233.8,
+   "same_department": true
+  },
+  {
+   "name": "미라젠의원",
+   "distance_m": 1262.1,
+   "bearing_deg": 11.0,
+   "same_department": true
+  },
+  {
+   "name": "바바성형외과의원",
+   "distance_m": 1265.2,
+   "bearing_deg": 263.8,
+   "same_department": true
+  },
+  {
+   "name": "이레라움의원",
+   "distance_m": 1265.2,
+   "bearing_deg": 263.8,
+   "same_department": true
+  },
+  {
+   "name": "무지개의원",
+   "distance_m": 1268.3,
+   "bearing_deg": 178.2,
+   "same_department": true
+  },
+  {
+   "name": "유앤미의원",
+   "distance_m": 1270.9,
+   "bearing_deg": 27.2,
+   "same_department": true
+  },
+  {
+   "name": "디오레의원",
+   "distance_m": 1272.9,
+   "bearing_deg": 231.6,
+   "same_department": true
+  },
+  {
+   "name": "오앤의원",
+   "distance_m": 1272.9,
+   "bearing_deg": 231.6,
+   "same_department": true
+  },
+  {
+   "name": "강남12의원",
+   "distance_m": 1273.2,
+   "bearing_deg": 217.8,
+   "same_department": true
+  },
+  {
+   "name": "모앤제일의원",
+   "distance_m": 1273.2,
+   "bearing_deg": 217.8,
+   "same_department": true
+  },
+  {
+   "name": "처음처럼성형외과의원",
+   "distance_m": 1273.2,
+   "bearing_deg": 217.8,
+   "same_department": true
+  },
+  {
+   "name": "아비스가정의학과의원",
+   "distance_m": 1273.9,
+   "bearing_deg": 65.3,
+   "same_department": true
+  },
+  {
+   "name": "뉴케이의원",
+   "distance_m": 1278.9,
+   "bearing_deg": 232.6,
+   "same_department": true
+  },
+  {
+   "name": "소엘의원",
+   "distance_m": 1279.7,
+   "bearing_deg": 159.7,
+   "same_department": true
+  },
+  {
+   "name": "쉬즈굿여성의원",
+   "distance_m": 1280.8,
+   "bearing_deg": 113.5,
+   "same_department": true
+  },
+  {
+   "name": "서울연세21세기의원",
+   "distance_m": 1284.4,
+   "bearing_deg": 280.3,
+   "same_department": true
+  },
+  {
+   "name": "유앤아이의원",
+   "distance_m": 1288.7,
+   "bearing_deg": 99.6,
+   "same_department": true
+  },
+  {
+   "name": "리얼리성형외과의원",
+   "distance_m": 1291.4,
+   "bearing_deg": 229.6,
+   "same_department": true
+  },
+  {
+   "name": "뷰라밸성형외과의원",
+   "distance_m": 1291.4,
+   "bearing_deg": 229.6,
+   "same_department": true
+  },
+  {
+   "name": "강남삼성성형외과의원",
+   "distance_m": 1291.8,
+   "bearing_deg": 267.8,
+   "same_department": true
+  },
+  {
+   "name": "서울베스트외과의원",
+   "distance_m": 1293.8,
+   "bearing_deg": 218.6,
+   "same_department": true
+  },
+  {
+   "name": "스킨메디피부과의원",
+   "distance_m": 1297.9,
+   "bearing_deg": 28.6,
+   "same_department": true
+  },
+  {
+   "name": "청담마인소아청소년과의원",
+   "distance_m": 1297.9,
+   "bearing_deg": 28.6,
+   "same_department": true
+  },
+  {
+   "name": "꿈꾸는성형외과의원",
+   "distance_m": 1300.3,
+   "bearing_deg": 229.9,
+   "same_department": true
+  },
+  {
+   "name": "노블앤코의원",
+   "distance_m": 1300.3,
+   "bearing_deg": 229.9,
+   "same_department": true
+  },
+  {
+   "name": "강남조앤조내과소아과의원",
+   "distance_m": 1305.0,
+   "bearing_deg": 228.4,
+   "same_department": true
+  },
+  {
+   "name": "랑뜨산부인과의원",
+   "distance_m": 1305.3,
+   "bearing_deg": 247.7,
+   "same_department": true
+  },
+  {
+   "name": "메디큐브의원",
+   "distance_m": 1305.3,
+   "bearing_deg": 247.7,
+   "same_department": true
+  },
+  {
+   "name": "반에이치의원",
+   "distance_m": 1305.3,
+   "bearing_deg": 247.7,
+   "same_department": true
+  },
+  {
+   "name": "비비라인맆팅의원",
+   "distance_m": 1305.3,
+   "bearing_deg": 247.7,
+   "same_department": true
+  },
+  {
+   "name": "에버샘의원",
+   "distance_m": 1305.3,
+   "bearing_deg": 247.7,
+   "same_department": true
+  },
+  {
+   "name": "강남에스터산부인과의원",
+   "distance_m": 1305.8,
+   "bearing_deg": 253.6,
+   "same_department": true
+  },
+  {
+   "name": "일미리성형외과의원",
+   "distance_m": 1306.3,
+   "bearing_deg": 242.0,
+   "same_department": true
+  },
+  {
+   "name": "브라운성형외과의원",
+   "distance_m": 1307.0,
+   "bearing_deg": 254.3,
+   "same_department": true
+  },
+  {
+   "name": "에이탑성형외과의원",
+   "distance_m": 1307.6,
+   "bearing_deg": 222.0,
+   "same_department": true
+  },
+  {
+   "name": "네스트의원",
+   "distance_m": 1307.8,
+   "bearing_deg": 243.8,
+   "same_department": true
+  },
+  {
+   "name": "더스키니의원",
+   "distance_m": 1309.5,
+   "bearing_deg": 257.3,
+   "same_department": true
+  },
+  {
+   "name": "디테성형외과의원",
+   "distance_m": 1309.5,
+   "bearing_deg": 257.3,
+   "same_department": true
+  },
+  {
+   "name": "블랑산부인과의원",
+   "distance_m": 1309.5,
+   "bearing_deg": 257.3,
+   "same_department": true
+  },
+  {
+   "name": "새로운병원",
+   "distance_m": 1309.6,
+   "bearing_deg": 291.6,
+   "same_department": true
+  },
+  {
+   "name": "블랑쥬의원",
+   "distance_m": 1314.6,
+   "bearing_deg": 239.9,
+   "same_department": true
+  },
+  {
+   "name": "나인피부과의원",
+   "distance_m": 1314.8,
+   "bearing_deg": 241.0,
+   "same_department": true
+  },
+  {
+   "name": "이오의원",
+   "distance_m": 1315.0,
+   "bearing_deg": 29.4,
+   "same_department": true
+  },
+  {
+   "name": "청담포워드피부과의원",
+   "distance_m": 1315.0,
+   "bearing_deg": 29.4,
+   "same_department": true
+  },
+  {
+   "name": "사적인아름다움지유의원",
+   "distance_m": 1315.6,
+   "bearing_deg": 243.1,
+   "same_department": true
+  },
+  {
+   "name": "반니성형외과의원",
+   "distance_m": 1319.0,
+   "bearing_deg": 218.9,
+   "same_department": true
+  },
+  {
+   "name": "서울하이케어의원",
+   "distance_m": 1319.4,
+   "bearing_deg": 218.9,
+   "same_department": true
+  },
+  {
+   "name": "아트라인의원",
+   "distance_m": 1319.4,
+   "bearing_deg": 271.1,
+   "same_department": true
+  },
+  {
+   "name": "올리나의원",
+   "distance_m": 1319.4,
+   "bearing_deg": 271.1,
+   "same_department": true
+  },
+  {
+   "name": "올리팅성형외과의원",
+   "distance_m": 1319.4,
+   "bearing_deg": 218.9,
+   "same_department": true
+  },
+  {
+   "name": "지우의원",
+   "distance_m": 1319.4,
+   "bearing_deg": 218.9,
+   "same_department": true
+  },
+  {
+   "name": "모래시계의원",
+   "distance_m": 1320.1,
+   "bearing_deg": 259.5,
+   "same_department": true
+  },
+  {
+   "name": "에스에이치(SH)성형외과의원",
+   "distance_m": 1320.1,
+   "bearing_deg": 259.5,
+   "same_department": true
+  },
+  {
+   "name": "강남연세소아과의원",
+   "distance_m": 1321.5,
+   "bearing_deg": 136.7,
+   "same_department": true
+  },
+  {
+   "name": "연세라파의원",
+   "distance_m": 1321.5,
+   "bearing_deg": 136.7,
+   "same_department": true
+  },
+  {
+   "name": "메이드유의원",
+   "distance_m": 1323.1,
+   "bearing_deg": 271.7,
+   "same_department": true
+  },
+  {
+   "name": "아임의원",
+   "distance_m": 1323.1,
+   "bearing_deg": 271.7,
+   "same_department": true
+  },
+  {
+   "name": "세븐레마의원",
+   "distance_m": 1323.3,
+   "bearing_deg": 242.1,
+   "same_department": true
+  },
+  {
+   "name": "닥터스키니의원",
+   "distance_m": 1323.7,
+   "bearing_deg": 227.0,
+   "same_department": true
+  },
+  {
+   "name": "연세모나의원",
+   "distance_m": 1323.7,
+   "bearing_deg": 227.0,
+   "same_department": true
+  },
+  {
+   "name": "강남로미모의원",
+   "distance_m": 1324.3,
+   "bearing_deg": 218.9,
+   "same_department": true
+  },
+  {
+   "name": "강남브이에스(VS)라인의원",
+   "distance_m": 1324.3,
+   "bearing_deg": 218.9,
+   "same_department": true
+  },
+  {
+   "name": "강남조은눈안과의원",
+   "distance_m": 1324.3,
+   "bearing_deg": 218.9,
+   "same_department": true
+  },
+  {
+   "name": "더웨이성형외과의원",
+   "distance_m": 1324.3,
+   "bearing_deg": 218.9,
+   "same_department": true
+  },
+  {
+   "name": "21성형외과의원",
+   "distance_m": 1325.6,
+   "bearing_deg": 238.8,
+   "same_department": true
+  },
+  {
+   "name": "디아이성형외과의원",
+   "distance_m": 1325.6,
+   "bearing_deg": 238.8,
+   "same_department": true
+  },
+  {
+   "name": "브이엔성형외과의원",
+   "distance_m": 1325.6,
+   "bearing_deg": 238.8,
+   "same_department": true
+  },
+  {
+   "name": "브이의원",
+   "distance_m": 1325.6,
+   "bearing_deg": 238.8,
+   "same_department": true
+  },
+  {
+   "name": "세니아의원",
+   "distance_m": 1325.6,
+   "bearing_deg": 238.8,
+   "same_department": true
+  },
+  {
+   "name": "아윤의원",
+   "distance_m": 1325.6,
+   "bearing_deg": 238.8,
+   "same_department": true
+  },
+  {
+   "name": "엣지라인의원",
+   "distance_m": 1325.6,
+   "bearing_deg": 238.8,
+   "same_department": true
+  },
+  {
+   "name": "맑고고운라벨라의원",
+   "distance_m": 1327.5,
+   "bearing_deg": 244.8,
+   "same_department": true
+  },
+  {
+   "name": "웰빙의원",
+   "distance_m": 1327.5,
+   "bearing_deg": 244.8,
+   "same_department": true
+  },
+  {
+   "name": "위즈미여성의원",
+   "distance_m": 1327.5,
+   "bearing_deg": 244.8,
+   "same_department": true
+  },
+  {
+   "name": "잇츠비의원",
+   "distance_m": 1327.5,
+   "bearing_deg": 244.8,
+   "same_department": true
+  },
+  {
+   "name": "샤인빔의원",
+   "distance_m": 1327.6,
+   "bearing_deg": 221.3,
+   "same_department": true
+  },
+  {
+   "name": "기브미의원",
+   "distance_m": 1330.0,
+   "bearing_deg": 237.7,
+   "same_department": true
+  },
+  {
+   "name": "로그성형외과의원",
+   "distance_m": 1330.0,
+   "bearing_deg": 237.7,
+   "same_department": true
+  },
+  {
+   "name": "세가지소원성형외과의원",
+   "distance_m": 1330.0,
+   "bearing_deg": 237.7,
+   "same_department": true
+  },
+  {
+   "name": "시안의원",
+   "distance_m": 1330.0,
+   "bearing_deg": 237.7,
+   "same_department": true
+  },
+  {
+   "name": "아이케이성형외과의원",
+   "distance_m": 1330.0,
+   "bearing_deg": 237.7,
+   "same_department": true
+  },
+  {
+   "name": "오네뜨의원",
+   "distance_m": 1330.0,
+   "bearing_deg": 237.7,
+   "same_department": true
+  },
+  {
+   "name": "지디에스성형외과의원",
+   "distance_m": 1330.0,
+   "bearing_deg": 237.7,
+   "same_department": true
+  },
+  {
+   "name": "온리원의원",
+   "distance_m": 1330.4,
+   "bearing_deg": 111.0,
+   "same_department": true
+  },
+  {
+   "name": "다편한정형외과의원",
+   "distance_m": 1330.8,
+   "bearing_deg": 153.4,
+   "same_department": true
+  },
+  {
+   "name": "강남아이디의원",
+   "distance_m": 1332.1,
+   "bearing_deg": 236.8,
+   "same_department": true
+  },
+  {
+   "name": "데이원의원",
+   "distance_m": 1332.1,
+   "bearing_deg": 236.8,
+   "same_department": true
+  },
+  {
+   "name": "뷔엘성형외과의원",
+   "distance_m": 1332.1,
+   "bearing_deg": 236.8,
+   "same_department": true
+  },
+  {
+   "name": "아이필유의원",
+   "distance_m": 1332.1,
+   "bearing_deg": 236.8,
+   "same_department": true
+  },
+  {
+   "name": "윌성형외과의원",
+   "distance_m": 1332.1,
+   "bearing_deg": 236.8,
+   "same_department": true
+  },
+  {
+   "name": "디유성형외과의원",
+   "distance_m": 1335.9,
+   "bearing_deg": 219.4,
+   "same_department": true
+  },
+  {
+   "name": "비엔성형외과의원",
+   "distance_m": 1335.9,
+   "bearing_deg": 219.4,
+   "same_department": true
+  },
+  {
+   "name": "앤써성형외과의원",
+   "distance_m": 1335.9,
+   "bearing_deg": 219.4,
+   "same_department": true
+  },
+  {
+   "name": "오블리성형외과의원",
+   "distance_m": 1335.9,
+   "bearing_deg": 219.4,
+   "same_department": true
+  },
+  {
+   "name": "새로성형외과의원",
+   "distance_m": 1336.1,
+   "bearing_deg": 253.8,
+   "same_department": true
+  },
+  {
+   "name": "진성형외과의원",
+   "distance_m": 1338.6,
+   "bearing_deg": 225.7,
+   "same_department": true
+  },
+  {
+   "name": "강남리슬림의원",
+   "distance_m": 1339.5,
+   "bearing_deg": 235.9,
+   "same_department": true
+  },
+  {
+   "name": "나세르의원",
+   "distance_m": 1339.5,
+   "bearing_deg": 235.9,
+   "same_department": true
+  },
+  {
+   "name": "더블유(W)의원",
+   "distance_m": 1339.5,
+   "bearing_deg": 235.9,
+   "same_department": true
+  },
+  {
+   "name": "라이크성형외과의원",
+   "distance_m": 1339.5,
+   "bearing_deg": 235.9,
+   "same_department": true
+  },
+  {
+   "name": "아티크의원",
+   "distance_m": 1339.5,
+   "bearing_deg": 235.9,
+   "same_department": true
+  },
+  {
+   "name": "에스엠성형외과의원",
+   "distance_m": 1339.5,
+   "bearing_deg": 235.9,
+   "same_department": true
+  },
+  {
+   "name": "메종드엠의원",
+   "distance_m": 1340.0,
+   "bearing_deg": 235.1,
+   "same_department": true
+  },
+  {
+   "name": "스노우의원",
+   "distance_m": 1344.9,
+   "bearing_deg": 215.2,
+   "same_department": true
+  },
+  {
+   "name": "바로그의원",
+   "distance_m": 1345.3,
+   "bearing_deg": 224.9,
+   "same_department": true
+  },
+  {
+   "name": "강남플랜에스의원",
+   "distance_m": 1345.6,
+   "bearing_deg": 224.0,
+   "same_department": true
+  },
+  {
+   "name": "그리다성형외과의원",
+   "distance_m": 1345.6,
+   "bearing_deg": 224.0,
+   "same_department": true
+  },
+  {
+   "name": "미오름성형외과의원",
+   "distance_m": 1345.6,
+   "bearing_deg": 224.0,
+   "same_department": true
+  },
+  {
+   "name": "뽀송의원",
+   "distance_m": 1347.8,
+   "bearing_deg": 234.0,
+   "same_department": true
+  },
+  {
+   "name": "아우름의원",
+   "distance_m": 1347.8,
+   "bearing_deg": 234.0,
+   "same_department": true
+  },
+  {
+   "name": "이지함피부과의원",
+   "distance_m": 1347.8,
+   "bearing_deg": 234.0,
+   "same_department": true
+  },
+  {
+   "name": "차민성형외과의원",
+   "distance_m": 1352.8,
+   "bearing_deg": 265.0,
+   "same_department": true
+  },
+  {
+   "name": "리스펙성형외과의원",
+   "distance_m": 1356.1,
+   "bearing_deg": 223.1,
+   "same_department": true
+  },
+  {
+   "name": "민앤민의원",
+   "distance_m": 1356.1,
+   "bearing_deg": 223.1,
+   "same_department": true
+  },
+  {
+   "name": "어반성형외과의원",
+   "distance_m": 1356.1,
+   "bearing_deg": 223.1,
+   "same_department": true
+  },
+  {
+   "name": "옐로우성형외과의원",
+   "distance_m": 1356.1,
+   "bearing_deg": 223.1,
+   "same_department": true
+  },
+  {
+   "name": "와이영성형외과의원",
+   "distance_m": 1356.1,
+   "bearing_deg": 223.1,
+   "same_department": true
+  },
+  {
+   "name": "유(U)스타일9의원",
+   "distance_m": 1356.1,
+   "bearing_deg": 223.1,
+   "same_department": true
+  },
+  {
+   "name": "인스타성형외과의원",
+   "distance_m": 1356.1,
+   "bearing_deg": 223.1,
+   "same_department": true
+  },
+  {
+   "name": "닥터봄의원",
+   "distance_m": 1358.1,
+   "bearing_deg": 232.6,
+   "same_department": true
+  },
+  {
+   "name": "비티큐의원",
+   "distance_m": 1358.1,
+   "bearing_deg": 104.1,
+   "same_department": true
+  },
+  {
+   "name": "은혜산부인과의원",
+   "distance_m": 1358.6,
+   "bearing_deg": 174.4,
+   "same_department": true
+  },
+  {
+   "name": "노바에스피부과의원",
+   "distance_m": 1360.8,
+   "bearing_deg": 221.9,
+   "same_department": true
+  },
+  {
+   "name": "리츠피부과의원",
+   "distance_m": 1360.8,
+   "bearing_deg": 221.9,
+   "same_department": true
+  },
+  {
+   "name": "아이유의원",
+   "distance_m": 1360.8,
+   "bearing_deg": 221.9,
+   "same_department": true
+  },
+  {
+   "name": "라클라쎄의원",
+   "distance_m": 1362.2,
+   "bearing_deg": 220.9,
+   "same_department": true
+  },
+  {
+   "name": "유레카피부과의원",
+   "distance_m": 1362.2,
+   "bearing_deg": 220.9,
+   "same_department": true
+  },
+  {
+   "name": "비앤영의원",
+   "distance_m": 1362.3,
+   "bearing_deg": 222.9,
+   "same_department": true
+  },
+  {
+   "name": "모엠의원",
+   "distance_m": 1365.1,
+   "bearing_deg": 220.7,
+   "same_department": true
+  },
+  {
+   "name": "강남연세라인의원",
+   "distance_m": 1367.1,
+   "bearing_deg": 220.8,
+   "same_department": true
+  },
+  {
+   "name": "리터닝성형외과의원",
+   "distance_m": 1367.1,
+   "bearing_deg": 220.8,
+   "same_department": true
+  },
+  {
+   "name": "슬림에디션의원",
+   "distance_m": 1367.1,
+   "bearing_deg": 220.8,
+   "same_department": true
+  },
+  {
+   "name": "미사랑성형외과의원",
+   "distance_m": 1368.3,
+   "bearing_deg": 275.7,
+   "same_department": true
+  },
+  {
+   "name": "고와의원",
+   "distance_m": 1368.4,
+   "bearing_deg": 250.3,
+   "same_department": true
+  },
+  {
+   "name": "더비비성형외과의원",
+   "distance_m": 1368.9,
+   "bearing_deg": 221.9,
+   "same_department": true
+  },
+  {
+   "name": "제로피부과의원",
+   "distance_m": 1369.3,
+   "bearing_deg": 230.5,
+   "same_department": true
+  },
+  {
+   "name": "디아르의원",
+   "distance_m": 1370.1,
+   "bearing_deg": 240.4,
+   "same_department": true
+  },
+  {
+   "name": "리베리의원",
+   "distance_m": 1370.1,
+   "bearing_deg": 240.4,
+   "same_department": true
+  },
+  {
+   "name": "링클성형외과의원",
+   "distance_m": 1370.1,
+   "bearing_deg": 240.4,
+   "same_department": true
+  },
+  {
+   "name": "스노우글로벌의원",
+   "distance_m": 1370.1,
+   "bearing_deg": 240.4,
+   "same_department": true
+  },
+  {
+   "name": "미엘르의원",
+   "distance_m": 1370.2,
+   "bearing_deg": 256.9,
+   "same_department": true
+  },
+  {
+   "name": "쁨글로벌의원",
+   "distance_m": 1370.3,
+   "bearing_deg": 241.8,
+   "same_department": true
+  },
+  {
+   "name": "세예의원",
+   "distance_m": 1370.3,
+   "bearing_deg": 241.8,
+   "same_department": true
+  },
+  {
+   "name": "리젠의원",
+   "distance_m": 1376.3,
+   "bearing_deg": 276.3,
+   "same_department": true
+  },
+  {
+   "name": "소문난여성의원",
+   "distance_m": 1376.3,
+   "bearing_deg": 276.3,
+   "same_department": true
+  },
+  {
+   "name": "소유의원",
+   "distance_m": 1376.3,
+   "bearing_deg": 276.3,
+   "same_department": true
+  },
+  {
+   "name": "시네마의원",
+   "distance_m": 1376.3,
+   "bearing_deg": 276.3,
+   "same_department": true
+  },
+  {
+   "name": "메이슨의원",
+   "distance_m": 1379.9,
+   "bearing_deg": 236.8,
+   "same_department": true
+  },
+  {
+   "name": "강남역데이원의원",
+   "distance_m": 1380.7,
+   "bearing_deg": 231.8,
+   "same_department": true
+  },
+  {
+   "name": "강남항외과의원",
+   "distance_m": 1380.7,
+   "bearing_deg": 231.8,
+   "same_department": true
+  },
+  {
+   "name": "닥터탁성형외과의원",
+   "distance_m": 1380.7,
+   "bearing_deg": 231.8,
+   "same_department": true
+  },
+  {
+   "name": "루트테마피부과의원",
+   "distance_m": 1380.7,
+   "bearing_deg": 231.8,
+   "same_department": true
+  },
+  {
+   "name": "메이필의원",
+   "distance_m": 1380.7,
+   "bearing_deg": 231.8,
+   "same_department": true
+  },
+  {
+   "name": "모먼트의원",
+   "distance_m": 1380.7,
+   "bearing_deg": 231.8,
+   "same_department": true
+  },
+  {
+   "name": "모션의원",
+   "distance_m": 1380.7,
+   "bearing_deg": 231.8,
+   "same_department": true
+  },
+  {
+   "name": "블리비의원",
+   "distance_m": 1380.7,
+   "bearing_deg": 231.8,
+   "same_department": true
+  },
+  {
+   "name": "아이러브피부과의원",
+   "distance_m": 1380.7,
+   "bearing_deg": 231.8,
+   "same_department": true
+  }
+ ],
+ "sgis": {
+  "adm_nm": "서울특별시강남구",
+  "tot_ppltn": 511084.0,
+  "ppltn_dnsty": 12952.7,
+  "avg_age": 42.5,
+  "employee_cnt": 769609.0,
+  "corp_cnt": 101352.0,
+  "year": "2023"
+ },
+ "data_basis": {
+  "sources": [
+   "건강보험심사평가원 병원정보서비스",
+   "네이버 지역 검색 API (비로그인, 상위 5건)",
+   "SGIS 통계지리정보"
+  ],
+  "note": "미노출 = 공식 API 상위 5위 밖. 실제 검색화면과 다를 수 있음."
+ }
+}
