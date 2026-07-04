@@ -62,15 +62,25 @@ def _norm(s: str) -> str:
 
 
 def parse_region(jibun_address: str) -> dict:
-    """지번 주소 → {city, gu, dong}. 예: '대구광역시 수성구 두산동 123'."""
+    """지번 주소 → {city, gu, dong}. 예: '대구광역시 수성구 두산동 123'.
+
+    도(道)·특별자치도의 경우 그 아래 '○○시'를 구 단위(중간 지역)로 잡는다.
+    예: '강원특별자치도 춘천시 중앙로2가' → city=강원, gu=춘천시, dong=중앙로2가.
+    이렇게 해야 SGIS 인구·상권 지표가 도 전체가 아닌 해당 시 기준으로 계산된다.
+    """
     city = gu = dong = None
+    is_province = False
     for tok in (jibun_address or "").split():
         if city is None and re.search(r"(특별시|광역시|특별자치시|특별자치도)$", tok):
+            is_province = tok.endswith("특별자치도")  # 강원특별자치도 등
             city = re.sub(r"(특별시|광역시|특별자치시|특별자치도)$", "", tok)
+        elif city is None and tok.endswith("도") and len(tok) <= 4:
+            city = tok[:-1]  # 경기도→경기, (구)강원도→강원
+            is_province = True
         elif city is None and tok.endswith("시"):
             city = tok[:-1]
-        elif tok.endswith("도") and len(tok) <= 4:
-            continue  # 경기도 등 광역 단위는 키워드로 쓰지 않는다
+        elif gu is None and is_province and tok.endswith("시") and len(tok) >= 2:
+            gu = tok  # 도 아래의 시(춘천시 등) = 구 단위로 사용 → SGIS 시 기준 조회
         elif gu is None and re.search(r"[구군]$", tok) and len(tok) >= 2:
             gu = tok
         elif dong is None and re.search(r"[동읍면가]$", tok) and not tok[0].isdigit():

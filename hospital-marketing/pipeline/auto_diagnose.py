@@ -101,7 +101,16 @@ def main() -> None:
         print(f"업체를 찾지 못했습니다: {args.name} ({res['note']})")
         sys.exit(1)
     biz = res["chosen"]
-    region = keywordgen.parse_region(biz.get("address_jibun") or biz["address"] or "")
+    # 도로명주소(도·시 포함)와 지번주소(법정동 포함)를 합쳐 지역축을 잡는다.
+    # 네이버 지번주소엔 도(강원 등)가 빠져 '춘천시'만 오는 경우가 있어, 둘을 병합해야
+    # SGIS 인구·상권이 시·구 기준으로 정확히 조회된다.
+    r_road = keywordgen.parse_region(biz.get("address") or "")
+    r_jibun = keywordgen.parse_region(biz.get("address_jibun") or "")
+    region = {
+        "city": r_road["city"] or r_jibun["city"],
+        "gu": r_road["gu"] or r_jibun["gu"],
+        "dong": r_jibun["dong"] or r_road["dong"],
+    }
     cls = keywordgen.classify(biz.get("category") or "")
     print("=" * 72)
     print(f"[업체 특정] {biz['title']}")
@@ -261,9 +270,10 @@ def render_html(j: dict, masked: bool = False) -> str:
         loc_html = f'''
 <section class="card"><h2>입지 참고 분석</h2>
   <div class="summary">{cs}</div>{note}
-  <p class="mut" style="font-size:12px;margin:10px 0 0">임대료·접근성·건물 조건 등 핵심 입지 변수를 포함하지 않는
-  참고 지표이며, 개원·영업 성과를 보장하지 않습니다. 출처: SGIS 통계지리정보{
-    " · 건강보험심사평가원 병원정보서비스" if "competitors" in loc else ""}.</p>
+  <p class="mut" style="font-size:12px;margin:10px 0 0"><b>반경 인구·상권 지표는 시·구 평균 밀도 기준 추정</b>이라,
+  도심·번화가(예: 춘천 중앙로처럼 넓은 시의 중심가)는 실제보다 낮게 나올 수 있습니다 — 절대값이 아니라 후보지 간 상대 비교용으로 보세요.
+  임대료·접근성·건물 조건 등 핵심 입지 변수를 포함하지 않는 참고 지표이며, 개원·영업 성과를 보장하지 않습니다.
+  출처: SGIS 통계지리정보{" · 건강보험심사평가원 병원정보서비스" if "competitors" in loc else ""}.</p>
 </section>'''
 
     amb_html = ('<p class="warn">⚠ 두 글자 이하 상호 특성상 동명 콘텐츠 오탐이 가능해 완전일치·제목 기준으로만 '

@@ -1,0 +1,2929 @@
+{
+ "generated_at": "2026-07-04T08:07:02+00:00",
+ "business": {
+  "rank": 1,
+  "title": "그랜드아름다운의원",
+  "address": "강원특별자치도 춘천시 중앙로 68 4층 그랜드아름다운의원",
+  "address_jibun": "강원특별자치도 춘천시 중앙로2가 83 4층 그랜드아름다운의원",
+  "category": "병원,의원>피부과",
+  "link": "http://www.grand1.co.kr/",
+  "longitude": 127.7262621,
+  "latitude": 37.8794737
+ },
+ "region": {
+  "city": "강원",
+  "gu": "춘천시",
+  "dong": "중앙로2가"
+ },
+ "classification": {
+  "is_hospital": true,
+  "dept": "피부과",
+  "base_terms": [
+   "피부과",
+   "여드름치료",
+   "기미레이저"
+  ]
+ },
+ "keywords": [
+  {
+   "kw": "그랜드아름다운의원",
+   "type": "브랜드",
+   "base": "그랜드아름다운의원",
+   "place": {
+    "keyword": "그랜드아름다운의원",
+    "exposed": true,
+    "rank": 1,
+    "ambiguous": false,
+    "results": [
+     {
+      "rank": 1,
+      "title": "그랜드아름다운의원",
+      "address": "강원특별자치도 춘천시 중앙로 68 4층 그랜드아름다운의원",
+      "address_jibun": "강원특별자치도 춘천시 중앙로2가 83 4층 그랜드아름다운의원",
+      "category": "병원,의원>피부과",
+      "link": "http://www.grand1.co.kr/",
+      "longitude": 127.7262621,
+      "latitude": 37.8794737
+     }
+    ]
+   },
+   "content": {
+    "blog": {
+     "present": true,
+     "exposed": true,
+     "position": 1,
+     "label": "블로그",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "춘천피부관리의 정점, 그랜드아름다운의원 피부과에서...",
+       "is_me": true
+      },
+      {
+       "rank": 2,
+       "title": "그랜드아름다운의원 웃을 때 마다 눈가 주름이 신경쓰일때",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "피부 필링의 효과와 주의사항에 대해 그랜드아름다운의원",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "[춘천] 연세미라클의원ㅣ춘천... 명동 그랜드아름다운의원...",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "그랜드아름다운의원에서 알려드리는 피부관리에 도움되는...",
+       "is_me": false
+      }
+     ]
+    },
+    "cafe": {
+     "present": true,
+     "exposed": true,
+     "position": 5,
+     "label": "카페",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "(미국 올랜도 (FL) 호텔) 올랜도 FL JW 메리어트 올랜도 그랜드 레이크 할인 예약 정보",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "(호주 애들레이드 호텔) 호텔 그랜드 챈슬러 애들레이드 특가 예약 방법",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "스탬포드 그랜드 애들레이드 특가 예약 이용방법!&lt;호주 애들레이드 호텔&gt;",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "[호주 애들레이드 호텔] 스탬포드 그랜드 애들레이드 할인 예약 꿀팁!!",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "춘천피부과에서 입술필러 받은 후기!!",
+       "is_me": true
+      }
+     ]
+    },
+    "web": {
+     "present": true,
+     "exposed": true,
+     "position": 1,
+     "label": "웹문서",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "그랜드 연합의원, 춘천피부과, 춘천정형외과, 춘천내과, 춘천안과",
+       "is_me": true
+      },
+      {
+       "rank": 2,
+       "title": "키오머3 | 그랜드아름다운의원",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "◎그랜드 배잘보는내과 배내과◎",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "그랜드아름다운의원",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "그랜드아름다운의원, 033-255-6470, 강원도 춘천시 중앙로 68 4층(중앙로2가)",
+       "is_me": false
+      }
+     ]
+    },
+    "news": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "뉴스",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "[포토] LBMA 2026, 김종성 가평군의원 &quot;문화예술과 관광은 지역의 미래를...",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "[Who Is ?] 이재명 대한민국 대통령",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "[경남 브리핑 모음(6월19일)] 밀양시, ‘2026년 경상남도 시·군 합동평...",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "[경제소식] KB증권 '깨비 소비자 포럼' 개최..&quot;고객 경험 혁신&quot;",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "[의료기기업계 소식] 6월 1일",
+       "is_me": false
+      }
+     ]
+    },
+    "image": {
+     "present": true,
+     "exposed": true,
+     "position": 1,
+     "label": "이미지",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "그랜드아름다운의원",
+       "is_me": true
+      },
+      {
+       "rank": 2,
+       "title": "그랜드아름다운의원",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "그랜드아름다운의원",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "그랜드아름다운의원",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "그랜드아름다운의원",
+       "is_me": false
+      }
+     ]
+    },
+    "kin": {
+     "present": true,
+     "exposed": true,
+     "position": 1,
+     "label": "지식iN",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "춘천 피부과",
+       "is_me": true
+      },
+      {
+       "rank": 2,
+       "title": "춘천에 위고비 처방하는 병원 있나요?",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "김문수의원은 왜 한나라당에 가있나요?",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "(겟앰,메플,카트,워록,그랜드체이스,건즈등)...",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "수원여대 가려면 은 성적이 어느정도 들어가나요?",
+       "is_me": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "kw": "중앙로2가 피부과",
+   "type": "동단위",
+   "base": "피부과",
+   "place": {
+    "keyword": "중앙로2가 피부과",
+    "exposed": true,
+    "rank": 2,
+    "ambiguous": false,
+    "results": [
+     {
+      "rank": 1,
+      "title": "쁘띠365의원",
+      "address": "강원특별자치도 춘천시 중앙로 59 지하1층, 지상 1층, 2층",
+      "address_jibun": "강원특별자치도 춘천시 중앙로2가 18 지하1층, 지상 1층, 2층",
+      "category": "병원,의원>피부과",
+      "link": "https://bbeauty365clinic.co.kr/",
+      "longitude": 127.7272506,
+      "latitude": 37.8797545
+     },
+     {
+      "rank": 2,
+      "title": "그랜드아름다운의원",
+      "address": "강원특별자치도 춘천시 중앙로 68 4층 그랜드아름다운의원",
+      "address_jibun": "강원특별자치도 춘천시 중앙로2가 83 4층 그랜드아름다운의원",
+      "category": "병원,의원>피부과",
+      "link": "http://www.grand1.co.kr/",
+      "longitude": 127.7262621,
+      "latitude": 37.8794737
+     },
+     {
+      "rank": 3,
+      "title": "셀레스의원춘천점",
+      "address": "강원특별자치도 춘천시 중앙로 55 NH투자증권 춘천사옥2층",
+      "address_jibun": "강원특별자치도 춘천시 중앙로2가 5-1 NH투자증권 춘천사옥2층",
+      "category": "병원,의원>피부과",
+      "link": "http://pf.kakao.com/_CmxntE/chat",
+      "longitude": 127.7275341,
+      "latitude": 37.880029
+     },
+     {
+      "rank": 4,
+      "title": "영의원",
+      "address": "강원특별자치도 춘천시 중앙로 55 5층",
+      "address_jibun": "강원특별자치도 춘천시 중앙로2가 5-1 5층",
+      "category": "병원,의원>피부과",
+      "link": "",
+      "longitude": 127.7275621,
+      "latitude": 37.880045
+     },
+     {
+      "rank": 5,
+      "title": "블리비의원 춘천점",
+      "address": "강원특별자치도 춘천시 방송길 106 온의빌딩 1층, 2층",
+      "address_jibun": "강원특별자치도 춘천시 온의동 589-2 온의빌딩 1층, 2층",
+      "category": "병원,의원>피부과",
+      "link": "http://www.velyb.kr/",
+      "longitude": 127.7210314,
+      "latitude": 37.8674567
+     }
+    ]
+   },
+   "content": {
+    "blog": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "블로그",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "명동상권변화와 메인길 월세 명동상가임대/명동부동산",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "옛 남산길을 여행해 봅시다",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "2026년 5월 전국 의과 의원 및 병원 개업 폐업 현황 (개원 및...",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "전북피부과",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "명동 피부과 개원, 외국인 수요 잡으려면",
+       "is_me": false
+      }
+     ]
+    },
+    "cafe": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "카페",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "메디114-4월 개원현황 전국 124개 의원·병원 개원, 소아청소년과·이비인후과·정형외과 강세",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "다한증 약품 처방 가능 병원 자료 공유 2차",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "다한증 약품 처방 가능 병원 자료 공유(서울,경기 지역 일부) 1차",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "2025년 8월 의원/병원개원 및 폐원현황",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "24년 12월 전국 신상카페 리스트 (비수도권, 멤버공개)",
+       "is_me": false
+      }
+     ]
+    },
+    "web": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "웹문서",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "중앙로2가 피부과 | 7개 병원 비교",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "중앙로2가 피부과 | 8개 병원 비교",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "중앙로2가 비대면 진료 병원 비교 | 피부과 (2026)",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "중앙로2가 전체 병원 비교 | 피부과 (2026)",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "중앙로2가 야간 진료 병원 비교 | 피부과 (2026)",
+       "is_me": false
+      }
+     ]
+    },
+    "news": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "뉴스",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "'상권 1번가' 명동의 부활…돌아온 외국인에 매출 30배 뛰었다[상권 리...",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "심평원, 전국 590개 코로나19 전담 클리닉 공개",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "대구 동성로 랜드마크 상업시설 ‘동성로 SK리더스뷰 애비뉴’",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "다양한 소비층·풍부한 유동인구… 복합 상권 '동성로 SK리더스뷰 애비...",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "유동인구 많은 대구 최고 입지 '동성로 SK리더스뷰 에비뉴'",
+       "is_me": false
+      }
+     ]
+    },
+    "image": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "이미지",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "서울중앙의료의원 (피부과)의 동영상 - kakaoTV 서울중앙의료의원 (피부과)의 동영상",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "서울중앙의료의원 (피부과)의 동영상 - kakaoTV 서울중앙의료의원 (피부과)의 동영상",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "포인트피부과의원 위치 · 진료시간 · 후기 확인하기",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "포인트피부과의원 위치 · 진료시간 · 후기 확인하기",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "포인트피부과의원 위치 · 진료시간 · 후기 확인하기",
+       "is_me": false
+      }
+     ]
+    },
+    "kin": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "지식iN",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "중앙로2가 근처에 잘하는 피부과 있나요?",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "이번에 셀리턴 마스크를 사려고 하는데",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "대구 동성로sk리더스뷰 단지내 상가",
+       "is_me": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "kw": "춘천시 피부과",
+   "type": "구단위",
+   "base": "피부과",
+   "place": {
+    "keyword": "춘천시 피부과",
+    "exposed": true,
+    "rank": 4,
+    "ambiguous": false,
+    "results": [
+     {
+      "rank": 1,
+      "title": "쁘띠365의원",
+      "address": "강원특별자치도 춘천시 중앙로 59 지하1층, 지상 1층, 2층",
+      "address_jibun": "강원특별자치도 춘천시 중앙로2가 18 지하1층, 지상 1층, 2층",
+      "category": "병원,의원>피부과",
+      "link": "https://bbeauty365clinic.co.kr/",
+      "longitude": 127.7272506,
+      "latitude": 37.8797545
+     },
+     {
+      "rank": 2,
+      "title": "블리비의원 춘천점",
+      "address": "강원특별자치도 춘천시 방송길 106 온의빌딩 1층, 2층",
+      "address_jibun": "강원특별자치도 춘천시 온의동 589-2 온의빌딩 1층, 2층",
+      "category": "병원,의원>피부과",
+      "link": "http://www.velyb.kr/",
+      "longitude": 127.7210314,
+      "latitude": 37.8674567
+     },
+     {
+      "rank": 3,
+      "title": "예쁨주의쁨의원 춘천",
+      "address": "강원특별자치도 춘천시 금강로 59 에이동 3층",
+      "address_jibun": "강원특별자치도 춘천시 조양동 37-11 에이동 3층",
+      "category": "병원,의원>피부과",
+      "link": "https://chuncheon.ppeum.com/",
+      "longitude": 127.7285305,
+      "latitude": 37.879982
+     },
+     {
+      "rank": 4,
+      "title": "그랜드아름다운의원",
+      "address": "강원특별자치도 춘천시 중앙로 68 4층 그랜드아름다운의원",
+      "address_jibun": "강원특별자치도 춘천시 중앙로2가 83 4층 그랜드아름다운의원",
+      "category": "병원,의원>피부과",
+      "link": "http://www.grand1.co.kr/",
+      "longitude": 127.7262621,
+      "latitude": 37.8794737
+     },
+     {
+      "rank": 5,
+      "title": "퓨어린의원 춘천점",
+      "address": "강원특별자치도 춘천시 춘천로 7 202호, 203호",
+      "address_jibun": "강원특별자치도 춘천시 온의동 156 202호, 203호",
+      "category": "병원,의원>피부과",
+      "link": "https://blog.naver.com/butcher12473",
+      "longitude": 127.7208897,
+      "latitude": 37.8660069
+     }
+    ]
+   },
+   "content": {
+    "blog": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "블로그",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "춘천시피부과 압출 흉터가 남을까봐 망설이고 계신가요?...",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "춘천시피부과, 가격보다 먼저 살펴야 할 결과의 차이 &lt;의사작성&gt;",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "춘천시 피부과 외모의 자신감을 더하는",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "춘천시 피부과 알아보기",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "춘천시 피부과 자연스러운 변화로",
+       "is_me": false
+      }
+     ]
+    },
+    "cafe": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "카페",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "춘천 일요일 피부과 정형외과 산부인과 한의원 안과 치과 문여는곳 찾기",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "춘천시피부과 나도 예뻐질거다!",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "[강원 춘천시 아토피 클리닉] 한림피부과의원 위치, 진료시간, 예약, 정보",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "춘천시 보건소 피부과 무료진료",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "[한방진료] 춘천시여드름피부과 체계적인 접근으로!",
+       "is_me": false
+      }
+     ]
+    },
+    "web": {
+     "present": true,
+     "exposed": true,
+     "position": 7,
+     "label": "웹문서",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "아름다운피부과의원 후기/가격/비용 (2026)",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "아름다운피부과의원",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "한피부과의원 후기/가격/비용 (2026)",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "춘천 아름다운피부과",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "한림피부과의원 - 춘천시 의원",
+       "is_me": false
+      }
+     ]
+    },
+    "news": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "뉴스",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "피부과·약국 소비 늘고 수출도 호조…의료미용 시장 성장세 확인",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "[브리프]GC녹십자 셀트리온 JW중외제약 휴젤 오스템임플란트 外",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "서울대동물병원 매출 82억원 vs 지방국립대 평균 17억원",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "서울대 동물병원 매출, 지방 국립대 4~8배 격차",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "층수가 곧 경쟁력…고층 희소성 갖춘 ‘힐스테이트 가양 더와이즈’ 대...",
+       "is_me": false
+      }
+     ]
+    },
+    "image": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "이미지",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "강원도, 내과는 많은데 피부과·정신건강의학과는 부족",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "생활소식 | 춘천행복알리미",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "만성 피부질환 '건선', 치료시기 빠를수록 좋다",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "15 ans de politiques publiques du logiciel libre en France slideshare",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "현대카드, 공정거래위원장 표창 수상···공정거래 준수 노력 인정받아",
+       "is_me": false
+      }
+     ]
+    },
+    "kin": {
+     "present": true,
+     "exposed": true,
+     "position": 2,
+     "label": "지식iN",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "춘천시의 문제에는 무엇이 있나요?",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "춘천 피부과",
+       "is_me": true
+      },
+      {
+       "rank": 3,
+       "title": "춘천피부과 미쿨이라고 아세요??",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "타투 염증",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "다한증검사 문의",
+       "is_me": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "kw": "강원 피부과",
+   "type": "시단위",
+   "base": "피부과",
+   "place": {
+    "keyword": "강원 피부과",
+    "exposed": false,
+    "rank": null,
+    "ambiguous": false,
+    "results": [
+     {
+      "rank": 1,
+      "title": "밴스의원 원주",
+      "address": "강원특별자치도 원주시 서원대로 416 2층",
+      "address_jibun": "강원특별자치도 원주시 단구동 1026-8 2층",
+      "category": "병원,의원>피부과",
+      "link": "https://wonju.vandsclinic.co.kr/?channel=4787&detailChannel=0&gChannel=0",
+      "longitude": 127.950692,
+      "latitude": 37.3295474
+     },
+     {
+      "rank": 2,
+      "title": "블리비의원 원주점",
+      "address": "강원특별자치도 원주시 서원대로 396 스타월드 4층",
+      "address_jibun": "강원특별자치도 원주시 단구동 1511-2 스타월드 4층",
+      "category": "병원,의원>피부과",
+      "link": "http://velyb.kr",
+      "longitude": 127.9488651,
+      "latitude": 37.3307485
+     },
+     {
+      "rank": 3,
+      "title": "쁘띠365의원",
+      "address": "강원특별자치도 춘천시 중앙로 59 지하1층, 지상 1층, 2층",
+      "address_jibun": "강원특별자치도 춘천시 중앙로2가 18 지하1층, 지상 1층, 2층",
+      "category": "병원,의원>피부과",
+      "link": "https://bbeauty365clinic.co.kr/",
+      "longitude": 127.7272506,
+      "latitude": 37.8797545
+     },
+     {
+      "rank": 4,
+      "title": "강릉 밴스의원",
+      "address": "강원특별자치도 강릉시 경강로 2075 5층",
+      "address_jibun": "강원특별자치도 강릉시 임당동 141-1 5층",
+      "category": "병원,의원>피부과",
+      "link": "https://gangneung.vandsclinics.com/?channel=4326&detailChannel=1126&gChannel=0",
+      "longitude": 128.8942075,
+      "latitude": 37.7538462
+     },
+     {
+      "rank": 5,
+      "title": "블리비의원 춘천점",
+      "address": "강원특별자치도 춘천시 방송길 106 온의빌딩 1층, 2층",
+      "address_jibun": "강원특별자치도 춘천시 온의동 589-2 온의빌딩 1층, 2층",
+      "category": "병원,의원>피부과",
+      "link": "http://www.velyb.kr/",
+      "longitude": 127.7210314,
+      "latitude": 37.8674567
+     }
+    ]
+   },
+   "content": {
+    "blog": {
+     "present": true,
+     "exposed": true,
+     "position": 29,
+     "label": "블로그",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "강원특별자치도 피부과마케팅 성공비결",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "강원 피부과 블로그 상위노출 대행, 왜 필요한가요?",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "[강원대학병원 소아피부과] 오타모반 치료 일기",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "강원피부과세금 성공을 위한 가이드",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "강원 피부과, 플레이스 상위노출로 더 많은 고객을 만나다",
+       "is_me": false
+      }
+     ]
+    },
+    "cafe": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "카페",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "강원 피부과 레이저 알아봐요",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "강원대학교병원 피부과 (계약직) 연구간호사 모집",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "[강원]강윤철피부과,켈로이드 주사",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "강원/아토피/보습/백피부과",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "강원/아토피/보습제/한피부과",
+       "is_me": false
+      }
+     ]
+    },
+    "web": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "웹문서",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "강원대학교병원 &gt; 피부과 &gt; 의료진소개",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "강원대학교병원 &gt; 피부과 &gt; 진료과소개",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "강원대학교병원 &gt; 피부과 &gt; 진료시간",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "피부과 - 강원대학교병원 모바일 웹사이트",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "아름다운피부과의원 후기/가격/비용 (2026)",
+       "is_me": false
+      }
+     ]
+    },
+    "news": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "뉴스",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "&quot;K-생활 자체가 상품&quot;…외국인 '한국 재방문' 이끄는 앱의 정체",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "[인사] 통일부 외",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "영월군, 한센병 환자 등 피부과 무료진료",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "의사 출신이 만든 실시간 음성 AI… 의료 현장 언어장벽 허문다 [강원대...",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "[BS현장] “몸도 맘도 예뻐지고 싶다면 한국으로”",
+       "is_me": false
+      }
+     ]
+    },
+    "image": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "이미지",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "지긋지긋한 피부 불청객, 여드름 치료는?",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "강원소방, 2021 신규채용 접수 시작…320명 선발",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "“설렘을 주는 강원” 강원관광재단, 도‧시군 강원관광 전략회의 개최",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "엄기호 강원도의원, 교통·농업·교육 집중 질문",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "'이보다 스위트할 수는 없다' 강원랜드에서 만끽하는 VIP 만의 즐거움",
+       "is_me": false
+      }
+     ]
+    },
+    "kin": {
+     "present": true,
+     "exposed": true,
+     "position": 6,
+     "label": "지식iN",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "유스피부과 실리프팅 5g리프팅에 효과 좋은가요?",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "강원 피부과",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "충북, 강원 쥐젖제거 안아프게 해주는 피부과 좀...",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "강원 지역 상근",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "아토피 피부과, 한의원",
+       "is_me": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "kw": "피부과",
+   "type": "메인",
+   "base": "피부과",
+   "place": {
+    "keyword": "피부과",
+    "exposed": false,
+    "rank": null,
+    "ambiguous": false,
+    "results": [
+     {
+      "rank": 1,
+      "title": "셀린의원 명동점",
+      "address": "서울특별시 중구 남대문로7길 16 1층 셀린의원 명동",
+      "address_jibun": "서울특별시 중구 소공동 21-1 1층 셀린의원 명동",
+      "category": "병원,의원>피부과",
+      "link": "http://pf.kakao.com/_AmKxln",
+      "longitude": 126.9811262,
+      "latitude": 37.5642284
+     },
+     {
+      "rank": 2,
+      "title": "써밋의원 광화문역",
+      "address": "서울특별시 중구 세종대로22길 12 광화문G스퀘어 3층",
+      "address_jibun": "서울특별시 중구 태평로1가 25-3 광화문G스퀘어 3층",
+      "category": "병원,의원>피부과",
+      "link": "https://youtube.com/@summitclinic_kr",
+      "longitude": 126.977968,
+      "latitude": 37.5679455
+     },
+     {
+      "rank": 3,
+      "title": "리나인의원",
+      "address": "서울특별시 중구 소공로 116 서울센터빌딩 2층",
+      "address_jibun": "서울특별시 중구 소공동 91-1 서울센터빌딩 2층",
+      "category": "병원,의원>피부과",
+      "link": "https://www.renine.kr/",
+      "longitude": 126.9789623,
+      "latitude": 37.5648639
+     },
+     {
+      "rank": 4,
+      "title": "유제의원",
+      "address": "서울특별시 중구 서소문로 133 송하빌딩 5층",
+      "address_jibun": "서울특별시 중구 서소문동 23 송하빌딩 5층",
+      "category": "병원,의원>피부과",
+      "link": "https://www.yujeclinic.com",
+      "longitude": 126.9755524,
+      "latitude": 37.5638847
+     },
+     {
+      "rank": 5,
+      "title": "어뉴의원",
+      "address": "서울특별시 중구 무교로 12 7층",
+      "address_jibun": "서울특별시 중구 무교동 21-3 7층",
+      "category": "병원,의원>피부과",
+      "link": "https://anewskin.kr/",
+      "longitude": 126.9793882,
+      "latitude": 37.5670515
+     }
+    ]
+   },
+   "content": {
+    "blog": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "블로그",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "부산피부과추천 내돈내산 후기 효과 알아본다면",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "미사역피부과 선택할 때 비교할 기준",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "일산 정발산역피부과 리투오 효과 스킨부스터 만족 후기",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "홍대 피부과 팔자주름 실리프팅 내돈내산 후기  원더트리플",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "대구 달서구 피부과 리쥬란 4cc 솔직후기!",
+       "is_me": false
+      }
+     ]
+    },
+    "cafe": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "카페",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "부평피부과 질문드려용!",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "교대역 피부과 온다리프팅 솔직 후기 남겨볼게요!",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "잠실피부과 리프팅 받은 후기",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "천안피부과추천 ㅠㅠㅠ 급해용",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "울산 피부과 탄력 관리 어디가 괜찮을까요?",
+       "is_me": false
+      }
+     ]
+    },
+    "web": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "웹문서",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "피부과 - 나무위키",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "피부과 | 진료과 | 의료진/진료과",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "피부과 - 건국대학교병원",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "박현선 상세페이지",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "진료과 소개 &lt; 피부과 &lt; 진료과/의료진 &lt; 진료안내 &lt; 서울의료원",
+       "is_me": false
+      }
+     ]
+    },
+    "news": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "뉴스",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "“뽀드득 세안은 금물, 각질 제거할수록 피부장벽 무너진다”",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "콘서트 보고 라식수술까지…진화하는 '체험형' K-관광",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "강남 피부과 '우유 주사'의 검은 거래…병원이 마약 주사방 됐다 [정락...",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "검색이 병원 선택 좌우하는데…의료광고 규제는 '제자리'",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "‘피부 시술 후 2도 화상’ 6개월만에 근황 전한 인기 걸그룹 출신, 흉터...",
+       "is_me": false
+      }
+     ]
+    },
+    "image": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "이미지",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "제이윤피부과의원",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "제로피부과의원",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "더한스피부과의원, 채수지 원장 초빙…“환자 맞춤형 진료 강화”",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "하나뿐인 피부과전문의 - YouTube 하나뿐인 피부과전문의",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "서울바른피부과의원 대구",
+       "is_me": false
+      }
+     ]
+    },
+    "kin": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "지식iN",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "여드름흉터 피부과",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "청담동피부과 선택 기준은?",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "여드름흉터는 피부과 치료 말고 다른 거 없나요?",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "피부과에서 피지낭종 제거",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "여드름피부과 대신 한의원 괜찮을까요?",
+       "is_me": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "kw": "중앙로2가 여드름치료",
+   "type": "동단위",
+   "base": "여드름치료",
+   "place": {
+    "keyword": "중앙로2가 여드름치료",
+    "exposed": false,
+    "rank": null,
+    "ambiguous": false,
+    "results": [
+     {
+      "rank": 1,
+      "title": "쁘띠365의원",
+      "address": "강원특별자치도 춘천시 중앙로 59 지하1층, 지상 1층, 2층",
+      "address_jibun": "강원특별자치도 춘천시 중앙로2가 18 지하1층, 지상 1층, 2층",
+      "category": "병원,의원>피부과",
+      "link": "https://bbeauty365clinic.co.kr/",
+      "longitude": 127.7272506,
+      "latitude": 37.8797545
+     }
+    ]
+   },
+   "content": {
+    "blog": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "블로그",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "중앙로역 모공각화증, 여원장님의 섬세한 1:1피부맞춤치료...",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "등여드름/여드름치료/필링... 한의원/반월당 여드름/중앙로...",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "대구중구한의원/대구중앙로한의원/대구하늘체한의원/여드름전...",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "대구여드름흉터 치료 잘하는곳 추천합니다",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "여드름 치료 문학동 연수동 이제 그만",
+       "is_me": false
+      }
+     ]
+    },
+    "cafe": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "카페",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "송도 여드름흉터 치료 송도 추천!",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "제천시 피부과 추천 BEST 5 보톡스 여드름 아토피 전문 병원 찾기",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "제천시 인기 피부과 5곳 추천 보톡스 여드름 아토피 전문 병원 찾기",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "대구 좁쌀여드름 치료 상인동 활짝 웃어봐요",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "구월동 성인여드름 치료 청라 여기야 여기",
+       "is_me": false
+      }
+     ]
+    },
+    "web": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "웹문서",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "대구 중앙로역 피부과 BEST 6 추천 | 근처 유명한 피부과 전문의 병원 찾기 | 후기 좋고 친절한 곳 | 레이저 제모....",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "[추천] 대구피부과 대구여드름치료 대구여드름피부과 대구여드름한의원 대구피부한의원 대구교통사고 대구다이어....",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "병원정보(여드름주사학회 회원) - 대한여드름주사학회에 오신 것을 환영합니다",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "중앙로2가 피부과 | 7개 병원 비교",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "중앙로2가 여드름 약 병원 가격 비교(2026) | 최저 10,000원부터",
+       "is_me": false
+      }
+     ]
+    },
+    "news": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "뉴스",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "외국인 관광객 2천만 시대…명동과 성수 주가 상승",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "다섯 드러그스토어, 五色 전쟁 중",
+       "is_me": false
+      }
+     ]
+    },
+    "image": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "이미지",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "구월동여드름 치료 여기는 어떠신가요??",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "여름철 악화되는 학생여드름, 여름방학 치료로 해결",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "효과적인 여드름치료, 한방이 대세!",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "복합여드름, 치료 빠를수록 좋아",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "수능끝난 수험생 여드름? 올겨울 학생여드름 치료에 마침표 찍기",
+       "is_me": false
+      }
+     ]
+    },
+    "kin": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "지식iN",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "홍삼제품종류들 어떤게 있나요?",
+       "is_me": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "kw": "춘천시 여드름치료",
+   "type": "구단위",
+   "base": "여드름치료",
+   "place": {
+    "keyword": "춘천시 여드름치료",
+    "exposed": false,
+    "rank": null,
+    "ambiguous": false,
+    "results": [
+     {
+      "rank": 1,
+      "title": "쁘띠365의원",
+      "address": "강원특별자치도 춘천시 중앙로 59 지하1층, 지상 1층, 2층",
+      "address_jibun": "강원특별자치도 춘천시 중앙로2가 18 지하1층, 지상 1층, 2층",
+      "category": "병원,의원>피부과",
+      "link": "https://bbeauty365clinic.co.kr/",
+      "longitude": 127.7272506,
+      "latitude": 37.8797545
+     }
+    ]
+   },
+   "content": {
+    "blog": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "블로그",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "춘천시피부과 여드름 아토피 헷갈릴 땐 한의원에서도 구분해요",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "춘천시 피부과 여드름흉터 사라지지 않아 고민이라면",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "춘천 여드름 치료, 지긋지긋한 트러블 재발 고리를 끊어내려면",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "춘천시 피부과 여드름 고민 말끔히 해결",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "춘천시피부과 압출 흉터가 남을까봐 망설이고 계신가요?...",
+       "is_me": false
+      }
+     ]
+    },
+    "cafe": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "카페",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "송도 여드름한의원 치료 연수구 훌훌 털어내자",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "다량의 면포, 사춘기여드름, 아토피 치료 전후 사진",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "인천 여드름 한의원 배곧 처음부터",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "소래포구여드름 여드름 치료",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "아산여드름흉터 치료 가까이에",
+       "is_me": false
+      }
+     ]
+    },
+    "web": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "웹문서",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "춘천 여드름치료 전에 알아야 할 피부 속 원인과 관리 기준",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "[추천] 춘천피부과 춘천여드름치료 춘천여드름피부과 춘천여드름한의원 춘천피부한의원 춘천교통사고 춘천다이어....",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "춘천시 한방 피부과에서 여드름 및 피부 트러블 효과적인 치료",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "춘천시 한방피부과(진료과목) 좁쌀 여드름도 예외 없이",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "셀레스의원춘천점 후기/가격/비용 (2026)",
+       "is_me": false
+      }
+     ]
+    },
+    "news": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "뉴스",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "[제약업계 소식] 3월 26일",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "조국에 바친 청춘, 후유증으로 시작된 삶과의 전쟁",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "강원대 '(주)아토맘코리아'와 '인공지능 피부진단 솔루션' 개발 협력 추...",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "강원대학교, '(주)아토맘코리아'와 '인공지능 피부진단 솔루션' 개발 협...",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "[제약바이오산책] 휴젤, 춘천시청 손잡고 식목일 '나무 심기' 캠페인 外",
+       "is_me": false
+      }
+     ]
+    },
+    "image": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "이미지",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "여드름치료기간, 여드름재발을 생각하며 바라봐야",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "복합여드름, 치료 빠를수록 좋아",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "입학·새 학기 시즌, 학생여드름 치료 증가 이유는",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "취업 대비 여드름 탈출! 지긋지긋한 여드름흉터 치료",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "여드름치료 연령별로 치료방법이 다르다?",
+       "is_me": false
+      }
+     ]
+    },
+    "kin": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "지식iN",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "여드름 피부과 치료",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "여름휴가지 갈만한곳 &amp; 여름철 피부관리 법, 여름철...",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "여드름 계속 곪아요 어떻게해야 하죠? 내공30",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "히알루론산 앰플패드 쓴 후 좁쌀여드름",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "피부관리(바캉스로 지친피부)",
+       "is_me": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "kw": "강원 여드름치료",
+   "type": "시단위",
+   "base": "여드름치료",
+   "place": {
+    "keyword": "강원 여드름치료",
+    "exposed": false,
+    "rank": null,
+    "ambiguous": false,
+    "results": [
+     {
+      "rank": 1,
+      "title": "쁘띠365의원",
+      "address": "강원특별자치도 춘천시 중앙로 59 지하1층, 지상 1층, 2층",
+      "address_jibun": "강원특별자치도 춘천시 중앙로2가 18 지하1층, 지상 1층, 2층",
+      "category": "병원,의원>피부과",
+      "link": "https://bbeauty365clinic.co.kr/",
+      "longitude": 127.7272506,
+      "latitude": 37.8797545
+     },
+     {
+      "rank": 2,
+      "title": "강윤철피부과의원",
+      "address": "강원특별자치도 원주시 원일로 120 7층",
+      "address_jibun": "강원특별자치도 원주시 중앙동 59-14 7층",
+      "category": "병원,의원>피부과",
+      "link": "http://k-skin.com/",
+      "longitude": 127.9485772,
+      "latitude": 37.3502892
+     },
+     {
+      "rank": 3,
+      "title": "타토아의원 원주",
+      "address": "강원특별자치도 원주시 서원대로 408 광장빌딩 3층",
+      "address_jibun": "강원특별자치도 원주시 단구동 1512-2 광장빌딩 3층",
+      "category": "병원,의원>피부과",
+      "link": "https://www.tatoaone.co.kr/",
+      "longitude": 127.9500079,
+      "latitude": 37.3299891
+     },
+     {
+      "rank": 4,
+      "title": "아름다운피부과의원",
+      "address": "강원특별자치도 강릉시 경강로 2100 신영빌딩 2층",
+      "address_jibun": "강원특별자치도 강릉시 임당동 119-3 신영빌딩 2층",
+      "category": "병원,의원>피부과",
+      "link": "http://www.betterskin.co.kr/",
+      "longitude": 128.896667,
+      "latitude": 37.75483
+     },
+     {
+      "rank": 5,
+      "title": "온제뷰티 원주점",
+      "address": "강원특별자치도 원주시 서원대로 121-1 엠스타빌딩 1층 104호",
+      "address_jibun": "강원특별자치도 원주시 단계동 1120-1 엠스타빌딩 1층 104호",
+      "category": "미용>피부,체형관리",
+      "link": "https://www.instagram.com/_onzebeauty?igsh=eWNpeXliZmJpYXZ3",
+      "longitude": 127.9268916,
+      "latitude": 37.3469614
+     }
+    ]
+   },
+   "content": {
+    "blog": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "블로그",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "춘천 여드름 치료, 지긋지긋한 트러블 재발 고리를 끊어내려면",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "[강원 강릉] 강릉여드름관리 강릉피부관리 아베크현 강릉점",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "여드름 색소침착 치료 후기 _ 양평 피부과 맞춤 레이저 시술로",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "[강원여드름치료]춘천예인의원 말PDT치료 후기",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "춘천 여드름 치료 원인과 단계별 관리 방법",
+       "is_me": false
+      }
+     ]
+    },
+    "cafe": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "카페",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "결혼 앞두고 여드름흉터치료 저도 성공했네요 ㅠㅠ",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "원주여드름흉터치료 흉터로 얼룩진 피부 개선하려면",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "송도 여드름한의원 치료 연수구 훌훌 털어내자",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "초보원장님,경력원장님 모두에게 도움될 여드름과 근막리프팅 실무자의 노하우공개",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "여드름 치료 병원 추천 좀요ㅠ",
+       "is_me": false
+      }
+     ]
+    },
+    "web": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "웹문서",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "강원 강릉시 여드름 치료 업체 추천 5 - 뷰티샵",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "[추천] 춘천피부과 춘천여드름치료 춘천여드름피부과 춘천여드름한의원 춘천피부한의원 춘천교통사고 춘천다이어....",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "원주 무실동 피부과 여드름치료 후 재발? 원인 비교",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "강릉시 송정동 여드름 피부과: 치료 선택 가이드",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "강릉시 피부과 진료 여드름 치료 병원 추천",
+       "is_me": false
+      }
+     ]
+    },
+    "news": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "뉴스",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "[제약업계 소식] 5월 21일",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "너무 좋았던 약초 채집 여행, 생약을 전공하다",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "건국대병원 박경식 교수팀, 갑상선암 치료 후 비알코올성 지방간 위험 ...",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "&quot;지역·필수의료·진료역량 강화&quot; 한림대춘천성심병원, 우수 의료진 8명...",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "피부 시술 후 관리에는 리젠엑스 …. 통증 없는 개선 가능해",
+       "is_me": false
+      }
+     ]
+    },
+    "image": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "이미지",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "여드름치료기간, 여드름재발을 생각하며 바라봐야",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "입학·새 학기 시즌, 학생여드름 치료 증가 이유는",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "복합여드름, 치료 빠를수록 좋아",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "취업 대비 여드름 탈출! 지긋지긋한 여드름흉터 치료",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "여드름치료 연령별로 치료방법이 다르다?",
+       "is_me": false
+      }
+     ]
+    },
+    "kin": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "지식iN",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "여드름후시딘 효과있나요? (강원 10대초반/남 건강 )",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "군인,,여드름,,창원,, 여드름치료",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "여드름 치료잘하는 한의원 알구계시면 추천좀해주세요...",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "여드름 치료",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "여드름",
+       "is_me": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "kw": "여드름치료",
+   "type": "메인",
+   "base": "여드름치료",
+   "place": {
+    "keyword": "여드름치료",
+    "exposed": false,
+    "rank": null,
+    "ambiguous": false,
+    "results": [
+     {
+      "rank": 1,
+      "title": "나음피부과의원",
+      "address": "서울특별시 중구 세종대로 13 화남빌딩 5층",
+      "address_jibun": "서울특별시 중구 남대문로5가 6-8 화남빌딩 5층",
+      "category": "병원,의원>피부과",
+      "link": "http://www.naeumskin.com/",
+      "longitude": 126.9731706,
+      "latitude": 37.5583193
+     },
+     {
+      "rank": 2,
+      "title": "데이뷰의원 명동2호점",
+      "address": "서울특별시 중구 남대문로 84 하이드파크 지하1층",
+      "address_jibun": "서울특별시 중구 남대문로2가 9-1 하이드파크 지하1층",
+      "category": "병원,의원>피부과",
+      "link": "https://daybeauclinic16.com/branch/",
+      "longitude": 126.982883,
+      "latitude": 37.564678
+     },
+     {
+      "rank": 3,
+      "title": "유앤영피부과의원 명동",
+      "address": "서울특별시 중구 퇴계로 120 남산희성빌딩 3층",
+      "address_jibun": "서울특별시 중구 남산동1가 1-2 남산희성빌딩 3층",
+      "category": "병원,의원>피부과",
+      "link": "https://youryoungskin.com/",
+      "longitude": 126.9850969,
+      "latitude": 37.5605801
+     },
+     {
+      "rank": 4,
+      "title": "아름다운나라피부과의원 명동점",
+      "address": "서울특별시 중구 명동8나길 6 4층",
+      "address_jibun": "서울특별시 중구 충무로1가 23-10 4층",
+      "category": "병원,의원>피부과",
+      "link": "http://www.globalanacli.co.kr/",
+      "longitude": 126.9845888,
+      "latitude": 37.5616465
+     },
+     {
+      "rank": 5,
+      "title": "트윙클의원 광화문점",
+      "address": "서울특별시 종로구 종로5길 13 삼공빌딩 3층",
+      "address_jibun": "서울특별시 종로구 청진동 136 삼공빌딩 3층",
+      "category": "병원,의원>피부과",
+      "link": "http://www.twinkleclinic.co.kr",
+      "longitude": 126.9805993,
+      "latitude": 37.571107
+     }
+    ]
+   },
+   "content": {
+    "blog": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "블로그",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "여드름 한의원 치료 가격 개인마다 다른 이유는?",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "춘천여드름치료 몸 속 원인을 살펴",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "여드름한의원가격 피부과 여드름 치료 가격 크게 다를까?",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "울산삼산동피부과 여드름 치료 중 갑자기 더 올라왔다면",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "창원여드름피부과 한의원 치료 과정 알아보고",
+       "is_me": false
+      }
+     ]
+    },
+    "cafe": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "카페",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "인천여드름치료 하늘체한의원에서 받았어요",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "여드름치료 진짜 힘들어요ㅠ",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "불당동피부과 여드름치료 알려주세요ㅠ",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "대전여드름치료 하늘체 한의원 8개월 다닌 대장정 후기",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "여드름흉터치료 궁금한 거 있어요",
+       "is_me": false
+      }
+     ]
+    },
+    "web": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "웹문서",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "여드름 | 국가건강정보포털",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "여드름/치료 - 나무위키",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "여드름 [acne] | 의학정보 | 건강정보",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "여드름(Acne) | 질환백과 | 의료정보 | 건강정보",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "여드름 치료 - 베스탑비뇨기과",
+       "is_me": false
+      }
+     ]
+    },
+    "news": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "뉴스",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "어디서 약을 팔아? 외국인에게 이렇게 많이… K힐링 쇼핑, 명동 ‘약국...",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "여에스더가 자기 얼굴에 저지른 ‘이 행동’… “강박장애일 수도”",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "[병원소식]고려대 안암병원·포도테라퓨틱스, 고형암 정밀밀의료 협약 ...",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "여름철 고온다습한 환경, 사마귀 바이러스 번식 및 전염 주의해야",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "대구 나인원의원, 울트라클리어 엘리트 도입",
+       "is_me": false
+      }
+     ]
+    },
+    "image": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "이미지",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "여드름흉터 특성에 따라 치료 달라져야",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "[건강 Q&A] 여드름 파인 흉터 치료, 어븀에어셀 시술이란?",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "여드름 흉터 고민, 레이저 통한 치료가 도움 될까",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "강남역피부과에서 여드름자국치료하기",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "여드름붉은흉터 입술 얼굴 상처 치료 연고 뾰루지 흉터 크림 멀티밤 : The줌",
+       "is_me": false
+      }
+     ]
+    },
+    "kin": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "지식iN",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "수원여드름자국 치료 어떻게 하나요?",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "화농성여드름심함 한의원치료궁금",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "잠실여드름치료 어디서 받아야 할까요?",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "여드름흉터 치료는 레이저만 있는 건 아니죠?ㅠㅠ...",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "대전여드름치료한의원피부과 압출흉터궁금",
+       "is_me": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "kw": "중앙로2가 기미레이저",
+   "type": "동단위",
+   "base": "기미레이저",
+   "place": {
+    "keyword": "중앙로2가 기미레이저",
+    "exposed": false,
+    "rank": null,
+    "ambiguous": false,
+    "results": [
+     {
+      "rank": 1,
+      "title": "쁘띠365의원",
+      "address": "강원특별자치도 춘천시 중앙로 59 지하1층, 지상 1층, 2층",
+      "address_jibun": "강원특별자치도 춘천시 중앙로2가 18 지하1층, 지상 1층, 2층",
+      "category": "병원,의원>피부과",
+      "link": "https://bbeauty365clinic.co.kr/",
+      "longitude": 127.7272506,
+      "latitude": 37.8797545
+     }
+    ]
+   },
+   "content": {
+    "blog": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "블로그",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "빛날율 제천 피부관리샵 제천 빛날율 세라링 제천 피부관리",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "과거의 부적절하고 잘못된 비법률적 인간관계설정으로 인하여...",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "0",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": ".",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "ㅇ",
+       "is_me": false
+      }
+     ]
+    },
+    "cafe": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "카페",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "요셉피부과 - 대구중앙로역피부과",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "주간 신설법인 현황(2020.01.10-01.16)",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "제천시 피부과 추천 BEST 5 보톡스 여드름 아토피 전문 병원 찾기",
+       "is_me": false
+      }
+     ]
+    },
+    "web": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "웹문서",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "기미레이저, 부작용 없이 깨끗하게! 시술 후 관리 꿀팁 공개 대구 동성로 중앙로 반월당 남산 대봉 삼덕 봉산 | ....",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "안산 중앙동 얼굴 잡티 제거 레이저 피코슈어토닝 10회 가격 주기 내돈내산 솔직후기 (2)",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "첨단장비 신규도입",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "안산 고잔동 기미잡티제거 얼굴점 검버섯 미백재생 고주파레이저 깨끗한피부나라 중앙역 근처",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "대구 중앙로역 피부과 유명한 5곳 총정리 | 일요일 전문의 진료 잘하는 곳 추천 | 보톡스, 필러, 레이저제모, 여....",
+       "is_me": false
+      }
+     ]
+    },
+    "news": {
+     "present": false,
+     "exposed": false,
+     "position": null,
+     "label": "뉴스",
+     "ambiguous": false,
+     "top": []
+    },
+    "image": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "이미지",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "기미",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "기미",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "#오늘클립챌린지 기미가 너무 많이 올라와서 방문",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "Пин от пользователя 기미. на доске myg;",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "기미, 색소 해결로 당당한 피부를!",
+       "is_me": false
+      }
+     ]
+    },
+    "kin": {
+     "present": false,
+     "exposed": false,
+     "position": null,
+     "label": "지식iN",
+     "ambiguous": false,
+     "top": []
+    }
+   }
+  },
+  {
+   "kw": "춘천시 기미레이저",
+   "type": "구단위",
+   "base": "기미레이저",
+   "place": {
+    "keyword": "춘천시 기미레이저",
+    "exposed": false,
+    "rank": null,
+    "ambiguous": false,
+    "results": [
+     {
+      "rank": 1,
+      "title": "쁘띠365의원",
+      "address": "강원특별자치도 춘천시 중앙로 59 지하1층, 지상 1층, 2층",
+      "address_jibun": "강원특별자치도 춘천시 중앙로2가 18 지하1층, 지상 1층, 2층",
+      "category": "병원,의원>피부과",
+      "link": "https://bbeauty365clinic.co.kr/",
+      "longitude": 127.7272506,
+      "latitude": 37.8797545
+     }
+    ]
+   },
+   "content": {
+    "blog": {
+     "present": true,
+     "exposed": true,
+     "position": 13,
+     "label": "블로그",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "춘천시 피부과 기미 고민을 말끔하게",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "춘천 팔뚝 손등기미 손검버섯 팔검버섯 제거 비용 (feat....",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "춘천피부관리샵 [영앤브라이트]기미 잡티 색소침착 피부트러블...",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "춘천기미 관리로 유명한 영앤브라이트 지인들이 추천한 이유",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "춘천 기미제거 피부 얼굴기미 비용 및 주의사항(+전후사진)",
+       "is_me": false
+      }
+     ]
+    },
+    "cafe": {
+     "present": true,
+     "exposed": true,
+     "position": 12,
+     "label": "카페",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "에스테틱 합법 레이저 ✨엑스터✨ 춘천세미나 (8/7)",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "[강원 춘천시 아토피 클리닉] 한림피부과의원 위치, 진료시간, 예약, 정보",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "춘천 보톡스 어디서 맞지? 인기 피부과 6곳 정리!",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "춘천잡티제거 레이저토닝 주근깨 기미치료",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "깔끔한 피부를 위한다면 춘천피부과추천",
+       "is_me": false
+      }
+     ]
+    },
+    "web": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "웹문서",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "춘천색소치료 기미와 주근깨 그리고 검버섯 개선",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "춘천피부과 | 리프팅·기미색소·여드름·레이저제모 | 쁘띠365의원",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "춘천기미 시술 전 비교할 피부 진료 기준",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "춘천 퇴계동 기미 치료, 숨겨진 광채를 깨우는 방법",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "2024 강원도 춘천시 피부과 추천 BEST5 – 필러, 보톡스, 기미, 여드름 후기!",
+       "is_me": false
+      }
+     ]
+    },
+    "news": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "뉴스",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "기름값 또 '들썩' … 서민가계 '휘청'",
+       "is_me": false
+      }
+     ]
+    },
+    "image": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "이미지",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "기미 잠재우는 레이저 토닝",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "여름철 기미 관리, 레이저토닝은 어떨까",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "기미 치료, 레이저 시술만이 답일까?",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "기미 제거술의 또 다른 발전 ‘레이저토닝’",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "피부기미 새로운 레이저치료로 40% 이상 제거",
+       "is_me": false
+      }
+     ]
+    },
+    "kin": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "지식iN",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "피부관리(바캉스로 지친피부)",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "피부 진정 크림",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "여드름 피부과 치료",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "콜라겐 앰플 선물 꼭 괜찮을 걸로요",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "충분한 수면을 취하면 지친피부가 돌아",
+       "is_me": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "kw": "강원 기미레이저",
+   "type": "시단위",
+   "base": "기미레이저",
+   "place": {
+    "keyword": "강원 기미레이저",
+    "exposed": false,
+    "rank": null,
+    "ambiguous": false,
+    "results": [
+     {
+      "rank": 1,
+      "title": "쁘띠365의원",
+      "address": "강원특별자치도 춘천시 중앙로 59 지하1층, 지상 1층, 2층",
+      "address_jibun": "강원특별자치도 춘천시 중앙로2가 18 지하1층, 지상 1층, 2층",
+      "category": "병원,의원>피부과",
+      "link": "https://bbeauty365clinic.co.kr/",
+      "longitude": 127.7272506,
+      "latitude": 37.8797545
+     },
+     {
+      "rank": 2,
+      "title": "앨리스의원",
+      "address": "강원특별자치도 원주시 치악로 1786",
+      "address_jibun": "강원특별자치도 원주시 개운동 385-4",
+      "category": "병원,의원>내과",
+      "link": "http://www.alice-clinic.com/",
+      "longitude": 127.9557625,
+      "latitude": 37.3418571
+     }
+    ]
+   },
+   "content": {
+    "blog": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "블로그",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "강원 기미 제거 잘하는곳 추천 셀비엔패치 레이저",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "이번주/리팟레이저/워크숍/동생졸업식/강원fc/열심히먹기...",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "다니엘원장님 강력 추천 기미레이저 / 기미레이저...",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "기미레이저 후기, 치료 부작용/불만족 없애려면 [제천 피부과]",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "제이앤스킨케어 | 기미색소 문제성 피부 전문 원주에스테틱",
+       "is_me": false
+      }
+     ]
+    },
+    "cafe": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "카페",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "⭐강릉 피코토닝, 복합성 기미부터 컬러 문신 제거까지⭐",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "기미레이저, 후회 없는 선택, 설레임피부과!",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "에스테틱 합법 레이저 ✨엑스터✨ 춘천세미나 (8/7)",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "에스테틱 합법 레이저 ✨엑스터✨ 원주세미나 (7/17)",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "GD토닝에 대한 모든 것! 원리, 특징, 장점, 추천 대상에 대한 모든 것!",
+       "is_me": false
+      }
+     ]
+    },
+    "web": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "웹문서",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "강원대학교병원 &gt; 피부과 &gt; 소아피부클리닉",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "기미제거대표레이저 | 강원특별자치도 속초시 청학동 | 피부과",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "원주 판부면 기미 치료, 피부과 선택 가이드",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "원주 실펌레이저 기미 치료에 효과가 있을까?",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "원주 편평사마귀 제거 단구동 치크비비 원주점 쥐젖/주근깨/기미/문제성피부",
+       "is_me": false
+      }
+     ]
+    },
+    "news": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "뉴스",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "[중력파 10년]③ 우주 비밀 밝히는 거대 과학 시설…중국 부상하고 한국...",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "강원의료기기전시회 18~19일 원주서 열려",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "강원의료기기전시회, “K-뷰티기업 ‘총출동’”",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "제21회 강원의료기기전시회, K-뷰티의 새로운 면모 만날 수 있어",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "제21회 강원의료기기전시회, K-뷰티·헬스케어 기업 대거 참여",
+       "is_me": false
+      }
+     ]
+    },
+    "image": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "이미지",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "기미 잠재우는 레이저 토닝",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "여름철 기미 관리, 레이저토닝은 어떨까",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "기미 치료, 레이저 시술만이 답일까?",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "기미 제거술의 또 다른 발전 ‘레이저토닝’",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "[1분 Q&A] 기미에 레이저토닝 효과 있나요?",
+       "is_me": false
+      }
+     ]
+    },
+    "kin": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "지식iN",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "서울이 난치성기미",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "화이자 백신 접종후 코피..",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "시사, 정치 관련 공부를 하고 싶은 학생인데, 어떤...",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "피부관리(바캉스로 지친피부)",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "피부 진정 크림",
+       "is_me": false
+      }
+     ]
+    }
+   }
+  }
+ ],
+ "location": {
+  "radius_m": 1000,
+  "adm_cd": "32010",
+  "adm_nm": "강원특별자치도춘천시",
+  "avg_age": 44.0,
+  "population_radius": 824,
+  "demand_score": 1.7,
+  "employee_density_km2": 115,
+  "commerce_score": 0.5,
+  "competitors": 22,
+  "competition_score": 47.8,
+  "saturation_per_10k": 267.0,
+  "site_score": 24.5
+ },
+ "resolution": {
+  "note": "",
+  "candidates": [
+   {
+    "title": "그랜드아름다운의원",
+    "address": "강원특별자치도 춘천시 중앙로 68 4층 그랜드아름다운의원"
+   }
+  ]
+ },
+ "summary": {
+  "place_hit": 3,
+  "content_hit": 4,
+  "total": 12,
+  "ambiguous": false
+ }
+}
