@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'unsafe-inline'; img-src 'self' data: https://*.google-analytics.com https://*.googletagmanager.com; connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com; form-action 'self'; base-uri 'self'; frame-ancestors 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'unsafe-inline'; img-src 'self' data: https://*.google-analytics.com https://*.googletagmanager.com; connect-src 'self' https://*.supabase.co https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com; form-action 'self'; base-uri 'self'; frame-ancestors 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>무료 병원 검색정보 운영 진단 신청 | (주)베놈 venomad</title>
 <meta name="description" content="(주)베놈이 병원의 공개정보와 검색정보 운영 상태를 무료로 진단해 드립니다. 반경 내 경쟁 현황, 키워드 노출 등급, 정보 정비 제안을 담은 내부 참고용 리포트.">
@@ -308,7 +308,7 @@
     <div class="form-done" id="formDone">
       <h3>신청이 접수되었습니다 ✓</h3>
       <p>영업일 기준 3일 이내에 선택하신 방식으로 진단 리포트를 보내드립니다.<br>
-      (프로토타입 화면입니다 — 실제 접수 서버 연동 전)</p>
+      동의 일시·내역은 법령에 따라 기록·보관됩니다.</p>
     </div>
   </div>
 </div></section>
@@ -343,6 +343,10 @@
    측정 ID를 발급받아 아래에 넣으면 활성화됩니다 (placeholder 상태에서는 로드 안 함).
    활성화 시 쿠키 기반 행태정보 수집이 시작됩니다 — 개인정보처리방침의
    자동수집 항목(쿠키·방문기록)이 게시된 상태인지 확인하세요. */
+// 리드 접수 API (Supabase Edge Function). 배포 후 프로젝트 URL로 교체.
+//   예: https://xxxxxxxx.supabase.co/functions/v1/leads
+const LEADS_ENDPOINT = ''; // 비어 있으면 프로토타입(무저장) 폴백으로 동작
+
 const GA_MEASUREMENT_ID = 'G-XXXXXXXXXX'; // TODO: GA4 측정 ID로 교체
 if (!/X{4}/.test(GA_MEASUREMENT_ID)) {
   const s = document.createElement('script');
@@ -378,7 +382,16 @@ function recordSubmit() {
   } catch {}
 }
 
-document.getElementById('applyForm').addEventListener('submit', e => {
+const REASON_MSG = {
+  blocked: '반복 신청으로 접수가 제한되었습니다. 문의처로 연락해 주세요.',
+  rate_limited: '최근 신청 횟수를 초과했습니다. 잠시 후 다시 시도해 주세요.',
+  duplicate_hospital: '같은 병원은 월 1회 신청할 수 있습니다. 갱신 리포트는 다음 달에 신청해 주세요.',
+  consent_required: '필수 동의 사항에 체크해 주세요.',
+  bad_email: '이메일 형식을 확인해 주세요.',
+  missing_fields: '필수 항목을 모두 입력해 주세요.',
+};
+
+document.getElementById('applyForm').addEventListener('submit', async e => {
   e.preventDefault();
   const f = e.target;
   if (f.company_website && f.company_website.value) return; // 허니팟 — 봇 무시
@@ -387,7 +400,9 @@ document.getElementById('applyForm').addEventListener('submit', e => {
     return;
   }
   if (!f.reportValidity()) return;
-  if (!document.getElementById('c1').checked || !document.getElementById('c2').checked) {
+  const c1 = document.getElementById('c1').checked;
+  const c2 = document.getElementById('c2').checked;
+  if (!c1 || !c2) {
     alert('필수 동의 사항(개인정보 수집·이용, 제공조건)에 체크해 주세요.');
     return;
   }
@@ -395,11 +410,43 @@ document.getElementById('applyForm').addEventListener('submit', e => {
     alert('오늘 신청 가능 횟수를 초과했습니다. 내일 다시 시도하시거나 문의처로 연락해 주세요.');
     return;
   }
-  recordSubmit();
-  if (window.gtag) gtag('event', 'diagnosis_apply', { method: 'form' }); // 전환 이벤트
-  // 프로토타입: 접수 서버 연동 전. 실제 구현 시 동의 일시/IP/문구 버전 함께 저장.
-  f.style.display = 'none';
-  document.getElementById('formDone').style.display = 'block';
+
+  const btn = f.querySelector('button[type=submit]');
+  const done = () => { recordSubmit();
+    if (window.gtag) gtag('event', 'diagnosis_apply', { method: 'form' });
+    f.style.display = 'none';
+    document.getElementById('formDone').style.display = 'block'; };
+
+  // 접수 서버 미설정 시: 프로토타입(무저장) 폴백
+  if (!LEADS_ENDPOINT) { done(); return; }
+
+  const payload = {
+    hospital: f.hospital.value, department: f.department.value, address: f.address.value,
+    tel: f.tel.value, url: f.url.value, keywords: f.keywords.value,
+    name: f.name.value, role: f.role.value, phone: f.phone.value, email: f.email.value,
+    delivery: f.delivery.value, consult: f.consult.value, etc: f.etc.value,
+    company_website: f.company_website.value,           // 허니팟(서버도 검사)
+    consent_required: c1 && c2,
+    consent_marketing: document.getElementById('c3').checked,
+    consent_ad_sms: !!(f.ad_sms && f.ad_sms.checked),
+    consent_ad_email: !!(f.ad_email && f.ad_email.checked),
+    consent_ad_call: !!(f.ad_call && f.ad_call.checked),
+  };
+
+  if (btn) { btn.disabled = true; btn.textContent = '접수 중…'; }
+  try {
+    const res = await fetch(LEADS_ENDPOINT, {
+      method: 'POST', headers: { 'content-type': 'application/json' },
+      body: JSON.stringify(payload),
+    });
+    const data = await res.json().catch(() => ({}));
+    if (res.ok && data.ok) { done(); return; }
+    alert(REASON_MSG[data.reason] || '접수 중 오류가 발생했습니다. 잠시 후 다시 시도해 주세요.');
+  } catch {
+    alert('네트워크 오류로 접수하지 못했습니다. 잠시 후 다시 시도해 주세요.');
+  } finally {
+    if (btn) { btn.disabled = false; btn.textContent = '무료 진단 신청하기'; }
+  }
 });
 </script>
 </body>
