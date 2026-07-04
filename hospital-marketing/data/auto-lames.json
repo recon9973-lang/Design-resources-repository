@@ -1,0 +1,3200 @@
+{
+ "generated_at": "2026-07-04T07:46:45+00:00",
+ "business": {
+  "rank": 1,
+  "title": "라메스피부과의원",
+  "address": "서울특별시 강남구 언주로 563 A1B1 1층 118호-120호",
+  "address_jibun": "서울특별시 강남구 역삼동 653-4 A1B1 1층 118호-120호",
+  "category": "병원,의원>피부과",
+  "link": "http://www.lames.co.kr",
+  "longitude": 127.0381514,
+  "latitude": 37.5079319
+ },
+ "region": {
+  "city": "서울",
+  "gu": "강남구",
+  "dong": "역삼동"
+ },
+ "classification": {
+  "is_hospital": true,
+  "dept": "피부과",
+  "base_terms": [
+   "피부과",
+   "여드름치료",
+   "기미레이저"
+  ]
+ },
+ "keywords": [
+  {
+   "kw": "라메스피부과의원",
+   "type": "브랜드",
+   "base": "라메스피부과의원",
+   "place": {
+    "keyword": "라메스피부과의원",
+    "exposed": true,
+    "rank": 1,
+    "ambiguous": false,
+    "results": [
+     {
+      "rank": 1,
+      "title": "라메스피부과의원",
+      "address": "서울특별시 강남구 언주로 563 A1B1 1층 118호-120호",
+      "address_jibun": "서울특별시 강남구 역삼동 653-4 A1B1 1층 118호-120호",
+      "category": "병원,의원>피부과",
+      "link": "http://www.lames.co.kr",
+      "longitude": 127.0381514,
+      "latitude": 37.5079319
+     }
+    ]
+   },
+   "content": {
+    "blog": {
+     "present": true,
+     "exposed": true,
+     "position": 1,
+     "label": "블로그",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "강남 언주역 피부과전문의 진료 [라메스피부과의원]",
+       "is_me": true
+      },
+      {
+       "rank": 2,
+       "title": "강남구 역삼동 라메스피부과의원_피부과전문의 장상재 원장",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "역삼동 피부과 라메스피부과의원 가격이벤트주차운영시간",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "라메스피부과의원 의료진소개",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "라메스피부과의원 진료시간안내",
+       "is_me": false
+      }
+     ]
+    },
+    "cafe": {
+     "present": true,
+     "exposed": true,
+     "position": 1,
+     "label": "카페",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "라메스피부과의원 여드름 치료 잘하는 곳인지 궁금해요",
+       "is_me": true
+      },
+      {
+       "rank": 2,
+       "title": "라메스피부과의원 사춘기 여드름 계속 반복돼요… 병원 가야 할까요?",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "‘아토피 환자, 100만명 넘었다’",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "서울특별시 강남구 피부과 병원 리스트입니다.",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "서울병원코디네이터학원 - 상명대학교 평생교육원",
+       "is_me": false
+      }
+     ]
+    },
+    "web": {
+     "present": true,
+     "exposed": true,
+     "position": 1,
+     "label": "웹문서",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "라메스피부과 | 신논현역 | 피부과전문의",
+       "is_me": true
+      },
+      {
+       "rank": 2,
+       "title": "@lames_dermatology_clinic - Instagram",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "라메스피부과의원 후기/가격/비용 (2026)",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "라메스피부과의원 위치 · 진료시간 · 후기 확인하기",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "라메스피부과의원 - 똑닥",
+       "is_me": false
+      }
+     ]
+    },
+    "news": {
+     "present": false,
+     "exposed": false,
+     "position": null,
+     "label": "뉴스",
+     "ambiguous": false,
+     "top": []
+    },
+    "image": {
+     "present": true,
+     "exposed": true,
+     "position": 1,
+     "label": "이미지",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "라메스피부과의원",
+       "is_me": true
+      },
+      {
+       "rank": 2,
+       "title": "라메스피부과의원",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "라메스피부과의원",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "라메스피부과의원 위치 · 진료시간 · 후기 확인하기",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "라메스피부과의원",
+       "is_me": false
+      }
+     ]
+    },
+    "kin": {
+     "present": true,
+     "exposed": true,
+     "position": 1,
+     "label": "지식iN",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "아토피보습제 좀 추천해주세요..ㅠ",
+       "is_me": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "kw": "역삼동 피부과",
+   "type": "동단위",
+   "base": "피부과",
+   "place": {
+    "keyword": "역삼동 피부과",
+    "exposed": false,
+    "rank": null,
+    "ambiguous": false,
+    "results": [
+     {
+      "rank": 1,
+      "title": "아도의원 강남",
+      "address": "서울특별시 강남구 봉은사로 110 RDL타워 3-4층",
+      "address_jibun": "서울특별시 강남구 역삼동 601-1 RDL타워 3-4층",
+      "category": "병원,의원>피부과",
+      "link": "https://www.threads.com/@__dr.dot__",
+      "longitude": 127.0258189,
+      "latitude": 37.5045804
+     },
+     {
+      "rank": 2,
+      "title": "클래스원의원",
+      "address": "서울특별시 강남구 강남대로 390 10층",
+      "address_jibun": "서울특별시 강남구 역삼동 825 10층",
+      "category": "병원,의원>피부과",
+      "link": "https://eventive.kr/classone/2607-1/",
+      "longitude": 127.0287089,
+      "latitude": 37.497901
+     },
+     {
+      "rank": 3,
+      "title": "역삼밴스피부과의원",
+      "address": "서울특별시 강남구 테헤란로 116 동경빌딩 1, 2층",
+      "address_jibun": "서울특별시 강남구 역삼동 824-19 동경빌딩 1, 2층",
+      "category": "병원,의원>피부과",
+      "link": "https://yeoksamskin.vandsclinics.com?channel=2705&detailChannel=0&gChannel=0",
+      "longitude": 127.0305483,
+      "latitude": 37.4984921
+     },
+     {
+      "rank": 4,
+      "title": "세라미크의원 강남",
+      "address": "서울특별시 강남구 봉은사로2길 29 B1층~5층",
+      "address_jibun": "서울특별시 강남구 역삼동 813 B1층~5층",
+      "category": "병원,의원>피부과",
+      "link": "https://www.gangnam.ceramiqueclinic.com",
+      "longitude": 127.0263438,
+      "latitude": 37.5028078
+     },
+     {
+      "rank": 5,
+      "title": "자연예쁨의원",
+      "address": "서울특별시 강남구 강남대로 432 점프밀라노 7층",
+      "address_jibun": "서울특별시 강남구 역삼동 815 점프밀라노 7층",
+      "category": "병원,의원>피부과",
+      "link": "http://nb-skin.com/",
+      "longitude": 127.0265531,
+      "latitude": 37.5010824
+     }
+    ]
+   },
+   "content": {
+    "blog": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "블로그",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "역삼동피부과 탄력 회복 온다 리프팅 관리는",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "역삼동 피부과 리프팅 종류, 울세라 써마지 차이가 궁금하다면?",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "역삼동피부과 볼필러 가격 및 비용 확인해보면",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "역삼동피부과 티타늄리프팅 원리부터 울쎄라·써마지 차이까지",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "역삼동피부과 리프팅 비교, 울세라·써마지·온다리프팅 차이부터",
+       "is_me": false
+      }
+     ]
+    },
+    "cafe": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "카페",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "역삼동피부과 써마지 효과 눈가도 가능한가요?",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "역삼동피부과 추천 이거 왜 이제 했나 싶어요",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "역삼동피부과 티타늄 리프팅 효과 및 주의 사항은",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "역삼동피부과 기미랑 화이트닝 잘하는곳 있나요",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "역삼동피부과 양심 어디 갔나요?",
+       "is_me": false
+      }
+     ]
+    },
+    "web": {
+     "present": true,
+     "exposed": true,
+     "position": 24,
+     "label": "웹문서",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "리츠피부과의원 후기/가격/비용 (2026)",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "시그니처피부과의원 후기/가격/비용 (2026)",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "유레카피부과의원 - 똑닥",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "강남 역삼동피부과 대상포진 딱지 흉터, 패인 흉터의 치료 후기",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "투명피부과의원 후기/가격/비용 (2026)",
+       "is_me": false
+      }
+     ]
+    },
+    "news": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "뉴스",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "&quot;10년전처럼 또 프로포폴 유출&quot;…이번엔 다르다[식약처가 바꾼다]",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "강남역·신논현역 사이 'W빌딩' 매물로",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "강남대로 더블역세권 중소형빌딩 매물로",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "강남 역세권 'W빌딩' 매물로",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "역삼동 'W빌딩' 매각 시장 나온다",
+       "is_me": false
+      }
+     ]
+    },
+    "image": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "이미지",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "라클라쎄 의원",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "오피스·학군지 두루 갖춘 역삼동, 개원 스팟 집중",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "임신중 DHA 보충 '미숙아·저체중아' 예방",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "역삼역 피부과 추천 합니다. | 네이트 판",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "강남의원",
+       "is_me": false
+      }
+     ]
+    },
+    "kin": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "지식iN",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "강남 역삼동 피부과",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "서울 역삼동 피부과 온다 레이저 통증",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "역삼동피부과 시술 잘하는 곳",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "역삼동피부과 보톡스 저렴하게 할 수 있는곳 알아봐요",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "역삼동피부과 리프팅이요.",
+       "is_me": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "kw": "강남구 피부과",
+   "type": "구단위",
+   "base": "피부과",
+   "place": {
+    "keyword": "강남구 피부과",
+    "exposed": false,
+    "rank": null,
+    "ambiguous": false,
+    "results": [
+     {
+      "rank": 1,
+      "title": "아도의원 강남",
+      "address": "서울특별시 강남구 봉은사로 110 RDL타워 3-4층",
+      "address_jibun": "서울특별시 강남구 역삼동 601-1 RDL타워 3-4층",
+      "category": "병원,의원>피부과",
+      "link": "https://www.threads.com/@__dr.dot__",
+      "longitude": 127.0258189,
+      "latitude": 37.5045804
+     },
+     {
+      "rank": 2,
+      "title": "클래스원의원",
+      "address": "서울특별시 강남구 강남대로 390 10층",
+      "address_jibun": "서울특별시 강남구 역삼동 825 10층",
+      "category": "병원,의원>피부과",
+      "link": "https://eventive.kr/classone/2607-1/",
+      "longitude": 127.0287089,
+      "latitude": 37.497901
+     },
+     {
+      "rank": 3,
+      "title": "뷰앤플의원",
+      "address": "서울특별시 강남구 압구정로50길 14 1, 2층",
+      "address_jibun": "서울특별시 강남구 신사동 659-11 1, 2층",
+      "category": "병원,의원>피부과",
+      "link": "https://www.beaunpl.com",
+      "longitude": 127.0378758,
+      "latitude": 37.527405
+     },
+     {
+      "rank": 4,
+      "title": "룬피부과의원 청담",
+      "address": "서울특별시 강남구 선릉로 822 5층 룬피부과의원",
+      "address_jibun": "서울특별시 강남구 청담동 85-2 5층 룬피부과의원",
+      "category": "병원,의원>피부과",
+      "link": "https://www.threads.com/@dr.lunn",
+      "longitude": 127.0401261,
+      "latitude": 37.5252752
+     },
+     {
+      "rank": 5,
+      "title": "블리비의원 리저브 청담점",
+      "address": "서울특별시 강남구 선릉로 803 지상 1,2층",
+      "address_jibun": "서울특별시 강남구 신사동 666-10 지상 1,2층",
+      "category": "병원,의원>피부과",
+      "link": "https://www.velyb.kr",
+      "longitude": 127.0389902,
+      "latitude": 37.5239572
+     }
+    ]
+   },
+   "content": {
+    "blog": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "블로그",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "강남구피부과 올리디아 시술, 자연스러운 탄력 관리란?",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "강남구 역삼역 피부과 레이저리프팅 종류 및 특징 한눈에 정리",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "강남구피부과 울쎄라 효과 느끼고 싶다면",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "강남구청역 피부과의원 세르프300 내돈내산 후기",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "바디온다 복부 120kJ 후기 강남구청역피부과 솔린의원...",
+       "is_me": false
+      }
+     ]
+    },
+    "cafe": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "카페",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "강남구청 피부과 쥬베룩 볼륨 한달차 후기",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "강남구줄기세포피부과 비교하다가 연세bh의원에서 받았어용 ㅎ",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "강남구피부과에 만족못하고…더뷰티성형외과에서 울쎄라하고 스킨부스터까지 한달차!",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "강남구청 피부과에서 바디 리니어지 예약했는데요",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "강남구 피부과 정착 성공했습니당, 청담ㅇㅋㅇ클리닉 리팟레이저 찐후기",
+       "is_me": false
+      }
+     ]
+    },
+    "web": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "웹문서",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "아름다운나라 피부과",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "아름다운나라피부과의원 후기/가격/비용 (2026)",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "시그니처피부과의원 후기/가격/비용 (2026)",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "진료안내 및 오시는길-야간진료피부과 피부과야간진료 남자피부과 야간피부과",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "강남피부과",
+       "is_me": false
+      }
+     ]
+    },
+    "news": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "뉴스",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "다날, K-미용 거점 강남에 외국인 결제 ‘콘다’ 키오스크 설치",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "[의료기기업계 소식] 7월 1일",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "'불법 투약' 강남 피부과서 ‘비밀 방’ 파티…병원장 등 18명 검찰 송치",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "&quot;한번 오면 20만원은 기본&quot;…외국인 '쇼핑 성지'로 등극한 곳 [트렌드+]",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "'프로포폴 불법 투약' 강남 피부과 원장 등 18명 무더기 검찰행",
+       "is_me": false
+      }
+     ]
+    },
+    "image": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "이미지",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "강남 대치동 재수학원 130명 집단 식중독 의심",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "시술패키지 선결제…강남 유명 피부과 ‘먹튀’ 폐업 “피해 눈덩이”",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "현금 선결제 고집하던 강남 유명 피부과 돌연 폐업…“피해 눈덩이”",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "의원급 취업 일반의 591명중 341명 ‘피안성정’ 몰려",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "[단독] 강남 피부과 원장 부부, 거짓 폐업·건물주 협박 '수상한 행적'",
+       "is_me": false
+      }
+     ]
+    },
+    "kin": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "지식iN",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "강남구청역쪽에 온다리프팅시술 피부과?",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "강남구청역피부과 환절기 피부탄력 리프팅 추천해주세요",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "송파구 강남구 피부과",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "강남구청역쪽에 슈링크시술 피부과가?",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "ㅠㅠ 앞으로 어떤 치료를 받을까요. (강남구 피부과 추천)",
+       "is_me": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "kw": "서울 피부과",
+   "type": "시단위",
+   "base": "피부과",
+   "place": {
+    "keyword": "서울 피부과",
+    "exposed": false,
+    "rank": null,
+    "ambiguous": false,
+    "results": [
+     {
+      "rank": 1,
+      "title": "맥스웰피부과의원 종로점",
+      "address": "서울특별시 종로구 종로 33 그랑서울 6층",
+      "address_jibun": "서울특별시 종로구 청진동 70 그랑서울 6층",
+      "category": "병원,의원>피부과",
+      "link": "https://jongno.maxwellhair.com/",
+      "longitude": 126.981484,
+      "latitude": 37.5710023
+     },
+     {
+      "rank": 2,
+      "title": "서울영재의원",
+      "address": "서울특별시 용산구 만리재로 176 2~3층",
+      "address_jibun": "서울특별시 용산구 서계동 236-16 2~3층",
+      "category": "병원,의원>소아청소년과",
+      "link": "http://www.goodoc.co.kr/hospitals/16736",
+      "longitude": 126.9657782,
+      "latitude": 37.5539429
+     },
+     {
+      "rank": 3,
+      "title": "당신만의가치 벨유의원",
+      "address": "서울특별시 중구 명동길 32 4층",
+      "address_jibun": "서울특별시 중구 명동2가 50-1 4층",
+      "category": "병원,의원>피부과",
+      "link": "http://www.valu-clinic.kr/",
+      "longitude": 126.9841419,
+      "latitude": 37.5635921
+     },
+     {
+      "rank": 4,
+      "title": "서울참피부과의원",
+      "address": "서울특별시 중구 청구로 70 신진빌딩 4층",
+      "address_jibun": "서울특별시 중구 신당동 294-13 신진빌딩 4층",
+      "category": "병원,의원>피부과",
+      "link": "http://charmskin.net/",
+      "longitude": 127.014604,
+      "latitude": 37.560097
+     },
+     {
+      "rank": 5,
+      "title": "서울피부과의원",
+      "address": "서울특별시 강남구 언주로154길 16 3층 서울피부과의원",
+      "address_jibun": "서울특별시 강남구 신사동 631-25 3층 서울피부과의원",
+      "category": "병원,의원>피부과",
+      "link": "",
+      "longitude": 127.0346748,
+      "latitude": 37.5232867
+     }
+    ]
+   },
+   "content": {
+    "blog": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "블로그",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "해운대피부과 서울에서까지 소문 난 이유는",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "서울피부과마케팅 개원 후 신환증가하는 마케팅 구조, 신뢰...",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "해운대피부과 서울에서도 사랑 받는 까닭은",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "서울 피부과 잡티 레이저 시술, 용인에서 다녀온 후기",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "서울피부과 추천 한의원 안면홍조 치료법 후기 고민된다면",
+       "is_me": false
+      }
+     ]
+    },
+    "cafe": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "카페",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "서울피부과 추천 좀 부탁드려요",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "피부진단 잘해주는 서울피부과 추천 가능할까요?",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "[서울/강남] 복부·허벅지 군살 관리 6월 피부과 체험단 모집",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "서울 여드름 피부과 잘하는데ㅠ",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "진천 서울피부과 휴가일정~^^",
+       "is_me": false
+      }
+     ]
+    },
+    "web": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "웹문서",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "서울피부과",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "피부과 | 서울대학교병원운영 서울특별시보라매병원",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "피부과 | 서울대학교병원운영 서울특별시보라매병원",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "피부과 전문병원 찾기",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "피부과 - 진료과 &gt; 진료과/의료진 &gt; 가톨릭대학교 서울성모병원",
+       "is_me": false
+      }
+     ]
+    },
+    "news": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "뉴스",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "두손·두발 편하게 해주니...외국인 8배 급증한 이 서비스",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "외국인 환자 200만 시대… 인천 의료관광, 부산·제주에 역전",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "한국의료관광진흥협회, 서울 의료관광 발전 전략 제시",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "어디서 약을 팔아? 외국인에게 이렇게 많이… K힐링 쇼핑, 명동 ‘약국...",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "“한달치 탈모약 1만원인데… 건보 적용까지 한다고요?”",
+       "is_me": false
+      }
+     ]
+    },
+    "image": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "이미지",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "서울레전드피부과의원 위치 · 진료시간 · 후기 확인하기",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "서울진피부과의원",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "서울피부과의원",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "서울진피부과의원 위치 · 진료시간 · 후기 확인하기",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "서울피부과의원 후기/가격/비용 (2026) | 모두닥",
+       "is_me": false
+      }
+     ]
+    },
+    "kin": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "지식iN",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "서울피부과추천 받고 싶은데 어디가 잘하나요?",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "서울 피부과 리프팅 고민 중이에요",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "서울에서 피부과 추천받고 싶은데, 어떤 곳이 좋을까요?",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "서울피부과",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "습진, 등드름 서울 피부과 추천 부탁드려요..",
+       "is_me": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "kw": "피부과",
+   "type": "메인",
+   "base": "피부과",
+   "place": {
+    "keyword": "피부과",
+    "exposed": false,
+    "rank": null,
+    "ambiguous": false,
+    "results": [
+     {
+      "rank": 1,
+      "title": "셀린의원 명동점",
+      "address": "서울특별시 중구 남대문로7길 16 1층 셀린의원 명동",
+      "address_jibun": "서울특별시 중구 소공동 21-1 1층 셀린의원 명동",
+      "category": "병원,의원>피부과",
+      "link": "http://pf.kakao.com/_AmKxln",
+      "longitude": 126.9811262,
+      "latitude": 37.5642284
+     },
+     {
+      "rank": 2,
+      "title": "써밋의원 광화문역",
+      "address": "서울특별시 중구 세종대로22길 12 광화문G스퀘어 3층",
+      "address_jibun": "서울특별시 중구 태평로1가 25-3 광화문G스퀘어 3층",
+      "category": "병원,의원>피부과",
+      "link": "https://youtube.com/@summitclinic_kr",
+      "longitude": 126.977968,
+      "latitude": 37.5679455
+     },
+     {
+      "rank": 3,
+      "title": "리나인의원",
+      "address": "서울특별시 중구 소공로 116 서울센터빌딩 2층",
+      "address_jibun": "서울특별시 중구 소공동 91-1 서울센터빌딩 2층",
+      "category": "병원,의원>피부과",
+      "link": "https://www.renine.kr/",
+      "longitude": 126.9789623,
+      "latitude": 37.5648639
+     },
+     {
+      "rank": 4,
+      "title": "유제의원",
+      "address": "서울특별시 중구 서소문로 133 송하빌딩 5층",
+      "address_jibun": "서울특별시 중구 서소문동 23 송하빌딩 5층",
+      "category": "병원,의원>피부과",
+      "link": "https://www.yujeclinic.com",
+      "longitude": 126.9755524,
+      "latitude": 37.5638847
+     },
+     {
+      "rank": 5,
+      "title": "어뉴의원",
+      "address": "서울특별시 중구 무교로 12 7층",
+      "address_jibun": "서울특별시 중구 무교동 21-3 7층",
+      "category": "병원,의원>피부과",
+      "link": "https://anewskin.kr/",
+      "longitude": 126.9793882,
+      "latitude": 37.5670515
+     }
+    ]
+   },
+   "content": {
+    "blog": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "블로그",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "부산피부과추천 내돈내산 후기 효과 알아본다면",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "미사역피부과 선택할 때 비교할 기준",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "일산 정발산역피부과 리투오 효과 스킨부스터 만족 후기",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "홍대 피부과 팔자주름 실리프팅 내돈내산 후기  원더트리플",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "대구 달서구 피부과 리쥬란 4cc 솔직후기!",
+       "is_me": false
+      }
+     ]
+    },
+    "cafe": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "카페",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "부평피부과 질문드려용!",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "교대역 피부과 온다리프팅 솔직 후기 남겨볼게요!",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "잠실피부과 리프팅 받은 후기",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "천안피부과추천 ㅠㅠㅠ 급해용",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "울산 피부과 탄력 관리 어디가 괜찮을까요?",
+       "is_me": false
+      }
+     ]
+    },
+    "web": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "웹문서",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "피부과 - 나무위키",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "피부과 | 진료과 | 의료진/진료과",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "피부과 - 건국대학교병원",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "박현선 상세페이지",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "진료과 소개 &lt; 피부과 &lt; 진료과/의료진 &lt; 진료안내 &lt; 서울의료원",
+       "is_me": false
+      }
+     ]
+    },
+    "news": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "뉴스",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "검색이 병원 선택 좌우하는데…의료광고 규제는 '제자리'",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "‘피부 시술 후 2도 화상’ 6개월만에 근황 전한 인기 걸그룹 출신, 흉터...",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "매일 3만 개 떨어지는 피부 각질… 침대 시트, 매 주 빨아라",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "목주름·치아 변화 사실일까…전문가가 밝힌 스마트폰의 진실",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "'피부암 환자 연 8,000명 돌파, 자외선 차단 필수인 이유는?'",
+       "is_me": false
+      }
+     ]
+    },
+    "image": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "이미지",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "제이윤피부과의원",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "제로피부과의원",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "더한스피부과의원, 채수지 원장 초빙…“환자 맞춤형 진료 강화”",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "하나뿐인 피부과전문의 - YouTube 하나뿐인 피부과전문의",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "서울바른피부과의원 대구",
+       "is_me": false
+      }
+     ]
+    },
+    "kin": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "지식iN",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "여드름흉터 피부과",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "청담동피부과 선택 기준은?",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "여드름흉터는 피부과 치료 말고 다른 거 없나요?",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "피부과에서 피지낭종 제거",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "여드름피부과 대신 한의원 괜찮을까요?",
+       "is_me": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "kw": "역삼동 여드름치료",
+   "type": "동단위",
+   "base": "여드름치료",
+   "place": {
+    "keyword": "역삼동 여드름치료",
+    "exposed": true,
+    "rank": 1,
+    "ambiguous": false,
+    "results": [
+     {
+      "rank": 1,
+      "title": "라메스피부과의원",
+      "address": "서울특별시 강남구 언주로 563 A1B1 1층 118호-120호",
+      "address_jibun": "서울특별시 강남구 역삼동 653-4 A1B1 1층 118호-120호",
+      "category": "병원,의원>피부과",
+      "link": "http://www.lames.co.kr",
+      "longitude": 127.0381514,
+      "latitude": 37.5079319
+     },
+     {
+      "rank": 2,
+      "title": "디케이의원",
+      "address": "서울특별시 강남구 테헤란로 121 원빌딩 4층 401-1호",
+      "address_jibun": "서울특별시 강남구 역삼동 648-26 원빌딩 4층 401-1호",
+      "category": "병원,의원>피부과",
+      "link": "https://blog.naver.com/faceloveps",
+      "longitude": 127.0311365,
+      "latitude": 37.4993304
+     },
+     {
+      "rank": 3,
+      "title": "청담이지함피부과의원",
+      "address": "서울특별시 강남구 봉은사로 302 역삼sk리더스뷰 2층",
+      "address_jibun": "서울특별시 강남구 역삼동 680 역삼sk리더스뷰 2층",
+      "category": "병원,의원>피부과",
+      "link": "https://www.instagram.com/cdljh3600",
+      "longitude": 127.0399034,
+      "latitude": 37.508775
+     },
+     {
+      "rank": 4,
+      "title": "아이유의원",
+      "address": "서울특별시 강남구 강남대로 402 시계탑 빌딩 10층",
+      "address_jibun": "서울특별시 강남구 역삼동 820-11 시계탑 빌딩 10층",
+      "category": "병원,의원>피부과",
+      "link": "http://www.i-you.co.kr/",
+      "longitude": 127.0278562,
+      "latitude": 37.4988176
+     },
+     {
+      "rank": 5,
+      "title": "참진한의원 강남",
+      "address": "서울특별시 강남구 논현로85길 43",
+      "address_jibun": "서울특별시 강남구 역삼동 741-12",
+      "category": "병원,의원>한의원",
+      "link": "https://www.jinmedi.com",
+      "longitude": 127.0346939,
+      "latitude": 37.4980783
+     }
+    ]
+   },
+   "content": {
+    "blog": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "블로그",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "역삼동 턱 입주변 여드름 자꾸... 자리에 생기는 이유와 치료 방법",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "역삼동여드름 치료 후 남는 색소 문제의 원인과 관리법",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "역삼동여드름 치료 시 성인 여드름 재발 원인과 관리법",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "역삼동성인여드름 피부과 반복되는 여드름원인부터 치료까지",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "역삼동청소년여드름 치료 여드름흉터를 남기지않으려면",
+       "is_me": false
+      }
+     ]
+    },
+    "cafe": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "카페",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "역삼동 피부과 여드름치료 잘하는 곳 있나요?",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "역삼동 여드름 피부과에서 성인 여드름 치료 받고 와봤어요",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "갑자기 피부트러블 심해져서 역삼동 여드름 피부과에서 M샤인블랙 맞고 왔어요",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "[서울/강남] 여드름 치료 한의원에서 여드름 압출 유튜브 컨텐츠 출연 일반인 모델 모집합니다^^",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "[서울/강남] 여드름 치료 한의원에서 여드름 압출 유튜브 컨텐츠 출연 일반인 모델 모집합니다",
+       "is_me": false
+      }
+     ]
+    },
+    "web": {
+     "present": true,
+     "exposed": true,
+     "position": 21,
+     "label": "웹문서",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "강남역 여드름흉터 맞춤치료 추천 | 역삼1동",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "역삼동 여드름약 처방병원 찾는 법｜여드름약 종류·가격 한눈에 정리",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "역삼동피부과 여드름 붉은기 붉은자국 혈관 치료_GV레이저 효과",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "볼, 턱, 같은 자리 여드름이 재발하는 이유는? 강남 역삼동 피부과",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "역삼동피부과 여드름치료 비용보다 중요한것은?",
+       "is_me": false
+      }
+     ]
+    },
+    "news": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "뉴스",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "명동 넘어…을·충·당에 반하다 [데이터로 그려본 2025 외국인 상권 지...",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "큐어젯의 세 번째 심포지엄 성료… 300여 명 참석",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "[바이오게시판] 제약바이오협회, 7월 5일 CEO 포럼 개최 등",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "[제약업계 소식] 6월 26일",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "[제약업계 소식] 4월 6일",
+       "is_me": false
+      }
+     ]
+    },
+    "image": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "이미지",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "여드름 치료와 성인여드름- 연세라인의원(서울 역삼동, 강남역) 안성환 원장 - kakaoTV 여드름 치료와 성인여드름- 연세라인의원(서울 역삼동...",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "여드름치료기간, 여드름재발을 생각하며 바라봐야",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "입학·새 학기 시즌, 학생여드름 치료 증가 이유는",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "복합여드름, 치료 빠를수록 좋아",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "비싸서 안 해? 구미여드름 치료 지금 해!",
+       "is_me": false
+      }
+     ]
+    },
+    "kin": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "지식iN",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "제대로 치료 어떻게해요? (역삼동 고등학생/여 여드름흉...",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "역삼동피부과 여드름흉터 제거 잘하는곳이요.",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "중학생 사춘기여드름치료 꼭 해야 할까요?",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "역삼동 선릉역 여드름치료 잘하는곳 알려주세요",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "강남 역삼동 고등학생/남 사춘기여드름, 작년부터...",
+       "is_me": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "kw": "강남구 여드름치료",
+   "type": "구단위",
+   "base": "여드름치료",
+   "place": {
+    "keyword": "강남구 여드름치료",
+    "exposed": true,
+    "rank": 1,
+    "ambiguous": false,
+    "results": [
+     {
+      "rank": 1,
+      "title": "라메스피부과의원",
+      "address": "서울특별시 강남구 언주로 563 A1B1 1층 118호-120호",
+      "address_jibun": "서울특별시 강남구 역삼동 653-4 A1B1 1층 118호-120호",
+      "category": "병원,의원>피부과",
+      "link": "http://www.lames.co.kr",
+      "longitude": 127.0381514,
+      "latitude": 37.5079319
+     },
+     {
+      "rank": 2,
+      "title": "디케이의원",
+      "address": "서울특별시 강남구 테헤란로 121 원빌딩 4층 401-1호",
+      "address_jibun": "서울특별시 강남구 역삼동 648-26 원빌딩 4층 401-1호",
+      "category": "병원,의원>피부과",
+      "link": "https://blog.naver.com/faceloveps",
+      "longitude": 127.0311365,
+      "latitude": 37.4993304
+     },
+     {
+      "rank": 3,
+      "title": "청담이지함피부과의원",
+      "address": "서울특별시 강남구 봉은사로 302 역삼sk리더스뷰 2층",
+      "address_jibun": "서울특별시 강남구 역삼동 680 역삼sk리더스뷰 2층",
+      "category": "병원,의원>피부과",
+      "link": "https://www.instagram.com/cdljh3600",
+      "longitude": 127.0399034,
+      "latitude": 37.508775
+     },
+     {
+      "rank": 4,
+      "title": "미모던피부과의원",
+      "address": "서울특별시 강남구 광평로 280 로즈데일 2층 205호",
+      "address_jibun": "서울특별시 강남구 수서동 724 로즈데일 2층 205호",
+      "category": "병원,의원>피부과",
+      "link": "https://youtube.com/@닥터우쎄라",
+      "longitude": 127.1029037,
+      "latitude": 37.4873956
+     },
+     {
+      "rank": 5,
+      "title": "닥터웰메이드원 피부과의원",
+      "address": "서울특별시 강남구 언주로168길 5 지미안빌딩 5층",
+      "address_jibun": "서울특별시 강남구 신사동 635-4 지미안빌딩 5층",
+      "category": "병원,의원>피부과",
+      "link": "https://blog.naver.com/kota30",
+      "longitude": 127.0340512,
+      "latitude": 37.526631
+     }
+    ]
+   },
+   "content": {
+    "blog": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "블로그",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "강남구청역 피부과 울트라펄스알파 여드름흉터치료 3차 시술...",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "강남구청여드름 치료에 골드PTT는 효과 없다? &lt;팩트 체크&gt;",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "강남구청역피부과 인근 여드름치료 받기 전 확인해야 할 내용",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "강남구 여드름 흉터 피부과 질환 치료 직접 받아본 의사 경험",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "강남구청역 여드름 흉터 치료 효과보려면",
+       "is_me": false
+      }
+     ]
+    },
+    "cafe": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "카페",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "강남여드름흉터 알려주세요",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "여드름흉터치료 3개월동안 받았더니 이렇게 달라지네요",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "혹시 대학생아이 여드름치료 잘하는 병원있을까요?",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "여드름 붉은 자국, 왜 오래 남을까요?2017 미애로 네트워크 학술대회 강의로 다시 보는 여드름 피지와 붉음...",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "고민하던 여드름흉터 치료받고 왔어요! (1차 후기)",
+       "is_me": false
+      }
+     ]
+    },
+    "web": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "웹문서",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "강남여드름치료 가장 잘나가는 여드름프로그램",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "스킨메디피부과 의료정보",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "흉터치료 - 스킨메디피부과의원",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "강남 여드름 흉터 치료 강남구청역 피부과",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "서울 강남구 피부과 추천: 필러, 보톡스, 기미, 여드름 전문의 BEST 6 후기!",
+       "is_me": false
+      }
+     ]
+    },
+    "news": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "뉴스",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "&quot;한번 오면 20만원은 기본&quot;…외국인 '쇼핑 성지'로 등극한 곳 [트렌드+]",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "바노바기피부과 전희대 원장, 큐어젯 심포지엄 'CATS' 좌장 맡아",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "한의학이여, 여성의 부름에 답하라",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "[제약업계 소식] 6월 9일",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "“저기 뭔데 줄 서 있어요?” 외국인들 양손 가득…입소문 나더니 매출...",
+       "is_me": false
+      }
+     ]
+    },
+    "image": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "이미지",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "여드름화장품으로 남자여드름치료하고 대박 존재감으로 거듭나자!",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "여드름치료기간, 여드름재발을 생각하며 바라봐야",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "입학·새 학기 시즌, 학생여드름 치료 증가 이유는",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "복합여드름, 치료 빠를수록 좋아",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "새 학기 시작 전 여드름 치료로 자신감 UP!",
+       "is_me": false
+      }
+     ]
+    },
+    "kin": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "지식iN",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "자국 상담받고 싶어요(산본, 몸여드름)(강남구 몸여드름)",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "강남구청피부과 여드름치료 잘하는곳 있을까요?",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "31살/남/강남구 곰보피부같이..ㅋ여드름도나고...",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "강남구청역근처에서 여드름치료 잘하는곳 가르쳐주세요",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "서울시강남구논현동29세여/한방여드름 치료 등도...",
+       "is_me": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "kw": "서울 여드름치료",
+   "type": "시단위",
+   "base": "여드름치료",
+   "place": {
+    "keyword": "서울 여드름치료",
+    "exposed": true,
+    "rank": 1,
+    "ambiguous": false,
+    "results": [
+     {
+      "rank": 1,
+      "title": "라메스피부과의원",
+      "address": "서울특별시 강남구 언주로 563 A1B1 1층 118호-120호",
+      "address_jibun": "서울특별시 강남구 역삼동 653-4 A1B1 1층 118호-120호",
+      "category": "병원,의원>피부과",
+      "link": "http://www.lames.co.kr",
+      "longitude": 127.0381514,
+      "latitude": 37.5079319
+     },
+     {
+      "rank": 2,
+      "title": "디케이의원",
+      "address": "서울특별시 강남구 테헤란로 121 원빌딩 4층 401-1호",
+      "address_jibun": "서울특별시 강남구 역삼동 648-26 원빌딩 4층 401-1호",
+      "category": "병원,의원>피부과",
+      "link": "https://blog.naver.com/faceloveps",
+      "longitude": 127.0311365,
+      "latitude": 37.4993304
+     },
+     {
+      "rank": 3,
+      "title": "봄빛의원",
+      "address": "서울특별시 용산구 이촌로88길 16 미학빌딩 3층",
+      "address_jibun": "서울특별시 용산구 이촌동 300-268 미학빌딩 3층",
+      "category": "병원,의원>피부과",
+      "link": "https://www.bomvitclinic.com",
+      "longitude": 126.9776917,
+      "latitude": 37.5178384
+     },
+     {
+      "rank": 4,
+      "title": "크크서울의원",
+      "address": "서울특별시 서초구 강남대로 439 7층 크크서울의원",
+      "address_jibun": "서울특별시 서초구 서초동 1305-2 7층 크크서울의원",
+      "category": "병원,의원>피부과",
+      "link": "https://blog.naver.com/eeeuu-",
+      "longitude": 127.0254021,
+      "latitude": 37.5015461
+     },
+     {
+      "rank": 5,
+      "title": "청담이지함피부과의원",
+      "address": "서울특별시 강남구 봉은사로 302 역삼sk리더스뷰 2층",
+      "address_jibun": "서울특별시 강남구 역삼동 680 역삼sk리더스뷰 2층",
+      "category": "병원,의원>피부과",
+      "link": "https://www.instagram.com/cdljh3600",
+      "longitude": 127.0399034,
+      "latitude": 37.508775
+     }
+    ]
+   },
+   "content": {
+    "blog": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "블로그",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "서울여드름피부과 치료 비용 전후 비교해보니",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "서울여드름치료 14년차 원장이 말하는 병원 선택 기준 2가지",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "서울역피부과, 여드름 치료 잘하는 곳 찾는 2가지 기준",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "서울피부한의원에서 레이저 없이 여드름 치료 끝",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "서울여드름치료한의원 중에서 최고인데 공유 ㄱㄱ",
+       "is_me": false
+      }
+     ]
+    },
+    "cafe": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "카페",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "서울 여드름치료 패인흉터[울트라클리어] 솔직후기",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "여드름흉터치료 궁금한 거 있어요",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "서울 여드름흉터치료 잘하는곳있을까요?",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "서울 여드름 압출 및 자국 치료(피부과, 한의원 관점)",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "서울 여드름흉터치료 잘하는병원 알려주세요",
+       "is_me": false
+      }
+     ]
+    },
+    "web": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "웹문서",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "여드름 흉터 치료법",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "여드름(Acne) | 질환백과 | 의료정보 | 건강정보",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "여드름 [acne] | 의학정보 | 건강정보",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "서울 모공/여드름치료 피부과 TOP10 후기/가격 총정리 (2026)",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "여드름 왕십리/성수/건대 시술추천・가격비교 (2026)",
+       "is_me": false
+      }
+     ]
+    },
+    "news": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "뉴스",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "어디서 약을 팔아? 외국인에게 이렇게 많이… K힐링 쇼핑, 명동 ‘약국...",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "[병원소식]고려대 안암병원·포도테라퓨틱스, 고형암 정밀밀의료 협약 ...",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "365mc, '지방줄기세포' 연구 집대성 도서 출간…&quot;재생의학 새 가능성 제...",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "“지방, 너 지방가라다?”…365mc, 지방줄기세포 도서 출간기념회",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "[제약업계 소식] 7월 2일",
+       "is_me": false
+      }
+     ]
+    },
+    "image": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "이미지",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "[의료]‘한국형 심부레이저박피술’ 난치성 여드름흉터 치료에 효과 입증",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "성인여드름 치료, 2차 감염 방지와 흉터 예방이 중요해",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "여드름 흉터 치료, 최신 레이저 요법",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "여드름 피부, 치료 시기 놓쳤다가는…",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "BEST of BEST 여드름 흉터 치료는??",
+       "is_me": false
+      }
+     ]
+    },
+    "kin": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "지식iN",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "서울 여드름 치료 잘하는 한의원 찾아요! 피부과는...",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "여드름흉터 치료 어디서 받아야 할까요?",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "서울 여드름 흉터",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "서울지역 피부과 여드름 치료 후",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "파인 여드름 흉터치료",
+       "is_me": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "kw": "여드름치료",
+   "type": "메인",
+   "base": "여드름치료",
+   "place": {
+    "keyword": "여드름치료",
+    "exposed": false,
+    "rank": null,
+    "ambiguous": false,
+    "results": [
+     {
+      "rank": 1,
+      "title": "나음피부과의원",
+      "address": "서울특별시 중구 세종대로 13 화남빌딩 5층",
+      "address_jibun": "서울특별시 중구 남대문로5가 6-8 화남빌딩 5층",
+      "category": "병원,의원>피부과",
+      "link": "http://www.naeumskin.com/",
+      "longitude": 126.9731706,
+      "latitude": 37.5583193
+     },
+     {
+      "rank": 2,
+      "title": "데이뷰의원 명동2호점",
+      "address": "서울특별시 중구 남대문로 84 하이드파크 지하1층",
+      "address_jibun": "서울특별시 중구 남대문로2가 9-1 하이드파크 지하1층",
+      "category": "병원,의원>피부과",
+      "link": "https://daybeauclinic16.com/branch/",
+      "longitude": 126.982883,
+      "latitude": 37.564678
+     },
+     {
+      "rank": 3,
+      "title": "유앤영피부과의원 명동",
+      "address": "서울특별시 중구 퇴계로 120 남산희성빌딩 3층",
+      "address_jibun": "서울특별시 중구 남산동1가 1-2 남산희성빌딩 3층",
+      "category": "병원,의원>피부과",
+      "link": "https://youryoungskin.com/",
+      "longitude": 126.9850969,
+      "latitude": 37.5605801
+     },
+     {
+      "rank": 4,
+      "title": "아름다운나라피부과의원 명동점",
+      "address": "서울특별시 중구 명동8나길 6 4층",
+      "address_jibun": "서울특별시 중구 충무로1가 23-10 4층",
+      "category": "병원,의원>피부과",
+      "link": "http://www.globalanacli.co.kr/",
+      "longitude": 126.9845888,
+      "latitude": 37.5616465
+     },
+     {
+      "rank": 5,
+      "title": "트윙클의원 광화문점",
+      "address": "서울특별시 종로구 종로5길 13 삼공빌딩 3층",
+      "address_jibun": "서울특별시 종로구 청진동 136 삼공빌딩 3층",
+      "category": "병원,의원>피부과",
+      "link": "http://www.twinkleclinic.co.kr",
+      "longitude": 126.9805993,
+      "latitude": 37.571107
+     }
+    ]
+   },
+   "content": {
+    "blog": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "블로그",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "여드름 한의원 치료 가격 개인마다 다른 이유는?",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "춘천여드름치료 몸 속 원인을 살펴",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "여드름한의원가격 피부과 여드름 치료 가격 크게 다를까?",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "울산삼산동피부과 여드름 치료 중 갑자기 더 올라왔다면",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "창원여드름피부과 한의원 치료 과정 알아보고",
+       "is_me": false
+      }
+     ]
+    },
+    "cafe": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "카페",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "인천여드름치료 하늘체한의원에서 받았어요",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "여드름치료 진짜 힘들어요ㅠ",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "불당동피부과 여드름치료 알려주세요ㅠ",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "대전여드름치료 하늘체 한의원 8개월 다닌 대장정 후기",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "여드름흉터치료 궁금한 거 있어요",
+       "is_me": false
+      }
+     ]
+    },
+    "web": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "웹문서",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "여드름 | 국가건강정보포털",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "여드름/치료 - 나무위키",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "여드름 [acne] | 의학정보 | 건강정보",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "여드름(Acne) | 질환백과 | 의료정보 | 건강정보",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "여드름 치료 - 베스탑비뇨기과",
+       "is_me": false
+      }
+     ]
+    },
+    "news": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "뉴스",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "어디서 약을 팔아? 외국인에게 이렇게 많이… K힐링 쇼핑, 명동 ‘약국...",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "여에스더가 자기 얼굴에 저지른 ‘이 행동’… “강박장애일 수도”",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "[병원소식]고려대 안암병원·포도테라퓨틱스, 고형암 정밀밀의료 협약 ...",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "여름철 고온다습한 환경, 사마귀 바이러스 번식 및 전염 주의해야",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "대구 나인원의원, 울트라클리어 엘리트 도입",
+       "is_me": false
+      }
+     ]
+    },
+    "image": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "이미지",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "여드름흉터 특성에 따라 치료 달라져야",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "[건강 Q&A] 여드름 파인 흉터 치료, 어븀에어셀 시술이란?",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "여드름 흉터 고민, 레이저 통한 치료가 도움 될까",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "강남역피부과에서 여드름자국치료하기",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "여드름붉은흉터 입술 얼굴 상처 치료 연고 뾰루지 흉터 크림 멀티밤 : The줌",
+       "is_me": false
+      }
+     ]
+    },
+    "kin": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "지식iN",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "수원여드름자국 치료 어떻게 하나요?",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "화농성여드름심함 한의원치료궁금",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "잠실여드름치료 어디서 받아야 할까요?",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "여드름흉터 치료는 레이저만 있는 건 아니죠?ㅠㅠ...",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "대전여드름치료한의원피부과 압출흉터궁금",
+       "is_me": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "kw": "역삼동 기미레이저",
+   "type": "동단위",
+   "base": "기미레이저",
+   "place": {
+    "keyword": "역삼동 기미레이저",
+    "exposed": false,
+    "rank": null,
+    "ambiguous": false,
+    "results": [
+     {
+      "rank": 1,
+      "title": "청담연세피부과의원",
+      "address": "서울특별시 강남구 학동로 342 강남구청역 에스케이 허브 블루",
+      "address_jibun": "서울특별시 강남구 논현동 241-3 강남구청역 에스케이 허브 블루",
+      "category": "병원,의원>피부과",
+      "link": "http://www.yonseiskin.com/",
+      "longitude": 127.040791,
+      "latitude": 37.516806
+     },
+     {
+      "rank": 2,
+      "title": "클리어톤의원",
+      "address": "서울특별시 강남구 테헤란로87길 21 동성빌딩 10층",
+      "address_jibun": "서울특별시 강남구 삼성동 158-9 동성빌딩 10층",
+      "category": "병원,의원>피부과",
+      "link": "https://cleartone.co.kr/",
+      "longitude": 127.0581041,
+      "latitude": 37.5090162
+     },
+     {
+      "rank": 3,
+      "title": "갤러리아피부과의원 개포도곡점",
+      "address": "서울특별시 강남구 선릉로 34 3층",
+      "address_jibun": "서울특별시 강남구 개포동 167-9 3층",
+      "category": "병원,의원>피부과",
+      "link": "http://galleriaskin3.com/",
+      "longitude": 127.0606675,
+      "latitude": 37.4828964
+     },
+     {
+      "rank": 4,
+      "title": "강남 끗 한의원",
+      "address": "서울특별시 서초구 강남대로 463 12층",
+      "address_jibun": "서울특별시 서초구 서초동 1303-31 12층",
+      "category": "병원,의원>한의원",
+      "link": "https://www.kkeutclinic-gangnam.co.kr/",
+      "longitude": 127.024458,
+      "latitude": 37.5034826
+     },
+     {
+      "rank": 5,
+      "title": "오다한의원 강남",
+      "address": "서울특별시 강남구 봉은사로 117 11층",
+      "address_jibun": "서울특별시 강남구 논현동 202-19 11층",
+      "category": "병원,의원>한의원",
+      "link": "https://gn.odamd.com",
+      "longitude": 127.0264873,
+      "latitude": 37.5053198
+     }
+    ]
+   },
+   "content": {
+    "blog": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "블로그",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "기미잡티제거레이저 제네시스... 레이저 토닝 효과 역삼동피부...",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "역삼동 기미 레이저토닝, 피부과 갈까 고민하셨다면 읽어보세요.",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "역삼동피부과에서 알려드리는 기미레이저효과와 유지기간",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "역삼동피부과기미레이저 기미치료효과 얼마나지속될까?",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "역삼동 피코토닝 기미치료, 추가 레이저 사용이 필요한 이유",
+       "is_me": false
+      }
+     ]
+    },
+    "cafe": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "카페",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "역삼동피부과 기미랑 화이트닝 잘하는곳 있나요",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "역삼동 피부과 중에 흑자 리팟레이저 진짜 잘하는곳 있네요",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "역삼동 피부과 리팟레이저비용 나쁘지 않았던 것 같아요ㅎㅎ",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "역삼동피부과 기미잡티 색소제거 깨끗하게 치료",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "역삼동피부과 색소치료 잘하는곳!",
+       "is_me": false
+      }
+     ]
+    },
+    "web": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "웹문서",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "역삼동피부과 기미 잡티 레이저 치료, 1회 만에 효과 보려면",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "역삼동피부과 기미잡티레이저가격 대비 효율성보면?",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "편평사마귀 제거에 CO2 레이저가 좋은 이유[역삼동 편평사마귀 한의원] : 편평사마귀|쥐젖|기미|색소|리프팅",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "역삼동피부과 색소침착 레이저토닝 효과적으로 받는 방법",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "피부과 칼럼 - 역삼동 기미치료, 모든 병원의 레이저토닝 기미치료가 같을까요? [강남기미치료/역삼동기미치료/기....",
+       "is_me": false
+      }
+     ]
+    },
+    "news": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "뉴스",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "[TOP's Pick] [유통] 배달의민족, 강남 일대 B마트 '로봇배달 서비스' 시...",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "햇빛연구소 셀퓨전씨, 그룹 (여자)아이들 미연 모델 발탁",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "안전한 피부과 진료에 집중하는 닥터스피부과 한티점 개원",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "봄철 심해지는 기미, 개개인에 맞는 다방면의 치료 진행해야",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "연세에스의원, 2016한국소비자만족지수 1위",
+       "is_me": false
+      }
+     ]
+    },
+    "image": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "이미지",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "기미 잠재우는 레이저 토닝",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "여름철 기미 관리, 레이저토닝은 어떨까",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "기미 치료, 레이저 시술만이 답일까?",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "기미 제거술의 또 다른 발전 ‘레이저토닝’",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "피부기미 새로운 레이저치료로 40% 이상 제거",
+       "is_me": false
+      }
+     ]
+    },
+    "kin": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "지식iN",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "기미잡티 치료 잘하는 곳 추천!",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "나이도 어린데 얼굴에 기미가!! ㅠㅜ",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "기미치료!! 급해요 !!",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "급 !! 기미제거레이저 피부가약해도 해도되나요!!???",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "오타모반",
+       "is_me": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "kw": "강남구 기미레이저",
+   "type": "구단위",
+   "base": "기미레이저",
+   "place": {
+    "keyword": "강남구 기미레이저",
+    "exposed": false,
+    "rank": null,
+    "ambiguous": false,
+    "results": [
+     {
+      "rank": 1,
+      "title": "청담연세피부과의원",
+      "address": "서울특별시 강남구 학동로 342 강남구청역 에스케이 허브 블루",
+      "address_jibun": "서울특별시 강남구 논현동 241-3 강남구청역 에스케이 허브 블루",
+      "category": "병원,의원>피부과",
+      "link": "http://www.yonseiskin.com/",
+      "longitude": 127.040791,
+      "latitude": 37.516806
+     },
+     {
+      "rank": 2,
+      "title": "클리어톤의원",
+      "address": "서울특별시 강남구 테헤란로87길 21 동성빌딩 10층",
+      "address_jibun": "서울특별시 강남구 삼성동 158-9 동성빌딩 10층",
+      "category": "병원,의원>피부과",
+      "link": "https://cleartone.co.kr/",
+      "longitude": 127.0581041,
+      "latitude": 37.5090162
+     },
+     {
+      "rank": 3,
+      "title": "갤러리아피부과의원 개포도곡점",
+      "address": "서울특별시 강남구 선릉로 34 3층",
+      "address_jibun": "서울특별시 강남구 개포동 167-9 3층",
+      "category": "병원,의원>피부과",
+      "link": "http://galleriaskin3.com/",
+      "longitude": 127.0606675,
+      "latitude": 37.4828964
+     },
+     {
+      "rank": 4,
+      "title": "오다한의원 강남",
+      "address": "서울특별시 강남구 봉은사로 117 11층",
+      "address_jibun": "서울특별시 강남구 논현동 202-19 11층",
+      "category": "병원,의원>한의원",
+      "link": "https://gn.odamd.com",
+      "longitude": 127.0264873,
+      "latitude": 37.5053198
+     },
+     {
+      "rank": 5,
+      "title": "송파미소피부과의원",
+      "address": "서울특별시 송파구 가락로 211 충북빌딩 2층",
+      "address_jibun": "서울특별시 송파구 송파동 142-9 충북빌딩 2층",
+      "category": "병원,의원>피부과",
+      "link": "",
+      "longitude": 127.1162912,
+      "latitude": 37.5074836
+     }
+    ]
+   },
+   "content": {
+    "blog": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "블로그",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "강남구피부과 레이저토닝 기미제거, 시술 후 관리법까지",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "기미레이저 전후비교 강남구청역피부과 솔직후기 잡티...",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "강남구피부과, 기미 치료 레이저 하나만 받지마세요",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "강남구 청담동 피부과 추천 레이저 흉터 재생 치료 잡티 기미 색소",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "압구정 색소 치료 기미 레이저 피코토닝 피코트리플 피부과",
+       "is_me": false
+      }
+     ]
+    },
+    "cafe": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "카페",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "기미·잡티·홍조까지 함께 관리하는 듀얼토닝, 왜 여러 레이저를 사용할까요?",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "&quot;레이저 여러 번 받았는데, 피부만 얇아지고 기미는 더 진해졌어요...&quot; 5월28일 &lt;매출 쏟아지는 임상테크닉...",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "[플라젯_프로-18편] 레이저로도 안 잡히는 기미? 이제는 ‘부수기’보다 ‘바꾸기’에 집중할 때입니다.",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "[기미.색소-11편] “레이저 해도 왜 또 올라와요?” … 그건 ‘원인’을 안 잡아서 그렇습니다. ((마감임박...",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "기미는 왜 반복될까요?— 2017년 혈관성 기미 논문으로 다시 정리하는 ‘색소 + 혈관’ 이중 구조",
+       "is_me": false
+      }
+     ]
+    },
+    "web": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "웹문서",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "강남 피부과 기미레이저 비용 알아보시는 분들은 필독( ) &gt; Lifting Column 리프팅 칼럼 - 민앤민의원",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "강남 청담 눈밑, 눈가, 광대 기미 흑자 레이저 치료 방법 및 후기 - 스킨메디피부과 의료정보",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "색소질환-피부과미백관리 피부과색소침착 색소침착레이저 색소치료",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "기미 제거 레이저로 기미 없애는 방법",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "강남 학동역 강남구청역 신사역 압구정역 피부과 성형외과 | 기미/잡티",
+       "is_me": false
+      }
+     ]
+    },
+    "news": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "뉴스",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "[의료기기업계 소식] 6월 24일",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "“시켜서 억지로 파는 건 의미가 없다” 이재명 압박에 강유정이 집을 ...",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "아이니클리닉 김민승 원장 “포스트 트리트먼트는 의사-환자 유대 형성...",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "&quot;이것 때문에 한국 왔어요&quot;…일본인들 '우르르' 몰린 곳이",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "한국 온 일본인 30만명 몰려갔다…성형외과 제친 이 병원",
+       "is_me": false
+      }
+     ]
+    },
+    "image": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "이미지",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "기미 잠재우는 레이저 토닝",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "여름철 기미 관리, 레이저토닝은 어떨까",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "기미 치료, 레이저 시술만이 답일까?",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "기미 제거술의 또 다른 발전 ‘레이저토닝’",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "피부기미 새로운 레이저치료로 40% 이상 제거",
+       "is_me": false
+      }
+     ]
+    },
+    "kin": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "지식iN",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "구미기미 레이저 잡티 다른점",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "강남구청 기미 치료 잘하는곳 추천해주세요",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "튠페이스 시술후에 기미레이져해도되나요?",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "기미없애는방법??",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "서울흑자레이저, 시술 받을 건데 사후관리 되는 병원...",
+       "is_me": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "kw": "서울 기미레이저",
+   "type": "시단위",
+   "base": "기미레이저",
+   "place": {
+    "keyword": "서울 기미레이저",
+    "exposed": false,
+    "rank": null,
+    "ambiguous": false,
+    "results": [
+     {
+      "rank": 1,
+      "title": "스누피부과의원",
+      "address": "서울특별시 성동구 아차산로 42 정명빌딩 7층",
+      "address_jibun": "서울특별시 성동구 성수동1가 14-33 정명빌딩 7층",
+      "category": "병원,의원>피부과",
+      "link": "http://www.snuderm.com",
+      "longitude": 127.0490992,
+      "latitude": 37.5464469
+     },
+     {
+      "rank": 2,
+      "title": "송파미소피부과의원",
+      "address": "서울특별시 송파구 가락로 211 충북빌딩 2층",
+      "address_jibun": "서울특별시 송파구 송파동 142-9 충북빌딩 2층",
+      "category": "병원,의원>피부과",
+      "link": "",
+      "longitude": 127.1162912,
+      "latitude": 37.5074836
+     },
+     {
+      "rank": 3,
+      "title": "김동준피부과의원",
+      "address": "서울특별시 성동구 행당로 75",
+      "address_jibun": "서울특별시 성동구 행당동 347",
+      "category": "병원,의원>피부과",
+      "link": "http://www.hana-skin.com/",
+      "longitude": 127.028541,
+      "latitude": 37.55711
+     },
+     {
+      "rank": 4,
+      "title": "디오피부과의원",
+      "address": "서울특별시 영등포구 당산로 222 당산디오빌",
+      "address_jibun": "서울특별시 영등포구 당산동5가 11-33 당산디오빌",
+      "category": "병원,의원>피부과",
+      "link": "http://www.dioskin.com/",
+      "longitude": 126.902458,
+      "latitude": 37.533246
+     },
+     {
+      "rank": 5,
+      "title": "청담연세피부과의원",
+      "address": "서울특별시 강남구 학동로 342 강남구청역 에스케이 허브 블루",
+      "address_jibun": "서울특별시 강남구 논현동 241-3 강남구청역 에스케이 허브 블루",
+      "category": "병원,의원>피부과",
+      "link": "http://www.yonseiskin.com/",
+      "longitude": 127.040791,
+      "latitude": 37.516806
+     }
+    ]
+   },
+   "content": {
+    "blog": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "블로그",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "서울 가양역피부과, 기미치료 레이저 관리 핵심만 정리",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "서울 강남 한의원 추천ㅣ연휴 맞이 기미 레이저 1주차 후기",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "서울기미 피코토닝 vs 레이저토닝 차이는?",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "서울기미치료, 좋다는 레이저가 왜 나한텐 효과가 없을까요?",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "안양 피부과 기미 레이저 시작 다이소 자외선차단 마스크 후기",
+       "is_me": false
+      }
+     ]
+    },
+    "cafe": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "카페",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "기미 루비레이저 병원 봐주세요!",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "기미 레이저",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "기미 흑자 제거 레이저 관리법 공유해볼게용",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "대구 흑자제거 기미 뽑아내고 싶습니까!!",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "기미 리팟레이저 해보신분요",
+       "is_me": false
+      }
+     ]
+    },
+    "web": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "웹문서",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "'기미레이저' 이벤트",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "'색소레이저' 이벤트",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "난치성 기미·색소 치료",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "서울 선릉 기미잡티주근깨 잡티제거 레이저 내돈내산후기_ 레이저 후 2개월차 경과",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "서울 한의원 기미 잡티 피부 레이저 내돈내산 2주차 후기 딱지 관리 메디폼 재생크림 선크림",
+       "is_me": false
+      }
+     ]
+    },
+    "news": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "뉴스",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "“통증 없고, 1회 시술로 효과” 에스테틱샵 시술… 알고 보니 불법",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "피그마리온의원 김훈영 원장, 대한레이저피부모발학회서 기미 치료 단계...",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "[의료기기업계 소식] 6월 24일",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "[의료기기업계 소식] 6월 22일",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "비올메디컬, 실펌엑스 학술행사 개최…아시아·태평양 시장 입지 강화",
+       "is_me": false
+      }
+     ]
+    },
+    "image": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "이미지",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "서울성모병원 피부과 ‘올인원 레이저 시스템’ 도입",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "기미색소치료에 효과적인 피코슈어레이저",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "서울리엘피부과의원",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "사당역 근처 피부과 기미잡티레이저 장비별 특징 - └ 피부 - 올병커 (병원,성형,피부,이벤트,정보,후기 커뮤니티 카페) 사당역 근처 피부과...",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "[1분 Q&A] 기미에 레이저토닝 효과 있나요?",
+       "is_me": false
+      }
+     ]
+    },
+    "kin": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "지식iN",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "서울기미치료 잘 하는 피부과 추천좀요!",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "기미 잡티 레이저 가격 궁금해요",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "서울에서 리팟레이저 받으려면 역시 강남이 낫겠죠?",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "서울 피부과 추천 기미 제거 시술 잘하는 병원 추천",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "구미기미 레이저 잡티 다른점",
+       "is_me": false
+      }
+     ]
+    }
+   }
+  }
+ ],
+ "location": {
+  "radius_m": 1000,
+  "adm_cd": "11230",
+  "adm_nm": "서울특별시강남구",
+  "avg_age": 42.5,
+  "population_radius": 40692,
+  "demand_score": 56.1,
+  "employee_density_km2": 19505,
+  "commerce_score": 54.2,
+  "competitors": 99,
+  "competition_score": 30.0,
+  "saturation_per_10k": 24.3,
+  "site_score": 42.7
+ },
+ "resolution": {
+  "note": "",
+  "candidates": [
+   {
+    "title": "라메스피부과의원",
+    "address": "서울특별시 강남구 언주로 563 A1B1 1층 118호-120호"
+   }
+  ]
+ },
+ "summary": {
+  "place_hit": 4,
+  "content_hit": 3,
+  "total": 12,
+  "ambiguous": false
+ }
+}

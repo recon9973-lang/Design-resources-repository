@@ -279,6 +279,52 @@ def render_html(j: dict, masked: bool = False) -> str:
                        f'표시하지 않았으며, <b>무료 회원 열람 시 별도 비용 없이 전체가 공개</b>됩니다. '
                        f'노출 여부(○/✕) 판정과 요약은 그대로 확인하실 수 있습니다.</p>')
 
+    # 영역별 상위 5 노출 현황 — '미노출'일 때 그 자리에 누가 떠 있는지 함께 보여준다.
+    SEC_LABELS = [("blog", "블로그"), ("cafe", "카페"), ("web", "웹문서"),
+                  ("news", "뉴스"), ("image", "이미지"), ("kin", "지식iN")]
+
+    def _items_html(rows, me_pred):
+        return "".join(
+            f'<li class="{"me" if me_pred(it) else ""}"><span class="r">{it["rank"]}</span>'
+            f'<span class="tt">{e((it.get("title") or "")[:70])}</span>'
+            + (f'<span class="ad">{e((it.get("address") or "")[:22])}</span>' if it.get("address") else "")
+            + "</li>"
+            for it in rows)
+
+    def top5_block(k):
+        secs = []
+        pl = k["place"] or {}
+        if pl.get("results"):
+            st = (f'<span class="good">○ 상위 {pl["rank"]}위</span>' if pl.get("exposed")
+                  else '<span class="bad">미노출</span> · 이 자리 상위 5')
+            body = _items_html(pl["results"][:5],
+                               lambda it: pl.get("exposed") and it.get("rank") == pl.get("rank"))
+            secs.append(("플레이스(지역)", st, body))
+        for key, label in SEC_LABELS:
+            c = (k["content"] or {}).get(key) or {}
+            if not c.get("present") or not c.get("top"):
+                continue
+            st = (f'<span class="good">○ {c["position"]}위</span>' if c.get("exposed")
+                  else '<span class="bad">미노출</span> · 이 자리 상위 5')
+            body = _items_html(c["top"], lambda it: it.get("is_me"))
+            secs.append((label, st, body))
+        if not secs:
+            return ""
+        inner = "".join(
+            f'<div class="sec"><div class="sec-h"><b>{lbl}</b>{st}</div>'
+            f'<ol class="items">{body}</ol></div>' for lbl, st, body in secs)
+        hit = k["place"].get("exposed") or any(
+            ((k["content"] or {}).get(kk) or {}).get("exposed") for kk, _ in SEC_LABELS)
+        badge = '' if hit else ' <span class="bad" style="font-size:11px">전 영역 미노출</span>'
+        return f'<details class="top5"><summary>{e(k["kw"])}{badge}</summary>{inner}</details>'
+
+    top5_html = "".join(top5_block(k) for k in j["keywords"])
+    top5_section = (f'''
+<section class="card"><h2>영역별 상위 5 노출 현황</h2>
+<p class="mut" style="font-size:12px;margin:-4px 0 12px">키워드를 펼치면 각 영역의 <b>상위 5건</b>을 보여줍니다.
+미노출 영역도 "그 자리에 지금 누가 떠 있는지"를 함께 확인하세요. <b>파란 강조 = 우리 업체</b>.</p>
+{top5_html}</section>''' if top5_html else "")
+
     return f'''<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src data:;">
@@ -314,6 +360,21 @@ td.c{{text-align:center;white-space:nowrap}}.good{{color:var(--good);font-weight
 border-radius:8px;padding:9px 13px;font-size:12.5px;color:var(--sub)}}
 .lock{{display:inline-block;font-size:10.5px;font-weight:700;color:var(--accent);
 background:var(--accent-soft);border-radius:99px;padding:1px 8px;white-space:nowrap}}
+.top5{{border:1px solid var(--line);border-radius:9px;margin-bottom:8px;background:var(--bg)}}
+.top5>summary{{cursor:pointer;padding:10px 13px;font-weight:700;font-size:13.5px;list-style:none}}
+.top5>summary::-webkit-details-marker{{display:none}}
+.top5>summary::before{{content:"▸ ";color:var(--accent)}}
+.top5[open]>summary::before{{content:"▾ "}}
+.top5 .sec{{padding:2px 13px 10px}}
+.top5 .sec-h{{display:flex;justify-content:space-between;align-items:baseline;font-size:12.5px;
+border-bottom:1px solid var(--line);padding:6px 0 4px;margin-bottom:4px}}
+.top5 .items{{margin:0;padding:0;list-style:none}}
+.top5 .items li{{display:flex;gap:7px;align-items:baseline;font-size:12px;padding:2px 0;color:var(--sub)}}
+.top5 .items li.me{{background:var(--accent-soft);color:var(--ink);font-weight:700;border-radius:5px;
+padding:2px 6px;margin:1px -6px}}
+.top5 .items .r{{flex:none;width:16px;color:var(--mut);font-variant-numeric:tabular-nums;text-align:right}}
+.top5 .items .tt{{flex:1;overflow:hidden;text-overflow:ellipsis}}
+.top5 .items .ad{{flex:none;color:var(--mut);font-size:11px}}
 footer{{font-size:11px;color:var(--mut);text-align:center;border-top:1px solid var(--line);padding-top:12px}}
 </style>
 <div class="wrap">
@@ -341,6 +402,7 @@ footer{{font-size:11px;color:var(--mut);text-align:center;border-top:1px solid v
 ✕ = 상위 30건(플레이스 5건) 내 없음 · — = 이 키워드에는 해당 영역 없음.
 파워링크(광고)·브랜드 콘텐츠·스마트블록 배치는 공식 API 미제공으로 측정 제외.</p>
 </section>
+{top5_section}
 {loc_html}
 <section class="card"><h2>데이터 기준 고지</h2>
 <p class="mut" style="font-size:12.5px;margin:0">본 자료는 (주)베놈이 당사 산식으로 산출한 검색정보 운영 진단
