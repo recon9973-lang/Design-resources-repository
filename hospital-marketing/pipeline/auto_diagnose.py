@@ -268,7 +268,7 @@ def render_html(j: dict, masked: bool = False) -> str:
             x0, y0 = pt(r, v0)
             x1, y1 = pt(r, v1)
             return (f'<path d="M {x0:.1f} {y0:.1f} A {r} {r} 0 0 1 {x1:.1f} {y1:.1f}" '
-                    f'fill="none" stroke="{color}" stroke-width="{w}" stroke-linecap="round"/>')
+                    f'fill="none" stroke="{color}" stroke-width="{w}"/>')
 
         nx, ny = pt(64, sc)
         col, lab = _band(sc)
@@ -300,6 +300,23 @@ def render_html(j: dict, masked: bool = False) -> str:
                 f'<div class="zb-scale"><span>낮음 0~40</span><span>보통</span><span>우수 60~100</span></div>'
                 f'<div class="sm-mean">{meaning}</div></div>')
 
+    def radius_map(n_comp):
+        """반경 개략도 — 중심(우리)·1km/0.5km 원·경쟁 점(스키매틱, 실지도 아님)."""
+        n = min(int(n_comp or 0), 45)
+        dots = ""
+        for i in range(n):
+            ang = i * 2.399963  # 황금각
+            rad = 76 * math.sqrt((i + 0.5) / max(n, 1))
+            dx = 100 + rad * math.cos(ang)
+            dy = 100 + rad * math.sin(ang)
+            dots += f'<circle cx="{dx:.1f}" cy="{dy:.1f}" r="2.6" fill="var(--bad)" opacity="0.65"/>'
+        return (f'<svg viewBox="0 0 200 206" width="150" role="img" aria-label="반경 개략도">'
+                f'<circle cx="100" cy="100" r="80" fill="color-mix(in srgb,var(--accent) 7%,transparent)" '
+                f'stroke="var(--line)" stroke-width="1"/>'
+                f'<circle cx="100" cy="100" r="40" fill="none" stroke="var(--line)" stroke-width="1" stroke-dasharray="3 3"/>'
+                f'{dots}<circle cx="100" cy="100" r="6.5" fill="var(--accent)" stroke="var(--card)" stroke-width="2"/>'
+                f'<text x="100" y="202" text-anchor="middle" font-size="9" fill="var(--mut)">● 우리 위치 · 원 = 0.5·1km · 붉은 점 = 경쟁</text></svg>')
+
     loc_html = ""
     if loc:
         meters_html = ""
@@ -313,8 +330,12 @@ def render_html(j: dict, masked: bool = False) -> str:
                 cards.append(("같은 진료과 경쟁 (1km)", LOCK, "경쟁 수·입지 참고 점수 포함"))
         else:
             basis = e(loc.get("density_basis") or "시·구 평균")
+            # 행정구역: 긴 SGIS 명칭(강원특별자치도춘천시) 대신 지역축으로 짧게
+            reg_main = e(r.get("gu") or r.get("city") or (loc.get("adm_nm") or "-"))
+            reg_sub = (f'{e(r.get("city"))} · 평균연령 {loc.get("avg_age") or "-"}세'
+                       if r.get("gu") and r.get("city") else f'평균연령 {loc.get("avg_age") or "-"}세')
             cards = [
-                ("행정구역", e(loc.get("adm_nm") or "-"), f'평균연령 {loc.get("avg_age") or "-"}세'),
+                ("행정구역", reg_main, reg_sub),
                 ("반경 1km 인구(추정)", f'{loc["population_radius"]:,}명', f'{basis} 밀도 기준'),
                 ("종사자 밀도", f'{loc["employee_density_km2"]:,}/km²', '직장인 유동 근사'),
             ]
@@ -339,9 +360,15 @@ def render_html(j: dict, masked: bool = False) -> str:
         note = ("" if "competitors" in loc else
                 "<p class='mut' style='font-size:12px;margin:10px 0 0'>경쟁 지표는 병원(HIRA 등록 기관) 전용입니다 — "
                 "일반 업체는 인구·상권 지표만 제공합니다.</p>")
+        map_html = ("" if masked else
+                    f'<div class="mapwrap"><div class="mapbox">{radius_map(loc.get("competitors"))}</div>'
+                    f'<div class="mapcap">반경 1km 개략도 · '
+                    f'{("같은 진료과 " + str(loc["competitors"]) + "곳") if "competitors" in loc else "인구·상권 기준"}'
+                    f'<br><span class="mut">실제 지도가 아닌 위치·경쟁 밀도 개략 표현입니다.</span></div></div>')
         loc_html = f'''
 <section class="card"><h2>입지 참고 분석</h2>
   <div class="summary">{cs}</div>{note}
+  {map_html}
   {meters_html}
   <p class="mut" style="font-size:12px;margin:14px 0 0">반경 인구·상권은 <b>{e(loc.get("density_basis") or "시·구 평균")} 밀도</b> 기준 추정입니다.
   {"넓은 시의 외곽(읍·면)이 도심 밀도를 희석하지 않도록, 사람이 실제 몰려 사는 곳의 밀도로 보정했습니다." if loc.get("density_basis","").startswith("체감") else ""}
@@ -402,26 +429,29 @@ def render_html(j: dict, masked: bool = False) -> str:
         return f'<details class="top5"><summary>{e(k["kw"])}{badge}</summary>{inner}</details>'
 
     # ── 노출 한눈에 보기: 같은 데이터를 링 게이지·영역별 막대·단계별 막대로 다양화 ──
-    def donut(hit, total, label):
+    def donut(hit, total, label, color):
         pct = round(100 * hit / total) if total else 0
-        r, cc = 26, 163.36  # 2πr, r=26
+        cc = 163.36  # 2πr, r=26
         frac = max(0, min(pct, 100)) / 100
-        col = "var(--good)" if pct >= 50 else "var(--warn)" if pct >= 20 else "var(--bad)"
         return (f'<div class="donut"><svg viewBox="0 0 72 72" width="76" height="76" role="img" '
-                f'aria-label="{label} {pct}%"><circle cx="36" cy="36" r="{r}" fill="none" '
-                f'stroke="var(--track)" stroke-width="8"/><circle cx="36" cy="36" r="{r}" fill="none" '
-                f'stroke="{col}" stroke-width="8" stroke-linecap="round" '
+                f'aria-label="{label} {pct}%"><circle cx="36" cy="36" r="26" fill="none" '
+                f'stroke="var(--track)" stroke-width="8"/><circle cx="36" cy="36" r="26" fill="none" '
+                f'stroke="{color}" stroke-width="8" '
                 f'stroke-dasharray="{cc*frac:.1f} {cc:.1f}" transform="rotate(-90 36 36)"/>'
                 f'<text x="36" y="41" text-anchor="middle" font-size="16" font-weight="800" '
                 f'fill="var(--ink)">{pct}%</text></svg>'
                 f'<div class="dl">{label}</div><div class="ds">{hit}/{total} 키워드</div></div>')
 
-    def bar_row(label, over, under, total):
-        uw = 100 * under / total if total else 0
-        ow = 100 * over / total if total else 0
+    def bar_row(label, over, under):
+        # 막대는 해당 항목 자체를 100%로(노출 비율) — 우측 여백 없이 꽉 차게
+        if not under:
+            return (f'<div class="brow"><span class="bl">{label}</span>'
+                    f'<span class="bt"></span>'
+                    f'<span class="bv" style="color:var(--mut)">영역 없음</span></div>')
+        fill = 100 * over / under
+        col = "var(--good)" if over / under >= 0.5 else "var(--accent)" if over else "var(--mut)"
         return (f'<div class="brow"><span class="bl">{label}</span>'
-                f'<span class="bt"><span class="under" style="width:{uw:.0f}%"></span>'
-                f'<span class="over" style="width:{ow:.0f}%"></span></span>'
+                f'<span class="bt"><span class="over" style="width:{fill:.0f}%;background:{col}"></span></span>'
                 f'<span class="bv">노출 <b>{over}</b>/{under}</span></div>')
 
     overview_html = ""
@@ -432,16 +462,16 @@ def render_html(j: dict, masked: bool = False) -> str:
         content_hit = s["content_hit"]
         overall = sum(1 for k in kws if k["place"]["exposed"]
                       or any(((k["content"] or {}).get(x) or {}).get("exposed") for x, _ in SEC_LABELS))
-        donuts = (donut(overall, total, "종합 노출")
-                  + donut(place_hit, total, "플레이스")
-                  + donut(content_hit, total, "콘텐츠 영역"))
-        # 영역별 커버리지 (활성 키워드 중 노출)
+        donuts = (donut(overall, total, "종합 노출", "var(--accent)")
+                  + donut(place_hit, total, "플레이스", "var(--teal)")
+                  + donut(content_hit, total, "콘텐츠 영역", "var(--violet)"))
+        # 영역별 커버리지 (활성 키워드 중 노출) — 막대는 영역별 노출 비율
         area_rows = ""
         for key, label in SEC_LABELS:
             act = sum(1 for k in kws if ((k["content"] or {}).get(key) or {}).get("present"))
             hit = sum(1 for k in kws if ((k["content"] or {}).get(key) or {}).get("exposed"))
-            area_rows += bar_row(label, hit, act, total)
-        # 지역 단계별 노출 (브랜드/동/구/시/메인)
+            area_rows += bar_row(label, hit, act)
+        # 지역 단계별 노출 (브랜드/동/구/시/메인) — 각 단계 자체 대비 노출 비율
         order = ["브랜드", "동단위", "구단위", "시단위", "메인"]
         lv = {}
         for k in kws:
@@ -451,20 +481,113 @@ def render_html(j: dict, masked: bool = False) -> str:
             d[1] += 1
             if ex:
                 d[0] += 1
-        level_rows = "".join(
-            bar_row(t, lv[t][0], lv[t][1], total) for t in order if t in lv)
+        level_rows = "".join(bar_row(t, lv[t][0], lv[t][1]) for t in order if t in lv)
         overview_html = f'''
 <section class="card"><h2>노출 한눈에 보기</h2>
   <div class="donuts">{donuts}</div>
-  <div class="leglow"><span><i style="background:var(--accent)"></i>노출</span>
-    <span><i style="background:var(--accent-soft)"></i>영역 활성(노출 가능)</span>
-    <span style="color:var(--mut)">막대 전체 = 전체 키워드 {total}개</span></div>
-  <div class="ovgrid" style="margin-top:14px">
+  <div class="leglow"><span style="color:var(--mut)">채운 만큼 = 해당 항목의 노출 비율 · 숫자 = 노출/대상 키워드</span></div>
+  <div class="ovgrid" style="margin-top:12px">
     <div><p class="ovh">영역별 노출 커버리지</p>{area_rows}</div>
     <div><p class="ovh">지역 단계별 노출</p>{level_rows}
-      <p class="ds" style="margin-top:8px">동·구·시 순으로 좁힐수록 노출이 잡히는지 확인</p></div>
+      <p class="ds" style="margin-top:8px">동·구·시로 좁힐수록 노출이 잡히는지 — 좁은 지역부터 채우는 게 유리</p></div>
   </div>
 </section>'''
+
+    # ── 원장님 관점: 진단 결과를 '궁금증 → 해답'으로 매핑 (전략 콘텐츠) ──
+    guidance_html = ""
+    if not masked:
+        kws = j["keywords"]
+        blog_ex = sum(1 for k in kws if ((k["content"] or {}).get("blog") or {}).get("exposed"))
+        cafe_ex = sum(1 for k in kws if ((k["content"] or {}).get("cafe") or {}).get("exposed"))
+        content_gap = (blog_ex + cafe_ex) <= 1
+        place_ok = s["place_hit"] >= 1
+        items = [
+            ("유입 vs 전환",
+             "플레이스엔 뜨는데 왜 신환이 안 늘까요?",
+             ("노출(트래픽)과 내원(전환)은 다릅니다. " if place_ok else "")
+             + "유입 뒤 보는 <b>콘텐츠 신뢰도·리뷰·예약 동선</b>에서 환자가 이탈합니다. "
+               "노출 숫자보다 '들어와서 예약까지 이어지는 길'을 먼저 점검하세요."),
+            ("검색 여정",
+             "환자는 우리를 어디서 놓칠까요?",
+             "환자는 ①증상 검색 → ②지역·치료법 비교 → ③병원명 검증 순으로 움직입니다. "
+             "위 <b>지역 단계별 노출</b>로 ②를, <b>브랜드 노출</b>로 ③을 확인하고 빈 단계를 채우세요. "
+             "(증상 키워드 ①은 별도 콘텐츠로 보강)"),
+            ("콘텐츠 공백",
+             "블로그·카페가 왜 중요한가요?",
+             ("현재 블로그·카페 노출이 거의 없습니다. " if content_gap else "")
+             + "환자가 <b>비교·검증</b>할 때 보는 자리입니다. 위 '상위 5'에서 그 자리를 누가 차지했는지 확인하고, "
+               "광고성 글이 아니라 <b>원장님 진료 사례 기반 스토리텔링</b>으로 채워야 신뢰가 쌓입니다."),
+            ("의료법 안전",
+             "공격적으로 하고 싶은데 보건소가 무섭습니다",
+             "지금 쓰는 블로그·소개 문구를 <b>리스크 진단</b>에 넣어 금지 표현(최고·완치·부작용 없음·할인 유인 등)을 "
+             "먼저 걸러내세요. 안전 범위 안에서 하는 마케팅이 결국 오래갑니다."),
+            ("리뷰 관리",
+             "가짜 영수증 리뷰, 사도 되나요?",
+             "돈 주고 산 리뷰는 네이버 필터링으로 삭제되고 <b>위반 대상</b>입니다. 실제 만족 환자가 자발적으로 남기게 하는 "
+             "데스크 동선과, 악성 리뷰에 대응하는 <b>답글 운영</b>이 더 효과적입니다."),
+            ("차별화(USP)",
+             "우리 병원만의 강점을 어떻게 표현하죠?",
+             "'친절·최신 장비'는 모두가 씁니다. 원장님의 <b>진료 철학·특정 시술 경험</b>처럼 우리만의 이야기를 뽑아 "
+             "콘텐츠의 축으로 삼아야 환자에게 기억됩니다."),
+        ]
+        cards_g = "".join(
+            f'<div class="gcard"><span class="gtag">{t}</span>'
+            f'<p class="gq">{q}</p><p class="ga">{a}</p></div>' for t, q, a in items)
+        # 우선 개선 액션 (번호 + 근거) — 컨설팅 소견
+        noexp = [k["kw"] for k in kws if not (k["place"]["exposed"]
+                 or any(((k["content"] or {}).get(x) or {}).get("exposed") for x, _ in SEC_LABELS))]
+        acts = []
+        if noexp:
+            acts.append(("미노출 키워드 %d개 커버리지 정비" % len(noexp),
+                         '"%s" 등이 어느 영역에도 노출되지 않습니다. 실제 제공하는 진료라면 소개·진료항목·FAQ·블로그에 반영하세요.'
+                         % e("·".join(noexp[:3])),
+                         "근거: 키워드 %d개 중 %d개 전 영역 미노출" % (len(kws), len(noexp))))
+        if content_gap:
+            acts.append(("비교·검증 콘텐츠(블로그·카페) 보강",
+                         "환자가 비교·검증하는 자리(블로그·카페)에 우리 콘텐츠가 거의 없습니다. 광고성 글 대신 진료 사례 기반 스토리텔링으로 채우세요.",
+                         "근거: 블로그·카페 노출 %d건" % (blog_ex + cafe_ex)))
+        acts.append(("플레이스 기본정보·리뷰 운영 정비",
+                     "대표 사진·진료시간·주차·예약 링크를 실제 운영 상태와 맞추고, 자발적 리뷰 동선과 답글 운영을 정비하세요.",
+                     "근거: 플레이스·리뷰는 병원 직접 입력·운영 기준(리뷰 본문 미수집)"))
+        acts = acts[:3]
+        acts_html = "".join(
+            f'<div class="act"><div class="n">{i+1}</div><div>'
+            f'<p class="t">{t}</p><p class="p">{p}</p><p class="bs">{bs}</p></div></div>'
+            for i, (t, p, bs) in enumerate(acts))
+        guidance_html = (
+            '<section class="card"><h2>컨설팅 소견 — 지금 무엇을 해야 하나</h2>'
+            '<p class="mut" style="font-size:12px;margin:-4px 0 12px">이 진단 결과를 우선순위 액션과, 원장님이 실제로 '
+            '궁금해하는 질문·"환자를 찾아오게 만드는" 해답으로 연결했습니다.</p>'
+            f'<p class="subh">이번 달 우선 개선 액션</p><div class="acts">{acts_html}</div>'
+            f'<p class="subh">원장님이 궁금해하는 것 → 해답</p><div class="guide">{cards_g}</div>'
+            '<div class="gcta">더 구체적인 개선안이 필요하시면 — '
+            '<a href="../self-check/#risk">의료법 리스크 자가진단</a> · '
+            '<a href="../self-check/#journey">검색 여정 점검</a> · '
+            '<a href="../landing/">무료 정밀검진 신청</a>. '
+            '<span style="color:var(--sub)">모두 무료이며, 상담은 원하실 때만 드립니다(콜드콜 없음).</span></div>'
+            '</section>')
+
+    # ── 측정 기준 (항목/기준 표) — 대시보드 스타일 참고 ──
+    _date = e(j["generated_at"][:10])
+    basis_pairs = [
+        ("노출 지표", f"네이버 오픈 API (비로그인, 지역 상위 5·콘텐츠 상위 30, {_date} 수집) — 실제 검색화면과 다를 수 있음"),
+    ]
+    if loc and "competitors" in loc:
+        basis_pairs.append(("경쟁 병원", "건강보험심사평가원 병원정보서비스, 반경 1km 내 동일 진료과 표방 기준"))
+    if loc:
+        basis_pairs.append(("수요·상권", f"SGIS 통계지리정보 기반 잠재 수요 참고지표({e(loc.get('density_basis') or '시·구 평균')} 밀도 보정) — 실제 방문 수요를 보장하지 않음"))
+    basis_pairs += [
+        ("콘텐츠 판정", "제목·요약 스니펫만 사용 · 본문 미수집·미저장"),
+        ("진단 점수", "(주)베놈 산식에 따른 참고 지표 — 의료서비스의 질·치료 효과·환자 만족도·매출 가능성을 의미하지 않음"),
+    ]
+    basis_rows = "".join(f'<div class="btr"><div class="bk">{k}</div><div class="bd">{v}</div></div>'
+                         for k, v in basis_pairs)
+    basis_section = (
+        '<section class="card"><h2>측정 기준</h2>'
+        f'<div class="btbl">{basis_rows}</div>'
+        '<p class="mut" style="font-size:11.5px;margin:12px 0 0"><b>고지</b> — 본 리포트는 병원 내부 운영 참고자료이며 '
+        '의료광고물이 아닙니다. 환자 대상 광고·홍보물로 전재·캡처·인용·배포할 수 없습니다. 경쟁 병원에 대한 우열 판단·비방 목적으로 '
+        '사용할 수 없습니다. 특정 검색 순위 달성·환자 유입·매출 증가를 보장하지 않습니다.</p></section>')
 
     top5_html = "".join(top5_block(k) for k in j["keywords"])
     top5_section = (f'''
@@ -481,9 +604,11 @@ def render_html(j: dict, masked: bool = False) -> str:
 <title>자동 진단 — {e(b["title"])}</title>
 <style>
 :root{{--bg:#f6f8fb;--card:#fff;--ink:#1d2735;--sub:#5b6a7e;--line:#dfe6ef;--accent:#2a78d6;
---accent-soft:#e8f1fc;--good:#1e8a4a;--bad:#c23a3a;--warn:#c98a00;--track:#eef2f7;--mut:#8a97a8}}
+--accent-soft:#e8f1fc;--good:#1e8a4a;--bad:#c23a3a;--warn:#c98a00;--teal:#12897a;--violet:#6a54c0;
+--track:#eef2f7;--mut:#8a97a8}}
 @media (prefers-color-scheme:dark){{:root{{--bg:#10161f;--card:#182130;--ink:#e8edf4;--sub:#9db0c5;
---line:#2a3648;--accent:#5b9ee8;--accent-soft:#1c2c42;--good:#4cc07a;--bad:#e07070;--warn:#d6a520;--track:#222c3b;--mut:#71809a}}}}
+--line:#2a3648;--accent:#5b9ee8;--accent-soft:#1c2c42;--good:#4cc07a;--bad:#e07070;--warn:#d6a520;
+--teal:#3fc0a8;--violet:#a48bec;--track:#222c3b;--mut:#71809a}}}}
 *{{box-sizing:border-box}}body{{margin:0;background:var(--bg);color:var(--ink);line-height:1.6;
 font-family:"Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",system-ui,sans-serif}}
 .wrap{{max-width:880px;margin:0 auto;padding:26px 16px 60px;display:flex;flex-direction:column;gap:18px}}
@@ -555,6 +680,30 @@ font-size:9px;color:var(--sub);white-space:nowrap}}
 .zb-mark{{position:absolute;top:-2px;bottom:-2px;width:3px;background:var(--ink);border-radius:2px;
 transform:translateX(-50%);box-shadow:0 0 0 1.5px var(--card)}}
 .zb-scale{{display:flex;justify-content:space-between;font-size:9.5px;color:var(--mut);margin-top:3px}}
+.mapwrap{{display:flex;gap:18px;align-items:center;margin-top:14px;flex-wrap:wrap;justify-content:center}}
+.mapbox{{flex:none}}.mapbox svg{{width:150px;height:auto}}
+.mapcap{{font-size:12.5px;color:var(--sub);max-width:300px}}.mapcap .mut{{color:var(--mut);font-size:11px}}
+.guide{{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:6px}}
+@media(max-width:600px){{.guide{{grid-template-columns:1fr}}}}
+.gcard{{border:1px solid var(--line);border-radius:10px;padding:13px 15px;background:var(--bg)}}
+.gcard .gtag{{display:inline-block;font-size:10.5px;font-weight:700;color:var(--accent);
+background:var(--accent-soft);border-radius:5px;padding:1px 7px;margin-bottom:7px}}
+.gcard .gq{{font-size:13px;font-weight:700;margin:0 0 5px}}.gcard .gq::before{{content:"Q. ";color:var(--accent)}}
+.gcard .ga{{font-size:12.5px;color:var(--sub);margin:0;line-height:1.65}}.gcard .ga b{{color:var(--ink)}}
+.gcta{{margin-top:14px;padding:13px 16px;border-radius:10px;background:var(--accent-soft);
+font-size:13px;color:var(--ink)}}.gcta a{{color:var(--accent);font-weight:700}}
+.acts{{display:flex;flex-direction:column;gap:10px;margin:2px 0 16px}}
+.act{{display:flex;gap:12px;align-items:flex-start;border:1px solid var(--line);border-radius:10px;padding:12px 15px}}
+.act .n{{flex:none;width:26px;height:26px;border-radius:7px;background:var(--accent);color:#fff;
+display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px}}
+.act .t{{font-size:13.5px;font-weight:700;margin:0 0 2px}}
+.act .p{{font-size:12.5px;color:var(--sub);margin:0;line-height:1.6}}
+.act .bs{{font-size:11.5px;color:var(--mut);margin-top:4px}}
+.subh{{font-size:13px;font-weight:700;margin:4px 0 8px}}
+.btbl{{border-top:2px solid var(--ink);margin-top:4px}}
+.btr{{display:grid;grid-template-columns:120px 1fr;gap:14px;padding:9px 2px;border-bottom:1px solid var(--line);font-size:12.5px}}
+.btr .bk{{font-weight:700}}.btr .bd{{color:var(--sub)}}
+@media(max-width:520px){{.btr{{grid-template-columns:1fr;gap:2px}}}}
 .donuts{{display:flex;gap:18px;flex-wrap:wrap;justify-content:center;margin:6px 0 4px}}
 .donut{{text-align:center;flex:1;min-width:110px}}
 .donut .dl{{font-size:12px;font-weight:700;margin-top:4px}}
@@ -564,9 +713,8 @@ transform:translateX(-50%);box-shadow:0 0 0 1.5px var(--card)}}
 .ovh{{font-size:12.5px;font-weight:700;margin:0 0 8px}}
 .brow{{display:flex;align-items:center;gap:9px;font-size:12px;margin:5px 0}}
 .brow .bl{{width:52px;flex:none;color:var(--sub)}}
-.brow .bt{{flex:1;height:13px;border-radius:7px;background:var(--track);position:relative;overflow:hidden}}
-.brow .bt .under{{position:absolute;top:0;left:0;bottom:0;background:var(--accent-soft);border-radius:7px}}
-.brow .bt .over{{position:absolute;top:0;left:0;bottom:0;background:var(--accent);border-radius:7px}}
+.brow .bt{{flex:1;height:13px;border-radius:3px;background:var(--track);position:relative;overflow:hidden}}
+.brow .bt .over{{position:absolute;top:0;left:0;bottom:0;background:var(--accent)}}
 .brow .bv{{width:72px;flex:none;text-align:right;color:var(--sub);font-variant-numeric:tabular-nums}}
 .brow .bv b{{color:var(--ink)}}
 .leglow{{font-size:11px;color:var(--mut);margin-top:8px;display:flex;gap:14px;flex-wrap:wrap}}
@@ -602,11 +750,8 @@ footer{{font-size:11px;color:var(--mut);text-align:center;border-top:1px solid v
 </section>
 {top5_section}
 {loc_html}
-<section class="card"><h2>데이터 기준 고지</h2>
-<p class="mut" style="font-size:12.5px;margin:0">본 자료는 (주)베놈이 당사 산식으로 산출한 검색정보 운영 진단
-결과이며, 특정 순위 달성·상위 노출·매출 증가를 보장하지 않습니다. 출처: 네이버 오픈 API(지역·블로그·카페·웹문서·뉴스·이미지·지식iN)
-· SGIS 통계지리정보{" · 건강보험심사평가원" if loc and "competitors" in loc else ""}. 제목·요약 스니펫만 판정에 사용하며 본문은 수집·저장하지 않습니다.</p>
-</section>
+{guidance_html}
+{basis_section}
 <footer>(주)베놈 VENOMAD · 자동 진단 산출물 — 내부 참고용, 광고물 전재 금지</footer>
 </div>'''
 
