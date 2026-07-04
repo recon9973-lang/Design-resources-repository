@@ -33,6 +33,10 @@ NAVER_AD_API_KEY = os.environ.get("NAVER_AD_API_KEY", "")
 NAVER_AD_SECRET_KEY = os.environ.get("NAVER_AD_SECRET_KEY", "")
 NAVER_AD_CUSTOMER_ID = os.environ.get("NAVER_AD_CUSTOMER_ID", "")
 
+# 네이버 클라우드 플랫폼 Maps — 실제 위치 정적 지도 이미지
+NAVER_MAP_KEY_ID = os.environ.get("NAVER_MAP_KEY_ID", "")
+NAVER_MAP_KEY = os.environ.get("NAVER_MAP_KEY", "")
+
 VALID_RADII_M = (500, 1000, 1500, 2000)
 
 
