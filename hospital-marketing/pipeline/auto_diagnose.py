@@ -249,8 +249,31 @@ def render_html(j: dict, masked: bool = False) -> str:
 
     cands = " · ".join(e(c["title"]) for c in j["resolution"]["candidates"])
 
+    def score_meter(label, score, meaning):
+        """0~100 점수를 평균 기준선(50)과 함께 눈금·상태로 보여주는 미터."""
+        s = max(0.0, min(float(score), 100.0))
+        if s >= 65:
+            lab, col = "우수", "var(--good)"
+        elif s >= 55:
+            lab, col = "평균 이상", "var(--good)"
+        elif s >= 45:
+            lab, col = "평균 수준", "var(--warn)"
+        elif s >= 30:
+            lab, col = "평균 이하", "var(--warn)"
+        else:
+            lab, col = "낮음", "var(--bad)"
+        return (f'<div class="smeter"><div class="sm-head"><span class="sm-l">{label}</span>'
+                f'<span class="sm-v"><b style="color:{col}">{score}</b> · '
+                f'<span style="color:{col};font-weight:700">{lab}</span></span></div>'
+                f'<div class="sm-track"><div class="sm-fill" style="width:{s:.1f}%;background:{col}"></div>'
+                f'<div class="sm-avg" style="left:50%"></div>'
+                f'<div class="sm-dot" style="left:{s:.1f}%;background:{col}"></div></div>'
+                f'<div class="sm-scale"><span>0</span><span>50</span><span>100</span></div>'
+                f'<div class="sm-mean">{meaning}</div></div>')
+
     loc_html = ""
     if loc:
+        meters_html = ""
         if masked:
             cards = [
                 ("행정구역", e(loc.get("adm_nm") or "-"), "인구·연령 지표는 회원 공개"),
@@ -260,14 +283,28 @@ def render_html(j: dict, masked: bool = False) -> str:
             if "competitors" in loc:
                 cards.append(("같은 진료과 경쟁 (1km)", LOCK, "경쟁 수·입지 참고 점수 포함"))
         else:
+            basis = e(loc.get("density_basis") or "시·구 평균")
             cards = [
                 ("행정구역", e(loc.get("adm_nm") or "-"), f'평균연령 {loc.get("avg_age") or "-"}세'),
-                ("반경 1km 인구(추정)", f'{loc["population_radius"]:,}명', f'잠재 수요 점수 {loc["demand_score"]}'),
-                ("종사자 밀도", f'{loc["employee_density_km2"]:,}/km²', f'상권 활동 점수 {loc["commerce_score"]}'),
+                ("반경 1km 인구(추정)", f'{loc["population_radius"]:,}명', f'{basis} 밀도 기준'),
+                ("종사자 밀도", f'{loc["employee_density_km2"]:,}/km²', '직장인 유동 근사'),
             ]
             if "competitors" in loc:
-                cards.append(("같은 진료과 경쟁 (1km)", f'{loc["competitors"]}곳',
-                              f'경쟁 여유 {loc["competition_score"]} · 입지 참고 {loc["site_score"]}점'))
+                cards.append(("같은 진료과 경쟁 (1km)", f'{loc["competitors"]}곳', '가까울수록 경쟁 치열'))
+            meters = []
+            if "competitors" in loc:
+                meters.append(score_meter("경쟁 여유", loc["competition_score"],
+                                          "경쟁 밀도 대비 여유 — 높을수록 경쟁이 덜 치열"))
+            meters.append(score_meter("잠재 수요", loc["demand_score"],
+                                      "반경 내 거주 인구 기반 수요 잠재력"))
+            meters.append(score_meter("상권 활동", loc["commerce_score"],
+                                      "종사자 밀도 기반 상권 활동성(직장인 유동 근사)"))
+            if "competitors" in loc:
+                meters.append(score_meter("입지 참고 점수", loc["site_score"],
+                                          "경쟁 여유 50% + 수요 30% + 상권 20% 종합"))
+            meters_html = (f'<h3 class="sm-title">점수 해설 '
+                           f'<span>0~100 · 50 = 평균 기준선 · 높을수록 좋음</span></h3>'
+                           f'<div class="smeters">{"".join(meters)}</div>')
         cs = "".join(f'<div class="stat"><div class="k">{k}</div><div class="v">{v}</div>'
                      f'<div class="d">{d}</div></div>' for k, v, d in cards)
         note = ("" if "competitors" in loc else
@@ -276,9 +313,10 @@ def render_html(j: dict, masked: bool = False) -> str:
         loc_html = f'''
 <section class="card"><h2>입지 참고 분석</h2>
   <div class="summary">{cs}</div>{note}
-  <p class="mut" style="font-size:12px;margin:10px 0 0">반경 인구·상권은 <b>{e(loc.get("density_basis") or "시·구 평균")} 밀도</b> 기준 추정입니다.
+  {meters_html}
+  <p class="mut" style="font-size:12px;margin:14px 0 0">반경 인구·상권은 <b>{e(loc.get("density_basis") or "시·구 평균")} 밀도</b> 기준 추정입니다.
   {"넓은 시의 외곽(읍·면)이 도심 밀도를 희석하지 않도록, 사람이 실제 몰려 사는 곳의 밀도로 보정했습니다." if loc.get("density_basis","").startswith("체감") else ""}
-  임대료·접근성·건물 조건 등 핵심 입지 변수는 포함하지 않는 참고 지표이며(절대값보다 후보지 간 상대 비교용), 개원·영업 성과를 보장하지 않습니다.
+  점수는 당사 산식 기준 상대 수준이며(50점 = 중간 기준선), 임대료·접근성·건물 조건 등 핵심 입지 변수는 포함하지 않는 참고 지표입니다(절대값보다 후보지 간 상대 비교용). 개원·영업 성과를 보장하지 않습니다.
   출처: SGIS 통계지리정보{" · 건강보험심사평가원 병원정보서비스" if "competitors" in loc else ""}.</p>
 </section>'''
 
@@ -349,9 +387,9 @@ def render_html(j: dict, masked: bool = False) -> str:
 <title>자동 진단 — {e(b["title"])}</title>
 <style>
 :root{{--bg:#f6f8fb;--card:#fff;--ink:#1d2735;--sub:#5b6a7e;--line:#dfe6ef;--accent:#2a78d6;
---accent-soft:#e8f1fc;--good:#1e8a4a;--bad:#c23a3a;--mut:#8a97a8}}
+--accent-soft:#e8f1fc;--good:#1e8a4a;--bad:#c23a3a;--warn:#c98a00;--track:#eef2f7;--mut:#8a97a8}}
 @media (prefers-color-scheme:dark){{:root{{--bg:#10161f;--card:#182130;--ink:#e8edf4;--sub:#9db0c5;
---line:#2a3648;--accent:#5b9ee8;--accent-soft:#1c2c42;--good:#4cc07a;--bad:#e07070;--mut:#71809a}}}}
+--line:#2a3648;--accent:#5b9ee8;--accent-soft:#1c2c42;--good:#4cc07a;--bad:#e07070;--warn:#d6a520;--track:#222c3b;--mut:#71809a}}}}
 *{{box-sizing:border-box}}body{{margin:0;background:var(--bg);color:var(--ink);line-height:1.6;
 font-family:"Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",system-ui,sans-serif}}
 .wrap{{max-width:880px;margin:0 auto;padding:26px 16px 60px;display:flex;flex-direction:column;gap:18px}}
@@ -391,6 +429,22 @@ padding:2px 6px;margin:1px -6px}}
 .top5 .items .r{{flex:none;width:16px;color:var(--mut);font-variant-numeric:tabular-nums;text-align:right}}
 .top5 .items .tt{{flex:1;overflow:hidden;text-overflow:ellipsis}}
 .top5 .items .ad{{flex:none;color:var(--mut);font-size:11px}}
+.sm-title{{font-size:13px;margin:16px 0 4px;display:flex;align-items:baseline;gap:8px}}
+.sm-title span{{font-size:11px;color:var(--mut);font-weight:400}}
+.smeters{{display:grid;grid-template-columns:1fr 1fr;gap:14px 22px;margin-top:8px}}
+@media (max-width:560px){{.smeters{{grid-template-columns:1fr}}}}
+.smeter .sm-head{{display:flex;justify-content:space-between;align-items:baseline;font-size:12.5px;margin-bottom:5px}}
+.smeter .sm-l{{font-weight:700}}
+.smeter .sm-v{{font-variant-numeric:tabular-nums}}
+.sm-track{{position:relative;height:9px;border-radius:5px;background:var(--track);overflow:visible}}
+.sm-fill{{position:absolute;left:0;top:0;bottom:0;border-radius:5px}}
+.sm-dot{{position:absolute;top:50%;width:12px;height:12px;border-radius:50%;transform:translate(-50%,-50%);
+border:2px solid var(--card);box-shadow:0 0 0 1px rgba(0,0,0,.15)}}
+.sm-avg{{position:absolute;top:-3px;bottom:-3px;width:2px;background:var(--sub);opacity:.55}}
+.sm-avg::after{{content:"평균";position:absolute;top:-13px;left:50%;transform:translateX(-50%);
+font-size:9px;color:var(--sub);white-space:nowrap}}
+.sm-scale{{display:flex;justify-content:space-between;font-size:9.5px;color:var(--mut);margin-top:4px}}
+.sm-mean{{font-size:11px;color:var(--sub);margin-top:3px}}
 footer{{font-size:11px;color:var(--mut);text-align:center;border-top:1px solid var(--line);padding-top:12px}}
 </style>
 <div class="wrap">
