@@ -22,7 +22,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from medirank import config, keywordgen, scoring                  # noqa: E402
-from medirank.connectors import hira, naver_content, naver_local, searchad, sgis  # noqa: E402
+from medirank.connectors import hira, naver_content, naver_local, searchad, staticmap, sgis  # noqa: E402
 from medirank.geo import haversine_m                              # noqa: E402
 
 SEC_KEYS = ["blog", "cafe", "web", "news", "image", "kin"]
@@ -168,6 +168,14 @@ def main() -> None:
         else:
             print("  지표 수집 실패 (SGIS 키/지역 확인)")
 
+    # 4-b) 실제 위치 정적 지도 (NCP Maps, 키 있을 때만) — data URI로 임베드
+    location_map = None
+    if staticmap.available():
+        location_map = staticmap.location_data_uri(
+            biz.get("latitude"), biz.get("longitude"))
+        print("\n[실제 지도] NCP Static Map "
+              + ("임베드 완료" if location_map else "실패 — 좌표/키 확인"))
+
     # 5) 검색 수요 — 절대 월 검색량·연관검색어 (검색광고 키워드도구, 키 있을 때만)
     _norm = lambda s: "".join((s or "").split())
     search_demand = {"available": False, "volumes": {}, "related": []}
@@ -204,6 +212,7 @@ def main() -> None:
         "generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         "business": biz, "region": region,
         "classification": cls, "keywords": rows, "location": location,
+        "location_map": location_map,
         "search_demand": search_demand,
         "resolution": {"note": res["note"],
                        "candidates": [{"title": c["title"], "address": c["address"]}
@@ -407,12 +416,25 @@ def render_html(j: dict, masked: bool = False) -> str:
                 "일반 업체는 인구·상권 지표만 제공합니다.</p>")
         nq = urllib.parse.quote((f'{b["title"]} {b.get("address") or ""}').strip())
         nmap = f'https://map.naver.com/p/search/{nq}'
+        real_map = j.get("location_map") if not masked else None
+        real_map_html = (
+            f'<figure class="realmap"><img src="{real_map}" alt="{e(b["title"])} 실제 위치 지도" '
+            f'width="680" height="320"><figcaption>실제 위치 · 네이버 지도 '
+            f'<a href="{nmap}" target="_blank" rel="noopener">지도 앱에서 열기 →</a></figcaption></figure>'
+            if real_map else "")
+        schematic_cap = ("반경 1km 개략도 · "
+                         + (("같은 진료과 " + str(loc["competitors"]) + "곳")
+                            if "competitors" in loc else "인구·상권 기준"))
+        # 실지도가 있으면 개략도는 '경쟁 밀도' 보조도로, 없으면 링크로 실위치 안내
+        schematic_link = ("" if real_map else
+                          f'<br><a href="{nmap}" target="_blank" rel="noopener" '
+                          f'style="color:var(--accent);font-weight:700">네이버 지도에서 실제 위치 보기 →</a>')
         map_html = ("" if masked else
-                    f'<div class="mapwrap"><div class="mapbox">{radius_map(loc.get("competitors"))}</div>'
-                    f'<div class="mapcap">반경 1km 개략도 · '
-                    f'{("같은 진료과 " + str(loc["competitors"]) + "곳") if "competitors" in loc else "인구·상권 기준"}'
-                    f'<br><a href="{nmap}" target="_blank" rel="noopener" style="color:var(--accent);font-weight:700">네이버 지도에서 실제 위치 보기 →</a>'
-                    f'<br><span class="ds">개략도는 실제 지도가 아닌 위치·경쟁 밀도 표현입니다. 실제 지도는 위 링크로 확인하세요.</span></div></div>')
+                    real_map_html
+                    + f'<div class="mapwrap"><div class="mapbox">{radius_map(loc.get("competitors"))}</div>'
+                    f'<div class="mapcap">{schematic_cap}{schematic_link}'
+                    f'<br><span class="ds">위 개략도는 실제 지도가 아닌 위치·경쟁 밀도 표현입니다.'
+                    f'{" 실제 지도는 상단 이미지 참고." if real_map else " 실제 지도는 위 링크로 확인하세요."}</span></div></div>')
         loc_html = f'''
 <section class="card"><h2>입지 참고 분석</h2>
   <div class="summary">{cs}</div>{note}
@@ -626,6 +648,8 @@ def render_html(j: dict, masked: bool = False) -> str:
         basis_pairs.append(("수요·상권", f"SGIS 통계지리정보 기반 잠재 수요 참고지표({e(loc.get('density_basis') or '시·구 평균')} 밀도 보정) — 실제 방문 수요를 보장하지 않음"))
     if has_vol:
         basis_pairs.append(("검색 수요", "네이버 검색광고 키워드도구 API — 월간 검색수(PC+모바일)·연관검색어·경쟁정도 · 광고주 계정 연동"))
+    if j.get("location_map") and not masked:
+        basis_pairs.append(("위치 지도", "네이버 클라우드 플랫폼 Static Map — 등록 주소 좌표 기준 실제 지도(생성 시점 임베드)"))
     basis_pairs += [
         ("콘텐츠 판정", "제목·요약 스니펫만 사용 · 본문 미수집·미저장"),
         ("진단 점수", "(주)베놈 산식에 따른 참고 지표 — 의료서비스의 질·치료 효과·환자 만족도·매출 가능성을 의미하지 않음"),
@@ -761,6 +785,10 @@ transform:translateX(-50%);box-shadow:0 0 0 1.5px var(--card)}}
 .mapwrap{{display:flex;gap:18px;align-items:center;margin-top:14px;flex-wrap:wrap;justify-content:center}}
 .mapbox{{flex:none}}.mapbox svg{{width:150px;height:auto}}
 .mapcap{{font-size:12.5px;color:var(--sub);max-width:300px}}.mapcap .mut{{color:var(--mut);font-size:11px}}
+.realmap{{margin:14px 0 0}}.realmap img{{width:100%;max-width:680px;height:auto;display:block;
+margin:0 auto;border:1px solid var(--line);border-radius:12px}}
+.realmap figcaption{{font-size:11.5px;color:var(--mut);text-align:center;margin-top:6px}}
+.realmap figcaption a{{color:var(--accent);font-weight:700}}
 .guide{{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:6px}}
 @media(max-width:600px){{.guide{{grid-template-columns:1fr}}}}
 .gcard{{border:1px solid var(--line);border-radius:10px;padding:13px 15px;background:var(--bg)}}
