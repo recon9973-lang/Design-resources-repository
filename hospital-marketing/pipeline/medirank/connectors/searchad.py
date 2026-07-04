@@ -18,24 +18,21 @@ import base64
 import hashlib
 import hmac
 import json
-import os
 import time
 import urllib.parse
 
-from .. import httpx
+from .. import config, httpx
 
 BASE_URL = "https://api.searchad.naver.com"
 KEYWORDSTOOL_URI = "/keywordstool"
 
 
 def _creds() -> tuple[str, str, str]:
-    return (os.environ.get("NAVER_AD_API_KEY", ""),
-            os.environ.get("NAVER_AD_SECRET_KEY", ""),
-            os.environ.get("NAVER_AD_CUSTOMER_ID", ""))
+    return config.searchad_creds()
 
 
 def available() -> bool:
-    return all(_creds())
+    return config.searchad_available()
 
 
 def _sign(secret: str, timestamp: str, method: str, uri: str) -> str:

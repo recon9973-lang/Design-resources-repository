@@ -14,10 +14,9 @@
 """
 
 import base64
-import os
 import urllib.parse
 
-from .. import httpx
+from .. import config, httpx
 
 STATIC_URL = "https://maps.apigw.ntruss.com/map-static/v2/raster"
 # 구(舊) 엔드포인트 폴백 (일부 계정은 naveropenapi 도메인만 열려 있음)
@@ -25,12 +24,11 @@ STATIC_URL_LEGACY = "https://naveropenapi.apigw.ntruss.com/map-static/v2/raster"
 
 
 def _keys() -> tuple[str, str]:
-    return (os.environ.get("NAVER_MAP_KEY_ID", ""),
-            os.environ.get("NAVER_MAP_KEY", ""))
+    return config.naver_map_creds()
 
 
 def available() -> bool:
-    return all(_keys())
+    return config.naver_map_available()
 
 
 def _fetch(url: str, params: list, kid: str, ksec: str) -> bytes | None:
