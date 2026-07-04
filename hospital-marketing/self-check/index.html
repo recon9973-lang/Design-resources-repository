@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; base-uri 'self'; frame-ancestors 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'unsafe-inline'; img-src 'self' data:; connect-src 'self' https://*.supabase.co; base-uri 'self'; frame-ancestors 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="robots" content="noindex">
 <title>베놈 체크업 — 우리 병원 마케팅 3분 자가검진</title>
@@ -395,6 +395,7 @@ function runRisk(){
   }).join('')||'<div class="finding"><span class="sev" style="background:var(--good-bg);color:var(--good-tx)">양호</span><div class="body">발견된 금지 표현이 없습니다.</div></div>';
   $('#riskResult').style.display='block';
   $('#ctaTitle').textContent=crit>0?'지금 이 문구, 그대로 두면 위험합니다':'정밀 소견서 + 맞춤 개선안이 필요하신가요?';
+  SC.set('risk', crit>0?3:warn>0?2:1, {text:raw,dept}, {grade:crit>0?'위험':warn>0?'주의':'양호',crit,warn});
 }
 $('#riskRun').addEventListener('click',runRisk);
 $('#riskSample').addEventListener('click',()=>{
@@ -445,6 +446,7 @@ function runCost(){
   $('#costFindings').innerHTML=f.map(x=>`<div class="finding"><span class="sev ${x.sev==='c'?'c':'w'}">${x.sev==='c'?'점검':'참고'}</span>
     <div class="body"><b>${esc(x.b)}</b><span class="fix" style="color:${x.good?'var(--good-tx)':'var(--text-secondary)'}">↳ ${esc(x.t)}</span></div></div>`).join('');
   $('#costResult').style.display='block';
+  SC.set('cost', Math.round(cpa), {cost,nw,vis,mrg}, {cpa:Math.round(cpa),cvr,roas});
 }
 $('#costRun').addEventListener('click',runCost);
 $('#costSample').addEventListener('click',()=>{
@@ -491,8 +493,43 @@ function scoreJourney(){
   else{gb.className='grade-band w';gb.innerHTML='<span class="lbl">주의</span><span class="desc">일부 단계만 노출되고 있습니다. 빈 항목을 채우면 유입이 끊기지 않습니다.</span>';}
   $('#journeyFindings').innerHTML=leaks.map(l=>`<div class="finding"><span class="sev c">구멍</span>
     <div class="body"><b>${esc(l.ttl)}가 비어 있습니다</b><span class="fix" style="color:var(--text-secondary)">↳ ${l.n===1?'증상·질환을 다룬 콘텐츠가 없어, 아픈 초기 환자를 놓치고 있습니다.':l.n===2?'지역+치료 키워드 노출이 약해, 병원을 비교하는 단계에서 밀립니다.':'병원명 평판이 관리되지 않아, 마지막에 마음을 돌리는 환자가 생깁니다.'}</span></div></div>`).join('');
+  SC.set('journey', covered, {checked:[...$$('#journeyFunnel input')].map(b=>b.checked)}, {covered,leaks:leaks.map(l=>l.n)});
 }
 renderJourney();
+
+/* ============ 자가진단 결과 저장(로그인 회원) ============ */
+const SELF_CHECK_ENDPOINT=''; // 예: https://xxxx.supabase.co/functions/v1/self-check
+const SC={last:{},
+  containers:{risk:'#riskResult',cost:'#costResult',journey:'#journeyGrade'},
+  labels:{risk:'의료법 리스크',cost:'비용 효율',journey:'환자 동선'},
+  token(){try{return sessionStorage.getItem('venom_at')||'';}catch{return'';}},
+  set(kind,score,inputs,outputs){
+    this.last[kind]={kind,score,inputs,outputs,tool_version:'sc-2026-07-v1'};
+    const box=document.querySelector(this.containers[kind]); if(!box)return;
+    let bar=box.querySelector('.sc-save');
+    if(!bar){bar=document.createElement('div');bar.className='sc-save';
+      bar.style.cssText='margin-top:12px;display:flex;gap:9px;align-items:center;flex-wrap:wrap';
+      bar.innerHTML='<button type="button" class="btn scbtn" style="padding:8px 14px">💾 이 결과 저장</button>'+
+        '<span class="scmsg" style="font-size:12.5px"></span>';
+      box.appendChild(bar);
+      bar.querySelector('.scbtn').addEventListener('click',()=>SC.save(kind));}
+    bar.querySelector('.scmsg').textContent='';
+  },
+  async save(kind){
+    const box=document.querySelector(this.containers[kind]);
+    const msg=box&&box.querySelector('.scmsg'); const rec=this.last[kind];
+    const say=(t,ok)=>{if(msg){msg.textContent=t;msg.style.color=ok?'var(--good-tx,green)':'var(--crit-tx,#c23a3a)';}};
+    if(!rec){say('먼저 진단을 실행해 주세요.');return;}
+    if(!SELF_CHECK_ENDPOINT){say('저장 서버가 아직 설정되지 않았습니다(데모).');return;}
+    if(!this.token()){say('결과 저장은 무료 회원가입 후 이용할 수 있어요. (리포트에서 로그인)');return;}
+    try{
+      const res=await fetch(SELF_CHECK_ENDPOINT,{method:'POST',
+        headers:{'content-type':'application/json','Authorization':'Bearer '+this.token()},
+        body:JSON.stringify(rec)});
+      const d=await res.json().catch(()=>({}));
+      say(res.ok&&d.ok?'저장되었습니다 ✓ 마이페이지에서 다시 볼 수 있어요.':'저장에 실패했습니다.',res.ok&&d.ok);
+    }catch{say('네트워크 오류로 저장하지 못했습니다.');}
+  }};
 </script>
 </body>
 </html>
