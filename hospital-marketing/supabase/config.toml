@@ -1,0 +1,19 @@
+# Supabase 프로젝트 설정. `supabase link --project-ref <REF>` 후 이 값이 쓰인다.
+# project_id 는 link 시 자동 기록되므로 비워둬도 된다(placeholder).
+project_id = "your-project-ref"
+
+# 4개 함수 모두 verify_jwt=false — 게이트웨이 JWT 검증을 끄고, 인증/권한은 각 함수가
+# 직접 처리한다(leads: 공개 폼 / reports: GET 익명 masked·인증 시 full / self-check:
+# 401 if not authed / admin-leads: 직원 role 아니면 403). 함수 내부에서 getUser()로 검증.
+
+[functions.leads]
+verify_jwt = false
+
+[functions.reports]
+verify_jwt = false
+
+[functions.self-check]
+verify_jwt = false
+
+[functions.admin-leads]
+verify_jwt = false
