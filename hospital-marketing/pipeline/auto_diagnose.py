@@ -21,8 +21,8 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-from medirank import keywordgen, scoring                          # noqa: E402
-from medirank.connectors import hira, naver_content, naver_local, sgis  # noqa: E402
+from medirank import config, keywordgen, scoring                  # noqa: E402
+from medirank.connectors import hira, naver_content, naver_local, searchad, sgis  # noqa: E402
 from medirank.geo import haversine_m                              # noqa: E402
 
 SEC_KEYS = ["blog", "cafe", "web", "news", "image", "kin"]
@@ -168,7 +168,28 @@ def main() -> None:
         else:
             print("  지표 수집 실패 (SGIS 키/지역 확인)")
 
-    # 5) 요약
+    # 5) 검색 수요 — 절대 월 검색량·연관검색어 (검색광고 키워드도구, 키 있을 때만)
+    _norm = lambda s: "".join((s or "").split())
+    search_demand = {"available": False, "volumes": {}, "related": []}
+    if searchad.available():
+        print("\n[검색 수요] 네이버 검색광고 키워드도구 — 월 검색량 · 연관검색어")
+        kw_texts = [k["kw"] for k in kws if k["type"] != "브랜드"]
+        vols = searchad.volumes_for(kw_texts) or {}
+        volumes = {}
+        for k in kws:
+            row = vols.get(_norm(k["kw"]))
+            if row:
+                volumes[k["kw"]] = {"pc": row["pc"], "mobile": row["mobile"],
+                                    "total": row["total"], "comp": row["comp"]}
+        reg = region["gu"] or region["city"]
+        seeds = [(f"{reg}{b}" if reg else b) for b in cls["base_terms"][:2] if b]
+        rep = searchad.keyword_report(seeds or kw_texts[:2]) or []
+        diag = {_norm(k["kw"]) for k in kws}
+        related = [r for r in rep if _norm(r["kw"]) not in diag and r["total"] > 0][:15]
+        search_demand = {"available": True, "volumes": volumes, "related": related}
+        print(f"  검색량 확보 {len(volumes)}개 · 연관검색어 {len(related)}개")
+
+    # 6) 요약
     p_hit = sum(1 for r in rows if r["place"]["exposed"])
     c_hit = sum(1 for r in rows
                 if any((r["content"].get(s) or {}).get("exposed") for s in SEC_KEYS))
@@ -183,6 +204,7 @@ def main() -> None:
         "generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         "business": biz, "region": region,
         "classification": cls, "keywords": rows, "location": location,
+        "search_demand": search_demand,
         "resolution": {"note": res["note"],
                        "candidates": [{"title": c["title"], "address": c["address"]}
                                       for c in res["candidates"][:5]]},
@@ -220,6 +242,27 @@ def render_html(j: dict, masked: bool = False) -> str:
 
     LOCK = '<span class="lock" title="무료 회원 열람 시 공개">회원 공개</span>'
 
+    # 검색 수요 (검색광고 키워드도구) — 키 연동 시에만 컬럼·섹션 노출
+    sd = j.get("search_demand") or {}
+    has_vol = bool(sd.get("available")) and not masked
+    vols = sd.get("volumes") or {}
+
+    def fmt_vol(n):
+        if n is None:
+            return "—"
+        if n <= 5:
+            return "10 미만"
+        return f"{n:,}"
+
+    def comp_txt(c):
+        return f'<em> · {e(c)}</em>' if c else ""
+
+    def vol_cell(kw):
+        if not has_vol:
+            return ""
+        v = vols.get(kw)
+        return f'<td class="c vol">{fmt_vol(v["total"]) if v else "—"}</td>'
+
     def cell_html(c):
         if not c or c.get("exposed") is None:
             return '<td class="c mut">미검증</td>'
@@ -243,6 +286,7 @@ def render_html(j: dict, masked: bool = False) -> str:
 
     kw_rows = "".join(
         f'<tr><td><b>{e(k["kw"])}</b></td><td>{e(k["type"])}</td>'
+        + vol_cell(k["kw"])
         + place_html(k["place"])
         + "".join(cell_html((k["content"] or {}).get(key)) for key in SEC_KEYS)
         + "</tr>"
@@ -580,6 +624,8 @@ def render_html(j: dict, masked: bool = False) -> str:
         basis_pairs.append(("경쟁 병원", "건강보험심사평가원 병원정보서비스, 반경 1km 내 동일 진료과 표방 기준"))
     if loc:
         basis_pairs.append(("수요·상권", f"SGIS 통계지리정보 기반 잠재 수요 참고지표({e(loc.get('density_basis') or '시·구 평균')} 밀도 보정) — 실제 방문 수요를 보장하지 않음"))
+    if has_vol:
+        basis_pairs.append(("검색 수요", "네이버 검색광고 키워드도구 API — 월간 검색수(PC+모바일)·연관검색어·경쟁정도 · 광고주 계정 연동"))
     basis_pairs += [
         ("콘텐츠 판정", "제목·요약 스니펫만 사용 · 본문 미수집·미저장"),
         ("진단 점수", "(주)베놈 산식에 따른 참고 지표 — 의료서비스의 질·치료 효과·환자 만족도·매출 가능성을 의미하지 않음"),
@@ -599,6 +645,34 @@ def render_html(j: dict, masked: bool = False) -> str:
 <p class="mut" style="font-size:12px;margin:-4px 0 12px">키워드를 펼치면 각 영역의 <b>상위 5건</b>을 보여줍니다.
 미노출 영역도 "그 자리에 지금 누가 떠 있는지"를 함께 확인하세요. <b>파란 강조 = 우리 업체</b>.</p>
 {top5_html}</section>''' if top5_html else "")
+
+    # 검색 수요 · 연관 검색어 섹션 (검색광고 키워드도구 연동 시)
+    vol_th = "<th>월 검색량</th>" if has_vol else ""
+    demand_section = ""
+    if has_vol:
+        vlist = sorted(
+            [dict(kw=kw, **v) for kw, v in vols.items() if v.get("total")],
+            key=lambda x: x["total"], reverse=True)[:8]
+        maxv = max((x["total"] for x in vlist), default=1) or 1
+        vbars = "".join(
+            f'<div class="vrow"><span class="vk">{e(x["kw"])}</span>'
+            f'<span class="vbar"><span class="vfill" style="width:{max(4, round(100 * x["total"] / maxv))}%"></span></span>'
+            f'<span class="vv">{fmt_vol(x["total"])}{comp_txt(x.get("comp"))}</span></div>'
+            for x in vlist)
+        related = sd.get("related") or []
+        chips = "".join(
+            f'<span class="chip">{e(x["kw"])}<b>{fmt_vol(x["total"])}</b></span>'
+            for x in related)
+        chips_block = (f'<h3 style="margin:18px 0 8px">연관 검색어 — 환자가 함께 쓰는 말</h3>'
+                       f'<div class="chips">{chips}</div>') if chips else ""
+        demand_section = f'''
+<section class="card"><h2>검색 수요 · 연관 검색어</h2>
+<p class="ds">네이버 검색광고 키워드도구 기준 <b>월간 검색수</b>(PC+모바일 합산). 실제 환자가 그 달에 이 말을 얼마나 검색했는지 —
+노출을 어디부터 채울지 우선순위를 정하는 근거입니다.</p>
+<div class="vwrap">{vbars}</div>
+{chips_block}
+<p class="ds" style="margin-top:12px">숫자 옆 <b>낮음·중간·높음</b> = 광고 경쟁 정도. <b>검색량은 많은데 위 매트릭스에서 미노출인 키워드가 1순위 공략 대상</b>입니다.</p>
+</section>'''
 
     return f'''<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -712,6 +786,19 @@ display:flex;align-items:center;justify-content:center;font-weight:800;font-size
 .donut{{text-align:center;flex:1;min-width:110px}}
 .donut .dl{{font-size:12px;font-weight:700;margin-top:4px}}
 .ds{{font-size:10.5px;color:var(--mut);line-height:1.5}}
+td.vol{{font-variant-numeric:tabular-nums;font-weight:700;color:var(--ink)}}
+.vwrap{{display:flex;flex-direction:column;gap:9px;margin:8px 0 2px}}
+.vrow{{display:grid;grid-template-columns:150px 1fr 128px;align-items:center;gap:12px}}
+.vk{{font-size:12.5px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}}
+.vbar{{height:12px;background:var(--track);border-radius:0;overflow:hidden}}
+.vfill{{display:block;height:100%;background:var(--teal)}}
+.vv{{font-size:12px;font-weight:800;text-align:right;font-variant-numeric:tabular-nums}}
+.vv em{{font-style:normal;font-weight:600;color:var(--mut);font-size:11px}}
+.chips{{display:flex;flex-wrap:wrap;gap:8px}}
+.chip{{display:inline-flex;align-items:center;gap:7px;font-size:12px;padding:6px 11px;
+border:1px solid var(--line);border-radius:999px;background:var(--accent-soft)}}
+.chip b{{font-variant-numeric:tabular-nums;color:var(--accent)}}
+@media(max-width:520px){{.vrow{{grid-template-columns:110px 1fr 96px;gap:8px}}}}
 .ovgrid{{display:grid;grid-template-columns:1fr 1fr;gap:16px 26px;margin-top:6px}}
 @media (max-width:600px){{.ovgrid{{grid-template-columns:1fr}}}}
 .ovh{{font-size:13px;font-weight:700;margin:0 0 8px}}
@@ -746,12 +833,13 @@ footer{{font-size:11px;color:var(--mut);text-align:center;border-top:1px solid v
 {overview_html}
 <section class="card"><h2>키워드별 노출 매트릭스</h2>
 <div class="tw"><table>
-<thead><tr><th>키워드</th><th>유형</th><th>플레이스</th><th>블로그</th><th>카페</th><th>웹문서</th><th>뉴스</th><th>이미지</th><th>지식iN</th></tr></thead>
+<thead><tr><th>키워드</th><th>유형</th>{vol_th}<th>플레이스</th><th>블로그</th><th>카페</th><th>웹문서</th><th>뉴스</th><th>이미지</th><th>지식iN</th></tr></thead>
 <tbody>{kw_rows}</tbody></table></div>
 <p class="mut" style="font-size:12px;margin:10px 0 0">○ N = 공식 API 결과 내 위치(실제 화면 순위 아님) ·
 ✕ = 상위 30건(플레이스 5건) 내 없음 · — = 이 키워드에는 해당 영역 없음.
 파워링크(광고)·브랜드 콘텐츠·스마트블록 배치는 공식 API 미제공으로 측정 제외.</p>
 </section>
+{demand_section}
 {top5_section}
 {loc_html}
 {guidance_html}
