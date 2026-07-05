@@ -1171,6 +1171,23 @@ border:1px solid var(--line);border-radius:999px;background:var(--accent-soft)}}
 .leglow span{{display:inline-flex;align-items:center;gap:5px}}
 .leglow i{{width:10px;height:10px;border-radius:3px;display:inline-block}}
 footer{{font-size:11px;color:var(--mut);text-align:center;border-top:1px solid var(--line);padding-top:12px}}
+@media print{{
+  /* PDF/인쇄: 다크모드와 무관하게 항상 밝게, 카드 단위 페이지 나눔 최적화 */
+  :root{{--bg:#fff;--card:#fff;--ink:#111;--sub:#333;--mut:#666;--line:#d3d9e0;--track:#eef0f3;
+  --accent-soft:#eef4fc;--accent-lite:#cfe0f6}}
+  body{{background:#fff;color:#111}}
+  .wrap{{max-width:none;padding:0;gap:10px}}
+  .card{{box-shadow:none;border-color:#d3d9e0}}
+  .act,.gcard,.cvcard,.stat,.donut,.vrow,.cxrow,.brow{{break-inside:avoid}}
+  h1,h2,h3,.ovh,.sm-title{{break-after:avoid}}
+  thead{{display:table-header-group}}
+  a{{color:#111;text-decoration:none}}
+  .mask-banner{{border:1px solid #d3d9e0}}
+  .print-hint{{display:none}}
+  @page{{margin:14mm}}
+}}
+.print-hint{{font-size:11.5px;color:var(--mut);text-align:center;background:var(--accent-soft);
+border-radius:8px;padding:8px 12px;margin:0}}
 </style>
 <div class="wrap">
 <header><span class="brand">(주)베놈 VENOMAD</span>
@@ -1205,6 +1222,7 @@ footer{{font-size:11px;color:var(--mut);text-align:center;border-top:1px solid v
 {loc_html}
 {guidance_html}
 {basis_section}
+<p class="print-hint">📄 PDF로 저장: 브라우저 인쇄(Ctrl/⌘+P) → 대상을 <b>'PDF로 저장'</b>으로 선택하세요.</p>
 <footer>(주)베놈 VENOMAD · 자동 진단 산출물 — 내부 참고용, 광고물 전재 금지</footer>
 </div>'''
 
