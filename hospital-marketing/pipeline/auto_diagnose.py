@@ -524,6 +524,58 @@ def render_html(j: dict, masked: bool = False) -> str:
                 f'<span class="bt"><span class="over" style="width:{fill:.0f}%;background:{col}"></span></span>'
                 f'<span class="bv">노출 <b>{over}</b>/{under}</span></div>')
 
+    def coverage_charts():
+        """영역별 커버리지 — 레이더(노출률) + 중첩 막대(활성/노출 키워드 수)."""
+        secs = []
+        for key, label in SEC_LABELS:
+            active = sum(1 for k in j["keywords"] if ((k["content"] or {}).get(key) or {}).get("present"))
+            exposed = sum(1 for k in j["keywords"] if ((k["content"] or {}).get(key) or {}).get("exposed"))
+            secs.append({"label": label, "active": active, "exposed": exposed,
+                         "pct": round(100 * exposed / active) if active else 0})
+        n = len(secs)
+        cx, cy, R = 150, 150, 92
+        ang = lambda i: math.radians(-90 + 360 * i / n)
+        px = lambda i, f: cx + R * f * math.cos(ang(i))
+        py = lambda i, f: cy + R * f * math.sin(ang(i))
+        ring = lambda g: " ".join(f"{px(i, g):.1f},{py(i, g):.1f}" for i in range(n))
+        rings = "".join(f'<polygon points="{ring(g)}" fill="none" stroke="var(--line)" stroke-width="1"/>'
+                        for g in (0.25, 0.5, 0.75, 1.0))
+        axes = "".join(f'<line x1="{cx}" y1="{cy}" x2="{px(i,1):.1f}" y2="{py(i,1):.1f}" '
+                       f'stroke="var(--line)" stroke-width="1"/>' for i in range(n))
+        anyexp = any(s["pct"] for s in secs)
+        if anyexp:
+            dpoly = " ".join(f"{px(i, s['pct']/100):.1f},{py(i, s['pct']/100):.1f}" for i, s in enumerate(secs))
+            data = (f'<polygon points="{dpoly}" fill="var(--accent)" fill-opacity="0.18" '
+                    f'stroke="var(--accent)" stroke-width="2"/>')
+        else:
+            data = f'<circle cx="{cx}" cy="{cy}" r="3.5" fill="var(--accent)"/>'
+        labels = "".join(
+            f'<text x="{px(i,1)+ (18 if abs(math.cos(ang(i)))>0.1 and math.cos(ang(i))>0 else -18 if math.cos(ang(i))<-0.1 else 0):.1f}" '
+            f'y="{py(i,1)+(16 if math.sin(ang(i))>0.3 else -8 if math.sin(ang(i))<-0.3 else 4):.1f}" '
+            f'text-anchor="middle" font-size="12" font-weight="700" fill="var(--ink)">{s["label"]}'
+            f'<tspan x="{px(i,1)+ (18 if math.cos(ang(i))>0.1 else -18 if math.cos(ang(i))<-0.1 else 0):.1f}" '
+            f'dy="14" font-size="11" fill="var(--mut)">{s["pct"]}%</tspan></text>'
+            for i, s in enumerate(secs))
+        radar = (f'<svg viewBox="0 0 300 320" width="100%" style="max-width:330px;display:block;margin:4px auto 0" '
+                 f'role="img" aria-label="영역별 커버리지 레이더">{rings}{axes}{data}'
+                 f'<circle cx="{cx}" cy="{cy}" r="2" fill="var(--mut)"/>{labels}</svg>')
+        maxa = max((s["active"] for s in secs), default=0) or 1
+        bars = "".join(
+            f'<div class="cvrow"><span class="cvl">{s["label"]}</span>'
+            f'<span class="cvbar"><span class="cvact" style="width:{100*s["active"]/maxa:.0f}%">'
+            f'<span class="cvexp" style="width:{(100*s["exposed"]/s["active"]) if s["active"] else 0:.0f}%"></span>'
+            f'</span></span>'
+            f'<span class="cvv">노출 <b>{s["exposed"]}</b> / {s["active"]}</span></div>'
+            for s in secs)
+        return (f'<div class="cvgrid">'
+                f'<div class="cvcard"><div class="ovh">통합검색 영역 커버리지 레이더</div>'
+                f'<p class="ds">영역별 · 활성 키워드 가운데 병원명 콘텐츠가 노출된 비율</p>{radar}</div>'
+                f'<div class="cvcard"><div class="ovh">영역별 노출 키워드 수</div>'
+                f'<p class="ds">옅은 막대 = 영역이 활성인 키워드 · 진한 채움 = 그중 노출된 키워드</p>'
+                f'<div class="cvbars">{bars}</div></div></div>')
+
+    coverage_html = "" if masked else coverage_charts()
+
     overview_html = ""
     if not masked:
         kws = j["keywords"]
@@ -706,11 +758,11 @@ def render_html(j: dict, masked: bool = False) -> str:
 <title>자동 진단 — {e(b["title"])}</title>
 <style>
 :root{{--bg:#f6f8fb;--card:#fff;--ink:#1d2735;--sub:#5b6a7e;--line:#dfe6ef;--accent:#2a78d6;
---accent-soft:#e8f1fc;--good:#1e8a4a;--bad:#c23a3a;--warn:#c98a00;--teal:#12897a;--violet:#6a54c0;
+--accent-soft:#e8f1fc;--accent-lite:#c3d9f4;--good:#1e8a4a;--bad:#c23a3a;--warn:#c98a00;--teal:#12897a;--violet:#6a54c0;
 --track:#eef2f7;--mut:#8a97a8}}
 @media (prefers-color-scheme:dark){{:root{{--bg:#10161f;--card:#182130;--ink:#e8edf4;--sub:#9db0c5;
 --line:#2a3648;--accent:#5b9ee8;--accent-soft:#1c2c42;--good:#4cc07a;--bad:#e07070;--warn:#d6a520;
---teal:#3fc0a8;--violet:#a48bec;--track:#222c3b;--mut:#71809a}}}}
+--teal:#3fc0a8;--violet:#a48bec;--track:#222c3b;--mut:#71809a;--accent-lite:#27496f}}}}
 *{{box-sizing:border-box}}body{{margin:0;background:var(--bg);color:var(--ink);line-height:1.6;
 font-family:"Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",system-ui,sans-serif}}
 .wrap{{max-width:880px;margin:0 auto;padding:26px 16px 60px;display:flex;flex-direction:column;gap:18px}}
@@ -826,6 +878,17 @@ td.vol{{font-variant-numeric:tabular-nums;font-weight:700;color:var(--ink)}}
 .chip{{display:inline-flex;align-items:center;gap:7px;font-size:12px;padding:6px 11px;
 border:1px solid var(--line);border-radius:999px;background:var(--accent-soft)}}
 .chip b{{font-variant-numeric:tabular-nums;color:var(--accent)}}
+.cvgrid{{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:6px 0 18px}}
+@media(max-width:640px){{.cvgrid{{grid-template-columns:1fr}}}}
+.cvcard .ovh{{margin-bottom:2px}}
+.cvbars{{display:flex;flex-direction:column;gap:11px;margin-top:10px}}
+.cvrow{{display:grid;grid-template-columns:58px 1fr 96px;align-items:center;gap:10px}}
+.cvl{{font-size:12.5px;font-weight:700}}
+.cvbar{{height:13px;background:var(--track);overflow:hidden}}
+.cvact{{position:relative;display:block;height:100%;background:var(--accent-lite)}}
+.cvexp{{position:absolute;left:0;top:0;height:100%;background:var(--accent)}}
+.cvv{{font-size:12px;font-weight:700;text-align:right;font-variant-numeric:tabular-nums}}
+.cvv b{{color:var(--accent)}}
 @media(max-width:520px){{.vrow{{grid-template-columns:110px 1fr 96px;gap:8px}}}}
 .ovgrid{{display:grid;grid-template-columns:1fr 1fr;gap:16px 26px;margin-top:6px}}
 @media (max-width:600px){{.ovgrid{{grid-template-columns:1fr}}}}
@@ -860,6 +923,7 @@ footer{{font-size:11px;color:var(--mut);text-align:center;border-top:1px solid v
 {mask_banner}{amb_html}
 {overview_html}
 <section class="card"><h2>키워드별 노출 매트릭스</h2>
+{coverage_html}
 <div class="tw"><table>
 <thead><tr><th>키워드</th><th>유형</th>{vol_th}<th>플레이스</th><th>블로그</th><th>카페</th><th>웹문서</th><th>뉴스</th><th>이미지</th><th>지식iN</th></tr></thead>
 <tbody>{kw_rows}</tbody></table></div>
