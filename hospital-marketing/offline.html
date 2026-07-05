@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'unsafe-inline'; img-src 'self' data:; base-uri 'self'; frame-ancestors 'none'">
+<meta name="robots" content="noindex">
+<title>오프라인 · 베놈 체크업</title>
+<style>
+  :root{--bg:#f7f8fa;--card:#fff;--ink:#0e1116;--sub:#5b6a7e;--brand:#2a78d6;--line:#e4e8ee}
+  @media(prefers-color-scheme:dark){:root{--bg:#10161f;--card:#182130;--ink:#e8edf4;--sub:#9db0c5;--brand:#5b9ee8;--line:#2a3648}}
+  *{box-sizing:border-box}body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;
+  background:var(--bg);color:var(--ink);font-family:"Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",system-ui,sans-serif;padding:24px}
+  .box{max-width:420px;text-align:center;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:34px 26px}
+  .ic{width:64px;height:64px;border-radius:16px;background:var(--brand);color:#fff;font-size:30px;font-weight:800;
+  display:flex;align-items:center;justify-content:center;margin:0 auto 16px}
+  h1{font-size:19px;margin:0 0 8px}p{font-size:14px;color:var(--sub);line-height:1.7;margin:0 0 18px}
+  .btns{display:flex;flex-direction:column;gap:9px}
+  a.btn{display:block;padding:12px;border-radius:10px;background:var(--brand);color:#fff;text-decoration:none;font-weight:700;font-size:14px}
+  a.ghost{background:transparent;color:var(--brand);border:1px solid var(--line)}
+</style>
+</head>
+<body>
+  <div class="box">
+    <div class="ic">V</div>
+    <h1>지금은 오프라인이에요</h1>
+    <p>인터넷 연결이 없어도 <b>자가진단 계산기</b>는 그대로 쓸 수 있어요.
+    진단 리포트·신청은 연결되면 자동으로 열립니다.</p>
+    <div class="btns">
+      <a class="btn" href="self-check/">자가진단 계산기 열기</a>
+      <a class="btn ghost" href="./">홈으로</a>
+    </div>
+  </div>
+</body>
+</html>
