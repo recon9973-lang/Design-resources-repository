@@ -101,6 +101,13 @@
 </head>
 <body>
 
+<div id="installBar" style="display:none;background:var(--brand);color:#fff;padding:9px 14px;font-size:13px;
+  text-align:center">📲 베놈 체크업을 앱으로 설치하면 홈 화면에서 바로 열 수 있어요.
+  <button id="installBtn" style="margin-left:8px;padding:4px 12px;border:0;border-radius:7px;background:#fff;
+    color:var(--brand,#2a78d6);font-weight:700;cursor:pointer">설치</button>
+  <button id="installX" aria-label="닫기" style="margin-left:6px;background:transparent;border:0;color:#fff;
+    font-size:16px;cursor:pointer">×</button></div>
+
 <header class="top"><div class="wrap top-in">
   <a class="mark" href="./">V</a>
   <span class="bname">베놈 체크업 <span class="en">VENOM Checkup</span></span>
@@ -192,6 +199,28 @@ document.getElementById('toolGrid').innerHTML = TOOLS.map(t=>`
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(() => {}));
 }
+/* 설치 안내 배너 — 브라우저 설치 가능 시에만, 닫으면 재표시 안 함 */
+(function(){
+  let deferred = null;
+  const bar = document.getElementById('installBar');
+  const dismissed = (() => { try { return localStorage.getItem('venom_install_x') === '1'; } catch { return false; } })();
+  window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault(); deferred = e;
+    if (!dismissed && bar) bar.style.display = 'block';
+  });
+  const btn = document.getElementById('installBtn');
+  if (btn) btn.addEventListener('click', async () => {
+    if (!deferred) return;
+    deferred.prompt(); await deferred.userChoice; deferred = null;
+    if (bar) bar.style.display = 'none';
+  });
+  const x = document.getElementById('installX');
+  if (x) x.addEventListener('click', () => {
+    if (bar) bar.style.display = 'none';
+    try { localStorage.setItem('venom_install_x', '1'); } catch {}
+  });
+  window.addEventListener('appinstalled', () => { if (bar) bar.style.display = 'none'; });
+})();
 </script>
 </body>
 </html>
