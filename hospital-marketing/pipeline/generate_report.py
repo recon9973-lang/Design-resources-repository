@@ -64,15 +64,18 @@ def collect(args) -> dict:
     exposure = scoring.exposure_score(keyword_results)
     density = scoring.density_score(competitors, args.radius)
     demand = scoring.demand_score(population, 0.45, args.radius)
-    # 플레이스 집계값(리뷰/사진 수)은 법무 의견에 따라 자동 수집하지 않는다.
-    # 병원이 직접 확인·입력한 값을 쓰며, 입력 전까지는 아래 기본값(예시)을 사용.
-    place = scoring.place_quality_score(154, 4.4, 44, 0.7)
-    final = scoring.final_score(exposure, density, demand, place)
+    # 플레이스 집계값(리뷰/평점/사진)은 공식 API 미제공 → 병원 직접 입력 전까지 미측정.
+    # 조작값을 넣지 않고 None으로 두어 종합점수에서 제외한다(신뢰도 원칙).
+    place = None
+    comp = scoring.composite_measured(exposure=exposure, density=density,
+                                      demand=demand, place=place)
+    final = comp["score"]
 
     return {"competitors": competitors, "keywords": keyword_results,
             "stats": stats, "population": population,
-            "scores": {"exposure": exposure, "density": density,
-                       "demand": demand, "place": place, "final": final}}
+            "scores": {"exposure": exposure, "density": density, "demand": demand,
+                       "place": place, "final": final,
+                       "measured_weight_pct": comp["measured_weight_pct"]}}
 
 
 def build_actions(data: dict) -> list[dict]:
@@ -197,8 +200,8 @@ TEMPLATE = Template("""<!DOCTYPE html>
       <div class="track"><div class="fill" style="width:$s_density%"></div></div></div>
     <div class="c"><div class="l">수요·입지</div><div class="v">$s_demand</div><div class="w">가중치 20%</div>
       <div class="track"><div class="fill" style="width:$s_demand%"></div></div></div>
-    <div class="c"><div class="l">플레이스 품질</div><div class="v">$s_place</div><div class="w">가중치 15%</div>
-      <div class="track"><div class="fill" style="width:$s_place%"></div></div></div>
+    <div class="c"><div class="l">플레이스 품질</div><div class="v">$s_place</div><div class="w">가중치 15% · 미측정 시 제외</div>
+      <div class="track"><div class="fill" style="width:$s_place_w%"></div></div></div>
   </div>
   <h2>키워드별 노출 진단 (네이버 공식 API 기준 · 상위 5위 이내)</h2>
   <div style="margin:2px 0 10px">
@@ -334,7 +337,9 @@ def render(args, data: dict) -> str:
         report_id=f"RPT-{month}-LIVE",
         final_score=f"{s['final']:.0f}",
         s_exposure=f"{s['exposure']:.0f}", s_density=f"{s['density']:.0f}",
-        s_demand=f"{s['demand']:.0f}", s_place=f"{s['place']:.0f}",
+        s_demand=f"{s['demand']:.0f}",
+        s_place=("미측정" if s['place'] is None else f"{s['place']:.0f}"),
+        s_place_w=("0" if s['place'] is None else f"{s['place']:.0f}"),
         summary_text=summary_text,
         keyword_rows="".join(kw_rows), competitor_rows="".join(comp_rows),
         stats_block=stats_block, action_blocks=action_blocks)

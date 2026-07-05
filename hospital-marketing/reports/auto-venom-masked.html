@@ -142,6 +142,15 @@ border:1px solid var(--line);border-radius:999px;background:var(--accent-soft)}
 .cvlegend .lg{width:16px;height:0;border-top:2px solid;display:inline-block}
 .cvlegend .lg-us{border-top-color:var(--accent)}
 .cvlegend .lg-bm{border-top:2px dashed var(--warn)}
+.cxgrid{display:grid;grid-template-columns:200px 1fr;gap:18px;align-items:center}
+@media(max-width:560px){.cxgrid{grid-template-columns:1fr}}
+.cxbars{display:flex;flex-direction:column;gap:9px}
+.cxrow{display:grid;grid-template-columns:120px 1fr 44px;align-items:center;gap:10px}
+.cxl{font-size:12.5px;font-weight:700}.cxl em{font-style:normal;color:var(--mut);font-weight:600;font-size:11px}
+.cxbar{height:12px;background:var(--track);overflow:hidden}
+.cxfill{display:block;height:100%;background:var(--accent)}
+.cxv{font-size:12.5px;font-weight:800;text-align:right;font-variant-numeric:tabular-nums}
+.cxv.mut{color:var(--mut);font-weight:700;font-size:11px}
 @media(max-width:520px){.vrow{grid-template-columns:110px 1fr 96px;gap:8px}}
 .ovgrid{display:grid;grid-template-columns:1fr 1fr;gap:16px 26px;margin-top:6px}
 @media (max-width:600px){.ovgrid{grid-template-columns:1fr}}
@@ -174,6 +183,7 @@ footer{font-size:11px;color:var(--mut);text-align:center;border-top:1px solid va
 <div class="stat"><div class="k">콘텐츠 노출 키워드</div><div class="v">7 / 12</div><div class="d">6개 영역 중 1곳 이상</div></div>
 </section>
 <p class="warn" style="border-left:3px solid var(--accent)">이 리포트는 무료 배포판입니다. 세부 진단 항목 13건(노출 위치·입지 수치)은 표시하지 않았으며, <b>무료 회원 열람 시 별도 비용 없이 전체가 공개</b>됩니다. 노출 여부(○/✕) 판정과 요약은 그대로 확인하실 수 있습니다.</p><p class="warn">⚠ 두 글자 이하 상호 특성상 동명 콘텐츠 오탐이 가능해 완전일치·제목 기준으로만 판정했으며, 노출 건은 수동 검증을 권장합니다.</p>
+
 
 <section class="card"><h2>키워드별 노출 매트릭스</h2>
 

@@ -2926,5 +2926,15 @@
   "content_hit": 4,
   "total": 12,
   "ambiguous": false
+ },
+ "composite": {
+  "score": 33.4,
+  "measured_weight_pct": 85,
+  "components": {
+   "exposure": 22.9,
+   "density": 47.8,
+   "demand": 36.6,
+   "place": null
+  }
  }
 }

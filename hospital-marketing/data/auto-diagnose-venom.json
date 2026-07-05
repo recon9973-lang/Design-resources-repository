@@ -1218,5 +1218,15 @@
   "content_hit": 7,
   "total": 12,
   "ambiguous": true
+ },
+ "composite": {
+  "score": 13.5,
+  "measured_weight_pct": 60,
+  "components": {
+   "exposure": 6.2,
+   "density": null,
+   "demand": 28.2,
+   "place": null
+  }
  }
 }

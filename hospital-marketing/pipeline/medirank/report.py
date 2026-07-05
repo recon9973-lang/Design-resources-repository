@@ -38,10 +38,8 @@ def build_monthly_metrics(
     if radius_m not in config.VALID_RADII_M:
         raise ValueError(f"radius_m must be one of {config.VALID_RADII_M}")
 
-    place_profile = place_profile or {
-        "review_count": 154, "rating": 4.4, "photo_count": 44,
-        "info_completeness": 0.7,
-    }
+    # 플레이스 품질: 공개 집계값(리뷰수/평점/사진수)이 실제로 주입될 때만 산정한다.
+    # 조작값을 넣지 않는다 — 없으면 None(미측정)으로 종합점수에서 제외한다.
 
     # 1) 반경 내 경쟁 병원 (HIRA 마스터 기준)
     all_hospitals = hira.fetch_hospitals()
@@ -59,8 +57,10 @@ def build_monthly_metrics(
     exposure = scoring.exposure_score(keyword_results)
     density = scoring.density_score(competitors, radius_m)
     demand = scoring.demand_score(population_in_radius, target_age_ratio, radius_m)
-    place = scoring.place_quality_score(**place_profile)
-    final = scoring.final_score(exposure, density, demand, place)
+    place = scoring.place_quality_score(**place_profile) if place_profile else None
+    comp = scoring.composite_measured(exposure=exposure, density=density,
+                                      demand=demand, place=place)
+    final = comp["score"]
 
     weak = [r["keyword"] for r in keyword_results if not r["exposed"]]
 
@@ -69,9 +69,10 @@ def build_monthly_metrics(
         "hospital": my_hospital["name"],
         "radius_m": radius_m,
         "final_marketing_score": final,
+        "score_measured_weight_pct": comp["measured_weight_pct"],
         "scores": {
             "exposure": exposure, "density": density,
-            "demand": demand, "place_quality": place,
+            "demand": demand, "place_quality": place,  # None = 미측정
         },
         "competitor_count": len(competitors),
         "competitors_nearest": [
