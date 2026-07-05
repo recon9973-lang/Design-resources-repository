@@ -32,6 +32,23 @@ DEPT_PROCS = {
     "동물병원": ["강아지건강검진", "고양이병원", "중성화수술"],
 }
 
+# 진료과 → 환자가 '증상·고민'으로 검색하는 말 (정보탐색 단계, 기획서 keyword_type=symptom)
+# 시술명이 아니라 환자 언어의 증상/고민. 치료효과·보장 표현은 넣지 않는다.
+DEPT_SYMPTOMS = {
+    "피부과": ["여드름", "기미", "모공", "홍조"],
+    "치과": ["치아통증", "잇몸부음", "사랑니"],
+    "한의원": ["교통사고후유증", "허리통증", "소화불량"],
+    "정형외과": ["무릎통증", "오십견", "허리디스크", "목디스크"],
+    "성형외과": ["눈처짐", "코막힘성형", "안면비대칭"],
+    "안과": ["시력저하", "안구건조", "비문증"],
+    "이비인후과": ["코막힘", "이명", "목이물감"],
+    "내과": ["소화불량", "만성피로", "복통"],
+    "산부인과": ["생리불순", "질염", "갱년기"],
+    "비뇨의학과": ["빈뇨", "혈뇨", "잔뇨감"],
+    "소아청소년과": ["아기열", "수족구", "장염"],
+    "정신건강의학과": ["불면", "불안", "우울감"],
+}
+
 # 진료과 → HIRA 진료과목코드 (입지 경쟁 분석용, 동물병원은 HIRA 미수록)
 DEPT_DGSBJT = {
     "내과": "01", "정신건강의학과": "03", "정형외과": "05", "성형외과": "08",
@@ -158,28 +175,51 @@ def resolve_business(name: str, region_hint: str | None = None) -> dict:
     return {"chosen": chosen, "candidates": candidates, "note": note}
 
 
-def generate_keywords(profile: dict, max_keywords: int = 12) -> list[dict]:
+def generate_keywords(profile: dict, max_keywords: int = 14) -> list[dict]:
     """업체 프로필 → [{kw, type, base}] 목록.
 
-    지역 축: 동 → 구 → 시 → 메인(지역 없음) 순으로 좁은 지역부터.
-    기본 축: 업종/진료과 + 주요 시술 (base_terms).
+    커버 축(기획서 keyword_type 대응):
+    - 브랜드 / 진료과·시술 × 지역(동→구→시→메인)
+    - 증상·고민(정보탐색) · 비교탐색형(추천) — 병원 대표 지역 스코프
+    좁은 지역·정보탐색 초기 단계까지 포괄해 환자 검색 여정 전체를 진단한다.
     """
     region = parse_region(profile.get("address_jibun") or profile.get("address") or "")
     cls = classify(profile.get("category") or "")
-    axes = [("동단위", region["dong"]), ("구단위", region["gu"]),
-            ("시단위", region["city"]), ("메인", None)]
+    gu, city, dong = region["gu"], region["city"], region["dong"]
+    reg_main = gu or city  # 대표 지역(증상·비교 키워드 스코프)
+    axes = [("동단위", dong), ("구단위", gu), ("시단위", city), ("메인", None)]
 
     out = [{"kw": profile["title"], "type": "브랜드", "base": profile["title"]}]
     seen = {_norm(profile["title"])}
-    for base in cls["base_terms"]:
-        if not base:
-            continue
+
+    def add(kw: str, typ: str, base: str) -> bool:
+        if not kw or _norm(kw) in seen:
+            return True
+        seen.add(_norm(kw))
+        out.append({"kw": kw, "type": typ, "base": base})
+        return len(out) < max_keywords
+
+    base_terms = [b for b in cls["base_terms"] if b]
+    dept_term = base_terms[0] if base_terms else None
+    procs = base_terms[1:]
+
+    # 1) 대표 진료과/업종 × 지역축 (동→구→시→메인)
+    if dept_term:
         for label, reg in axes:
-            kw = f"{reg} {base}" if reg else base
-            if _norm(kw) in seen:
-                continue
-            seen.add(_norm(kw))
-            out.append({"kw": kw, "type": label, "base": base})
-            if len(out) >= max_keywords:
+            if not add(f"{reg} {dept_term}" if reg else dept_term, label, dept_term):
+                return out
+    # 2) 증상·고민(정보탐색) — 병원만, 대표 지역
+    if cls["is_hospital"]:
+        for sym in DEPT_SYMPTOMS.get(cls["dept"] or "", [])[:3]:
+            if not add(f"{reg_main} {sym}" if reg_main else sym, "증상", sym):
+                return out
+    # 3) 비교 탐색형 — 대표 지역 + 진료과 + 추천 (중립 검색 패턴)
+    if dept_term and reg_main:
+        if not add(f"{reg_main} {dept_term} 추천", "비교", dept_term):
+            return out
+    # 4) 주요 시술 × 지역축 (남는 예산 채움)
+    for base in procs:
+        for label, reg in axes:
+            if not add(f"{reg} {base}" if reg else base, label, base):
                 return out
     return out
