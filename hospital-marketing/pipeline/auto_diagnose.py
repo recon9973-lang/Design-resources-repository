@@ -22,7 +22,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from medirank import config, keywordgen, scoring                  # noqa: E402
-from medirank.connectors import hira, naver_content, naver_local, searchad, staticmap, sgis  # noqa: E402
+from medirank.connectors import hira, naver_content, naver_local, naver_place, searchad, staticmap, sgis  # noqa: E402
 from medirank.geo import haversine_m                              # noqa: E402
 
 SEC_KEYS = ["blog", "cafe", "web", "news", "image", "kin"]
@@ -113,6 +113,9 @@ def main() -> None:
                     help="플레이스 리뷰 수(병원이 자기 플레이스에서 확인해 입력) — 실측")
     ap.add_argument("--rating", type=float, default=None, help="플레이스 평점 0-5 (직접 입력)")
     ap.add_argument("--photos", type=int, default=None, help="플레이스 사진 수 (직접 입력)")
+    ap.add_argument("--place-url", default=None, help="네이버 플레이스 URL (내부 집계 수집용)")
+    ap.add_argument("--collect-place-metrics", action="store_true",
+                    help="플레이스 공개 집계값 자동 수집(내부·대면 전용·법무 검토 전·미검수). 개방망 필요")
     args = ap.parse_args()
 
     # 1) 업체 특정
@@ -263,6 +266,21 @@ def main() -> None:
     print(f"\n[플레이스 품질] 기본정보 {int(info_completeness*100)}% 자동측정 "
           f"(전화 {'○' if has_phone else '✕'}·링크 {'○' if has_url else '✕'}·분류 {'○' if has_cat else '✕'})"
           + (f" · 리뷰/평점/사진 입력 반영" if (args.reviews or args.rating or args.photos) else " · 리뷰·평점·사진 미입력"))
+
+    # 5-c-i) 플레이스 공개 집계값 자동 수집 — 내부·대면 전용(법무 검토 전·미검수).
+    #        고객 리포트에는 넣지 않는다. 실패/불확실 시 값을 만들지 않고 '미측정'.
+    place_internal = {"status": "미측정", "note": "자동 수집 미실행(--collect-place-metrics)"}
+    if args.collect_place_metrics:
+        m = naver_place.fetch_place_metrics(biz["title"], args.place_url or biz.get("link"))
+        if m:
+            place_internal = {"status": "수집(미검수)", **m}
+            print(f"  [내부] 플레이스 집계 자동수집(미검수): 리뷰 {m.get('review')}·"
+                  f"방문자 {m.get('visitor_review')}·블로그 {m.get('blog_review')}·"
+                  f"사진 {m.get('photo')}·평점 {m.get('rating')} — 대면 전 실측 대조 필요")
+        else:
+            place_internal = {"status": "미측정", "note": "수집 실패/차단 — 값 생성 안 함(조작 금지)"}
+            print("  [내부] 플레이스 집계 자동수집 실패 → 미측정")
+    place_info["internal"] = place_internal  # visibility_scope=internal_admin_only
 
     # 5-d) 종합 마케팅 경쟁력 점수 — 측정된 축만(미측정 축 제외·재정규화, 조작값 금지)
     composite = scoring.composite_measured(
