@@ -175,6 +175,55 @@ def build_actions(rows: list, location: dict | None, place_info: dict | None,
     return acts
 
 
+def _hist_key(biz: dict) -> str:
+    return ("".join((biz.get("title") or "").split()) + "|"
+            + "".join((biz.get("address") or "").split())[:24])
+
+
+def compute_trend(result: dict, history_path: str) -> dict:
+    """이번 진단을 로컬 history에 누적하고, 같은 병원의 '지난 진단' 대비 실제 변화를 산출.
+
+    조작 없음: 이전 스냅샷이 없으면 deltas 없이 first=True(첫 진단)로 정직하게 표기한다.
+    """
+    biz = result["business"]
+    key = _hist_key(biz)
+    month = (result.get("generated_at") or "")[:7]
+    loc = result.get("location") or {}
+    snap = {
+        "key": key, "month": month, "generated_at": result.get("generated_at"),
+        "composite": (result.get("composite") or {}).get("score"),
+        "place_hit": result["summary"]["place_hit"],
+        "content_hit": result["summary"]["content_hit"],
+        "total": result["summary"]["total"],
+        "competitors": loc.get("competitors"),
+    }
+    p = Path(history_path)
+    try:
+        hist = json.loads(p.read_text(encoding="utf-8"))
+        if not isinstance(hist, list):
+            hist = []
+    except Exception:
+        hist = []
+    priors = sorted((x for x in hist if x.get("key") == key and (x.get("month") or "") < month),
+                    key=lambda x: x.get("month") or "")
+    prior = priors[-1] if priors else None
+    trend = {"first": prior is None, "prior_month": prior["month"] if prior else None, "deltas": {}}
+    if prior:
+        for f in ("composite", "place_hit", "content_hit", "competitors"):
+            a, b = snap.get(f), prior.get(f)
+            if isinstance(a, (int, float)) and isinstance(b, (int, float)):
+                trend["deltas"][f] = round(a - b, 1)
+    # 같은 병원·같은 달 스냅샷은 최신으로 교체 후 저장
+    hist = [x for x in hist if not (x.get("key") == key and x.get("month") == month)]
+    hist.append(snap)
+    try:
+        p.parent.mkdir(parents=True, exist_ok=True)
+        p.write_text(json.dumps(hist, ensure_ascii=False, indent=1), encoding="utf-8")
+    except Exception:
+        pass
+    return trend
+
+
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--name", required=True, help="업체명 (이것만 있으면 됨)")
@@ -196,6 +245,9 @@ def main() -> None:
     ap.add_argument("--place-url", default=None, help="네이버 플레이스 URL (내부 집계 수집용)")
     ap.add_argument("--collect-place-metrics", action="store_true",
                     help="플레이스 공개 집계값 자동 수집(내부·대면 전용·법무 검토 전·미검수). 개방망 필요")
+    ap.add_argument("--history", default=None,
+                    help="월간 추이용 진단 이력 JSON 경로 — 같은 병원의 지난 진단 대비 실제 변화(delta) 산출. "
+                         "이전 데이터 없으면 '첫 진단'으로 정직 표기(조작 없음)")
     args = ap.parse_args()
 
     # 1) 업체 특정
@@ -396,6 +448,19 @@ def main() -> None:
         "summary": {"place_hit": p_hit, "content_hit": c_hit,
                     "total": len(rows), "ambiguous": ambiguous},
     }
+    # 7) 월간 추이 — 로컬 이력에 누적 후 지난 진단 대비 실제 변화 산출(조작 없음)
+    result["trend"] = compute_trend(result, args.history) if args.history else None
+    if result.get("trend"):
+        t = result["trend"]
+        if t["first"]:
+            print("\n[월간 추이] 첫 진단 — 다음 진단부터 변화 추이가 표시됩니다")
+        else:
+            d = t["deltas"]
+            def _fmt(v):
+                return ("+" if v > 0 else "") + str(v) if isinstance(v, (int, float)) else "미측정"
+            print(f"\n[월간 추이] {t['prior_month']} 대비 · "
+                  f"종합 {_fmt(d.get('composite'))} · 플레이스 {_fmt(d.get('place_hit'))} · "
+                  f"콘텐츠 {_fmt(d.get('content_hit'))}")
     if args.out:
         p = Path(args.out)
         p.parent.mkdir(parents=True, exist_ok=True)
@@ -835,6 +900,42 @@ def render_html(j: dict, masked: bool = False) -> str:
             f'미측정 항목은 조작값 없이 제외하고 측정된 축만으로 산정했습니다(반영 가중 {mw}%). '
             f'절대 순위·매출을 보장하지 않는 참고 지표입니다.</p></section>')
 
+    # 월간 추이 — 지난 진단 대비 실제 변화. 이전 데이터 없으면 '첫 진단'으로 정직 표기.
+    trend_html = ""
+    tr = j.get("trend")
+    if not masked and tr:
+        if tr.get("first"):
+            trend_html = (
+                '<section class="card"><h2>월간 추이</h2>'
+                '<p class="ds"><b>첫 진단입니다.</b> 다음 진단부터 지난 진단과 비교한 '
+                '실제 변화(종합 점수·플레이스·콘텐츠 노출)가 이곳에 표시됩니다. '
+                '변화는 실측 스냅샷 간의 차이만 계산하며, 추정·조작값은 넣지 않습니다.</p></section>')
+        else:
+            d = tr.get("deltas") or {}
+            DL = [("composite", "종합 점수"), ("place_hit", "플레이스 노출"),
+                  ("content_hit", "콘텐츠 노출"), ("competitors", "경쟁 병원 수")]
+            # 경쟁 병원 수는 늘어난 게 '악화'라 화살표 색을 반대로 해석
+            inv = {"competitors"}
+            chips = ""
+            for key, label in DL:
+                v = d.get(key)
+                if not isinstance(v, (int, float)):
+                    chips += (f'<div class="trchip"><span class="trl">{label}</span>'
+                              f'<span class="trv mut">미측정</span></div>')
+                    continue
+                good = (v < 0) if key in inv else (v > 0)
+                arrow = "▲" if v > 0 else ("▼" if v < 0 else "—")
+                cls_ = "up" if (v != 0 and good) else ("down" if v != 0 else "flat")
+                sign = ("+" if v > 0 else "")
+                chips += (f'<div class="trchip"><span class="trl">{label}</span>'
+                          f'<span class="trv {cls_}">{arrow} {sign}{v:g}</span></div>')
+            trend_html = (
+                '<section class="card"><h2>월간 추이</h2>'
+                f'<p class="subh">{tr.get("prior_month")} 대비 변화 (실측 스냅샷 차이)</p>'
+                f'<div class="trrow">{chips}</div>'
+                '<p class="ds" style="margin-top:8px">지난 진단과 이번 진단의 '
+                '실측값 차이만 표시합니다. 데이터가 없는 항목은 미측정으로 두고 조작하지 않습니다.</p></section>')
+
     overview_html = ""
     if not masked:
         kws = j["keywords"]
@@ -1157,6 +1258,13 @@ border:1px solid var(--line);border-radius:999px;background:var(--accent-soft)}}
 .cxfill{{display:block;height:100%;background:var(--accent)}}
 .cxv{{font-size:12.5px;font-weight:800;text-align:right;font-variant-numeric:tabular-nums}}
 .cxv.mut{{color:var(--mut);font-weight:700;font-size:11px}}
+.trrow{{display:flex;flex-wrap:wrap;gap:10px;margin-top:4px}}
+.trchip{{flex:1 1 130px;min-width:130px;border:1px solid var(--line);border-radius:12px;padding:11px 13px;background:var(--track)}}
+.trl{{display:block;font-size:12px;color:var(--mut);font-weight:700;margin-bottom:5px}}
+.trv{{font-size:16px;font-weight:800;font-variant-numeric:tabular-nums}}
+.trv.up{{color:var(--teal)}}
+.trv.down{{color:#e0564c}}
+.trv.flat,.trv.mut{{color:var(--mut)}}
 @media(max-width:520px){{.vrow{{grid-template-columns:110px 1fr 96px;gap:8px}}}}
 .ovgrid{{display:grid;grid-template-columns:1fr 1fr;gap:16px 26px;margin-top:6px}}
 @media (max-width:600px){{.ovgrid{{grid-template-columns:1fr}}}}
@@ -1207,6 +1315,7 @@ border-radius:8px;padding:8px 12px;margin:0}}
 </section>
 {mask_banner}{amb_html}
 {composite_html}
+{trend_html}
 {overview_html}
 <section class="card"><h2>키워드별 노출 매트릭스</h2>
 {coverage_html}
