@@ -150,6 +150,7 @@
     <div id="deepBody" style="display:none">
       <div class="card" style="padding:13px 16px;margin-bottom:12px" id="deepBiz"></div>
       <div class="cards" id="deepKpi"></div>
+      <div id="deepScore" style="margin:12px 0"></div>
       <div class="card table-card"><table id="deepTbl">
         <thead><tr><th></th><th>키워드</th><th>유형</th><th>플레이스</th>
           <th style="text-align:center">블로그</th><th style="text-align:center">카페</th>
@@ -324,6 +325,39 @@ function renderDeep(j){
      <div class="kpi"><div class="l">플레이스 노출</div><div class="v">${s.place_hit??'—'}</div><div class="d">공식 API 상위 5건 기준</div></div>
      <div class="kpi"><div class="l">콘텐츠 노출 키워드</div><div class="v">${s.content_hit??'—'}</div><div class="d">6영역 중 1곳 이상</div></div>
      <div class="kpi ${s.ambiguous?'alert':''}"><div class="l">검증 플래그</div><div class="v">${s.ambiguous?'⚠':'양호'}</div><div class="d">${s.ambiguous?'짧은 상호 — 오탐 검증 필요':'자동 판정 신뢰 가능'}</div></div>`;
+  // 종합 점수 + 플레이스 내부 집계(관리자·대면 전용)
+  const c=j.composite, pl0=j.place||{}, pin=pl0.internal||{};
+  const AX=[['exposure','노출','40'],['density','경쟁 여유','25'],['demand','수요·입지','20'],['place','플레이스','15']];
+  let scoreHtml='';
+  if(c && c.score!=null){
+    const bars=AX.map(([key,lab,w])=>{
+      const v=(c.components||{})[key];
+      const cell=v==null?'<span style="color:var(--text-muted)">미측정</span>'
+        :`<span style="display:inline-block;height:9px;width:${Math.round(v)}%;max-width:100%;background:var(--accent);vertical-align:middle;border-radius:2px"></span> <b>${Math.round(v)}</b>`;
+      return `<tr><td style="white-space:nowrap">${lab} <span style="color:var(--text-muted)">${w}%</span></td><td style="width:100%">${cell}</td></tr>`;
+    }).join('');
+    scoreHtml=`<div class="card" style="padding:14px 16px">
+      <b>종합 마케팅 경쟁력 점수</b>
+      <span style="font-size:22px;font-weight:800;margin-left:10px">${Math.round(c.score)}</span><span style="color:var(--text-muted)">/100</span>
+      <span class="pill p-mute" style="margin-left:8px"><span class="dot"></span>반영 가중 ${c.measured_weight_pct}%</span>
+      <table style="margin-top:8px;font-size:12.5px">${bars}</table>
+      <div style="font-size:11.5px;color:var(--text-muted);margin-top:6px">미측정 축은 조작값 없이 제외하고 측정 축만 재정규화(당사 산식).</div></div>`;
+  }
+  // 플레이스 내부 집계 — 관리자·대면 전용(미검수). 고객 리포트엔 미노출.
+  let placeHtml='';
+  const yn=v=>v?'○':'✕', sig=pl0.signals||{};
+  const hasInternal=pin.review!=null||pin.rating!=null||pin.photo!=null;
+  placeHtml=`<div class="card" style="padding:14px 16px;margin-top:10px;border-left:3px solid var(--status-warn)">
+    <b>플레이스 품질</b> <span style="color:var(--text-muted);font-size:12px">기본정보 자동측정 · 리뷰/평점/사진은 입력 or 내부수집</span><br>
+    <span style="font-size:12.5px">기본정보: 전화 ${yn(sig.phone)} · 링크 ${yn(sig.url)} · 분류 ${yn(sig.category)} (완성도 ${Math.round((pl0.info_completeness||0)*100)}%)</span><br>
+    <span style="font-size:12.5px">병원 입력: 리뷰 ${pl0.reviews??'<span style="color:var(--text-muted)">미입력</span>'} · 평점 ${pl0.rating??'<span style="color:var(--text-muted)">미입력</span>'} · 사진 ${pl0.photos??'<span style="color:var(--text-muted)">미입력</span>'}</span>
+    ${hasInternal?`<div style="margin-top:8px;padding:8px 10px;background:color-mix(in srgb,var(--status-warn) 10%,var(--surface-1));border-radius:8px;font-size:12px">
+      <b>내부 자동수집(미검수 · 대면 전 실측 대조 필요)</b><br>
+      리뷰 ${pin.review??'—'} · 방문자 ${pin.visitor_review??'—'} · 블로그 ${pin.blog_review??'—'} · 사진 ${pin.photo??'—'} · 평점 ${pin.rating??'—'}
+      <span style="color:var(--text-muted)"> · ${esc(pin.collected_at||'')} · ${esc(pin.source||'')}</span></div>`
+      :`<div style="margin-top:6px;font-size:11.5px;color:var(--text-muted)">내부 자동수집: ${esc(pin.status||'미측정')} — 값 조작 없음(개방망에서 --collect-place-metrics 실행)</div>`}</div>`;
+  $('#deepScore').innerHTML=scoreHtml+placeHtml;
+
   $('#deepTbl tbody').innerHTML=(j.keywords||[]).map((k,i)=>{
     const pl=k.place||{};
     const place=pl.exposed?`<b style="color:var(--status-good)">○ ${pl.rank}</b>`:'<span style="color:var(--status-crit)">✕</span>';
