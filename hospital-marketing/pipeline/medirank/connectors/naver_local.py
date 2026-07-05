@@ -53,6 +53,8 @@ def search_local(keyword: str) -> list[dict]:
             "address_jibun": item.get("address"),  # 지번 — 행정동 추출용
             "category": item.get("category"),
             "link": item.get("link"),
+            "telephone": item.get("telephone") or "",
+            "description": _strip_tags(item.get("description")),
             "longitude": _coord(item.get("mapx")),
             "latitude": _coord(item.get("mapy")),
         }

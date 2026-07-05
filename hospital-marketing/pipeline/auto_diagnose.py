@@ -109,6 +109,10 @@ def main() -> None:
     ap.add_argument("--benchmark-competitors", type=int, default=3,
                     help="실측 경쟁 벤치마크에 쓸 상위 경쟁 병원 수 (0=끄기, API 호출 증가)")
     ap.add_argument("--no-benchmark", action="store_true", help="경쟁 벤치마크 측정 생략")
+    ap.add_argument("--reviews", type=int, default=None,
+                    help="플레이스 리뷰 수(병원이 자기 플레이스에서 확인해 입력) — 실측")
+    ap.add_argument("--rating", type=float, default=None, help="플레이스 평점 0-5 (직접 입력)")
+    ap.add_argument("--photos", type=int, default=None, help="플레이스 사진 수 (직접 입력)")
     args = ap.parse_args()
 
     # 1) 업체 특정
@@ -241,12 +245,31 @@ def main() -> None:
         else:
             print("  경쟁 벤치마크 미측정 (경쟁사 콘텐츠 데이터 없음)")
 
-    # 5-c) 종합 마케팅 경쟁력 점수 — 측정된 축만(미측정 축 제외·재정규화, 조작값 금지)
+    # 5-c) 플레이스 품질 — 기본정보(전화·링크·분류)는 지역 API로 자동 실측,
+    #      리뷰·평점·사진은 병원 직접 입력 시에만 반영(조작값 금지, 없으면 그 항목만 미측정).
+    has_phone = bool(biz.get("telephone"))
+    has_url = bool(biz.get("link"))
+    has_cat = bool(biz.get("category"))
+    info_completeness = round((has_phone + has_url + has_cat) / 3.0, 2)
+    pq = scoring.place_quality_partial(
+        review_count=args.reviews, rating=args.rating, photo_count=args.photos,
+        info_completeness=info_completeness)
+    place_info = {
+        "signals": {"phone": has_phone, "url": has_url, "category": has_cat},
+        "info_completeness": info_completeness,
+        "reviews": args.reviews, "rating": args.rating, "photos": args.photos,
+        "score": pq["score"], "frac": pq["frac"], "measured": pq["measured"],
+    }
+    print(f"\n[플레이스 품질] 기본정보 {int(info_completeness*100)}% 자동측정 "
+          f"(전화 {'○' if has_phone else '✕'}·링크 {'○' if has_url else '✕'}·분류 {'○' if has_cat else '✕'})"
+          + (f" · 리뷰/평점/사진 입력 반영" if (args.reviews or args.rating or args.photos) else " · 리뷰·평점·사진 미입력"))
+
+    # 5-d) 종합 마케팅 경쟁력 점수 — 측정된 축만(미측정 축 제외·재정규화, 조작값 금지)
     composite = scoring.composite_measured(
         exposure=scoring.exposure_score([r["place"] for r in rows]),
         density=(location or {}).get("competition_score"),
         demand=(location or {}).get("demand_score"),
-        place=None,  # 플레이스 품질(리뷰·평점·사진): 공식 API 미제공 → 미측정
+        place=pq["score"], place_frac=pq["frac"],
     )
 
     # 6) 요약
@@ -266,7 +289,7 @@ def main() -> None:
         "classification": cls, "keywords": rows, "location": location,
         "location_map": location_map,
         "benchmark": benchmark, "benchmark_meta": benchmark_meta,
-        "composite": composite,
+        "composite": composite, "place": place_info,
         "search_demand": search_demand,
         "resolution": {"note": res["note"],
                        "candidates": [{"title": c["title"], "address": c["address"]}
@@ -655,6 +678,7 @@ def render_html(j: dict, masked: bool = False) -> str:
     # 종합 마케팅 경쟁력 점수 — 측정된 축만(미측정 축은 '미측정' 명시, 조작값 없음)
     composite_html = ""
     comp = j.get("composite")
+    place_info = j.get("place") or {}
     if not masked and comp and comp.get("score") is not None:
         AX = [("exposure", "노출", "40%"), ("density", "경쟁 여유", "25%"),
               ("demand", "수요·입지", "20%"), ("place", "플레이스 품질", "15%")]
@@ -665,18 +689,34 @@ def render_html(j: dict, masked: bool = False) -> str:
                 rows_ax += (f'<div class="cxrow"><span class="cxl">{label} <em>{w}</em></span>'
                             f'<span class="cxbar"></span><span class="cxv mut">미측정</span></div>')
             else:
-                rows_ax += (f'<div class="cxrow"><span class="cxl">{label} <em>{w}</em></span>'
+                tag = ''
+                if key == "place":
+                    frac = comp.get("place_frac") or 1
+                    if frac < 1:
+                        tag = f' <em style="color:var(--mut)">부분 {int(frac*100)}%</em>'
+                rows_ax += (f'<div class="cxrow"><span class="cxl">{label} <em>{w}</em>{tag}</span>'
                             f'<span class="cxbar"><span class="cxfill" style="width:{v:.0f}%"></span></span>'
                             f'<span class="cxv">{v:.0f}</span></div>')
+        sig = place_info.get("signals") or {}
+        yn = lambda b: '○' if b else '✕'
+        rvp = " · ".join(
+            (f'{lab} <b>{val}</b>' if val is not None else f'{lab} <span style="color:var(--mut)">미입력</span>')
+            for lab, val in (("리뷰", place_info.get("reviews")), ("평점", place_info.get("rating")),
+                             ("사진", place_info.get("photos"))))
+        place_detail = (
+            f'<p class="ds" style="margin-top:8px"><b>플레이스 기본정보</b>(지역 API 자동 측정): '
+            f'전화 {yn(sig.get("phone"))} · 링크 {yn(sig.get("url"))} · 분류 {yn(sig.get("category"))} '
+            f'— 완성도 {int((place_info.get("info_completeness") or 0)*100)}%. &nbsp;'
+            f'<b>리뷰·평점·사진</b>: {rvp} — 병원이 자기 플레이스 값을 입력하면 실측 반영됩니다.</p>')
         mw = comp.get("measured_weight_pct")
         composite_html = (
             f'<section class="card"><h2>종합 마케팅 경쟁력 점수</h2>'
             f'<div class="cxgrid">{gauge_semi(round(comp["score"]), "종합 점수")}'
             f'<div class="cxbars">{rows_ax}</div></div>'
-            f'<p class="ds" style="margin-top:10px">노출 40·경쟁 25·수요 20·플레이스 15 가중(당사 산식). '
-            f'<b>플레이스 품질(리뷰·평점·사진)은 공식 API 미제공으로 미측정</b> — 조작값을 넣지 않고 '
-            f'제외한 뒤, 측정된 축만으로 산정했습니다(반영 가중 {mw}%). 절대 순위·매출을 보장하지 않는 참고 지표입니다.</p>'
-            f'</section>')
+            f'{place_detail}'
+            f'<p class="ds" style="margin-top:6px">노출 40·경쟁 25·수요 20·플레이스 15 가중(당사 산식). '
+            f'미측정 항목은 조작값 없이 제외하고 측정된 축만으로 산정했습니다(반영 가중 {mw}%). '
+            f'절대 순위·매출을 보장하지 않는 참고 지표입니다.</p></section>')
 
     overview_html = ""
     if not masked:

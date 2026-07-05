@@ -1220,13 +1220,30 @@
   "ambiguous": true
  },
  "composite": {
-  "score": 13.5,
-  "measured_weight_pct": 60,
+  "score": 14.7,
+  "measured_weight_pct": 64,
   "components": {
    "exposure": 6.2,
    "density": null,
    "demand": 28.2,
-   "place": null
-  }
+   "place": 33.0
+  },
+  "place_frac": 0.25
+ },
+ "place": {
+  "signals": {
+   "phone": false,
+   "url": false,
+   "category": true
+  },
+  "info_completeness": 0.33,
+  "reviews": null,
+  "rating": null,
+  "photos": null,
+  "score": 33.0,
+  "frac": 0.25,
+  "measured": [
+   "info"
+  ]
  }
 }

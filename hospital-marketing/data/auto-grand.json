@@ -2928,13 +2928,30 @@
   "ambiguous": false
  },
  "composite": {
-  "score": 33.4,
-  "measured_weight_pct": 85,
+  "score": 34.9,
+  "measured_weight_pct": 89,
   "components": {
    "exposure": 22.9,
    "density": 47.8,
    "demand": 36.6,
-   "place": null
-  }
+   "place": 67.0
+  },
+  "place_frac": 0.25
+ },
+ "place": {
+  "signals": {
+   "phone": false,
+   "url": true,
+   "category": true
+  },
+  "info_completeness": 0.67,
+  "reviews": null,
+  "rating": null,
+  "photos": null,
+  "score": 67.0,
+  "frac": 0.25,
+  "measured": [
+   "info"
+  ]
  }
 }
