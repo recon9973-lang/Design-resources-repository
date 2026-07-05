@@ -111,6 +111,70 @@ def analyze_location(biz: dict, region: dict, cls: dict, radius_m: int = 1000) -
     return out
 
 
+def build_actions(rows: list, location: dict | None, place_info: dict | None,
+                  benchmark: dict | None) -> list[dict]:
+    """측정된 갭에서 우선 개선 액션을 구조화 산출(기획서 action_recommendations).
+
+    반환 각 항목: {priority, action_type, title, explanation, evidence_metric,
+    compliance_status}. 액션은 전부 운영·정보 정비 중심이라 compliance=safe
+    (치료효과·후기·전후·보장 표현 배제 — 의료광고 안전).
+    """
+    acts = []
+    noexp = [r["kw"] for r in rows if not (r["place"]["exposed"]
+             or any((r["content"].get(s) or {}).get("exposed") for s in SEC_KEYS))]
+    blog_ex = sum(1 for r in rows if (r["content"].get("blog") or {}).get("exposed"))
+    cafe_ex = sum(1 for r in rows if (r["content"].get("cafe") or {}).get("exposed"))
+
+    if noexp:
+        acts.append({
+            "action_type": "keyword_coverage",
+            "title": f"미노출 키워드 {len(noexp)}개 커버리지 정비",
+            "explanation": (f'"{"·".join(noexp[:3])}" 등이 어느 영역에도 노출되지 않습니다. '
+                            "실제 제공하는 진료라면 소개·진료항목·FAQ·블로그에 반영하세요."),
+            "evidence_metric": f"키워드 {len(rows)}개 중 {len(noexp)}개 전 영역 미노출",
+            "compliance_status": "safe"})
+    if blog_ex + cafe_ex <= max(1, len(rows) // 6):
+        acts.append({
+            "action_type": "content_gap",
+            "title": "비교·검증 콘텐츠(블로그·카페) 보강",
+            "explanation": ("환자가 비교·검증하는 자리(블로그·카페)에 우리 콘텐츠가 거의 없습니다. "
+                            "광고성 글 대신 진료 사례 기반 스토리텔링으로 채우세요."),
+            "evidence_metric": f"블로그·카페 노출 {blog_ex + cafe_ex}건",
+            "compliance_status": "safe"})
+    if isinstance(benchmark, dict) and benchmark:
+        weak = []
+        for s, label in zip(SEC_KEYS, SEC_LABELS):
+            active = sum(1 for r in rows if (r["content"].get(s) or {}).get("present"))
+            exposed = sum(1 for r in rows if (r["content"].get(s) or {}).get("exposed"))
+            ours = round(100 * exposed / active) if active else 0
+            comp = benchmark.get(s) or 0
+            if comp - ours >= 25:
+                weak.append((label, ours, comp))
+        if weak:
+            weak.sort(key=lambda w: w[2] - w[1], reverse=True)
+            label, ours, comp = weak[0]
+            acts.append({
+                "action_type": "benchmark_gap",
+                "title": f"{label} 영역 — 경쟁 대비 격차 축소",
+                "explanation": (f"{label}에서 우리 노출률 {ours}%로 상위 경쟁군 평균 {comp}%보다 낮습니다. "
+                                "이 영역 콘텐츠를 우선 보강해 격차를 좁히세요."),
+                "evidence_metric": f"{label} 노출률 우리 {ours}% vs 경쟁 {comp}%",
+                "compliance_status": "safe"})
+    acts.append({
+        "action_type": "place_ops",
+        "title": "플레이스 기본정보·리뷰 운영 정비",
+        "explanation": ("대표 사진·진료시간·주차·예약 링크를 실제 운영 상태와 맞추고, "
+                        "자발적 리뷰 동선과 답글 운영을 정비하세요."),
+        "evidence_metric": (f"기본정보 완성도 {int((place_info.get('info_completeness') or 0)*100)}%"
+                            if place_info else "플레이스 직접 입력·운영 기준(리뷰 본문 미수집)"),
+        "compliance_status": "safe"})
+
+    acts = acts[:4]
+    for i, a in enumerate(acts):
+        a["priority"] = i + 1
+    return acts
+
+
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--name", required=True, help="업체명 (이것만 있으면 됨)")
@@ -324,6 +388,7 @@ def main() -> None:
         "location_map": location_map,
         "benchmark": benchmark, "benchmark_meta": benchmark_meta,
         "composite": composite, "place": place_info,
+        "actions": build_actions(rows, location, place_info, benchmark),
         "search_demand": search_demand,
         "resolution": {"note": res["note"],
                        "candidates": [{"title": c["title"], "address": c["address"]}
@@ -849,27 +914,16 @@ def render_html(j: dict, masked: bool = False) -> str:
         cards_g = "".join(
             f'<div class="gcard"><span class="gtag">{t}</span>'
             f'<p class="gq">{q}</p><p class="ga">{a}</p></div>' for t, q, a in items)
-        # 우선 개선 액션 (번호 + 근거) — 컨설팅 소견
-        noexp = [k["kw"] for k in kws if not (k["place"]["exposed"]
-                 or any(((k["content"] or {}).get(x) or {}).get("exposed") for x, _ in SEC_LABELS))]
-        acts = []
-        if noexp:
-            acts.append(("미노출 키워드 %d개 커버리지 정비" % len(noexp),
-                         '"%s" 등이 어느 영역에도 노출되지 않습니다. 실제 제공하는 진료라면 소개·진료항목·FAQ·블로그에 반영하세요.'
-                         % e("·".join(noexp[:3])),
-                         "근거: 키워드 %d개 중 %d개 전 영역 미노출" % (len(kws), len(noexp))))
-        if content_gap:
-            acts.append(("비교·검증 콘텐츠(블로그·카페) 보강",
-                         "환자가 비교·검증하는 자리(블로그·카페)에 우리 콘텐츠가 거의 없습니다. 광고성 글 대신 진료 사례 기반 스토리텔링으로 채우세요.",
-                         "근거: 블로그·카페 노출 %d건" % (blog_ex + cafe_ex)))
-        acts.append(("플레이스 기본정보·리뷰 운영 정비",
-                     "대표 사진·진료시간·주차·예약 링크를 실제 운영 상태와 맞추고, 자발적 리뷰 동선과 답글 운영을 정비하세요.",
-                     "근거: 플레이스·리뷰는 병원 직접 입력·운영 기준(리뷰 본문 미수집)"))
-        acts = acts[:3]
+        # 우선 개선 액션 — 구조화 데이터(j["actions"])에서 렌더. compliance=safe → '의료광고 안전' 태그.
+        acts = j.get("actions") or []
         acts_html = "".join(
-            f'<div class="act"><div class="n">{i+1}</div><div>'
-            f'<p class="t">{t}</p><p class="p">{p}</p><p class="bs">{bs}</p></div></div>'
-            for i, (t, p, bs) in enumerate(acts))
+            f'<div class="act"><div class="n">{a.get("priority", i+1)}</div><div>'
+            f'<p class="t">{e(a.get("title", ""))}'
+            + ('<span class="cok">의료광고 안전</span>' if a.get("compliance_status") == "safe"
+               else '<span class="cwarn">검토 필요</span>' if a.get("compliance_status") else '')
+            + f'</p><p class="p">{e(a.get("explanation", ""))}</p>'
+            f'<p class="bs">근거: {e(a.get("evidence_metric", ""))}</p></div></div>'
+            for i, a in enumerate(acts))
         guidance_html = (
             '<section class="card"><h2>컨설팅 소견 — 지금 무엇을 해야 하나</h2>'
             '<p class="mut" style="font-size:12px;margin:-4px 0 12px">이 진단 결과를 우선순위 액션과, 원장님이 실제로 '
@@ -1052,6 +1106,9 @@ font-size:13px;color:var(--ink)}}.gcta a{{color:var(--accent);font-weight:700}}
 .act .n{{flex:none;width:26px;height:26px;border-radius:7px;background:var(--accent);color:#fff;
 display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px}}
 .act .t{{font-size:13.5px;font-weight:700;margin:0 0 2px}}
+.act .t .cok,.act .t .cwarn{{font-size:10px;font-weight:700;padding:1px 7px;border-radius:999px;margin-left:7px;vertical-align:1px}}
+.act .t .cok{{background:color-mix(in srgb,var(--good) 15%,transparent);color:var(--good)}}
+.act .t .cwarn{{background:color-mix(in srgb,var(--warn) 18%,transparent);color:var(--warn)}}
 .act .p{{font-size:12.5px;color:var(--sub);margin:0;line-height:1.6}}
 .act .bs{{font-size:11.5px;color:var(--mut);margin-top:4px}}
 .subh{{font-size:13px;font-weight:700;margin:4px 0 8px}}

@@ -51,6 +51,9 @@ padding:2px 6px;margin:1px -6px}
 .top5 .items .tt{flex:1;overflow:hidden;text-overflow:ellipsis}
 .top5 .items .ad{flex:none;color:var(--mut);font-size:11px}
 .sm-title{font-size:13px;margin:16px 0 4px;display:flex;align-items:baseline;gap:8px}
+.rtbl{min-width:auto;font-size:12.5px}.rtbl th,.rtbl td{text-align:center;padding:7px 10px;border-bottom:1px solid var(--line)}
+.rtbl thead th{background:var(--track);font-weight:700}.rtbl td:first-child,.rtbl th:first-child{text-align:left;font-weight:700}
+.rtbl tbody td{font-variant-numeric:tabular-nums}
 .sm-title span{font-size:11px;color:var(--mut);font-weight:400}
 .smeters{display:grid;grid-template-columns:1fr 1fr;gap:14px 22px;margin-top:8px}
 @media (max-width:560px){.smeters{grid-template-columns:1fr}}
@@ -103,6 +106,9 @@ font-size:13px;color:var(--ink)}.gcta a{color:var(--accent);font-weight:700}
 .act .n{flex:none;width:26px;height:26px;border-radius:7px;background:var(--accent);color:#fff;
 display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px}
 .act .t{font-size:13.5px;font-weight:700;margin:0 0 2px}
+.act .t .cok,.act .t .cwarn{font-size:10px;font-weight:700;padding:1px 7px;border-radius:999px;margin-left:7px;vertical-align:1px}
+.act .t .cok{background:color-mix(in srgb,var(--good) 15%,transparent);color:var(--good)}
+.act .t .cwarn{background:color-mix(in srgb,var(--warn) 18%,transparent);color:var(--warn)}
 .act .p{font-size:12.5px;color:var(--sub);margin:0;line-height:1.6}
 .act .bs{font-size:11.5px;color:var(--mut);margin-top:4px}
 .subh{font-size:13px;font-weight:700;margin:4px 0 8px}
@@ -203,6 +209,7 @@ footer{font-size:11px;color:var(--mut);text-align:center;border-top:1px solid va
 
 <section class="card"><h2>입지 참고 분석</h2>
   <div class="summary"><div class="stat"><div class="k">행정구역</div><div class="v">대구광역시수성구</div><div class="d">인구·연령 지표는 회원 공개</div></div><div class="stat"><div class="k">반경 1km 인구(추정)</div><div class="v"><span class="lock" title="무료 회원 열람 시 공개">회원 공개</span></div><div class="d">잠재 수요 점수 포함</div></div><div class="stat"><div class="k">종사자 밀도·상권</div><div class="v"><span class="lock" title="무료 회원 열람 시 공개">회원 공개</span></div><div class="d">상권 활동 점수 포함</div></div></div><p class='mut' style='font-size:12px;margin:10px 0 0'>경쟁 지표는 병원(HIRA 등록 기관) 전용입니다 — 일반 업체는 인구·상권 지표만 제공합니다.</p>
+  
   
   
   <p class="mut" style="font-size:12px;margin:14px 0 0">반경 인구·상권은 <b>시·구 평균 밀도</b> 기준 추정입니다.
