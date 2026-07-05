@@ -2953,5 +2953,23 @@
   "measured": [
    "info"
   ]
- }
+ },
+ "actions": [
+  {
+   "action_type": "keyword_coverage",
+   "title": "미노출 키워드 7개 커버리지 정비",
+   "explanation": "\"피부과·중앙로2가 여드름치료·춘천시 여드름치료\" 등이 어느 영역에도 노출되지 않습니다. 실제 제공하는 진료라면 소개·진료항목·FAQ·블로그에 반영하세요.",
+   "evidence_metric": "키워드 12개 중 7개 전 영역 미노출",
+   "compliance_status": "safe",
+   "priority": 1
+  },
+  {
+   "action_type": "place_ops",
+   "title": "플레이스 기본정보·리뷰 운영 정비",
+   "explanation": "대표 사진·진료시간·주차·예약 링크를 실제 운영 상태와 맞추고, 자발적 리뷰 동선과 답글 운영을 정비하세요.",
+   "evidence_metric": "기본정보 완성도 67%",
+   "compliance_status": "safe",
+   "priority": 2
+  }
+ ]
 }
