@@ -3199,13 +3199,30 @@
   "ambiguous": false
  },
  "composite": {
-  "score": 39.8,
-  "measured_weight_pct": 85,
+  "score": 40.9,
+  "measured_weight_pct": 89,
   "components": {
    "exposure": 33.3,
    "density": 30.0,
    "demand": 64.9,
-   "place": null
-  }
+   "place": 67.0
+  },
+  "place_frac": 0.25
+ },
+ "place": {
+  "signals": {
+   "phone": false,
+   "url": true,
+   "category": true
+  },
+  "info_completeness": 0.67,
+  "reviews": null,
+  "rating": null,
+  "photos": null,
+  "score": 67.0,
+  "frac": 0.25,
+  "measured": [
+   "info"
+  ]
  }
 }

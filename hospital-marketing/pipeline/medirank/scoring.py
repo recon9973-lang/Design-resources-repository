@@ -107,7 +107,36 @@ def final_score(exposure: float, density: float, demand: float, place: float) ->
     return round(total, 1)
 
 
-def composite_measured(exposure=None, density=None, demand=None, place=None) -> dict:
+PLACE_SUBWEIGHTS = {"reviews": 0.30, "rating": 0.25, "photos": 0.20, "info": 0.25}
+
+
+def place_quality_partial(review_count=None, rating=None, photo_count=None,
+                          info_completeness=None, peer_median_reviews: int = 200,
+                          peer_median_photos: int = 80) -> dict:
+    """측정된 세부항목만으로 플레이스 품질 산정 — 조작값 없이 부분 측정 지원.
+
+    리뷰수·평점·사진수는 공식 API 미제공 → 병원 직접 입력 시에만 반영.
+    기본정보 완성도(전화·링크·분류 등)는 지역 API로 자동 측정 가능.
+    반환: {score(0-100|None), frac(측정된 세부가중 0~1), measured[측정된 항목]}
+    """
+    subs = {}
+    if review_count is not None:
+        subs["reviews"] = min(review_count / peer_median_reviews, 1.0) if peer_median_reviews else 0
+    if rating is not None:
+        subs["rating"] = min(max((rating - 3.0) / 2.0, 0.0), 1.0)
+    if photo_count is not None:
+        subs["photos"] = min(photo_count / peer_median_photos, 1.0) if peer_median_photos else 0
+    if info_completeness is not None:
+        subs["info"] = min(max(info_completeness, 0.0), 1.0)
+    if not subs:
+        return {"score": None, "frac": 0.0, "measured": []}
+    tw = sum(PLACE_SUBWEIGHTS[k] for k in subs)
+    score = round(100.0 * sum(PLACE_SUBWEIGHTS[k] * v for k, v in subs.items()) / tw, 1)
+    return {"score": score, "frac": round(tw, 2), "measured": list(subs.keys())}
+
+
+def composite_measured(exposure=None, density=None, demand=None, place=None,
+                       place_frac: float = 1.0) -> dict:
     """측정된 축만으로 종합 점수 산정 — 가중치 재정규화. 미측정(None) 축은 제외.
 
     신뢰도 원칙: 실측값이 없는 축은 임의값으로 채우지 않고 제외하고, 산정에
@@ -115,7 +144,11 @@ def composite_measured(exposure=None, density=None, demand=None, place=None) -> 
     반환: {score(0-100|None), measured_weight_pct, components{축:값|None}}
     """
     vals = {"exposure": exposure, "density": density, "demand": demand, "place": place}
+    # place는 부분 측정 가능(place_frac<1) → 실제 반영 가중을 그만큼만 잡는다.
+    w = dict(WEIGHTS)
+    w["place"] = WEIGHTS["place"] * max(0.0, min(place_frac, 1.0))
     avail = {k: v for k, v in vals.items() if v is not None}
-    tw = sum(WEIGHTS[k] for k in avail)
-    score = round(sum(WEIGHTS[k] * v for k, v in avail.items()) / tw, 1) if tw else None
-    return {"score": score, "measured_weight_pct": round(tw * 100), "components": vals}
+    tw = sum(w[k] for k in avail)
+    score = round(sum(w[k] * v for k, v in avail.items()) / tw, 1) if tw else None
+    return {"score": score, "measured_weight_pct": round(tw * 100),
+            "components": vals, "place_frac": round(place_frac, 2)}
