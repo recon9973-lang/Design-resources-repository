@@ -102,8 +102,9 @@ def main() -> None:
     exposure = scoring.exposure_score(keyword_results)
     density = scoring.density_score(competitors, args.radius)
     demand = scoring.demand_score(population_in_radius, 0.45, args.radius)
-    place = scoring.place_quality_score(154, 4.4, 44, 0.7)  # 플레이스 지표는 추후 수집
-    final = scoring.final_score(exposure, density, demand, place)
+    place = None  # 플레이스 지표(리뷰·평점·사진): 공식 API 미제공 → 미측정(조작값 금지)
+    comp = scoring.composite_measured(exposure=exposure, density=density, demand=demand, place=place)
+    final = comp["score"]
 
     summary = {
         "hospital": args.name,
@@ -115,9 +116,10 @@ def main() -> None:
         "keywords_total": len(keyword_results),
         "population_in_radius_est": population_in_radius,
         "scores": {"exposure": exposure, "density": density,
-                   "demand": demand, "place_quality": place},
+                   "demand": demand, "place_quality": place},  # None = 미측정
         "final_marketing_score": final,
-        "note": "플레이스 품질 지표(리뷰/사진)는 임시 고정값 — 수집 모듈 추가 예정",
+        "score_measured_weight_pct": comp["measured_weight_pct"],
+        "note": "플레이스 품질 지표(리뷰/평점/사진)는 공식 API 미제공으로 미측정 — 종합점수에서 제외",
     }
     print(json.dumps(summary, ensure_ascii=False, indent=2))
     if args.out:

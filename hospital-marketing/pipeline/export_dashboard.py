@@ -101,7 +101,7 @@ def main() -> None:
     print("[3/3] SGIS + 반경별 점수 ...")
     stats = sgis.area_stats(args.adm_cd)
     dnsty = stats["ppltn_dnsty"] if stats and stats.get("ppltn_dnsty") else 13000.0
-    place = scoring.place_quality_score(154, 4.4, 44, 0.7)  # TODO: 플레이스 실측
+    place = None  # 플레이스 품질(리뷰·평점·사진): 공식 API 미제공 → 미측정(조작값 금지)
 
     radius_data = {}
     for r_m in config.VALID_RADII_M:
@@ -109,13 +109,17 @@ def main() -> None:
         density = scoring.density_score(comps, r_m)
         pop = int(dnsty * math.pi * (r_m / 1000) ** 2)
         demand = scoring.demand_score(pop, 0.45, r_m)
-        final = scoring.final_score(exposure, density, demand, place)
+        comp = scoring.composite_measured(exposure=exposure, density=density,
+                                          demand=demand, place=place)
         radius_data[str(r_m)] = {
-            "score": round(final), "competitors": len(comps),
+            "score": round(comp["score"]) if comp["score"] is not None else None,
+            "measured_weight_pct": comp["measured_weight_pct"],
+            "competitors": len(comps),
             "comp": {"exposure": round(exposure), "density": round(density),
-                     "demand": round(demand), "place": round(place)},
+                     "demand": round(demand), "place": None},  # None = 미측정
         }
-        print(f"    반경 {r_m}m: 경쟁 {len(comps)}곳 · 최종 {final}점")
+        print(f"    반경 {r_m}m: 경쟁 {len(comps)}곳 · 최종 {radius_data[str(r_m)]['score']}점"
+              f"(반영 가중 {comp['measured_weight_pct']}%)")
 
     out = {
         "generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),

@@ -75,16 +75,22 @@ def analyze_location(biz: dict, region: dict, cls: dict, radius_m: int = 1000) -
     dgsbjt = keywordgen.DEPT_DGSBJT.get(cls.get("dept") or "")
     if cls.get("is_hospital") and dgsbjt and lat is not None and lng is not None:
         hospitals = hira.fetch_hospitals_radius(lng, lat, radius_m, dgsbjt, rows=1000)
-        comps = [{"distance_m": haversine_m(lat, lng, h["latitude"], h["longitude"]),
-                  "same_department": True}
-                 for h in hospitals if h.get("latitude") is not None]
-        comps = [c for c in comps if c["distance_m"] <= radius_m]
+        comp_full = sorted(
+            ({"name": h.get("name"),
+              "distance_m": haversine_m(lat, lng, h["latitude"], h["longitude"])}
+             for h in hospitals if h.get("latitude") is not None),
+            key=lambda c: c["distance_m"])
+        comp_full = [c for c in comp_full if c["distance_m"] <= radius_m]
+        comps = [{"distance_m": c["distance_m"], "same_department": True} for c in comp_full]
         density = scoring.density_score(comps, radius_m)
         site = round(0.5 * density + 0.3 * demand + 0.2 * commerce, 1)
         out.update({
             "competitors": len(comps), "competition_score": density,
             "saturation_per_10k": round(len(comps) / (pop_radius / 10000.0), 1) if pop_radius else None,
             "site_score": site,
+            # 실측 경쟁 벤치마크용 — 가장 가까운 동일 진료과 경쟁 병원(이름·거리)
+            "competitor_list": [{"name": c["name"], "distance_m": round(c["distance_m"])}
+                                for c in comp_full[:8] if c.get("name")],
         })
     return out
 
@@ -100,6 +106,9 @@ def main() -> None:
                     help="마킹판 HTML 저장 경로 — 세부 수치를 산출 단계에서 제외(소스에도 없음), "
                          "무료 회원 열람 시 전체판 제공 모델용")
     ap.add_argument("--no-location", action="store_true", help="입지 분석 생략")
+    ap.add_argument("--benchmark-competitors", type=int, default=3,
+                    help="실측 경쟁 벤치마크에 쓸 상위 경쟁 병원 수 (0=끄기, API 호출 증가)")
+    ap.add_argument("--no-benchmark", action="store_true", help="경쟁 벤치마크 측정 생략")
     args = ap.parse_args()
 
     # 1) 업체 특정
@@ -197,6 +206,49 @@ def main() -> None:
         search_demand = {"available": True, "volumes": volumes, "related": related}
         print(f"  검색량 확보 {len(volumes)}개 · 연관검색어 {len(related)}개")
 
+    # 5-b) 실측 경쟁 벤치마크 — 상위 경쟁 병원을 같은 키워드로 조회한 영역별 노출률 평균.
+    #      데이터 없으면 None → 리포트에서 '미측정'으로 표기(조작값 넣지 않음).
+    benchmark = None
+    benchmark_meta = None
+    comp_list = (location or {}).get("competitor_list") or []
+    if (comp_list and config.naver_available() and not args.no_benchmark
+            and args.benchmark_competitors > 0):
+        use = comp_list[:args.benchmark_competitors]
+        print(f"\n[경쟁 벤치마크] 상위 경쟁 {len(use)}곳 실측 (키워드×6영역)")
+        agg = {s: [] for s in SEC_KEYS}
+        measured = 0
+        for comp in use:
+            per = {s: {"active": 0, "exposed": 0} for s in SEC_KEYS}
+            got = False
+            for r in rows:
+                ce = naver_content.content_exposure(r["kw"], comp["name"])
+                for s in SEC_KEYS:
+                    cell = ce.get(s) or {}
+                    if cell.get("present"):
+                        per[s]["active"] += 1
+                        got = True
+                    if cell.get("exposed"):
+                        per[s]["exposed"] += 1
+            if got:
+                measured += 1
+                for s in SEC_KEYS:
+                    a = per[s]["active"]
+                    agg[s].append(round(100 * per[s]["exposed"] / a) if a else 0)
+        if measured:
+            benchmark = {s: round(sum(v) / len(v)) if v else 0 for s, v in agg.items()}
+            benchmark_meta = {"n": measured, "basis": f"상위 경쟁 {measured}곳 평균(실측)"}
+            print(f"  벤치마크 확보: {benchmark_meta['basis']}")
+        else:
+            print("  경쟁 벤치마크 미측정 (경쟁사 콘텐츠 데이터 없음)")
+
+    # 5-c) 종합 마케팅 경쟁력 점수 — 측정된 축만(미측정 축 제외·재정규화, 조작값 금지)
+    composite = scoring.composite_measured(
+        exposure=scoring.exposure_score([r["place"] for r in rows]),
+        density=(location or {}).get("competition_score"),
+        demand=(location or {}).get("demand_score"),
+        place=None,  # 플레이스 품질(리뷰·평점·사진): 공식 API 미제공 → 미측정
+    )
+
     # 6) 요약
     p_hit = sum(1 for r in rows if r["place"]["exposed"])
     c_hit = sum(1 for r in rows
@@ -213,6 +265,8 @@ def main() -> None:
         "business": biz, "region": region,
         "classification": cls, "keywords": rows, "location": location,
         "location_map": location_map,
+        "benchmark": benchmark, "benchmark_meta": benchmark_meta,
+        "composite": composite,
         "search_demand": search_demand,
         "resolution": {"note": res["note"],
                        "candidates": [{"title": c["title"], "address": c["address"]}
@@ -524,20 +578,20 @@ def render_html(j: dict, masked: bool = False) -> str:
                 f'<span class="bt"><span class="over" style="width:{fill:.0f}%;background:{col}"></span></span>'
                 f'<span class="bv">노출 <b>{over}</b>/{under}</span></div>')
 
-    # 우수 운영 경쟁 병원 참고 기준(벤치마크). j["benchmark"]={영역key:노출률%} 있으면 사용
-    # (베놈이 실제 경쟁사 측정치를 넣으면 그대로 반영), 없으면 아래 기본 참고 프로필.
-    BENCH_DEFAULT = {"blog": 78, "cafe": 55, "web": 66, "news": 22, "image": 58, "kin": 48}
-
+    # 경쟁 벤치마크: 실측치(j["benchmark"])가 있을 때만 겹쳐 표시. 없으면 '미측정'.
+    # 조작값을 절대 넣지 않는다(신뢰도 원칙).
     def coverage_charts():
-        """영역별 커버리지 — 레이더(노출률 + 경쟁 기준 겹침) + 중첩 막대."""
-        bench_src = j.get("benchmark") or BENCH_DEFAULT
+        """영역별 커버리지 — 레이더(노출률 + 실측 경쟁 겹침) + 중첩 막대."""
+        bench_src = j.get("benchmark")
+        has_bench = isinstance(bench_src, dict) and any(v is not None for v in bench_src.values())
+        bench_basis = (j.get("benchmark_meta") or {}).get("basis") or "상위 경쟁군 평균(실측)"
         secs = []
         for key, label in SEC_LABELS:
             active = sum(1 for k in j["keywords"] if ((k["content"] or {}).get(key) or {}).get("present"))
             exposed = sum(1 for k in j["keywords"] if ((k["content"] or {}).get(key) or {}).get("exposed"))
             secs.append({"label": label, "active": active, "exposed": exposed,
                          "pct": round(100 * exposed / active) if active else 0,
-                         "bench": round(bench_src.get(key, 0))})
+                         "bench": round(bench_src.get(key, 0)) if has_bench else None})
         n = len(secs)
         cx, cy, R = 150, 150, 92
         ang = lambda i: math.radians(-90 + 360 * i / n)
@@ -548,10 +602,12 @@ def render_html(j: dict, masked: bool = False) -> str:
                         for g in (0.25, 0.5, 0.75, 1.0))
         axes = "".join(f'<line x1="{cx}" y1="{cy}" x2="{px(i,1):.1f}" y2="{py(i,1):.1f}" '
                        f'stroke="var(--line)" stroke-width="1"/>' for i in range(n))
-        # 경쟁 병원 참고 기준(벤치마크) — 점선 다른 색으로 겹쳐 표시
-        bpoly = " ".join(f"{px(i, s['bench']/100):.1f},{py(i, s['bench']/100):.1f}" for i, s in enumerate(secs))
-        bench = (f'<polygon points="{bpoly}" fill="var(--warn)" fill-opacity="0.08" '
-                 f'stroke="var(--warn)" stroke-width="2" stroke-dasharray="5 4"/>')
+        # 실측 경쟁 벤치마크 — 있을 때만 점선으로 겹침
+        bench = ""
+        if has_bench:
+            bpoly = " ".join(f"{px(i, s['bench']/100):.1f},{py(i, s['bench']/100):.1f}" for i, s in enumerate(secs))
+            bench = (f'<polygon points="{bpoly}" fill="var(--warn)" fill-opacity="0.08" '
+                     f'stroke="var(--warn)" stroke-width="2" stroke-dasharray="5 4"/>')
         anyexp = any(s["pct"] for s in secs)
         if anyexp:
             dpoly = " ".join(f"{px(i, s['pct']/100):.1f},{py(i, s['pct']/100):.1f}" for i, s in enumerate(secs))
@@ -564,13 +620,18 @@ def render_html(j: dict, masked: bool = False) -> str:
             f'<text x="{lx(i):.1f}" y="{py(i,1)+(14 if math.sin(ang(i))>0.3 else -12 if math.sin(ang(i))<-0.3 else 2):.1f}" '
             f'text-anchor="middle" font-size="12" font-weight="700" fill="var(--ink)">{s["label"]}'
             f'<tspan x="{lx(i):.1f}" dy="14" font-size="11" fill="var(--accent)">{s["pct"]}%</tspan>'
-            f'<tspan x="{lx(i):.1f}" dy="12.5" font-size="10" fill="var(--warn)">기준 {s["bench"]}%</tspan></text>'
+            + (f'<tspan x="{lx(i):.1f}" dy="12.5" font-size="10" fill="var(--warn)">경쟁 {s["bench"]}%</tspan>'
+               if has_bench else '')
+            + '</text>'
             for i, s in enumerate(secs))
+        legend = (f'<div class="cvlegend"><span><i class="lg lg-us"></i>우리 병원</span>'
+                  f'<span><i class="lg lg-bm"></i>{e(bench_basis)}</span></div>'
+                  if has_bench else
+                  '<div class="cvlegend"><span><i class="lg lg-us"></i>우리 병원</span>'
+                  '<span style="color:var(--mut)">경쟁 비교: <b>미측정</b>(경쟁사 데이터 수집 시 표시)</span></div>')
         radar = (f'<svg viewBox="0 0 300 340" width="100%" style="max-width:330px;display:block;margin:4px auto 0" '
-                 f'role="img" aria-label="영역별 커버리지 레이더(경쟁 기준 겹침)">{rings}{axes}{bench}{data}'
-                 f'<circle cx="{cx}" cy="{cy}" r="2" fill="var(--mut)"/>{labels}</svg>'
-                 f'<div class="cvlegend"><span><i class="lg lg-us"></i>우리 병원</span>'
-                 f'<span><i class="lg lg-bm"></i>우수 운영 병원 기준(참고)</span></div>')
+                 f'role="img" aria-label="영역별 커버리지 레이더">{rings}{axes}{bench}{data}'
+                 f'<circle cx="{cx}" cy="{cy}" r="2" fill="var(--mut)"/>{labels}</svg>' + legend)
         maxa = max((s["active"] for s in secs), default=0) or 1
         bars = "".join(
             f'<div class="cvrow"><span class="cvl">{s["label"]}</span>'
@@ -579,15 +640,43 @@ def render_html(j: dict, masked: bool = False) -> str:
             f'</span></span>'
             f'<span class="cvv">노출 <b>{s["exposed"]}</b> / {s["active"]}</span></div>'
             for s in secs)
+        radar_cap = ('영역별 · 활성 키워드 가운데 병원명 콘텐츠가 노출된 비율 · '
+                     + ('<b style="color:var(--warn)">점선</b> = ' + e(bench_basis)
+                        if has_bench else '경쟁 비교는 <b>미측정</b>'))
         return (f'<div class="cvgrid">'
                 f'<div class="cvcard"><div class="ovh">통합검색 영역 커버리지 레이더</div>'
-                f'<p class="ds">영역별 · 활성 키워드 가운데 병원명 콘텐츠가 노출된 비율 · '
-                f'<b style="color:var(--warn)">점선</b> = 우수 운영 병원 참고 기준</p>{radar}</div>'
+                f'<p class="ds">{radar_cap}</p>{radar}</div>'
                 f'<div class="cvcard"><div class="ovh">영역별 노출 키워드 수</div>'
                 f'<p class="ds">옅은 막대 = 영역이 활성인 키워드 · 진한 채움 = 그중 노출된 키워드</p>'
                 f'<div class="cvbars">{bars}</div></div></div>')
 
     coverage_html = "" if masked else coverage_charts()
+
+    # 종합 마케팅 경쟁력 점수 — 측정된 축만(미측정 축은 '미측정' 명시, 조작값 없음)
+    composite_html = ""
+    comp = j.get("composite")
+    if not masked and comp and comp.get("score") is not None:
+        AX = [("exposure", "노출", "40%"), ("density", "경쟁 여유", "25%"),
+              ("demand", "수요·입지", "20%"), ("place", "플레이스 품질", "15%")]
+        rows_ax = ""
+        for key, label, w in AX:
+            v = (comp.get("components") or {}).get(key)
+            if v is None:
+                rows_ax += (f'<div class="cxrow"><span class="cxl">{label} <em>{w}</em></span>'
+                            f'<span class="cxbar"></span><span class="cxv mut">미측정</span></div>')
+            else:
+                rows_ax += (f'<div class="cxrow"><span class="cxl">{label} <em>{w}</em></span>'
+                            f'<span class="cxbar"><span class="cxfill" style="width:{v:.0f}%"></span></span>'
+                            f'<span class="cxv">{v:.0f}</span></div>')
+        mw = comp.get("measured_weight_pct")
+        composite_html = (
+            f'<section class="card"><h2>종합 마케팅 경쟁력 점수</h2>'
+            f'<div class="cxgrid">{gauge_semi(round(comp["score"]), "종합 점수")}'
+            f'<div class="cxbars">{rows_ax}</div></div>'
+            f'<p class="ds" style="margin-top:10px">노출 40·경쟁 25·수요 20·플레이스 15 가중(당사 산식). '
+            f'<b>플레이스 품질(리뷰·평점·사진)은 공식 API 미제공으로 미측정</b> — 조작값을 넣지 않고 '
+            f'제외한 뒤, 측정된 축만으로 산정했습니다(반영 가중 {mw}%). 절대 순위·매출을 보장하지 않는 참고 지표입니다.</p>'
+            f'</section>')
 
     overview_html = ""
     if not masked:
@@ -907,6 +996,15 @@ border:1px solid var(--line);border-radius:999px;background:var(--accent-soft)}}
 .cvlegend .lg{{width:16px;height:0;border-top:2px solid;display:inline-block}}
 .cvlegend .lg-us{{border-top-color:var(--accent)}}
 .cvlegend .lg-bm{{border-top:2px dashed var(--warn)}}
+.cxgrid{{display:grid;grid-template-columns:200px 1fr;gap:18px;align-items:center}}
+@media(max-width:560px){{.cxgrid{{grid-template-columns:1fr}}}}
+.cxbars{{display:flex;flex-direction:column;gap:9px}}
+.cxrow{{display:grid;grid-template-columns:120px 1fr 44px;align-items:center;gap:10px}}
+.cxl{{font-size:12.5px;font-weight:700}}.cxl em{{font-style:normal;color:var(--mut);font-weight:600;font-size:11px}}
+.cxbar{{height:12px;background:var(--track);overflow:hidden}}
+.cxfill{{display:block;height:100%;background:var(--accent)}}
+.cxv{{font-size:12.5px;font-weight:800;text-align:right;font-variant-numeric:tabular-nums}}
+.cxv.mut{{color:var(--mut);font-weight:700;font-size:11px}}
 @media(max-width:520px){{.vrow{{grid-template-columns:110px 1fr 96px;gap:8px}}}}
 .ovgrid{{display:grid;grid-template-columns:1fr 1fr;gap:16px 26px;margin-top:6px}}
 @media (max-width:600px){{.ovgrid{{grid-template-columns:1fr}}}}
@@ -939,6 +1037,7 @@ footer{{font-size:11px;color:var(--mut);text-align:center;border-top:1px solid v
 <div class="stat"><div class="k">콘텐츠 노출 키워드</div><div class="v">{s["content_hit"]} / {s["total"]}</div><div class="d">6개 영역 중 1곳 이상</div></div>
 </section>
 {mask_banner}{amb_html}
+{composite_html}
 {overview_html}
 <section class="card"><h2>키워드별 노출 매트릭스</h2>
 {coverage_html}

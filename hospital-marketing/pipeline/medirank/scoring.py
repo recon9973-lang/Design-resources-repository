@@ -105,3 +105,17 @@ def final_score(exposure: float, density: float, demand: float, place: float) ->
     total = (WEIGHTS["exposure"] * exposure + WEIGHTS["density"] * density
              + WEIGHTS["demand"] * demand + WEIGHTS["place"] * place)
     return round(total, 1)
+
+
+def composite_measured(exposure=None, density=None, demand=None, place=None) -> dict:
+    """측정된 축만으로 종합 점수 산정 — 가중치 재정규화. 미측정(None) 축은 제외.
+
+    신뢰도 원칙: 실측값이 없는 축은 임의값으로 채우지 않고 제외하고, 산정에
+    실제 반영된 가중 비중(measured_weight_pct)을 함께 반환해 투명하게 고지한다.
+    반환: {score(0-100|None), measured_weight_pct, components{축:값|None}}
+    """
+    vals = {"exposure": exposure, "density": density, "demand": demand, "place": place}
+    avail = {k: v for k, v in vals.items() if v is not None}
+    tw = sum(WEIGHTS[k] for k in avail)
+    score = round(sum(WEIGHTS[k] * v for k, v in avail.items()) / tw, 1) if tw else None
+    return {"score": score, "measured_weight_pct": round(tw * 100), "components": vals}
