@@ -524,14 +524,20 @@ def render_html(j: dict, masked: bool = False) -> str:
                 f'<span class="bt"><span class="over" style="width:{fill:.0f}%;background:{col}"></span></span>'
                 f'<span class="bv">노출 <b>{over}</b>/{under}</span></div>')
 
+    # 우수 운영 경쟁 병원 참고 기준(벤치마크). j["benchmark"]={영역key:노출률%} 있으면 사용
+    # (베놈이 실제 경쟁사 측정치를 넣으면 그대로 반영), 없으면 아래 기본 참고 프로필.
+    BENCH_DEFAULT = {"blog": 78, "cafe": 55, "web": 66, "news": 22, "image": 58, "kin": 48}
+
     def coverage_charts():
-        """영역별 커버리지 — 레이더(노출률) + 중첩 막대(활성/노출 키워드 수)."""
+        """영역별 커버리지 — 레이더(노출률 + 경쟁 기준 겹침) + 중첩 막대."""
+        bench_src = j.get("benchmark") or BENCH_DEFAULT
         secs = []
         for key, label in SEC_LABELS:
             active = sum(1 for k in j["keywords"] if ((k["content"] or {}).get(key) or {}).get("present"))
             exposed = sum(1 for k in j["keywords"] if ((k["content"] or {}).get(key) or {}).get("exposed"))
             secs.append({"label": label, "active": active, "exposed": exposed,
-                         "pct": round(100 * exposed / active) if active else 0})
+                         "pct": round(100 * exposed / active) if active else 0,
+                         "bench": round(bench_src.get(key, 0))})
         n = len(secs)
         cx, cy, R = 150, 150, 92
         ang = lambda i: math.radians(-90 + 360 * i / n)
@@ -542,23 +548,29 @@ def render_html(j: dict, masked: bool = False) -> str:
                         for g in (0.25, 0.5, 0.75, 1.0))
         axes = "".join(f'<line x1="{cx}" y1="{cy}" x2="{px(i,1):.1f}" y2="{py(i,1):.1f}" '
                        f'stroke="var(--line)" stroke-width="1"/>' for i in range(n))
+        # 경쟁 병원 참고 기준(벤치마크) — 점선 다른 색으로 겹쳐 표시
+        bpoly = " ".join(f"{px(i, s['bench']/100):.1f},{py(i, s['bench']/100):.1f}" for i, s in enumerate(secs))
+        bench = (f'<polygon points="{bpoly}" fill="var(--warn)" fill-opacity="0.08" '
+                 f'stroke="var(--warn)" stroke-width="2" stroke-dasharray="5 4"/>')
         anyexp = any(s["pct"] for s in secs)
         if anyexp:
             dpoly = " ".join(f"{px(i, s['pct']/100):.1f},{py(i, s['pct']/100):.1f}" for i, s in enumerate(secs))
-            data = (f'<polygon points="{dpoly}" fill="var(--accent)" fill-opacity="0.18" '
+            data = (f'<polygon points="{dpoly}" fill="var(--accent)" fill-opacity="0.22" '
                     f'stroke="var(--accent)" stroke-width="2"/>')
         else:
             data = f'<circle cx="{cx}" cy="{cy}" r="3.5" fill="var(--accent)"/>'
+        lx = lambda i: px(i, 1) + (18 if math.cos(ang(i)) > 0.1 else -18 if math.cos(ang(i)) < -0.1 else 0)
         labels = "".join(
-            f'<text x="{px(i,1)+ (18 if abs(math.cos(ang(i)))>0.1 and math.cos(ang(i))>0 else -18 if math.cos(ang(i))<-0.1 else 0):.1f}" '
-            f'y="{py(i,1)+(16 if math.sin(ang(i))>0.3 else -8 if math.sin(ang(i))<-0.3 else 4):.1f}" '
+            f'<text x="{lx(i):.1f}" y="{py(i,1)+(14 if math.sin(ang(i))>0.3 else -12 if math.sin(ang(i))<-0.3 else 2):.1f}" '
             f'text-anchor="middle" font-size="12" font-weight="700" fill="var(--ink)">{s["label"]}'
-            f'<tspan x="{px(i,1)+ (18 if math.cos(ang(i))>0.1 else -18 if math.cos(ang(i))<-0.1 else 0):.1f}" '
-            f'dy="14" font-size="11" fill="var(--mut)">{s["pct"]}%</tspan></text>'
+            f'<tspan x="{lx(i):.1f}" dy="14" font-size="11" fill="var(--accent)">{s["pct"]}%</tspan>'
+            f'<tspan x="{lx(i):.1f}" dy="12.5" font-size="10" fill="var(--warn)">기준 {s["bench"]}%</tspan></text>'
             for i, s in enumerate(secs))
-        radar = (f'<svg viewBox="0 0 300 320" width="100%" style="max-width:330px;display:block;margin:4px auto 0" '
-                 f'role="img" aria-label="영역별 커버리지 레이더">{rings}{axes}{data}'
-                 f'<circle cx="{cx}" cy="{cy}" r="2" fill="var(--mut)"/>{labels}</svg>')
+        radar = (f'<svg viewBox="0 0 300 340" width="100%" style="max-width:330px;display:block;margin:4px auto 0" '
+                 f'role="img" aria-label="영역별 커버리지 레이더(경쟁 기준 겹침)">{rings}{axes}{bench}{data}'
+                 f'<circle cx="{cx}" cy="{cy}" r="2" fill="var(--mut)"/>{labels}</svg>'
+                 f'<div class="cvlegend"><span><i class="lg lg-us"></i>우리 병원</span>'
+                 f'<span><i class="lg lg-bm"></i>우수 운영 병원 기준(참고)</span></div>')
         maxa = max((s["active"] for s in secs), default=0) or 1
         bars = "".join(
             f'<div class="cvrow"><span class="cvl">{s["label"]}</span>'
@@ -569,7 +581,8 @@ def render_html(j: dict, masked: bool = False) -> str:
             for s in secs)
         return (f'<div class="cvgrid">'
                 f'<div class="cvcard"><div class="ovh">통합검색 영역 커버리지 레이더</div>'
-                f'<p class="ds">영역별 · 활성 키워드 가운데 병원명 콘텐츠가 노출된 비율</p>{radar}</div>'
+                f'<p class="ds">영역별 · 활성 키워드 가운데 병원명 콘텐츠가 노출된 비율 · '
+                f'<b style="color:var(--warn)">점선</b> = 우수 운영 병원 참고 기준</p>{radar}</div>'
                 f'<div class="cvcard"><div class="ovh">영역별 노출 키워드 수</div>'
                 f'<p class="ds">옅은 막대 = 영역이 활성인 키워드 · 진한 채움 = 그중 노출된 키워드</p>'
                 f'<div class="cvbars">{bars}</div></div></div>')
@@ -889,6 +902,11 @@ border:1px solid var(--line);border-radius:999px;background:var(--accent-soft)}}
 .cvexp{{position:absolute;left:0;top:0;height:100%;background:var(--accent)}}
 .cvv{{font-size:12px;font-weight:700;text-align:right;font-variant-numeric:tabular-nums}}
 .cvv b{{color:var(--accent)}}
+.cvlegend{{display:flex;gap:18px;justify-content:center;font-size:11.5px;color:var(--sub);margin-top:2px}}
+.cvlegend span{{display:inline-flex;align-items:center;gap:6px}}
+.cvlegend .lg{{width:16px;height:0;border-top:2px solid;display:inline-block}}
+.cvlegend .lg-us{{border-top-color:var(--accent)}}
+.cvlegend .lg-bm{{border-top:2px dashed var(--warn)}}
 @media(max-width:520px){{.vrow{{grid-template-columns:110px 1fr 96px;gap:8px}}}}
 .ovgrid{{display:grid;grid-template-columns:1fr 1fr;gap:16px 26px;margin-top:6px}}
 @media (max-width:600px){{.ovgrid{{grid-template-columns:1fr}}}}
