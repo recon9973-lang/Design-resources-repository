@@ -6,6 +6,11 @@
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; base-uri 'self'; frame-ancestors 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="robots" content="noindex">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#2a78d6">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="베놈 체크업">
 <title>베놈 체크업 — 우리 병원·우리 매장 마케팅 무료 건강검진</title>
 <meta name="description" content="베놈 체크업 — 병원·소상공인을 위한 마케팅 무료 자가검진. 노출·의료법 위험·광고비 효율·환자 유입 동선·개원 입지를 공식 근거로 진단합니다. (주)베놈 무료 배포.">
 <style>
@@ -182,6 +187,11 @@ document.getElementById('toolGrid').innerHTML = TOOLS.map(t=>`
     <ul>${t.pts.map(p=>`<li>${p}</li>`).join('')}</ul>
     <span class="go">${t.go} →</span>
   </a>`).join('');
+
+/* PWA: 앱 설치·오프라인용 서비스워커 등록 */
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(() => {}));
+}
 </script>
 </body>
 </html>

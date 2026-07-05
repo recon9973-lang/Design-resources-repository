@@ -1,0 +1,23 @@
+{
+  "name": "베놈 체크업 — 마케팅 무료 자가검진",
+  "short_name": "베놈 체크업",
+  "description": "병원·소상공인 마케팅 무료 자가검진 — 노출·의료법 위험·광고비 효율·환자 유입 동선·개원 입지 진단.",
+  "lang": "ko",
+  "dir": "ltr",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f7f8fa",
+  "theme_color": "#2a78d6",
+  "categories": ["business", "medical", "productivity"],
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    { "name": "자가진단", "url": "self-check/", "description": "리스크·비용·동선 자가진단" },
+    { "name": "무료 진단 신청", "url": "landing/", "description": "무료 진단 리포트 신청" }
+  ]
+}
