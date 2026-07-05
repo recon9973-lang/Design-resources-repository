@@ -74,20 +74,36 @@ def analyze_location(biz: dict, region: dict, cls: dict, radius_m: int = 1000) -
 
     dgsbjt = keywordgen.DEPT_DGSBJT.get(cls.get("dept") or "")
     if cls.get("is_hospital") and dgsbjt and lat is not None and lng is not None:
-        hospitals = hira.fetch_hospitals_radius(lng, lat, radius_m, dgsbjt, rows=1000)
+        # 한 번만 최대 반경으로 조회하고, 거리로 걸러 반경별 지표를 산출(호출 절약).
+        radii = sorted(set(config.VALID_RADII_M) | {radius_m})
+        rmax = max(radii)
+        hospitals = hira.fetch_hospitals_radius(lng, lat, rmax, dgsbjt, rows=1000)
         comp_full = sorted(
             ({"name": h.get("name"),
               "distance_m": haversine_m(lat, lng, h["latitude"], h["longitude"])}
              for h in hospitals if h.get("latitude") is not None),
             key=lambda c: c["distance_m"])
-        comp_full = [c for c in comp_full if c["distance_m"] <= radius_m]
-        comps = [{"distance_m": c["distance_m"], "same_department": True} for c in comp_full]
-        density = scoring.density_score(comps, radius_m)
+        comp_full = [c for c in comp_full if c["distance_m"] <= rmax]
+
+        breakdown = {}
+        for r in radii:
+            comps_r = [{"distance_m": c["distance_m"], "same_department": True}
+                       for c in comp_full if c["distance_m"] <= r]
+            pop_r = int(dnsty * math.pi * (r / 1000.0) ** 2)
+            breakdown[r] = {
+                "competitors": len(comps_r),
+                "competition_score": scoring.density_score(comps_r, r),
+                "demand_score": scoring.demand_score(pop_r, 0.45, r),
+                "population_radius": pop_r,
+            }
+        cur = breakdown[radius_m]
+        density = cur["competition_score"]
         site = round(0.5 * density + 0.3 * demand + 0.2 * commerce, 1)
         out.update({
-            "competitors": len(comps), "competition_score": density,
-            "saturation_per_10k": round(len(comps) / (pop_radius / 10000.0), 1) if pop_radius else None,
+            "competitors": cur["competitors"], "competition_score": density,
+            "saturation_per_10k": round(cur["competitors"] / (pop_radius / 10000.0), 1) if pop_radius else None,
             "site_score": site,
+            "radius_breakdown": breakdown,
             # 실측 경쟁 벤치마크용 — 가장 가까운 동일 진료과 경쟁 병원(이름·거리)
             "competitor_list": [{"name": c["name"], "distance_m": round(c["distance_m"])}
                                 for c in comp_full[:8] if c.get("name")],
@@ -530,10 +546,28 @@ def render_html(j: dict, masked: bool = False) -> str:
                     f'<div class="mapcap">{schematic_cap}{schematic_link}'
                     f'<br><span class="ds">위 개략도는 실제 지도가 아닌 위치·경쟁 밀도 표현입니다.'
                     f'{" 실제 지도는 상단 이미지 참고." if real_map else " 실제 지도는 위 링크로 확인하세요."}</span></div></div>')
+        rb = loc.get("radius_breakdown") or {}
+        radius_html = ""
+        if rb and not masked:
+            rfmt = lambda r: (f"{r/1000:g}km" if r >= 1000 else f"{r}m")
+            cols = sorted(rb)
+            hdr = "".join(f"<th>{rfmt(r)}</th>" for r in cols)
+            rrow = lambda lab, fn: ("<tr><td>" + lab + "</td>"
+                                    + "".join(f"<td>{fn(rb[r])}</td>" for r in cols) + "</tr>")
+            radius_html = (
+                '<h3 class="sm-title">반경별 비교</h3>'
+                '<div class="tw"><table class="rtbl"><thead><tr><th>반경</th>' + hdr + '</tr></thead><tbody>'
+                + rrow("경쟁 병원", lambda d: f'{d["competitors"]}곳')
+                + rrow("경쟁 여유", lambda d: f'{d["competition_score"]:.0f}')
+                + rrow("수요 점수", lambda d: f'{d["demand_score"]:.0f}')
+                + '</tbody></table></div>'
+                '<p class="ds">가까운 반경 = 실제 생활권 경쟁. 반경을 넓히면 경쟁·수요가 함께 커집니다(경쟁 여유·수요 점수는 당사 산식).</p>')
+
         loc_html = f'''
 <section class="card"><h2>입지 참고 분석</h2>
   <div class="summary">{cs}</div>{note}
   {map_html}
+  {radius_html}
   {meters_html}
   <p class="mut" style="font-size:12px;margin:14px 0 0">반경 인구·상권은 <b>{e(loc.get("density_basis") or "시·구 평균")} 밀도</b> 기준 추정입니다.
   {"넓은 시의 외곽(읍·면)이 도심 밀도를 희석하지 않도록, 사람이 실제 몰려 사는 곳의 밀도로 보정했습니다." if loc.get("density_basis","").startswith("체감") else ""}
@@ -963,6 +997,9 @@ padding:2px 6px;margin:1px -6px}}
 .top5 .items .tt{{flex:1;overflow:hidden;text-overflow:ellipsis}}
 .top5 .items .ad{{flex:none;color:var(--mut);font-size:11px}}
 .sm-title{{font-size:13px;margin:16px 0 4px;display:flex;align-items:baseline;gap:8px}}
+.rtbl{{min-width:auto;font-size:12.5px}}.rtbl th,.rtbl td{{text-align:center;padding:7px 10px;border-bottom:1px solid var(--line)}}
+.rtbl thead th{{background:var(--track);font-weight:700}}.rtbl td:first-child,.rtbl th:first-child{{text-align:left;font-weight:700}}
+.rtbl tbody td{{font-variant-numeric:tabular-nums}}
 .sm-title span{{font-size:11px;color:var(--mut);font-weight:400}}
 .smeters{{display:grid;grid-template-columns:1fr 1fr;gap:14px 22px;margin-top:8px}}
 @media (max-width:560px){{.smeters{{grid-template-columns:1fr}}}}
