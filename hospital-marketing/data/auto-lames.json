@@ -3250,5 +3250,10 @@
    "compliance_status": "safe",
    "priority": 3
   }
- ]
+ ],
+ "trend": {
+  "first": true,
+  "prior_month": null,
+  "deltas": {}
+ }
 }
