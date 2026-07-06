@@ -150,6 +150,9 @@ const I = {
   route:'<circle cx="6" cy="6" r="2.3"/><circle cx="18" cy="18" r="2.3"/><path d="M8 6h6a3 3 0 0 1 0 6H10a3 3 0 0 0 0 6h6"/>',
   pin:'<path d="M12 21c5-5 7-8 7-11a7 7 0 1 0-14 0c0 3 2 6 7 11z"/><circle cx="12" cy="10" r="2.4"/>',
   chat:'<path d="M21 11.5a7.5 7.5 0 0 1-7.5 7.5H8l-4 3V11.5A7.5 7.5 0 0 1 11.5 4h2A7.5 7.5 0 0 1 21 11.5z"/><path d="M9 10h6"/><path d="M9 13h4"/>',
+  search:'<circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/>',
+  ai:'<path d="M12 3l1.8 4.7L18.5 9l-4.7 1.8L12 15l-1.8-4.2L5.5 9l4.7-1.3z"/><path d="M18 15l.9 2.3L21 18l-2.1.8L18 21l-.9-2.2L15 18l2.1-.7z"/>',
+  bars:'<path d="M4 20V10"/><path d="M10 20V4"/><path d="M16 20v-7"/><path d="M22 20H2"/>',
 };
 function icon(name,color){
   return `<span class="ic" style="background:${color}1a;color:${color}">
@@ -178,6 +181,18 @@ const TOOLS = [
    href:'https://desktop-tutorial-chi-peach.vercel.app/chatbot/demo.html',
    one:'의료광고·심의 궁금증을 근거 조항과 함께 답해주는 AI 도우미입니다.',
    pts:['의료법·심의 기준 Q&A','광고 문구 위반 소지 자가진단','조항·심의사례 근거 인용 답변'], go:'챗봇에게 물어보기'},
+  {ic:'search', c:'var(--brand)', name:'SEO·GEO 점수', tag:'웹 진단', ext:true,
+   href:'https://desktop-tutorial-chi-peach.vercel.app/diagnose',
+   one:'홈페이지의 검색엔진(SEO)·생성형 AI(GEO) 노출 신호를 점수로 진단합니다.',
+   pts:['홈페이지 SEO 100점 진단','ChatGPT·Perplexity 노출 신호','즉시 개선 포인트 제시'], go:'점수 진단하기'},
+  {ic:'ai', c:'var(--teal)', name:'AI 추천 확인', tag:'AI 실측', ext:true,
+   href:'https://desktop-tutorial-chi-peach.vercel.app/diagnose',
+   one:'ChatGPT·Perplexity 답변에 우리 병원이 언급되는지 실측 확인합니다.',
+   pts:['AI 답변 내 병원 언급 여부','추천 키워드별 노출 점검','GEO 개선 방향 안내'], go:'AI 노출 확인하기'},
+  {ic:'bars', c:'var(--gold)', name:'키워드·트렌드·노출 진단', tag:'데이터 실측', ext:true,
+   href:'https://desktop-tutorial-chi-peach.vercel.app/diagnose',
+   one:'키워드 검색량·검색 트렌드·블로그·웹 노출 경쟁을 한 번에 진단합니다.',
+   pts:['월 검색량·경쟁도·예상 광고비','최근 1년 검색 트렌드 비교','블로그·웹 경쟁량·발행 추이'], go:'키워드 진단하기'},
 ];
 document.getElementById('toolGrid').innerHTML = TOOLS.map(t=>`
   <a class="tool" href="${t.href}"${t.ext?' target="_blank" rel="noopener"':''}>

@@ -238,7 +238,7 @@
         <div class="consents">
 
           <div class="consent">
-            <div class="row"><input type="checkbox" id="c1" required>
+            <div class="row"><input type="checkbox" id="c1" name="consent_privacy" value="Y" required>
               <label for="c1" class="txt"><span class="tag req">필수</span>무료 진단 리포트 제공을 위한 개인정보 수집·이용에 동의합니다.</label></div>
             <details><summary>상세 내용 보기</summary><div class="detail">
               <table>
@@ -251,7 +251,7 @@
           </div>
 
           <div class="consent">
-            <div class="row"><input type="checkbox" id="c2" required>
+            <div class="row"><input type="checkbox" id="c2" name="consent_terms" value="Y" required>
               <label for="c2" class="txt"><span class="tag req">필수</span>무료 진단자료 제공조건에 동의합니다.</label></div>
             <details><summary>상세 내용 보기</summary><div class="detail">
               <ol>
@@ -267,7 +267,7 @@
           </div>
 
           <div class="consent optional">
-            <div class="row"><input type="checkbox" id="c3">
+            <div class="row"><input type="checkbox" id="c3" name="consent_consult" value="Y">
               <label for="c3" class="txt"><span class="tag opt">선택</span>컨설팅 및 광고대행 상담 안내를 위한 개인정보 수집·이용에 동의합니다.</label></div>
             <details><summary>상세 내용 보기</summary><div class="detail">
               <table>
@@ -280,7 +280,7 @@
           </div>
 
           <div class="consent optional">
-            <div class="row"><input type="checkbox" id="c4" data-master="adch">
+            <div class="row"><input type="checkbox" id="c4" name="consent_ad" value="Y" data-master="adch">
               <label for="c4" class="txt"><span class="tag opt">선택</span>(주)베놈의 광고성 정보 수신에 동의합니다. (채널별 선택)</label></div>
             <div class="subchecks">
               <label><input type="checkbox" name="ad_sms" class="adch"> 문자</label>
@@ -344,6 +344,7 @@
    활성화 시 쿠키 기반 행태정보 수집이 시작됩니다 — 개인정보처리방침의
    자동수집 항목(쿠키·방문기록)이 게시된 상태인지 확인하세요. */
 const GA_MEASUREMENT_ID = 'G-XXXXXXXXXX'; // TODO: GA4 측정 ID로 교체
+const CONSENT_VERSION = '2026-07-06'; // 동의 문구(약관·처리방침) 버전 — 문구 변경 시 갱신
 if (!/X{4}/.test(GA_MEASUREMENT_ID)) {
   const s = document.createElement('script');
   s.async = true;
@@ -397,7 +398,29 @@ document.getElementById('applyForm').addEventListener('submit', e => {
   }
   recordSubmit();
   if (window.gtag) gtag('event', 'diagnosis_apply', { method: 'form' }); // 전환 이벤트
-  // 프로토타입: 접수 서버 연동 전. 실제 구현 시 동의 일시/IP/문구 버전 함께 저장.
+
+  /* 동의 증적 수집 (정보통신망법·개인정보보호법 대응).
+     IP는 클라이언트에서 신뢰 확보 불가 → 접수 서버가 X-Forwarded-For로 보완.
+     서버 연동 전까지는 스테이징 레코드로 보관해 증적 유실을 막는다. */
+  const consentRecord = {
+    ts: new Date().toISOString(),               // 동의 일시
+    policyVersion: CONSENT_VERSION,             // 동의받은 문구(약관·처리방침) 버전
+    consents: {
+      privacy: document.getElementById('c1').checked,   // 필수: 개인정보 수집·이용
+      terms:   document.getElementById('c2').checked,    // 필수: 제공조건
+      consult: document.getElementById('c3').checked,    // 선택: 컨설팅 상담
+      ad:      document.getElementById('c4').checked,     // 선택: 광고성 정보(마스터)
+      adChannels: subs.filter(s => s.checked).map(s => s.name) // 동의 채널(문자·메일·전화)
+    },
+    ipNote: '접수 서버에서 기록'
+  };
+  try {
+    const staged = JSON.parse(localStorage.getItem('venom_consent_log') || '[]');
+    staged.push(consentRecord);
+    localStorage.setItem('venom_consent_log', JSON.stringify(staged.slice(-50)));
+  } catch {}
+  // 접수 서버 연동 시: fetch('/api/apply', { method:'POST', body: JSON.stringify({ ...formData, consent: consentRecord }) })
+
   f.style.display = 'none';
   document.getElementById('formDone').style.display = 'block';
 });
