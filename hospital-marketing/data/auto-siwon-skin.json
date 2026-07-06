@@ -1,0 +1,1654 @@
+{
+ "generated_at": "2026-07-06T10:22:20+00:00",
+ "business": {
+  "rank": 1,
+  "title": "시원마취통증의학과의원 시원스킨클리닉",
+  "address": "경상북도 포항시 북구 중흥로 239 지하1층",
+  "address_jibun": "경상북도 포항시 북구 죽도동 609-9 지하1층",
+  "category": "병원>병원부속시설",
+  "link": "http://siwonclinic.co.kr/skin/home",
+  "telephone": "",
+  "description": "",
+  "longitude": 129.3592602,
+  "latitude": 36.0247015
+ },
+ "region": {
+  "city": "경상북",
+  "gu": "포항시",
+  "dong": "죽도동"
+ },
+ "classification": {
+  "is_hospital": true,
+  "dept": null,
+  "base_terms": [
+   "병원"
+  ]
+ },
+ "keywords": [
+  {
+   "kw": "시원마취통증의학과의원 시원스킨클리닉",
+   "type": "브랜드",
+   "base": "시원마취통증의학과의원 시원스킨클리닉",
+   "place": {
+    "keyword": "시원마취통증의학과의원 시원스킨클리닉",
+    "exposed": true,
+    "rank": 1,
+    "ambiguous": false,
+    "results": [
+     {
+      "rank": 1,
+      "title": "시원마취통증의학과의원 시원스킨클리닉",
+      "address": "경상북도 포항시 북구 중흥로 239 지하1층",
+      "address_jibun": "경상북도 포항시 북구 죽도동 609-9 지하1층",
+      "category": "병원>병원부속시설",
+      "link": "http://siwonclinic.co.kr/skin/home",
+      "telephone": "",
+      "description": "",
+      "longitude": 129.3592602,
+      "latitude": 36.0247015
+     }
+    ]
+   },
+   "content": {
+    "blog": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "블로그",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "[포항시원스킨클리닉 시원마취통증의학과] 7월 제헌절 휴진 안내",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "[포항시원마취통증의학과의원] 8월 여름휴가 휴진 안내",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "시원마취통증의학과 의원 야간진료 변경 안내",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "진주 시원 마취 통증의학과 의원 납품 사례",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "포항 시원마취통증의학과의원 땅콩형얼굴 관리 내돈내산",
+       "is_me": false
+      }
+     ]
+    },
+    "cafe": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "카페",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "****구인완료****산본역 [6월 11일 목요일] 군포시 산본 삼성시원마취통증의학과의원 에서 매뉴얼(수기) 아...",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "****구인완료****산본역 [5월 21일, 22일 목요일, 금요일] 군포시 산본 삼성시원마취통증의학과의원 에서 매...",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "****구인완료****[4월25일 토요일] 군포시 산본 삼성시원마취통증의학과의원 에서 매뉴얼(수기) 아르바이트...",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "****구인완료****[4월 24일 금요일, 4월 27일 월요일] 산본 삼성시원마취통증의학과의원 에서 매뉴얼(수기)...",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "****구인완료**** [4월 6일 월요일, 4월8일 수요일] 군포시 산본 삼성시원마취통증의학과의원 에서 매뉴얼(...",
+       "is_me": false
+      }
+     ]
+    },
+    "web": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "웹문서",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "시원마취통증의학과 스킨클리닉 - 시원스킨클리닉 블로그",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "시원마취통증의학과",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "시원마취통증의학과",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "시원마취통증의학과 - 척추·관절·도수치료·피부/비만클리닉",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "시원마취통증의학과",
+       "is_me": false
+      }
+     ]
+    },
+    "news": {
+     "present": false,
+     "exposed": false,
+     "position": null,
+     "label": "뉴스",
+     "ambiguous": false,
+     "top": []
+    },
+    "image": {
+     "present": true,
+     "exposed": true,
+     "position": 1,
+     "label": "이미지",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "시원마취통증의학과의원 시원스킨클리닉",
+       "is_me": true
+      },
+      {
+       "rank": 2,
+       "title": "시원마취통증의학과의원 시원스킨클리닉",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "시원마취통증의학과의원 시원스킨클리닉",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "시원마취통증의학과의원 시원스킨클리닉",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "시원마취통증의학과의원",
+       "is_me": false
+      }
+     ]
+    },
+    "kin": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "지식iN",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "마취통증의학과 전문과정 궁금합니다",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "아이 포경수술 수면마취 질문합니다",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "xray 이상은 없는데 허리통증이 있음",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "손등 통증은 어느 과로 진료를 봐야하나요?",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "인대 통증 어느 과에서 진료받아야 하나요?",
+       "is_me": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "kw": "죽도동 병원",
+   "type": "동단위",
+   "base": "병원",
+   "place": {
+    "keyword": "죽도동 병원",
+    "exposed": false,
+    "rank": null,
+    "ambiguous": false,
+    "results": [
+     {
+      "rank": 1,
+      "title": "포항 밴스의원",
+      "address": "경상북도 포항시 북구 중흥로 336 굿모닝타워 10층 1001호",
+      "address_jibun": "경상북도 포항시 북구 죽도동 48-27 굿모닝타워 10층 1001호",
+      "category": "병원,의원>피부과",
+      "link": "https://pohang.vandsclinic.co.kr/",
+      "telephone": "",
+      "description": "",
+      "longitude": 129.3654924,
+      "latitude": 36.0316611
+     },
+     {
+      "rank": 2,
+      "title": "스카이플란트치과의원 포항",
+      "address": "경상북도 포항시 북구 포스코대로 303 2층",
+      "address_jibun": "경상북도 포항시 북구 죽도동 642-8 2층",
+      "category": "병원,의원>치과",
+      "link": "http://skyplant.co.kr/",
+      "telephone": "",
+      "description": "",
+      "longitude": 129.357503,
+      "latitude": 36.0198837
+     },
+     {
+      "rank": 3,
+      "title": "예스치과의원",
+      "address": "경상북도 포항시 북구 중흥로 330 한도빌딩",
+      "address_jibun": "경상북도 포항시 북구 죽도동 48-10 한도빌딩",
+      "category": "병원,의원>치과",
+      "link": "http://www.예스치과.kr",
+      "telephone": "",
+      "description": "",
+      "longitude": 129.3652497,
+      "latitude": 36.0313904
+     },
+     {
+      "rank": 4,
+      "title": "포항여성병원",
+      "address": "경상북도 포항시 북구 포스코대로 269",
+      "address_jibun": "경상북도 포항시 북구 죽도동 640-5",
+      "category": "병원,의원>산부인과",
+      "link": "https://phw.co.kr",
+      "telephone": "",
+      "description": "",
+      "longitude": 129.3543512,
+      "latitude": 36.0215497
+     },
+     {
+      "rank": 5,
+      "title": "미르치과병원",
+      "address": "경상북도 포항시 북구 포스코대로 288 5~9층",
+      "address_jibun": "경상북도 포항시 북구 죽도동 644-12 5~9층",
+      "category": "병원,의원>치과",
+      "link": "http://www.phmir.com/",
+      "telephone": "",
+      "description": "",
+      "longitude": 129.3552028,
+      "latitude": 36.0200559
+     }
+    ]
+   },
+   "content": {
+    "blog": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "블로그",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "죽도동 치과 병원, 사후관리가 걱정된다면 시작 전 점검할...",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "죽도동한방병원 운동 후 어깨 통증이 계속된다면",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "포항 죽도동 병원 건물 출입문이 쾅쾅 닫히는 상황, 힌지...",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "포항죽도동병원 대신 한의원에서 경옥고로 면역력을 강화하여",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "포항죽도동병원 잦은 두통에 힘들다면 한의원에서",
+       "is_me": false
+      }
+     ]
+    },
+    "cafe": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "카페",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "죽도동 병원",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "죽도동 인성병원에 초5 ADHD진료 잘보시는 선생님 추천부탁드려요.",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "죽도동 쪽에 보건증 발급병원",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "죽도동 ㅈㅇ 동물병원",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "죽도동 깨끗하고 조용한 원룸, 미투 있어요~^^",
+       "is_me": false
+      }
+     ]
+    },
+    "web": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "웹문서",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "상쾌한항구병원 후기/가격/비용 (2026)",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "죽도동 내과 | 27개 병원 비교",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "포항건강마취통증의학과의원 후기/가격/비용 (2026)",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "성모연합외과의원 후기/가격/비용 (2026)",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "포항재활의학병원 후기/가격/비용 (2026)",
+       "is_me": false
+      }
+     ]
+    },
+    "news": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "뉴스",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "포항 횡단보도 사고 운전자 음주 의혹…70대 보행자 부상",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "&quot;투표용지 찍어줘&quot; 소란에 차량 이송 제보까지…투표소 곳곳 긴장(종합...",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "&quot;투표 꼭 해야죠&quot;…휠체어 탄 60대 환자도 의료진 도움 받아 한 표",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "&quot;더는 기다릴 수 없다&quot;…포항지진 시민들, 400㎞ 걸어 대법원 문 두드리...",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "물집 터진 발로 걸어온 천리길… 포항시민들 대법원 앞 눈물의 호소",
+       "is_me": false
+      }
+     ]
+    },
+    "image": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "이미지",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "포항 죽도동 S병원 앞 도로 깊이 1m 포트홀 발견",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "포항여성병원, 죽도동에 사랑의 선풍기 기탁",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "포항여성병원 간호사회, 죽도동에 이불 전달",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "포항 죽도동 미르치과병원, 취약계층 이웃에 100만원 상당의 라면 기탁",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "죽도동 사랑니발치 TOP10 (2021) | 병원 리뷰,후기는 모두닥!",
+       "is_me": false
+      }
+     ]
+    },
+    "kin": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "지식iN",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "포항 인성병원 (죽도동), 인성병원 (장성동)",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "포항죽도동쪽에 잘보는 정형외과 추천좀",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "죽도동 동물병원 중성화 잘하는곳 있나요?",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "포항 간경화 환자 요양병원",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "포항 동물병원(토끼)",
+       "is_me": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "kw": "포항시 병원",
+   "type": "구단위",
+   "base": "병원",
+   "place": {
+    "keyword": "포항시 병원",
+    "exposed": false,
+    "rank": null,
+    "ambiguous": false,
+    "results": [
+     {
+      "rank": 1,
+      "title": "포항 밴스의원",
+      "address": "경상북도 포항시 북구 중흥로 336 굿모닝타워 10층 1001호",
+      "address_jibun": "경상북도 포항시 북구 죽도동 48-27 굿모닝타워 10층 1001호",
+      "category": "병원,의원>피부과",
+      "link": "https://pohang.vandsclinic.co.kr/",
+      "telephone": "",
+      "description": "",
+      "longitude": 129.3654924,
+      "latitude": 36.0316611
+     },
+     {
+      "rank": 2,
+      "title": "리네의원",
+      "address": "경상북도 포항시 남구 중흥로 73 2층, 3층",
+      "address_jibun": "경상북도 포항시 남구 상도동 586-10 2층, 3층",
+      "category": "병원,의원>피부과",
+      "link": "https://www.line-clinic.co.kr",
+      "telephone": "",
+      "description": "",
+      "longitude": 129.3491385,
+      "latitude": 36.0120423
+     },
+     {
+      "rank": 3,
+      "title": "블리비의원 포항점",
+      "address": "경상북도 포항시 남구 중흥로 88 CNK메디컬빌딩 8층",
+      "address_jibun": "경상북도 포항시 남구 상도동 609-6 CNK메디컬빌딩 8층",
+      "category": "병원,의원>피부과",
+      "link": "http://www.velyb.kr/",
+      "telephone": "",
+      "description": "",
+      "longitude": 129.3505943,
+      "latitude": 36.0129568
+     },
+     {
+      "rank": 4,
+      "title": "포항연세정형외과의원",
+      "address": "경상북도 포항시 남구 시청로 18 퍼스트힐 201호",
+      "address_jibun": "경상북도 포항시 남구 대잠동 1003 퍼스트힐 201호",
+      "category": "병원,의원>정형외과",
+      "link": "https://www.pohangyonsei.com/",
+      "telephone": "",
+      "description": "",
+      "longitude": 129.3404491,
+      "latitude": 36.0181738
+     },
+     {
+      "rank": 5,
+      "title": "포항휴먼피부과의원",
+      "address": "경상북도 포항시 북구 새천년대로 1149 101호, 201호",
+      "address_jibun": "경상북도 포항시 북구 장성동 829 101호, 201호",
+      "category": "병원,의원>피부과",
+      "link": "http://phhuman.co.kr/",
+      "telephone": "",
+      "description": "",
+      "longitude": 129.3733001,
+      "latitude": 36.0713216
+     }
+    ]
+   },
+   "content": {
+    "blog": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "블로그",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "포항시교통사고병원 경추통과 두통 관리",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "포항시한방병원 내상 케어해서",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "포항시교통사고병원 지속되는 통증 케어한다면",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "포항시 병원 안심동행 서비스 후기",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "포항시한방병원 내상 파악해서",
+       "is_me": false
+      }
+     ]
+    },
+    "cafe": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "카페",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "포항시한방병원 사고후 증상 개선이 필요하다면",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "포항시 병원",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "포항시 북구 병원에서 단기 알바 선생님 구합니다",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "포항시 e병원 장례식장 부고화환 빠르게 도와드려요",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "포항시 간호 간병통합서비스 병동 현황 및 병원 리스트 정리",
+       "is_me": false
+      }
+     ]
+    },
+    "web": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "웹문서",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "협력 병·의원 현황",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "포항성모병원",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "요양기관 정보 &lt; 건강보험심사평가원",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "에스포항병원 후기/가격/비용 (2026)",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "상쾌한항구병원 후기/가격/비용 (2026)",
+       "is_me": false
+      }
+     ]
+    },
+    "news": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "뉴스",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "포항서 중학생 집단 난투극…6명 공동폭행 입건",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "[부음] 김동규 장인, 윤보원 시부, 범지형 부친 외",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "[포항]행정망 밖 '투명인간' 70대..이웃 관심으로 '새 삶'",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "포항 에코빌리지 '신광면 유치' 힘 실리나",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "경북도, 삼성 구미 로봇 투자 환영...자립형 로봇산업 생태계 고도화 박...",
+       "is_me": false
+      }
+     ]
+    },
+    "image": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "이미지",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "에스포항병원, 2018년 포항시 출산장려 '명예홍보기업' 위촉",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "미리 알면 도움 되는 '2015 달라지는 포항시정'",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "[신년사] 이강덕 포항시장 \"전 분야 걸쳐 동해안 거점도시 되도록 최선 다할 것\"",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "또 ‘구급차 뺑뺑이’… 교통사고 환자 2시간 헤매다 숨졌다",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "포항시시설관리공단, 포항선린병원과 업무협약",
+       "is_me": false
+      }
+     ]
+    },
+    "kin": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "지식iN",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "오십견 어깨통증 한방병원(포항 포항시 오십견)",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "교통사고 요추염좌 한방병원(포항 포항시 요추염좌)",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "교통사고 목디스크 한방병원(포항시 포항상도동 목디스크)",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "교통사고 허리디스크 한방병원(포항시 포항상도동...",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "목디스크 추나요법 한방병원(포항 포항시 목디스크)",
+       "is_me": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "kw": "경상북 병원",
+   "type": "시단위",
+   "base": "병원",
+   "place": {
+    "keyword": "경상북 병원",
+    "exposed": false,
+    "rank": null,
+    "ambiguous": false,
+    "results": []
+   },
+   "content": {
+    "blog": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "블로그",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "경상북 영덕군 남산리 영덕효요양병원장례식장 바로배송 후기!...",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "자랑스러운 경상북도민상 시상식 유튜브 채널 보이소 TV...",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "경상북도민의 날 기념, 자랑스러운 경상북도민상 시상식",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "경상북도민의 날 기념‘자랑스러운 경상북도민상 시상식’개최",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "[경북도민신문] 경북을 빛낸 ‘자랑스러운 경상북도민상’...",
+       "is_me": false
+      }
+     ]
+    },
+    "cafe": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "카페",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "[여성아이병원]난임해결은 여성아이병원",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "[여성아이병원] 난임부부에게 희망을♥",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "임산부키트~",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "[여성아이병원] 인공수정 시험관시술의 차이가 뭘까요?!",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "상주시 공공산후조리원 9월말~10월초 개원예정",
+       "is_me": false
+      }
+     ]
+    },
+    "web": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "웹문서",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "타임라인&gt;소식 - 경상북도청",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "경상북 온라인 마케팅 전문 업체 - 마케팅의중심 AI Lab | 경상북 병원 변호사 금융 학원 맛집 광고 실행사",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "일상킷",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "포항시 이대공·강창호·이순자 씨, ‘2021 자랑스러운 경상북도민상’ 수상",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "권규호 예천권병원 원장, 경북도민상 수상",
+       "is_me": false
+      }
+     ]
+    },
+    "news": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "뉴스",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "권기창 &quot;안동 정상회담, 선거 영향 없을 것…사법 리스크 無 인생 건다...",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "경북도, APEC 정상회의 감염병 대응도 '정상급으로'",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "[오늘의 주요 사회 일정] 대구·경북(10월1일 수요일)",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "[오늘의 주요일정]대구·경북(10월1일 수요일)",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "[2024년 10월 23일 시도지사 주요일정] 오세훈 서울시장, 서울시 철도 지...",
+       "is_me": false
+      }
+     ]
+    },
+    "image": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "이미지",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "강병직 김천제일병원 이사장·백계자 대도중공업 대표, 자랑스러운 경상북도민상 수상",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "강병직 김천제일병원 이사장·백계자 대도중공업 대표, 자랑스러운 경상북도민상 수상",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "강병직 김천제일병원 이사장·백계자 대도중공업 대표, 자랑스러운 경상북도민상 수상",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "안동시치매안심센터-도립안동노인전문요양병원, 업무협약 체결",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "상주적십자병원, 공공보건의료 협력체계 구축 원외대표협의체 회의 열어",
+       "is_me": false
+      }
+     ]
+    },
+    "kin": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "지식iN",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "(실화)친구가 저지른 최악의 살인사건",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "경상북터 구미시 애견병원 좋은곳 부탁드려요",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "운동처방학과나 스포츠의학과에대해서..",
+       "is_me": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "kw": "병원",
+   "type": "메인",
+   "base": "병원",
+   "place": {
+    "keyword": "병원",
+    "exposed": false,
+    "rank": null,
+    "ambiguous": false,
+    "results": [
+     {
+      "rank": 1,
+      "title": "셀린의원 명동점",
+      "address": "서울특별시 중구 남대문로7길 16 1층 셀린의원 명동",
+      "address_jibun": "서울특별시 중구 소공동 21-1 1층 셀린의원 명동",
+      "category": "병원,의원>피부과",
+      "link": "http://pf.kakao.com/_AmKxln",
+      "telephone": "",
+      "description": "",
+      "longitude": 126.9811262,
+      "latitude": 37.5642284
+     },
+     {
+      "rank": 2,
+      "title": "광화문선치과의원",
+      "address": "서울특별시 중구 세종대로 135-9 충방빌딩 3층",
+      "address_jibun": "서울특별시 중구 태평로1가 62-3 충방빌딩 3층",
+      "category": "병원,의원>치과",
+      "link": "https://blog.naver.com/sundent21",
+      "telephone": "",
+      "description": "",
+      "longitude": 126.9763175,
+      "latitude": 37.5688261
+     },
+     {
+      "rank": 3,
+      "title": "써밋의원 광화문역",
+      "address": "서울특별시 중구 세종대로22길 12 광화문G스퀘어 3층",
+      "address_jibun": "서울특별시 중구 태평로1가 25-3 광화문G스퀘어 3층",
+      "category": "병원,의원>피부과",
+      "link": "https://youtube.com/@summitclinic_kr",
+      "telephone": "",
+      "description": "",
+      "longitude": 126.977968,
+      "latitude": 37.5679455
+     },
+     {
+      "rank": 4,
+      "title": "연세공감마취통증의학과의원 을지로",
+      "address": "서울특별시 중구 남대문로9길 40 센터플레이스 3층",
+      "address_jibun": "서울특별시 중구 다동 155 센터플레이스 3층",
+      "category": "병원,의원>정형외과",
+      "link": "https://blog.naver.com/gonggampain",
+      "telephone": "",
+      "description": "",
+      "longitude": 126.980583,
+      "latitude": 37.5670584
+     },
+     {
+      "rank": 5,
+      "title": "시청하늘정신건강의학과의원",
+      "address": "서울특별시 중구 무교로 13 6층",
+      "address_jibun": "서울특별시 중구 무교동 24-2 6층",
+      "category": "병원,의원>정신건강의학과",
+      "link": "https://skymentalhealth.com/sc",
+      "telephone": "",
+      "description": "",
+      "longitude": 126.9789887,
+      "latitude": 37.56714
+     }
+    ]
+   },
+   "content": {
+    "blog": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "블로그",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "아인병원 제왕절개 2일차 생생 후기",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "강남역 더왈츠의원 병원커튼과 블라인드 시공후기",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "동물병원 리셉션 취업 100% 되는 방법 현실 정보",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "미래에서 온 영수증, 병원 가야지",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "오늘 아침 : 오픈런 (병원, 한살림)",
+       "is_me": false
+      }
+     ]
+    },
+    "cafe": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "카페",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "요양병원 알아보고 있는데요",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "어지러움증 병원 선택 고민돼요ㅠ",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "재활병원문의",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "화홍병원 진료후기",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "통깁스만가능한병원",
+       "is_me": false
+      }
+     ]
+    },
+    "web": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "웹문서",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "서울아산병원",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "병원 - 나무위키",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "고려대학교 의료원",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "서울시산하병원소개",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "고려대학교 안산병원",
+       "is_me": false
+      }
+     ]
+    },
+    "news": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "뉴스",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "이호연씨 별세, 김문철(에스포항병원 대표병원장)씨 모친상",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "[참성단] 도수치료",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "&quot;요양원이 죽인 것&quot;…박하선, 90대 노인 폭행 사망 사건 대응에 격분 (히...",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "부산시 서구 아파트 화재…50대 여성 1명 병원 이송",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "[기고]1500만명의 반려사회, 상생 지혜 찾아야",
+       "is_me": false
+      }
+     ]
+    },
+    "image": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "이미지",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "병원 - 무료 의료 및 의료개 아이콘 아티스트가 디자인한 병원 종의 무료 아이콘",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "센텀종합병원, 중증 응급환자 비율 70%…\"부산 평균 웃돌아\"",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "보라매병원 간호부, 2년 연속 간호·간병통합서비스 'S등급' 달성",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "건강보험심사평가원 인증, 드림종합병원 1등급 이유는?",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "동강병원, 만성폐쇄성폐질환·결핵 진료 1등급",
+       "is_me": false
+      }
+     ]
+    },
+    "kin": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "지식iN",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "서혜부탈장수술비용 병원마다 다른 이유가 있나요?",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "자율신경실조증 병원, 언제 방문하는 것이 좋을까요?...",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "창원 탈모병원",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "안면거상병원 어떻게 골라야 할까요?(강남 안면거상)",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "항암치료 받을 때 암요양병원가면 어떤걸 해주나요?...",
+       "is_me": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "kw": "포항시 병원 추천",
+   "type": "비교",
+   "base": "병원",
+   "place": {
+    "keyword": "포항시 병원 추천",
+    "exposed": false,
+    "rank": null,
+    "ambiguous": false,
+    "results": [
+     {
+      "rank": 1,
+      "title": "포항 밴스의원",
+      "address": "경상북도 포항시 북구 중흥로 336 굿모닝타워 10층 1001호",
+      "address_jibun": "경상북도 포항시 북구 죽도동 48-27 굿모닝타워 10층 1001호",
+      "category": "병원,의원>피부과",
+      "link": "https://pohang.vandsclinic.co.kr/",
+      "telephone": "",
+      "description": "",
+      "longitude": 129.3654924,
+      "latitude": 36.0316611
+     },
+     {
+      "rank": 2,
+      "title": "리네의원",
+      "address": "경상북도 포항시 남구 중흥로 73 2층, 3층",
+      "address_jibun": "경상북도 포항시 남구 상도동 586-10 2층, 3층",
+      "category": "병원,의원>피부과",
+      "link": "https://www.line-clinic.co.kr",
+      "telephone": "",
+      "description": "",
+      "longitude": 129.3491385,
+      "latitude": 36.0120423
+     },
+     {
+      "rank": 3,
+      "title": "블리비의원 포항점",
+      "address": "경상북도 포항시 남구 중흥로 88 CNK메디컬빌딩 8층",
+      "address_jibun": "경상북도 포항시 남구 상도동 609-6 CNK메디컬빌딩 8층",
+      "category": "병원,의원>피부과",
+      "link": "http://www.velyb.kr/",
+      "telephone": "",
+      "description": "",
+      "longitude": 129.3505943,
+      "latitude": 36.0129568
+     },
+     {
+      "rank": 4,
+      "title": "포항연세정형외과의원",
+      "address": "경상북도 포항시 남구 시청로 18 퍼스트힐 201호",
+      "address_jibun": "경상북도 포항시 남구 대잠동 1003 퍼스트힐 201호",
+      "category": "병원,의원>정형외과",
+      "link": "https://www.pohangyonsei.com/",
+      "telephone": "",
+      "description": "",
+      "longitude": 129.3404491,
+      "latitude": 36.0181738
+     },
+     {
+      "rank": 5,
+      "title": "포항휴먼피부과의원",
+      "address": "경상북도 포항시 북구 새천년대로 1149 101호, 201호",
+      "address_jibun": "경상북도 포항시 북구 장성동 829 101호, 201호",
+      "category": "병원,의원>피부과",
+      "link": "http://phhuman.co.kr/",
+      "telephone": "",
+      "description": "",
+      "longitude": 129.3733001,
+      "latitude": 36.0713216
+     }
+    ]
+   },
+   "content": {
+    "blog": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "블로그",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "포항시 장성동 대형상가 건물 매매 ★요양병원추천★",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "포항시 남구, 당뇨병 전문병원 추천 정보!",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "포항시 양덕동 임플란트 병원 추천 저렴하고 잘하는 곳 5곳 비교",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "포항시 남빈동 임플란트... 방법 저렴하고 잘하는 치과 병원 추천",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "포항시 신흥동 저렴한 임플란트 치과 병원 추천",
+       "is_me": false
+      }
+     ]
+    },
+    "cafe": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "카페",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "포항요양병원 추천 급하게 찾고 있어요",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "포항 건강검진병원 추천 | 국가검진 가능한 곳",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "(경북 포항) 길냥이TNR병원 추천/ 포획틀 구하는 방법/ TNR 요령 조언부탁드립니다",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "(경북 포항) 좋은 병원 추천/ 포획틀 구하기/ TNR 요령/ 고알못 조언부탁드립니다",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "포항시 병원 추천 부탁드립니다",
+       "is_me": false
+      }
+     ]
+    },
+    "web": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "웹문서",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "포항시 남구 목디스크 전문 병원 추천! BEST 4곳은?",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "[의료] 경상북도 포항시 일반병원추천검색 | 로컬맵 포항시 두리찾기",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "포항시 정형외과 유명한 곳 순위 - 경상북도 포항시 전문의 정형외과 잘하는 6곳 병원 의원 추천 리스트",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "포항시 북구 재활병원 추천: 재활의학과 전문병원 5곳!",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "경북 포항시 보톡스 병원 추천 TOP 5 - 뷰티샵",
+       "is_me": false
+      }
+     ]
+    },
+    "news": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "뉴스",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "[경북 브리핑 모음(6월 29일)] 봉화군, '봉화어울림센터' 7월 1일 개관…...",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "[나눔 트렌드] 충북가정위탁지원센터 위탁모 이정옥 씨, 가정위탁 공로...",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "아파트 불 났을 때 생존법… 무조건 대피? 아니죠! [강기자의 세종실록...",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "스위스 바이오헬스 시장의 숨은 다섯 가지 규칙",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "[파워인터뷰] 박성진 한동대 총장 &quot;크리스천 대학-기업-투자자 잇는 '글...",
+       "is_me": false
+      }
+     ]
+    },
+    "image": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "이미지",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "포항시, 집단감염 차단위해 요양병원 관리 강화",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "포항시, ‘찾아가는 행복병원’ 운영",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "포항시, 의대-대학병원 유치 나선다",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "포항시-대형병원 1대1 책임전담제 시행",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "포항시, 병원 등 코로나19 '사전검사제' 도입...추가 확산 차단",
+       "is_me": false
+      }
+     ]
+    },
+    "kin": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "지식iN",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "포항 북구 소동물병원 추천좀해주세요",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "동물병원 추천좀...",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "포항 동물병원 추천 좀 해주세요:)",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "심한. 요통치료 방법, 병원. 찾기",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "강아지 병원",
+       "is_me": false
+      }
+     ]
+    }
+   }
+  }
+ ],
+ "location": {
+  "radius_m": 1000,
+  "adm_cd": "37011",
+  "adm_nm": "경상북도포항시 남구",
+  "avg_age": 45.5,
+  "density_basis": "체감(인구가중)",
+  "population_radius": 10109,
+  "demand_score": 18.7,
+  "employee_density_km2": 1879,
+  "commerce_score": 7.2
+ },
+ "location_map": null,
+ "benchmark": null,
+ "benchmark_meta": null,
+ "composite": {
+  "score": 20.3,
+  "measured_weight_pct": 64,
+  "components": {
+   "exposure": 16.7,
+   "density": null,
+   "demand": 18.7,
+   "place": 67.0
+  },
+  "place_frac": 0.25
+ },
+ "place": {
+  "signals": {
+   "phone": false,
+   "url": true,
+   "category": true
+  },
+  "info_completeness": 0.67,
+  "reviews": null,
+  "rating": null,
+  "photos": null,
+  "score": 67.0,
+  "frac": 0.25,
+  "measured": [
+   "info"
+  ],
+  "internal": {
+   "status": "미측정",
+   "note": "자동 수집 미실행(--collect-place-metrics)"
+  }
+ },
+ "actions": [
+  {
+   "action_type": "keyword_coverage",
+   "title": "미노출 키워드 5개 커버리지 정비",
+   "explanation": "\"죽도동 병원·포항시 병원·경상북 병원\" 등이 어느 영역에도 노출되지 않습니다. 실제 제공하는 진료라면 소개·진료항목·FAQ·블로그에 반영하세요.",
+   "evidence_metric": "키워드 6개 중 5개 전 영역 미노출",
+   "compliance_status": "safe",
+   "priority": 1
+  },
+  {
+   "action_type": "content_gap",
+   "title": "비교·검증 콘텐츠(블로그·카페) 보강",
+   "explanation": "환자가 비교·검증하는 자리(블로그·카페)에 우리 콘텐츠가 거의 없습니다. 광고성 글 대신 진료 사례 기반 스토리텔링으로 채우세요.",
+   "evidence_metric": "블로그·카페 노출 0건",
+   "compliance_status": "safe",
+   "priority": 2
+  },
+  {
+   "action_type": "place_ops",
+   "title": "플레이스 기본정보·리뷰 운영 정비",
+   "explanation": "대표 사진·진료시간·주차·예약 링크를 실제 운영 상태와 맞추고, 자발적 리뷰 동선과 답글 운영을 정비하세요.",
+   "evidence_metric": "기본정보 완성도 67%",
+   "compliance_status": "safe",
+   "priority": 3
+  }
+ ],
+ "search_demand": {
+  "available": false,
+  "volumes": {},
+  "related": []
+ },
+ "resolution": {
+  "note": "",
+  "candidates": [
+   {
+    "title": "시원마취통증의학과의원 시원스킨클리닉",
+    "address": "경상북도 포항시 북구 중흥로 239 지하1층"
+   }
+  ]
+ },
+ "summary": {
+  "place_hit": 1,
+  "content_hit": 1,
+  "total": 6,
+  "ambiguous": false
+ },
+ "trend": {
+  "first": true,
+  "prior_month": null,
+  "deltas": {}
+ }
+}
