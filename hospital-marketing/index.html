@@ -3,10 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; base-uri 'self'; frame-ancestors 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; base-uri 'self'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="robots" content="noindex">
 <title>베놈 체크업 — 우리 병원·우리 매장 마케팅 무료 건강검진</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%277%27 fill=%27%232a78d6%27/%3E%3Ctext x=%2716%27 y=%2723%27 font-size=%2719%27 font-weight=%27900%27 font-family=%27sans-serif%27 fill=%27white%27 text-anchor=%27middle%27%3EV%3C/text%3E%3C/svg%3E">
 <meta name="description" content="베놈 체크업 — 병원·소상공인을 위한 마케팅 무료 자가검진. 노출·의료법 위험·광고비 효율·환자 유입 동선·개원 입지를 공식 근거로 진단합니다. (주)베놈 무료 배포.">
 <style>
   :root{
@@ -148,6 +149,7 @@ const I = {
   coin:'<ellipse cx="12" cy="7" rx="7" ry="3.2"/><path d="M5 7v6c0 1.8 3.1 3.2 7 3.2s7-1.4 7-3.2V7"/>',
   route:'<circle cx="6" cy="6" r="2.3"/><circle cx="18" cy="18" r="2.3"/><path d="M8 6h6a3 3 0 0 1 0 6H10a3 3 0 0 0 0 6h6"/>',
   pin:'<path d="M12 21c5-5 7-8 7-11a7 7 0 1 0-14 0c0 3 2 6 7 11z"/><circle cx="12" cy="10" r="2.4"/>',
+  chat:'<path d="M21 11.5a7.5 7.5 0 0 1-7.5 7.5H8l-4 3V11.5A7.5 7.5 0 0 1 11.5 4h2A7.5 7.5 0 0 1 21 11.5z"/><path d="M9 10h6"/><path d="M9 13h4"/>',
 };
 function icon(name,color){
   return `<span class="ic" style="background:${color}1a;color:${color}">
@@ -172,9 +174,13 @@ const TOOLS = [
   {ic:'pin', c:'var(--brand-deep)', name:'입지 진단', tag:'', href:'location/',
    one:'개원·출점 후보지의 경쟁·수요·상권을 비교 분석합니다.',
    pts:['같은 업종 경쟁 밀도','반경 인구·수요 점수','상권 활동 지표'], go:'입지 비교하기'},
+  {ic:'chat', c:'var(--good)', name:'심의 챗봇', tag:'AI', ext:true,
+   href:'https://desktop-tutorial-chi-peach.vercel.app/chatbot/demo.html',
+   one:'의료광고·심의 궁금증을 근거 조항과 함께 답해주는 AI 도우미입니다.',
+   pts:['의료법·심의 기준 Q&A','광고 문구 위반 소지 자가진단','조항·심의사례 근거 인용 답변'], go:'챗봇에게 물어보기'},
 ];
 document.getElementById('toolGrid').innerHTML = TOOLS.map(t=>`
-  <a class="tool" href="${t.href}">
+  <a class="tool" href="${t.href}"${t.ext?' target="_blank" rel="noopener"':''}>
     ${icon(t.ic,t.c)}
     <h3>${t.name}${t.tag?`<span class="tag">${t.tag}</span>`:''}</h3>
     <p class="one">${t.one}</p>

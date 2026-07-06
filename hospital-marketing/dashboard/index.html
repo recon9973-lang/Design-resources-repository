@@ -3,11 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; base-uri 'self'; frame-ancestors 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; base-uri 'self'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="robots" content="noindex">
 <title>(주)베놈 검색정보 진단 대시보드 (MVP 프로토타입)</title>
-<meta name="description" content="우리 병원, 주변 1km 안에서 얼마나 잘 보이고 있나요? 공공데이터와 공식 API 기반 병원 검색 노출 경쟁력 진단 대시보드 프로토타입.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%277%27 fill=%27%232a78d6%27/%3E%3Ctext x=%2716%27 y=%2723%27 font-size=%2719%27 font-weight=%27900%27 font-family=%27sans-serif%27 fill=%27white%27 text-anchor=%27middle%27%3EV%3C/text%3E%3C/svg%3E">
+<meta name="description" content="우리 병원, 주변 1km 안에서 얼마나 잘 보이고 있나요? 공공데이터와 공식 API 기반 병원 검색정보 운영 진단 대시보드 프로토타입.">
 <style>
   .viz-root, :root{
     --surface-1:#fcfcfb; --plane:#f9f9f7;
@@ -151,7 +152,7 @@
 
 <header class="top">
   <div class="wrap top-inner">
-    <div class="brand"><a class="mark" href="../" title="베놈 체크업 홈" style="text-decoration:none">V</a> <a href="../" style="color:inherit;text-decoration:none">베놈 체크업</a> <small>종합검진 · MVP 프로토타입</small></div>
+    <h1 class="brand" style="margin:0;font-size:17px"><a class="mark" href="../" title="베놈 체크업 홈" style="text-decoration:none">V</a> <a href="../" style="color:inherit;text-decoration:none">베놈 체크업</a> <small>종합검진 · MVP 프로토타입</small></h1>
     <div class="hospital-id">
       <b id="hName">밝은빛피부과의원</b> · 피부과<br>
       서울 강남구 테헤란로 000 · <span id="hMonth">2026년 7월</span> 리포트
@@ -205,7 +206,7 @@
 
     <div class="grid2">
       <div class="card chart-card">
-        <p class="chart-title">경쟁력 점수 추이</p>
+        <p class="chart-title">진단 점수 추이</p>
         <p class="chart-sub">최근 6개월 · 반경 <span class="rEcho">1km</span> 기준</p>
         <div id="trendChart"></div>
         <details class="tbl"><summary>표로 보기</summary>
@@ -236,7 +237,7 @@
   <!-- ================= 지도 분석 ================= -->
   <section class="panel" id="panel-map">
     <h2>반경 내 <span class="t-comp">경쟁 병원</span> 지도</h2>
-    <p class="sub"><span class="t-mine">내 병원</span> 중심 · 선택 반경 <span class="rEcho">1km</span> · 점을 누르거나 올리면 상세가 보입니다. (개략 위치 목업)</p>
+    <p class="sub"><span class="t-mine">내 병원</span> 중심 · 선택 반경 <span class="rEcho">1km</span> · 점을 누르거나 마우스를 올리면 상세가 보입니다. (개략 위치 목업)</p>
     <div class="card chart-card" style="padding:10px">
       <div id="mapChart"></div>
       <div class="legend" id="mapLegend">
@@ -339,7 +340,7 @@
     <b>데이터 출처·기준</b> — 건강보험심사평가원 병원정보서비스(2026-06 갱신) · 소상공인시장진흥공단 상가(상권)정보(2026-2Q) ·
     행정안전부 법정동코드 · SGIS 통계지리정보 · 네이버 지역 검색 API(2026-07-01 수집, 비로그인, 결과 상위 5건).<br>
     공식 API 결과는 실제 검색화면과 다를 수 있습니다. 인구·상권 지표는 잠재 수요 참고지표이며 실제 방문 수요를 보장하지 않습니다.
-    <b>본 화면은 목업 데이터 기반 MVP 프로토타입입니다.</b>
+    <b id="protoNote">본 화면은 목업 데이터 기반 MVP 프로토타입입니다.</b>
   </footer>
 </main>
 
@@ -370,9 +371,9 @@ let KEYWORDS = [
   {kw:'역삼역 피부과',   type:'지역+진료과', api:true, pos:3,  snap:5,   grade:'top', comp:'B의원',          act:'플레이스 사진 최신화'},
   {kw:'강남 보톡스',     type:'시술',       api:true, pos:3,  snap:null,grade:'top', comp:'C의원',          act:'진료 항목 문구 점검'},
   {kw:'강남 피부과',     type:'지역+진료과', api:true, pos:4,  snap:11,  grade:'mid', comp:'A피부과, B의원',  act:'소개·카테고리 정비'},
-  {kw:'강남 리프팅',     type:'시술',       api:true, pos:7,  snap:7,   grade:'mid', comp:'C의원',          act:'시술 정보 페이지 보강'},
-  {kw:'강남 여드름치료', type:'고민',       api:true, pos:9,  snap:null,grade:'mid', comp:'E피부과',        act:'FAQ 구조 점검'},
-  {kw:'강남 피부관리',   type:'시술',       api:true, pos:12, snap:null,grade:'mid', comp:'F클리닉',        act:'키워드-진료항목 매칭'},
+  {kw:'강남 리프팅',     type:'시술',       api:true, pos:4,  snap:7,   grade:'mid', comp:'C의원',          act:'시술 정보 페이지 보강'},
+  {kw:'강남 여드름치료', type:'고민',       api:true, pos:5,  snap:null,grade:'mid', comp:'E피부과',        act:'FAQ 구조 점검'},
+  {kw:'강남 피부관리',   type:'시술',       api:true, pos:5, snap:null,grade:'mid', comp:'F클리닉',        act:'키워드-진료항목 매칭'},
   {kw:'강남 탈모치료',   type:'고민',       api:false,pos:null,snap:null,grade:'none',comp:'D의원',          act:'진료 항목·소개에 키워드 반영'},
   {kw:'강남 기미레이저', type:'시술',       api:false,pos:null,snap:null,grade:'none',comp:'A피부과',        act:'시술 카테고리 등록 검토'},
   {kw:'강남 흉터치료',   type:'고민',       api:false,pos:null,snap:null,grade:'none',comp:'G의원',          act:'콘텐츠 커버리지 신설'}
@@ -589,7 +590,7 @@ function renderRadiusChart(){
 function renderTrend(){
   if(IS_LIVE){
     $('#trendChart').innerHTML='<p style="font-size:13px;color:var(--text-muted);padding:30px 10px;text-align:center">'
-      +'첫 리포트입니다. 점수 추이는 2개월차부터 표시됩니다.</p>';
+      +'첫 리포트입니다. 점수 추이는 2개월 차부터 표시됩니다.</p>';
     $('#trendTable').closest('details').style.display='none';
     return;
   }
@@ -610,7 +611,7 @@ function renderTrend(){
   const last=data.length-1;
   const labelsSvg=labels.map((l,i)=>`<text x="${x(i)}" y="${H-8}" text-anchor="middle" font-size="10.5" fill="var(--text-muted)">${l}</text>`).join('');
   $('#trendChart').innerHTML=
-   `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="최근 6개월 경쟁력 점수 추이">
+   `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="최근 6개월 진단 점수 추이">
       ${g}
       <line x1="${P.l}" x2="${W-P.r}" y1="${H-P.b}" y2="${H-P.b}" stroke="var(--baseline)" stroke-width="1"/>
       <path d="${path} L ${x(last)} ${H-P.b} L ${P.l} ${H-P.b} Z" fill="var(--series-1)" opacity="0.1"/>
@@ -622,7 +623,7 @@ function renderTrend(){
   const tb=$('#trendTable tbody'); tb.innerHTML=labels.map((l,i)=>`<tr><td>2026년 ${l}</td><td class="num">${data[i]}</td></tr>`).join('');
   $$('#trendChart .pt').forEach(c=>{
     c.addEventListener('mousemove',e=>{const i=+c.dataset.i;
-      showTip(`<div class="t-title">2026년 ${labels[i]}</div><div class="t-row">경쟁력 점수 <b>${data[i]}점</b> · 반경 ${fmtR(radius)}</div>`,e.clientX,e.clientY)});
+      showTip(`<div class="t-title">2026년 ${labels[i]}</div><div class="t-row">진단 점수 <b>${data[i]}점</b> · 반경 ${fmtR(radius)}</div>`,e.clientX,e.clientY)});
     c.addEventListener('mouseleave',hideTip);
   });
 }
@@ -868,6 +869,8 @@ function applyLiveData(j){
   document.querySelector('.hospital-id').innerHTML=
     `<b id="hName">${esc(h.name)}</b>${h.department?' · '+esc(h.department):''}<br>${h.address?esc(h.address)+' · ':''}${esc(j.month)} 리포트`;
   document.querySelector('.brand small').textContent='실데이터 · '+j.month+' 기준';
+  const pn=document.getElementById('protoNote');
+  if(pn) pn.textContent='본 화면은 실데이터 기반 MVP 프로토타입입니다.';
 }
 fetch('../data/dashboard-live.json')
   .then(r=>r.ok?r.json():null)
