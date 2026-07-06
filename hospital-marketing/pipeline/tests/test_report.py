@@ -49,9 +49,9 @@ class TestReportStructure(unittest.TestCase):
         self.assertIn("의료법 제56조", self.html)
 
     def test_logo_and_no_auto_branding(self):
-        # (주)베놈 로고(인라인 SVG V마크)가 텍스트 대신 사용된다.
-        self.assertIn('class="vmark"', self.html)
-        self.assertIn("VENOMAD", self.html)
+        # (주)베놈 VENOM 워드마크 로고가 텍스트 대신 사용된다.
+        self.assertIn('class="vlogo"', self.html)
+        self.assertIn("VENOM", self.html)
         # 제목·헤더에서 '자동' 브랜딩 제거(신뢰도 — 자동생성물처럼 보이지 않게).
         self.assertNotIn("자동 진단 리포트", self.html)
         self.assertIn("진단 리포트", self.html)
