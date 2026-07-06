@@ -28,6 +28,15 @@ from medirank.geo import haversine_m                              # noqa: E402
 SEC_KEYS = ["blog", "cafe", "web", "news", "image", "kin"]
 SEC_LABELS = ["블로그", "카페", "웹문서", "뉴스", "이미지", "지식iN"]
 
+# (주)베놈 로고 — 자기완결 인라인 SVG(V 마크)+워드마크. 외부 이미지 없이 CSP(img-src data:)·인쇄 안전.
+_VMARK = ('<svg class="vmark" viewBox="0 0 32 32" width="{w}" height="{w}" aria-hidden="true">'
+          '<rect width="32" height="32" rx="8" fill="var(--accent)"/>'
+          '<path d="M8.6 9 L16 24 L23.4 9" fill="none" stroke="#fff" stroke-width="3.4" '
+          'stroke-linecap="round" stroke-linejoin="round"/></svg>')
+VENOM_LOGO = (_VMARK.format(w=30)
+              + '<span class="wm"><b>VENOMAD</b><small>(주)베놈 · 병원 마케팅</small></span>')
+VENOM_LOGO_SM = _VMARK.format(w=15) + '<b style="font-weight:800">VENOMAD</b> (주)베놈'
+
 
 def cell(c: dict) -> str:
     if not c or c.get("exposed") is None:
@@ -1198,7 +1207,7 @@ def render_html(j: dict, masked: bool = False) -> str:
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src data:;">
 <meta name="robots" content="noindex, nofollow">
 <meta name="referrer" content="no-referrer">
-<title>자동 진단 — {e(b["title"])}</title>
+<title>진단 리포트 — {e(b["title"])}</title>
 <style>
 :root{{--bg:#f6f8fb;--card:#fff;--ink:#1d2735;--sub:#5b6a7e;--line:#dfe6ef;--accent:#2a78d6;
 --accent-soft:#e8f1fc;--accent-lite:#c3d9f4;--good:#1e8a4a;--bad:#c23a3a;--warn:#c98a00;--teal:#12897a;--violet:#6a54c0;
@@ -1209,10 +1218,15 @@ def render_html(j: dict, masked: bool = False) -> str:
 *{{box-sizing:border-box}}body{{margin:0;background:var(--bg);color:var(--ink);line-height:1.6;
 font-family:"Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",system-ui,sans-serif}}
 .wrap{{max-width:880px;margin:0 auto;padding:26px 16px 60px;display:flex;flex-direction:column;gap:18px}}
-header{{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:baseline;
+header{{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center;
 border-bottom:2px solid var(--accent);padding-bottom:12px}}
-.brand{{font-weight:800;color:var(--accent);white-space:nowrap}}
+.brand{{display:inline-flex;align-items:center;gap:10px;white-space:nowrap}}
+.brand .vmark{{flex:none;display:block}}
+.brand .wm{{display:inline-flex;flex-direction:column;line-height:1.08}}
+.brand .wm b{{font-size:15.5px;font-weight:800;color:var(--accent);letter-spacing:.02em}}
+.brand .wm small{{font-size:10.5px;font-weight:700;color:var(--sub)}}
 .bn{{font-size:11.5px;color:var(--sub)}}
+footer .vmark{{vertical-align:-3px;margin-right:3px}}
 h1{{font-size:24px;margin:8px 0 4px}}h2{{font-size:16.5px;margin:0 0 10px}}h3{{font-size:13.5px;margin:0}}
 .meta{{font-size:13px;color:var(--sub)}}.meta b{{color:var(--ink)}}
 .card{{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px 20px}}
@@ -1397,10 +1411,10 @@ footer{{font-size:11px;color:var(--mut);text-align:center;border-top:1px solid v
 border-radius:8px;padding:8px 12px;margin:0}}
 </style>
 <div class="wrap">
-<header><span class="brand">(주)베놈 VENOMAD</span>
-<span class="bn">검색정보 운영 자동 진단 — 내부 참고용 · 전재 금지</span></header>
+<header><span class="brand">{VENOM_LOGO}</span>
+<span class="bn">검색정보 운영 진단 — 내부 참고용 · 전재 금지</span></header>
 <section>
-<h1>{e(b["title"])} 자동 진단 리포트</h1>
+<h1>{e(b["title"])} 진단 리포트</h1>
 <div class="meta">입력: 업체명{"+지역 힌트" if j["resolution"]["candidates"] else ""} 하나 ·
 업종 <b>{e(b.get("category") or "")}</b> · 주소 <b>{e(b.get("address") or "")}</b><br>
 지역축 <b>{e(r.get("dong") or "-")}</b> / <b>{e(r.get("gu") or "-")}</b> / <b>{e(r.get("city") or "-")}</b>
@@ -1408,7 +1422,7 @@ border-radius:8px;padding:8px 12px;margin:0}}
 {"<div class='meta' style='margin-top:6px'>동명·유사 상호 후보: " + cands + "</div>" if len(j["resolution"]["candidates"]) > 1 else ""}
 </section>
 <section class="summary">
-<div class="stat"><div class="k">자동 산출 키워드</div><div class="v">{s["total"]}개</div><div class="d">동/구/시/메인 × 업종·시술</div></div>
+<div class="stat"><div class="k">진단 키워드</div><div class="v">{s["total"]}개</div><div class="d">동/구/시/메인 × 업종·시술</div></div>
 <div class="stat"><div class="k">플레이스 노출</div><div class="v">{s["place_hit"]} / {s["total"]}</div><div class="d">공식 API 상위 5건 기준</div></div>
 <div class="stat"><div class="k">콘텐츠 노출 키워드</div><div class="v">{s["content_hit"]} / {s["total"]}</div><div class="d">6개 영역 중 1곳 이상</div></div>
 </section>
@@ -1432,7 +1446,7 @@ border-radius:8px;padding:8px 12px;margin:0}}
 {guidance_html}
 {basis_section}
 <p class="print-hint">📄 PDF로 저장: 브라우저 인쇄(Ctrl/⌘+P) → 대상을 <b>'PDF로 저장'</b>으로 선택하세요.</p>
-<footer>(주)베놈 VENOMAD · 자동 진단 산출물 — 내부 참고용, 광고물 전재 금지</footer>
+<footer>{VENOM_LOGO_SM} · 진단 산출물 — 내부 참고용, 광고물 전재 금지</footer>
 </div>'''
 
 

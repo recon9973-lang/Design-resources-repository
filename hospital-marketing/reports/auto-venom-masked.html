@@ -3,7 +3,7 @@
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src data:;">
 <meta name="robots" content="noindex, nofollow">
 <meta name="referrer" content="no-referrer">
-<title>자동 진단 — 베놈</title>
+<title>진단 리포트 — 베놈</title>
 <style>
 :root{--bg:#f6f8fb;--card:#fff;--ink:#1d2735;--sub:#5b6a7e;--line:#dfe6ef;--accent:#2a78d6;
 --accent-soft:#e8f1fc;--accent-lite:#c3d9f4;--good:#1e8a4a;--bad:#c23a3a;--warn:#c98a00;--teal:#12897a;--violet:#6a54c0;
@@ -14,10 +14,15 @@
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);line-height:1.6;
 font-family:"Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",system-ui,sans-serif}
 .wrap{max-width:880px;margin:0 auto;padding:26px 16px 60px;display:flex;flex-direction:column;gap:18px}
-header{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:baseline;
+header{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center;
 border-bottom:2px solid var(--accent);padding-bottom:12px}
-.brand{font-weight:800;color:var(--accent);white-space:nowrap}
+.brand{display:inline-flex;align-items:center;gap:10px;white-space:nowrap}
+.brand .vmark{flex:none;display:block}
+.brand .wm{display:inline-flex;flex-direction:column;line-height:1.08}
+.brand .wm b{font-size:15.5px;font-weight:800;color:var(--accent);letter-spacing:.02em}
+.brand .wm small{font-size:10.5px;font-weight:700;color:var(--sub)}
 .bn{font-size:11.5px;color:var(--sub)}
+footer .vmark{vertical-align:-3px;margin-right:3px}
 h1{font-size:24px;margin:8px 0 4px}h2{font-size:16.5px;margin:0 0 10px}h3{font-size:13.5px;margin:0}
 .meta{font-size:13px;color:var(--sub)}.meta b{color:var(--ink)}
 .card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px 20px}
@@ -202,10 +207,10 @@ footer{font-size:11px;color:var(--mut);text-align:center;border-top:1px solid va
 border-radius:8px;padding:8px 12px;margin:0}
 </style>
 <div class="wrap">
-<header><span class="brand">(주)베놈 VENOMAD</span>
-<span class="bn">검색정보 운영 자동 진단 — 내부 참고용 · 전재 금지</span></header>
+<header><span class="brand"><svg class="vmark" viewBox="0 0 32 32" width="30" height="30" aria-hidden="true"><rect width="32" height="32" rx="8" fill="var(--accent)"/><path d="M8.6 9 L16 24 L23.4 9" fill="none" stroke="#fff" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="wm"><b>VENOMAD</b><small>(주)베놈 · 병원 마케팅</small></span></span>
+<span class="bn">검색정보 운영 진단 — 내부 참고용 · 전재 금지</span></header>
 <section>
-<h1>베놈 자동 진단 리포트</h1>
+<h1>베놈 진단 리포트</h1>
 <div class="meta">입력: 업체명+지역 힌트 하나 ·
 업종 <b>광고,마케팅&gt;광고대행</b> · 주소 <b>대구광역시 수성구 용학로25길 54 4층</b><br>
 지역축 <b>두산동</b> / <b>수성구</b> / <b>대구</b>
@@ -213,7 +218,7 @@ border-radius:8px;padding:8px 12px;margin:0}
 <div class='meta' style='margin-top:6px'>동명·유사 상호 후보: 베놈애드 · 베놈 · 베놈애드 대구달서점 · 닥터베놈 · 럭시베놈</div>
 </section>
 <section class="summary">
-<div class="stat"><div class="k">자동 산출 키워드</div><div class="v">12개</div><div class="d">동/구/시/메인 × 업종·시술</div></div>
+<div class="stat"><div class="k">진단 키워드</div><div class="v">12개</div><div class="d">동/구/시/메인 × 업종·시술</div></div>
 <div class="stat"><div class="k">플레이스 노출</div><div class="v">1 / 12</div><div class="d">공식 API 상위 5건 기준</div></div>
 <div class="stat"><div class="k">콘텐츠 노출 키워드</div><div class="v">7 / 12</div><div class="d">6개 영역 중 1곳 이상</div></div>
 </section>
@@ -252,5 +257,5 @@ border-radius:8px;padding:8px 12px;margin:0}
 
 <section class="card"><h2>측정 기준</h2><div class="btbl"><div class="btr"><div class="bk">노출 지표</div><div class="bd">네이버 오픈 API (비로그인, 지역 상위 5·콘텐츠 상위 30, 2026-07-03 수집) — 실제 검색화면과 다를 수 있음</div></div><div class="btr"><div class="bk">수요·상권</div><div class="bd">SGIS 통계지리정보 기반 잠재 수요 참고지표(시·구 평균 밀도 보정) — 실제 방문 수요를 보장하지 않음</div></div><div class="btr"><div class="bk">콘텐츠 판정</div><div class="bd">제목·요약 스니펫만 사용 · 본문 미수집·미저장</div></div><div class="btr"><div class="bk">진단 점수</div><div class="bd">(주)베놈 산식에 따른 참고 지표 — 의료서비스의 질·치료 효과·환자 만족도·매출 가능성을 의미하지 않음</div></div></div><p class="mut" style="font-size:11.5px;margin:12px 0 0"><b>고지</b> — 본 리포트는 병원 내부 운영 참고자료이며 의료광고물이 아닙니다. 환자 대상 광고·홍보물로 전재·캡처·인용·배포할 수 없습니다. 경쟁 병원에 대한 우열 판단·비방 목적으로 사용할 수 없습니다. 특정 검색 순위 달성·환자 유입·매출 증가를 보장하지 않습니다.</p></section>
 <p class="print-hint">📄 PDF로 저장: 브라우저 인쇄(Ctrl/⌘+P) → 대상을 <b>'PDF로 저장'</b>으로 선택하세요.</p>
-<footer>(주)베놈 VENOMAD · 자동 진단 산출물 — 내부 참고용, 광고물 전재 금지</footer>
+<footer><svg class="vmark" viewBox="0 0 32 32" width="15" height="15" aria-hidden="true"><rect width="32" height="32" rx="8" fill="var(--accent)"/><path d="M8.6 9 L16 24 L23.4 9" fill="none" stroke="#fff" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></svg><b style="font-weight:800">VENOMAD</b> (주)베놈 · 진단 산출물 — 내부 참고용, 광고물 전재 금지</footer>
 </div>
