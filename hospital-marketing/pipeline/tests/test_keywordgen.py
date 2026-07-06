@@ -11,6 +11,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from medirank import keywordgen as kg
+from medirank.connectors import sgis
 
 
 class TestProvinceAbbrev(unittest.TestCase):
@@ -36,6 +37,16 @@ class TestProvinceAbbrev(unittest.TestCase):
     def test_province_flag(self):
         self.assertTrue(kg.parse_region("경상북도 포항시 죽도동")["city_is_province"])
         self.assertFalse(kg.parse_region("대구광역시 수성구 두산동")["city_is_province"])
+
+    def test_sgis_alias_covers_keyword_abbreviations(self):
+        # 회귀: 키워드용 도 축약('경북')이 SGIS addr_name('경상북도')에 부분일치하려면
+        # SGIS 커넥터가 확장 별칭을 가져야 한다(없으면 SGIS 인구/상권 조회가 깨짐).
+        for full, abbr in [("경상북도", "경북"), ("경상남도", "경남"), ("전라북도", "전북"),
+                           ("전라남도", "전남"), ("충청북도", "충북"), ("충청남도", "충남")]:
+            got = kg.parse_region(f"{full} 어떤시 어떤동")["city"]
+            self.assertEqual(got, abbr)
+            expanded = sgis._SIDO_ALIAS.get(got, got)
+            self.assertIn(expanded, full, f"{got}→{expanded} 가 {full}의 부분문자열이어야 SGIS 매칭됨")
 
 
 class TestNoGhostKeywords(unittest.TestCase):
