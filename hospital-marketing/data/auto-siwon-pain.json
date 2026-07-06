@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-07-06T11:06:32+00:00",
+ "generated_at": "2026-07-06T18:19:38+00:00",
  "business": {
   "rank": 1,
   "title": "시원마취통증의학과의원",
@@ -31,6 +31,7 @@
    "kw": "시원마취통증의학과의원",
    "type": "브랜드",
    "base": "시원마취통증의학과의원",
+   "volume": null,
    "place": {
     "keyword": "시원마취통증의학과의원",
     "exposed": false,
@@ -310,6 +311,7 @@
    "kw": "죽도동 정형외과",
    "type": "동단위",
    "base": "정형외과",
+   "volume": null,
    "place": {
     "keyword": "죽도동 정형외과",
     "exposed": true,
@@ -456,17 +458,17 @@
      "top": [
       {
        "rank": 1,
-       "title": "죽도동 정형외과 | 13개 병원 비교",
-       "is_me": false
-      },
-      {
-       "rank": 2,
        "title": "죽도동 전체 병원 비교 | 정형외과 (2026)",
        "is_me": false
       },
       {
-       "rank": 3,
+       "rank": 2,
        "title": "김지홍정형외과의원 후기/가격/비용 (2026)",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "죽도동 야간 진료 병원 비교 | 정형외과 (2026)",
        "is_me": false
       },
       {
@@ -476,7 +478,7 @@
       },
       {
        "rank": 5,
-       "title": "죽도동 야간 진료 병원 비교 | 정형외과 (2026)",
+       "title": "죽도동 정형외과 진료 오십견 어깨통증, 기능적근육내자극치료 회복 방법을 살펴보면",
        "is_me": false
       }
      ]
@@ -524,27 +526,27 @@
      "top": [
       {
        "rank": 1,
-       "title": "죽송정형외과의원",
-       "is_me": false
-      },
-      {
-       "rank": 2,
        "title": "에스포항병원, 정형외과 전문의 영입",
        "is_me": false
       },
       {
-       "rank": 3,
+       "rank": 2,
        "title": "탄탄한 정형외과의원 위치 · 진료시간 · 후기 확인하기",
        "is_me": false
       },
       {
-       "rank": 4,
+       "rank": 3,
        "title": "건강한정형외과의원 위치 · 진료시간 · 후기 확인하기",
        "is_me": false
       },
       {
-       "rank": 5,
+       "rank": 4,
        "title": "서울에스와이(SY)정형외과의원 위치 · 진료시간 · 후기 확인하기",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "정형외과 의사와  함께 걷기대회 열려",
        "is_me": false
       }
      ]
@@ -589,6 +591,7 @@
    "kw": "포항 정형외과",
    "type": "시단위",
    "base": "정형외과",
+   "volume": null,
    "place": {
     "keyword": "포항 정형외과",
     "exposed": true,
@@ -868,6 +871,7 @@
    "kw": "정형외과",
    "type": "메인",
    "base": "정형외과",
+   "volume": null,
    "place": {
     "keyword": "정형외과",
     "exposed": false,
@@ -951,22 +955,22 @@
       },
       {
        "rank": 2,
-       "title": "당산 일요일 정형외과 목디스크 치료, 초기에 관리하는 것이...",
+       "title": "양주정형외과 영상검사 찍기 전 체크할 것",
        "is_me": false
       },
       {
        "rank": 3,
-       "title": "천안 쌍용동 정형외과 병원 베드매트제작&amp;의자천갈이",
+       "title": "당산 일요일 정형외과 목디스크 치료, 초기에 관리하는 것이...",
        "is_me": false
       },
       {
        "rank": 4,
-       "title": "피부과,이비인후과,정형외과,내과 개원 창업 환영. 학원...",
+       "title": "천안 쌍용동 정형외과 병원 베드매트제작&amp;의자천갈이",
        "is_me": false
       },
       {
        "rank": 5,
-       "title": "오산정형외과 관절 통증 케어를",
+       "title": "피부과,이비인후과,정형외과,내과 개원 창업 환영. 학원...",
        "is_me": false
       }
      ]
@@ -1048,27 +1052,27 @@
      "top": [
       {
        "rank": 1,
-       "title": "“도수치료 대신 비슷한 치료”…정부 “모니터링”",
+       "title": "자꾸 빠지는 다리털, 심혈관 질환 신호라고?",
        "is_me": false
       },
       {
        "rank": 2,
-       "title": "이춘택병원, 박기철 척추외과 과장 영입…&quot;척추센터 진료 강화&quot;",
+       "title": "[특집] 도내 최초 4선 최승준, ‘중단없는 정선 발전’ 완성",
        "is_me": false
       },
       {
        "rank": 3,
-       "title": "한림대춘천성심병원, 바이오·헬스케어 혁신 성장 위한 '강원 브릿지 오...",
+       "title": "“어깨 담 결린 줄 알았는데”… 40대 가장, 알고 보니 ‘혈액암’ 신호...",
        "is_me": false
       },
       {
        "rank": 4,
-       "title": "발목 관절염, 심해질수록 당뇨·심혈관질환 등 대사질환 위험 증가",
+       "title": "한림대춘천성심병원, 7~8일 '강원 브릿지 오픈이노베이션 밋업' 개최",
        "is_me": false
       },
       {
        "rank": 5,
-       "title": "무릎 인대·연골 손상, 방치하면 '퇴행성 관절염' 지름길",
+       "title": "쉽게 접할 수 있는 운동 '러닝', 부상도 쉽다",
        "is_me": false
       }
      ]
@@ -1136,7 +1140,7 @@
       },
       {
        "rank": 5,
-       "title": "(정형외과):무릎이 아픕니다",
+       "title": "주안정형외과 추천 필요 걸으면 다리가 저리고 쉬면...",
        "is_me": false
       }
      ]
@@ -1147,6 +1151,7 @@
    "kw": "포항 무릎통증",
    "type": "증상",
    "base": "무릎통증",
+   "volume": null,
    "place": {
     "keyword": "포항 무릎통증",
     "exposed": false,
@@ -1426,6 +1431,7 @@
    "kw": "포항 오십견",
    "type": "증상",
    "base": "오십견",
+   "volume": null,
    "place": {
     "keyword": "포항 오십견",
     "exposed": false,
@@ -1565,8 +1571,8 @@
     },
     "web": {
      "present": true,
-     "exposed": false,
-     "position": null,
+     "exposed": true,
+     "position": 17,
      "label": "웹문서",
      "ambiguous": false,
      "top": [
@@ -1705,6 +1711,7 @@
    "kw": "포항 허리디스크",
    "type": "증상",
    "base": "허리디스크",
+   "volume": null,
    "place": {
     "keyword": "포항 허리디스크",
     "exposed": false,
@@ -1851,12 +1858,12 @@
      "top": [
       {
        "rank": 1,
-       "title": "허리통증 원인진단과 허리디스크 관리법",
+       "title": "에스포항병원 ㅣ 척추센터",
        "is_me": false
       },
       {
        "rank": 2,
-       "title": "허리 디스크 탈출증, 반드시 수술해야 할까?",
+       "title": "허리통증 원인진단과 허리디스크 관리법",
        "is_me": false
       },
       {
@@ -1984,6 +1991,7 @@
    "kw": "포항 정형외과 추천",
    "type": "비교",
    "base": "정형외과",
+   "volume": null,
    "place": {
     "keyword": "포항 정형외과 추천",
     "exposed": true,
@@ -2263,6 +2271,7 @@
    "kw": "죽도동 도수치료",
    "type": "동단위",
    "base": "도수치료",
+   "volume": null,
    "place": {
     "keyword": "죽도동 도수치료",
     "exposed": true,
@@ -2490,6 +2499,7 @@
    "kw": "포항 도수치료",
    "type": "시단위",
    "base": "도수치료",
+   "volume": null,
    "place": {
     "keyword": "포항 도수치료",
     "exposed": true,
@@ -2630,7 +2640,7 @@
     "web": {
      "present": true,
      "exposed": true,
-     "position": 25,
+     "position": 24,
      "label": "웹문서",
      "ambiguous": false,
      "top": [
@@ -2769,6 +2779,7 @@
    "kw": "도수치료",
    "type": "메인",
    "base": "도수치료",
+   "volume": null,
    "place": {
     "keyword": "도수치료",
     "exposed": false,
@@ -2935,7 +2946,7 @@
       },
       {
        "rank": 5,
-       "title": "도수치료 - 시사상식사전",
+       "title": "도수치료 관리급여 전환 위한 3종 고시 개정안 행정예고 &lt; 전체 &lt; 보도자료 &lt; 알림",
        "is_me": false
       }
      ]
@@ -2949,27 +2960,27 @@
      "top": [
       {
        "rank": 1,
-       "title": "“도수치료 대신 비슷한 치료”…정부 “모니터링”",
+       "title": "[스카이 View] 과잉진료 청구서… 선량한 환자에게 돌아왔다",
        "is_me": false
       },
       {
        "rank": 2,
-       "title": "[참성단] 도수치료",
+       "title": "“도수치료 대신 비슷한 치료”…정부 “모니터링”",
        "is_me": false
       },
       {
        "rank": 3,
-       "title": "'의료쇼핑' 잡는 도수치료 관리급여···장애인 재활치료도 같은 잣대...",
+       "title": "[참성단] 도수치료",
        "is_me": false
       },
       {
        "rank": 4,
-       "title": "쏟아지는 '복붙 의견'에 '민원 폭탄'까지…할 일 많은 복지부 &quot;울상&quot;",
+       "title": "'의료쇼핑' 잡는 도수치료 관리급여···장애인 재활치료도 같은 잣대...",
        "is_me": false
       },
       {
        "rank": 5,
-       "title": "거북목·일자목 증후군, 어쩌면 눈 피로·안구건조증의 숨은 원인",
+       "title": "쏟아지는 '복붙 의견'에 '민원 폭탄'까지…할 일 많은 복지부 &quot;울상&quot;",
        "is_me": false
       }
      ]
@@ -3048,6 +3059,7 @@
    "kw": "죽도동 무릎통증",
    "type": "동단위",
    "base": "무릎통증",
+   "volume": null,
    "place": {
     "keyword": "죽도동 무릎통증",
     "exposed": false,
@@ -3271,42 +3283,42 @@
  ],
  "location": {
   "radius_m": 1000,
-  "adm_cd": null,
-  "adm_nm": null,
-  "avg_age": null,
-  "density_basis": "기본값",
-  "population_radius": 40840,
-  "demand_score": 56.2,
-  "employee_density_km2": 0,
-  "commerce_score": 0.0,
+  "adm_cd": "37011",
+  "adm_nm": "경상북도포항시 남구",
+  "avg_age": 45.5,
+  "density_basis": "체감(인구가중)",
+  "population_radius": 10109,
+  "demand_score": 18.7,
+  "employee_density_km2": 1879,
+  "commerce_score": 7.2,
   "competitors": 16,
   "competition_score": 60.1,
-  "saturation_per_10k": 3.9,
-  "site_score": 46.9,
+  "saturation_per_10k": 15.8,
+  "site_score": 37.1,
   "radius_breakdown": {
    "500": {
     "competitors": 4,
     "competition_score": 53.9,
-    "demand_score": 56.2,
-    "population_radius": 10210
+    "demand_score": 18.7,
+    "population_radius": 2527
    },
    "1000": {
     "competitors": 16,
     "competition_score": 60.1,
-    "demand_score": 56.2,
-    "population_radius": 40840
+    "demand_score": 18.7,
+    "population_radius": 10109
    },
    "1500": {
     "competitors": 28,
     "competition_score": 63.8,
-    "demand_score": 56.2,
-    "population_radius": 91891
+    "demand_score": 18.7,
+    "population_radius": 22746
    },
    "2000": {
     "competitors": 35,
     "competition_score": 67.7,
-    "demand_score": 56.2,
-    "population_radius": 163362
+    "demand_score": 18.7,
+    "population_radius": 40438
    }
   },
   "competitor_list": [
@@ -3348,7 +3360,7 @@
  "benchmark": {
   "blog": 19,
   "cafe": 3,
-  "web": 22,
+  "web": 25,
   "news": 3,
   "image": 3,
   "kin": 3
@@ -3358,12 +3370,12 @@
   "basis": "상위 경쟁 3곳 평균(실측)"
  },
  "composite": {
-  "score": 49.3,
+  "score": 40.9,
   "measured_weight_pct": 89,
   "components": {
    "exposure": 37.5,
    "density": 60.1,
-   "demand": 56.2,
+   "demand": 18.7,
    "place": 67.0
   },
   "place_frac": 0.25
@@ -3391,9 +3403,9 @@
  "actions": [
   {
    "action_type": "keyword_coverage",
-   "title": "미노출 키워드 5개 커버리지 정비",
-   "explanation": "\"정형외과·포항 무릎통증·포항 오십견\" 등이 어느 영역에도 노출되지 않습니다. 실제 제공하는 진료라면 소개·진료항목·FAQ·블로그에 반영하세요.",
-   "evidence_metric": "키워드 12개 중 5개 전 영역 미노출",
+   "title": "미노출 키워드 4개 커버리지 정비",
+   "explanation": "\"정형외과·포항 무릎통증·포항 허리디스크\" 등이 어느 영역에도 노출되지 않습니다. 실제 제공하는 진료라면 소개·진료항목·FAQ·블로그에 반영하세요.",
+   "evidence_metric": "키워드 12개 중 4개 전 영역 미노출",
    "compliance_status": "safe",
    "priority": 1
   },
@@ -3409,7 +3421,15 @@
  "search_demand": {
   "available": false,
   "volumes": {},
-  "related": []
+  "related": [],
+  "vol_min": 20
+ },
+ "dropped_keywords": [],
+ "vol_filter": {
+  "available": false,
+  "min": 20,
+  "dropped": 0,
+  "kept": 12
  },
  "resolution": {
   "note": "",
@@ -3430,7 +3450,7 @@
  },
  "summary": {
   "place_hit": 5,
-  "content_hit": 7,
+  "content_hit": 8,
   "total": 12,
   "ambiguous": false
  },

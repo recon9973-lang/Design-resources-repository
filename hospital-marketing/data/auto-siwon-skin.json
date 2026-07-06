@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-07-06T11:01:45+00:00",
+ "generated_at": "2026-07-06T18:19:44+00:00",
  "business": {
   "rank": 1,
   "title": "시원마취통증의학과의원 시원스킨클리닉",
@@ -32,6 +32,7 @@
    "kw": "시원마취통증의학과의원 시원스킨클리닉",
    "type": "브랜드",
    "base": "시원마취통증의학과의원 시원스킨클리닉",
+   "volume": null,
    "place": {
     "keyword": "시원마취통증의학과의원 시원스킨클리닉",
     "exposed": true,
@@ -140,12 +141,12 @@
       },
       {
        "rank": 3,
-       "title": "시원마취통증의학과",
+       "title": "시원마취통증의학과 - 척추·관절·도수치료·피부/비만클리닉",
        "is_me": false
       },
       {
        "rank": 4,
-       "title": "시원마취통증의학과 - 척추·관절·도수치료·피부/비만클리닉",
+       "title": "시원마취통증의학과",
        "is_me": false
       },
       {
@@ -237,6 +238,7 @@
    "kw": "죽도동 피부관리",
    "type": "동단위",
    "base": "피부관리",
+   "volume": null,
    "place": {
     "keyword": "죽도동 피부관리",
     "exposed": false,
@@ -446,27 +448,27 @@
      "top": [
       {
        "rank": 1,
-       "title": "뷰티립스 고수의 피부 관리 서비스, 경북 포항시 - 숨고, 숨은고수 뷰티립스 고수의 피부 관리 서비스, 경북 포항시",
+       "title": "어본에스테 피부관리 포항점",
        "is_me": false
       },
       {
        "rank": 2,
-       "title": "이사랑 고수의 피부 관리 서비스, 경북 포항시 - 숨고, 숨은고수 이사랑 고수의 피부 관리 서비스, 경북 포항시",
+       "title": "뷰티립스 고수의 피부 관리 서비스, 경북 포항시 - 숨고, 숨은고수 뷰티립스 고수의 피부 관리 서비스, 경북 포항시",
        "is_me": false
       },
       {
        "rank": 3,
-       "title": "마사지샵 포항 미휴, 피부관리 커플 마사지 등 최대 60% 할인 이벤트 진행",
+       "title": "이사랑 고수의 피부 관리 서비스, 경북 포항시 - 숨고, 숨은고수 이사랑 고수의 피부 관리 서비스, 경북 포항시",
        "is_me": false
       },
       {
        "rank": 4,
-       "title": "포항시 죽도숯불촌,  백미10kg 100포와 라면 50상자 기탁",
+       "title": "마사지샵 포항 미휴, 피부관리 커플 마사지 등 최대 60% 할인 이벤트 진행",
        "is_me": false
       },
       {
        "rank": 5,
-       "title": "포항시 죽도숯불촌, 지역 불우이웃에 쌀 100포 전달",
+       "title": "포항시 죽도숯불촌,  백미10kg 100포와 라면 50상자 기탁",
        "is_me": false
       }
      ]
@@ -491,6 +493,7 @@
    "kw": "포항 피부관리",
    "type": "시단위",
    "base": "피부관리",
+   "volume": null,
    "place": {
     "keyword": "포항 피부관리",
     "exposed": false,
@@ -657,7 +660,7 @@
       },
       {
        "rank": 5,
-       "title": "포항피부과 라인미의원 생얼라인미부스터 리쥬란으로 피부관리후기",
+       "title": "포항 피부관리 파메스테틱 은샘뷰티 상도동 에스테틱",
        "is_me": false
       }
      ]
@@ -770,6 +773,7 @@
    "kw": "피부관리",
    "type": "메인",
    "base": "피부관리",
+   "volume": null,
    "place": {
     "keyword": "피부관리",
     "exposed": false,
@@ -863,12 +867,12 @@
       },
       {
        "rank": 4,
-       "title": "구로피부관리, 리쥬란힐러로 케어 받은 후기",
+       "title": "권선동피부관리 추천, 수원 예쁘다에스테틱 다녀온 솔직후기",
        "is_me": false
       },
       {
        "rank": 5,
-       "title": "안양피부관리 민감할 때 받았던 후기",
+       "title": "구로피부관리, 리쥬란힐러로 케어 받은 후기",
        "is_me": false
       }
      ]
@@ -882,27 +886,27 @@
      "top": [
       {
        "rank": 1,
-       "title": "의정부 피부관리 스킨케어",
+       "title": "의정부에스테틱 잘하는 의정부피부관리",
        "is_me": false
       },
       {
        "rank": 2,
-       "title": "목포 피부관리 웨디아 윤곽관리 후기",
+       "title": "청주피부관리 드디어 정착한곳 후기",
        "is_me": false
       },
       {
        "rank": 3,
-       "title": "피부관리",
+       "title": "목포 피부관리 웨디아 윤곽관리 후기",
        "is_me": false
       },
       {
        "rank": 4,
-       "title": "임산부 피부관리 어떻게 하고 계신가요?",
+       "title": "피부관리",
        "is_me": false
       },
       {
        "rank": 5,
-       "title": "피부관리사 자격증 준비과정 수업 후기",
+       "title": "임산부 피부관리 어떻게 하고 계신가요?",
        "is_me": false
       }
      ]
@@ -950,27 +954,27 @@
      "top": [
       {
        "rank": 1,
-       "title": "노지선, 여름 거리에서 포니테일 묶으며 전한 솔직 일상",
+       "title": "“모발-두피도 피부처럼 관리” 진화하는 홈헤어케어 상품",
        "is_me": false
       },
       {
        "rank": 2,
-       "title": "에이치피앤씨, 인터참 코리아 2026서 '테라비코스' 선보여…&quot;헬스케어 ...",
+       "title": "'탐정들의 영업비밀' 최초 해외 의뢰… 베트남 간다던 '딸바보' 남편의...",
        "is_me": false
       },
       {
        "rank": 3,
-       "title": "'레이시올로지', 론칭 2개월 만에 전국 한의원 400곳 입점",
+       "title": "노지선, 여름 거리에서 포니테일 묶으며 전한 솔직 일상",
        "is_me": false
       },
       {
        "rank": 4,
-       "title": "K-뷰티 열풍에 뷰티업계 다시 명동으로…의료·에스테틱 신규 출점 러시",
+       "title": "에이치피앤씨, 인터참 코리아 2026서 '테라비코스' 선보여…&quot;헬스케어 ...",
        "is_me": false
       },
       {
        "rank": 5,
-       "title": "더마 코스메틱 '레이시올로지' 론칭 2개월 만에 전국 400개 한의원 입점",
+       "title": "'레이시올로지', 론칭 2개월 만에 전국 한의원 400곳 입점",
        "is_me": false
       }
      ]
@@ -1049,6 +1053,7 @@
    "kw": "포항 여드름",
    "type": "증상",
    "base": "여드름",
+   "volume": null,
    "place": {
     "keyword": "포항 여드름",
     "exposed": false,
@@ -1127,12 +1132,12 @@
      "top": [
       {
        "rank": 1,
-       "title": "포항여드름치료 성인되어 더 고민이라면",
+       "title": "포항 피부관리 여드름 탈출 씨파우더 시작",
        "is_me": false
       },
       {
        "rank": 2,
-       "title": "포항 피부관리 여드름 탈출 씨파우더 시작",
+       "title": "포항여드름치료 성인되어 더 고민이라면",
        "is_me": false
       },
       {
@@ -1328,6 +1333,7 @@
    "kw": "포항 기미",
    "type": "증상",
    "base": "기미",
+   "volume": null,
    "place": {
     "keyword": "포항 기미",
     "exposed": false,
@@ -1607,6 +1613,7 @@
    "kw": "포항 모공",
    "type": "증상",
    "base": "모공",
+   "volume": null,
    "place": {
     "keyword": "포항 모공",
     "exposed": false,
@@ -1780,22 +1787,22 @@
       },
       {
        "rank": 2,
-       "title": "2026 소비자 선정 최고의 브랜드 대상",
+       "title": "대구 찾은 中 예비 왕홍들…K-뷰티 관광 ‘시동’",
        "is_me": false
       },
       {
        "rank": 3,
-       "title": "[Daily New유통] 이랜드 미쏘, NS홈쇼핑, 대교 外",
+       "title": "2026 소비자 선정 최고의 브랜드 대상",
        "is_me": false
       },
       {
        "rank": 4,
-       "title": "백악관 대변인 &quot;한국 화장품 최고&quot;…경주 방문 후 SNS 화제",
+       "title": "[Daily New유통] 이랜드 미쏘, NS홈쇼핑, 대교 外",
        "is_me": false
       },
       {
        "rank": 5,
-       "title": "&quot;천년고도에서 경험하는 K-뷰티&quot;…라한셀렉트 경주, 올리브영·한국관광...",
+       "title": "백악관 대변인 &quot;한국 화장품 최고&quot;…경주 방문 후 SNS 화제",
        "is_me": false
       }
      ]
@@ -1874,6 +1881,7 @@
    "kw": "포항 피부관리 추천",
    "type": "비교",
    "base": "피부관리",
+   "volume": null,
    "place": {
     "keyword": "포항 피부관리 추천",
     "exposed": false,
@@ -1991,17 +1999,17 @@
       },
       {
        "rank": 2,
-       "title": "포항피부과 자극 없이 피부 관리 잘하는 곳 있을까요?",
+       "title": "포항피부관리샵 어디가 괜찮을까요?",
        "is_me": false
       },
       {
        "rank": 3,
-       "title": "포항피부관리 찐맛집 후기",
+       "title": "포항피부과 자극 없이 피부 관리 잘하는 곳 있을까요?",
        "is_me": false
       },
       {
        "rank": 4,
-       "title": "포항피부관리샵 어디가 괜찮을까요?",
+       "title": "포항피부관리 찐맛집 후기",
        "is_me": false
       },
       {
@@ -2153,6 +2161,7 @@
    "kw": "죽도동 스킨케어",
    "type": "동단위",
    "base": "스킨케어",
+   "volume": null,
    "place": {
     "keyword": "죽도동 스킨케어",
     "exposed": false,
@@ -2341,27 +2350,27 @@
      "top": [
       {
        "rank": 1,
-       "title": "포항시 죽도숯불촌,  백미10kg 100포와 라면 50상자 기탁",
+       "title": "#오늘클립챌린지#포항마사지#포항바디관리#포항페이스관리#포항스킨케어",
        "is_me": false
       },
       {
        "rank": 2,
-       "title": "포항시 죽도숯불촌, 지역 불우이웃에 쌀 100포 전달",
+       "title": "포항시 죽도숯불촌,  백미10kg 100포와 라면 50상자 기탁",
        "is_me": false
       },
       {
        "rank": 3,
-       "title": "포항시 호텔 A1 죽도 | 2026년 최신 가격 & 프로모션 - 클룩 Klook 대한민국",
+       "title": "포항시 죽도숯불촌, 지역 불우이웃에 쌀 100포 전달",
        "is_me": false
       },
       {
        "rank": 4,
-       "title": "포항의 명품마을(16)-포항의 정치·문화·행정 1번지... 다양한 수산물 가득한 `죽도동`",
+       "title": "포항시 호텔 A1 죽도 | 2026년 최신 가격 & 프로모션 - 클룩 Klook 대한민국",
        "is_me": false
       },
       {
        "rank": 5,
-       "title": "포항시 죽도동, 사랑의 연탄 나누기 봉사 나서",
+       "title": "포항의 명품마을(16)-포항의 정치·문화·행정 1번지... 다양한 수산물 가득한 `죽도동`",
        "is_me": false
       }
      ]
@@ -2380,6 +2389,7 @@
    "kw": "포항 스킨케어",
    "type": "시단위",
    "base": "스킨케어",
+   "volume": null,
    "place": {
     "keyword": "포항 스킨케어",
     "exposed": false,
@@ -2536,17 +2546,17 @@
       },
       {
        "rank": 3,
-       "title": "포항 피부관리 더휴스킨케어에서 플라리온 관리후기",
+       "title": "@loveskincarepohang - Instagram",
        "is_me": false
       },
       {
        "rank": 4,
-       "title": "너무 시원했던 포항 거북목 건식 수기치료 행복만들기 스킨케어 솔직후기",
+       "title": "포항 피부관리 더휴스킨케어에서 플라리온 관리후기",
        "is_me": false
       },
       {
        "rank": 5,
-       "title": "[포항 장성동]포항수기 경락맛집 넌스킨케어 후기♀️",
+       "title": "너무 시원했던 포항 거북목 건식 수기치료 행복만들기 스킨케어 솔직후기",
        "is_me": false
       }
      ]
@@ -2659,6 +2669,7 @@
    "kw": "스킨케어",
    "type": "메인",
    "base": "스킨케어",
+   "volume": null,
    "place": {
     "keyword": "스킨케어",
     "exposed": false,
@@ -2771,12 +2782,12 @@
      "top": [
       {
        "rank": 1,
-       "title": "의정부 피부관리 스킨케어",
+       "title": "스킨케어 바르고 난 뒤",
        "is_me": false
       },
       {
        "rank": 2,
-       "title": "스킨케어 바르고 난 뒤",
+       "title": "스킨케어 추천해주세요",
        "is_me": false
       },
       {
@@ -2839,27 +2850,27 @@
      "top": [
       {
        "rank": 1,
-       "title": "&quot;공장 풀가동에 비용 감소까지…한국콜마, 본격적인 '돈 벌기' 타이밍 왔...",
+       "title": "샴푸·쿠키 같은 소비재 제품개발도 AI가 앞당긴다",
        "is_me": false
       },
       {
        "rank": 2,
-       "title": "&quot;터지는 인디 브랜드, 쏟아지는 미국 수주…코스메카코리아의 '행복한 ...",
+       "title": "‘K-뷰티 새 지평’ 레이시올로지, 론칭 2개월 만에 한의원 400곳 입점",
        "is_me": false
       },
       {
        "rank": 3,
-       "title": "&quot;공장이 모자랄 지경…코스맥스, 밀려드는 주문에 2분기 실적 '합격점'&quot;",
+       "title": "몽클로스, 발란사 18주년 기념 ‘취향을 담은’ 한정판 협업 컬렉션 출...",
        "is_me": false
       },
       {
        "rank": 4,
-       "title": "에이치피앤씨, 인터참 코리아 2026서 '테라비코스' 선보여…&quot;헬스케어 ...",
+       "title": "[이근상의 브랜드 스토리] 두 마리 말이 경주하던 과거는 갔다… 브랜드...",
        "is_me": false
       },
       {
        "rank": 5,
-       "title": "'레이시올로지', 론칭 2개월 만에 전국 한의원 400곳 입점",
+       "title": "&quot;의약품 기술력 입은 화장품&quot;…더마 시장 공략 나선 제약사",
        "is_me": false
       }
      ]
@@ -2938,6 +2949,7 @@
    "kw": "죽도동 피부",
    "type": "동단위",
    "base": "피부",
+   "volume": null,
    "place": {
     "keyword": "죽도동 피부",
     "exposed": false,
@@ -3089,12 +3101,12 @@
       },
       {
        "rank": 2,
-       "title": "죽도삼성의원 - 똑닥",
+       "title": "아름다운피부과의원 위치 · 후기 · 예약",
        "is_me": false
       },
       {
        "rank": 3,
-       "title": "아름다운피부과의원 위치 · 후기 · 예약",
+       "title": "김석주피부과의원 후기/가격/비용 (2026)",
        "is_me": false
       },
       {
@@ -3216,42 +3228,42 @@
  ],
  "location": {
   "radius_m": 1000,
-  "adm_cd": null,
-  "adm_nm": null,
-  "avg_age": null,
-  "density_basis": "기본값",
-  "population_radius": 40840,
-  "demand_score": 56.2,
-  "employee_density_km2": 0,
-  "commerce_score": 0.0,
+  "adm_cd": "37011",
+  "adm_nm": "경상북도포항시 남구",
+  "avg_age": 45.5,
+  "density_basis": "체감(인구가중)",
+  "population_radius": 10109,
+  "demand_score": 18.7,
+  "employee_density_km2": 1879,
+  "commerce_score": 7.2,
   "competitors": 16,
   "competition_score": 63.3,
-  "saturation_per_10k": 3.9,
-  "site_score": 48.5,
+  "saturation_per_10k": 15.8,
+  "site_score": 38.7,
   "radius_breakdown": {
    "500": {
     "competitors": 2,
     "competition_score": 69.0,
-    "demand_score": 56.2,
-    "population_radius": 10210
+    "demand_score": 18.7,
+    "population_radius": 2527
    },
    "1000": {
     "competitors": 16,
     "competition_score": 63.3,
-    "demand_score": 56.2,
-    "population_radius": 40840
+    "demand_score": 18.7,
+    "population_radius": 10109
    },
    "1500": {
     "competitors": 25,
     "competition_score": 65.5,
-    "demand_score": 56.2,
-    "population_radius": 91891
+    "demand_score": 18.7,
+    "population_radius": 22746
    },
    "2000": {
     "competitors": 43,
     "competition_score": 66.3,
-    "demand_score": 56.2,
-    "population_radius": 163362
+    "demand_score": 18.7,
+    "population_radius": 40438
    }
   },
   "competitor_list": [
@@ -3303,12 +3315,12 @@
   "basis": "상위 경쟁 3곳 평균(실측)"
  },
  "composite": {
-  "score": 37.1,
+  "score": 28.6,
   "measured_weight_pct": 89,
   "components": {
    "exposure": 8.3,
    "density": 63.3,
-   "demand": 56.2,
+   "demand": 18.7,
    "place": 67.0
   },
   "place_frac": 0.25
@@ -3362,7 +3374,15 @@
  "search_demand": {
   "available": false,
   "volumes": {},
-  "related": []
+  "related": [],
+  "vol_min": 20
+ },
+ "dropped_keywords": [],
+ "vol_filter": {
+  "available": false,
+  "min": 20,
+  "dropped": 0,
+  "kept": 12
  },
  "resolution": {
   "note": "",

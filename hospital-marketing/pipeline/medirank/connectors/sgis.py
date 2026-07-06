@@ -76,14 +76,22 @@ def area_stats(adm_cd: str, year: str = "2023") -> dict | None:
 STAGE_URL = "https://sgisapi.kostat.go.kr/OpenAPI3/addr/stage.json"
 
 
+# 도(道) 축약형 → SGIS 행정구역 표기(addr_name '경상북도' 등에 부분일치하도록).
+# 키워드용 축약('경북')은 SGIS addr_name의 부분문자열이 아니므로 확장해야 매칭된다.
+_SIDO_ALIAS = {"경북": "경상북", "경남": "경상남", "전북": "전라북",
+               "전남": "전라남", "충북": "충청북", "충남": "충청남"}
+
+
 def find_adm_cd(city: str, gu: str | None = None) -> str | None:
     """지역 이름으로 SGIS 행정구역 코드를 찾는다.
 
-    city 예: '대구', '서울' / gu 예: '수성구'. gu가 없으면 시도 코드 반환.
+    city 예: '대구', '서울', '경북'(→'경상북'으로 확장) / gu 예: '수성구'.
+    gu가 없으면 시도 코드 반환.
     """
     token = get_access_token()
     if not token or not city:
         return None
+    city = _SIDO_ALIAS.get(city, city)
     try:
         data = _get_json(STAGE_URL + "?" + urllib.parse.urlencode({"accessToken": token}))
         sido = next((r for r in data.get("result", [])
