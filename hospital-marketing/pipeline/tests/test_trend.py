@@ -70,6 +70,18 @@ class TestTrend(unittest.TestCase):
         self.assertEqual(t["deltas"]["place_hit"], 2)
 
 
+class TestNoShadowing(unittest.TestCase):
+    def test_main_does_not_shadow_module_cell(self):
+        # 회귀: 벤치마크 루프가 모듈함수 cell()을 지역변수로 가리면
+        # 진단 루프의 cell(ct[key]) 호출이 UnboundLocalError로 깨진다.
+        import dis
+        names = {i.argval for i in dis.get_instructions(ad.main)
+                 if i.opname == "STORE_FAST"}
+        self.assertNotIn("cell", names,
+                         "main()이 'cell'을 지역변수로 재사용하면 모듈함수 cell()이 가려짐")
+        self.assertTrue(callable(ad.cell))
+
+
 class TestPlaceQualityPartial(unittest.TestCase):
     def test_none_when_nothing_measured(self):
         pq = scoring.place_quality_partial()

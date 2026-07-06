@@ -1,0 +1,3180 @@
+{
+ "generated_at": "2026-07-06T10:31:04+00:00",
+ "business": {
+  "rank": 1,
+  "title": "시원마취통증의학과의원",
+  "address": "경상북도 포항시 북구 중흥로 239 1, 2층",
+  "address_jibun": "경상북도 포항시 북구 죽도동 609-9 1, 2층",
+  "category": "병원,의원>정형외과",
+  "link": "http://www.siwonclinic.co.kr/",
+  "telephone": "",
+  "description": "",
+  "longitude": 129.3593392,
+  "latitude": 36.0247043
+ },
+ "region": {
+  "city": "경상북",
+  "gu": "포항시",
+  "dong": "죽도동"
+ },
+ "classification": {
+  "is_hospital": true,
+  "dept": "정형외과",
+  "base_terms": [
+   "정형외과",
+   "도수치료",
+   "무릎통증"
+  ]
+ },
+ "keywords": [
+  {
+   "kw": "시원마취통증의학과의원",
+   "type": "브랜드",
+   "base": "시원마취통증의학과의원",
+   "place": {
+    "keyword": "시원마취통증의학과의원",
+    "exposed": false,
+    "rank": null,
+    "ambiguous": false,
+    "results": [
+     {
+      "rank": 1,
+      "title": "시원마취통증의학과의원",
+      "address": "서울특별시 종로구 종로 344 2층",
+      "address_jibun": "서울특별시 종로구 숭인동 310 2층",
+      "category": "병원,의원>마취통증의학과",
+      "link": "http://siwonpcc.itpage.kr/",
+      "telephone": "",
+      "description": "",
+      "longitude": 127.0161059,
+      "latitude": 37.5727249
+     },
+     {
+      "rank": 2,
+      "title": "서울숲시원마취통증의학과의원",
+      "address": "서울특별시 성동구 상원1길 26 서울숲A타워 2층(215호)",
+      "address_jibun": "서울특별시 성동구 성수동1가 656-591 서울숲A타워 2층(215호)",
+      "category": "병원,의원>정형외과",
+      "link": "https://blog.naver.com/siwonpain2020",
+      "telephone": "",
+      "description": "",
+      "longitude": 127.0484109,
+      "latitude": 37.5461768
+     },
+     {
+      "rank": 3,
+      "title": "상도시원마취통증의학과의원",
+      "address": "서울특별시 동작구 상도로 360 에이치제이360 3층, 4층",
+      "address_jibun": "서울특별시 동작구 상도동 475-9 에이치제이360 3층, 4층",
+      "category": "병원,의원>정형외과",
+      "link": "https://blog.naver.com/sdsiwon",
+      "telephone": "",
+      "description": "",
+      "longitude": 126.9530498,
+      "latitude": 37.4965065
+     },
+     {
+      "rank": 4,
+      "title": "시원마취통증의학과의원",
+      "address": "서울특별시 강서구 강서로 173 4층",
+      "address_jibun": "서울특별시 강서구 화곡동 1065-22 4층",
+      "category": "병원,의원>정형외과",
+      "link": "http://www.siwonpain.kr/",
+      "telephone": "",
+      "description": "",
+      "longitude": 126.8396261,
+      "latitude": 37.5419186
+     },
+     {
+      "rank": 5,
+      "title": "삼성시원마취통증의학과의원",
+      "address": "경기도 군포시 광정로 80 신원타워빌딩 204호",
+      "address_jibun": "경기도 군포시 산본동 1123-5 신원타워빌딩 204호",
+      "category": "병원,의원>정형외과",
+      "link": "http://sssiwon.com/",
+      "telephone": "",
+      "description": "",
+      "longitude": 126.9295774,
+      "latitude": 37.360178
+     }
+    ]
+   },
+   "content": {
+    "blog": {
+     "present": true,
+     "exposed": true,
+     "position": 1,
+     "label": "블로그",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "시원마취통증의학과 의원 야간진료 변경 안내",
+       "is_me": true
+      },
+      {
+       "rank": 2,
+       "title": "[포항시원마취통증의학과의원] 8월 여름휴가 휴진 안내",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "포항 시원마취통증의학과의원 땅콩형얼굴 관리 내돈내산",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "진주 시원 마취 통증의학과 의원 납품 사례",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "진주시원마취통증의학과의원, 아킬레스건염",
+       "is_me": false
+      }
+     ]
+    },
+    "cafe": {
+     "present": true,
+     "exposed": true,
+     "position": 1,
+     "label": "카페",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "****구인완료****산본역 [6월 11일 목요일] 군포시 산본 삼성시원마취통증의학과의원 에서 매뉴얼(수기) 아...",
+       "is_me": true
+      },
+      {
+       "rank": 2,
+       "title": "****구인완료****산본역 [5월 21일, 22일 목요일, 금요일] 군포시 산본 삼성시원마취통증의학과의원 에서 매...",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "****구인완료****[4월25일 토요일] 군포시 산본 삼성시원마취통증의학과의원 에서 매뉴얼(수기) 아르바이트...",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "****구인완료****[4월 24일 금요일, 4월 27일 월요일] 산본 삼성시원마취통증의학과의원 에서 매뉴얼(수기)...",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "****구인완료**** [4월 6일 월요일, 4월8일 수요일] 군포시 산본 삼성시원마취통증의학과의원 에서 매뉴얼(...",
+       "is_me": false
+      }
+     ]
+    },
+    "web": {
+     "present": true,
+     "exposed": true,
+     "position": 1,
+     "label": "웹문서",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "시원마취통증의학과",
+       "is_me": true
+      },
+      {
+       "rank": 2,
+       "title": "시원마취통증의학과",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "시원마취통증의학과 - 척추·관절·도수치료·피부/비만클리닉",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "시원마취통증의학과의원 위치 · 진료시간 · 후기 확인하기",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "시원마취통증의학과의원, 051-802-7541, 부산광역시 부산진구 중앙대로 773 5층 (부전동)",
+       "is_me": false
+      }
+     ]
+    },
+    "news": {
+     "present": true,
+     "exposed": true,
+     "position": 1,
+     "label": "뉴스",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "진주시지역아동센터연합회, 어린이날 기념행사 개최",
+       "is_me": true
+      },
+      {
+       "rank": 2,
+       "title": "진주시지역아동센터연합회 제4회 어린이날 기념행사",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "제60회 납세자의 날 모범납세자 포상명단",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "[명단] 제60회 납세자의 날 '모범납세자' 수상자 1052명",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "진주시원마취통증의학과의원 나눔 실천",
+       "is_me": false
+      }
+     ]
+    },
+    "image": {
+     "present": true,
+     "exposed": true,
+     "position": 1,
+     "label": "이미지",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "서울숲시원마취통증의학과의원",
+       "is_me": true
+      },
+      {
+       "rank": 2,
+       "title": "시원마취통증의학과의원 후기/가격/비용 (2026) | 모두닥",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "시원마취통증의학과의원 위치 · 진료시간 · 후기 확인하기",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "서울숲시원마취통증의학과의원 위치 · 진료시간 · 후기 확인하기",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "상도시원마취통증의학과의원 위치 · 진료시간 · 후기 확인하기",
+       "is_me": false
+      }
+     ]
+    },
+    "kin": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "지식iN",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "마취통증의학과 전문과정 궁금합니다",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "세란통마취통증의학과 의원",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "서울제일마취통증의학과의원에서내성발톱하나요?",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "생인손(조갑주위염) 치료 마취통증의학과의원으로 가도...",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "고려척척마취통증의학과의원",
+       "is_me": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "kw": "죽도동 정형외과",
+   "type": "동단위",
+   "base": "정형외과",
+   "place": {
+    "keyword": "죽도동 정형외과",
+    "exposed": true,
+    "rank": 1,
+    "ambiguous": false,
+    "results": [
+     {
+      "rank": 1,
+      "title": "시원마취통증의학과의원",
+      "address": "경상북도 포항시 북구 중흥로 239 1, 2층",
+      "address_jibun": "경상북도 포항시 북구 죽도동 609-9 1, 2층",
+      "category": "병원,의원>정형외과",
+      "link": "http://www.siwonclinic.co.kr/",
+      "telephone": "",
+      "description": "",
+      "longitude": 129.3593392,
+      "latitude": 36.0247043
+     },
+     {
+      "rank": 2,
+      "title": "포항건강마취통증의학과의원",
+      "address": "경상북도 포항시 북구 중흥로 206 4층",
+      "address_jibun": "경상북도 포항시 북구 죽도동 628-6 4층",
+      "category": "병원,의원>정형외과",
+      "link": "https://포항건강마취통증의학과.com",
+      "telephone": "",
+      "description": "",
+      "longitude": 129.3576909,
+      "latitude": 36.0219629
+     },
+     {
+      "rank": 3,
+      "title": "포항토마토정형외과의원",
+      "address": "경상북도 포항시 북구 죽도로 48",
+      "address_jibun": "경상북도 포항시 북구 죽도동 44-3",
+      "category": "병원,의원>정형외과",
+      "link": "http://cafe.naver.com/rheumane",
+      "telephone": "",
+      "description": "",
+      "longitude": 129.3654125,
+      "latitude": 36.032825
+     },
+     {
+      "rank": 4,
+      "title": "상쾌한항구병원",
+      "address": "경상북도 포항시 북구 중흥로 265 성원메디컬 3,4층",
+      "address_jibun": "경상북도 포항시 북구 죽도동 207-2 성원메디컬 3,4층",
+      "category": "병원,의원>대장,항문과",
+      "link": "http://www.hang-mun.com/",
+      "telephone": "",
+      "description": "",
+      "longitude": 129.3607365,
+      "latitude": 36.0265645
+     },
+     {
+      "rank": 5,
+      "title": "오학윤정형외과의원",
+      "address": "경상북도 포항시 북구 포스코대로 245 오학윤정형외과의원",
+      "address_jibun": "경상북도 포항시 북구 죽도동 639-30 오학윤정형외과의원",
+      "category": "병원,의원>정형외과",
+      "link": "",
+      "telephone": "",
+      "description": "",
+      "longitude": 129.3521644,
+      "latitude": 36.022701
+     }
+    ]
+   },
+   "content": {
+    "blog": {
+     "present": true,
+     "exposed": true,
+     "position": 1,
+     "label": "블로그",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "죽도동 정형외과 진료 오십견 어깨통증, 기능적근육내자극치료...",
+       "is_me": true
+      },
+      {
+       "rank": 2,
+       "title": "죽도동정형외과 팔꿈치 통증 계속 되면서",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "죽도동정형외과질환 몸이 붓는 부종 고민이라면",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "죽도동정형외과질환 일자목 바로잡아주는 이곳",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "죽도동정형외과질환 흐트러진 척추를 제자리로",
+       "is_me": false
+      }
+     ]
+    },
+    "cafe": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "카페",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "욕실에서 꽈당 ㅠㅠ 죽도동 근처 정형외과 추천 부탁드려여",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "죽도동 대한정형외과 아시는분",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "죽도동 부근으로 정형외과&amp;도수치료 잘하는곳 추천이요~",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "죽도동 죽파근처 정형외과 있나요?이동튼튼다니고 있는데 더가깝고 괜찮은곳 혹시 있나해서요...",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "죽도동 소아과",
+       "is_me": false
+      }
+     ]
+    },
+    "web": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "웹문서",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "죽도동 정형외과 | 13개 병원 비교",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "죽도동 전체 병원 비교 | 정형외과 (2026)",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "김지홍정형외과의원 후기/가격/비용 (2026)",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "죽도동정형외과질환 무릎이 쑤시고 통증으로 인해 계단 오르기 힘들다면",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "죽도동 야간 진료 병원 비교 | 정형외과 (2026)",
+       "is_me": false
+      }
+     ]
+    },
+    "news": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "뉴스",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "포항시-7개 로타리클럽, 취약계층에 '대상포진' 예방 접종 비용 지원 협...",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "포항시, 복지사각지대 취약계층에 건강한 생활 돕는다",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "포항시, 7개 로타리클럽과 취약계층 대상포진 예방접종 비용 지원 협약",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "포항시, 로타리클럽과 손잡고 취약계층 대상포진 예방접종 비용 지원",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "민·관 복지사각 지대 의료해소 손 잡고 나서",
+       "is_me": false
+      }
+     ]
+    },
+    "image": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "이미지",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "죽송정형외과의원",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "에스포항병원, 정형외과 전문의 영입",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "탄탄한 정형외과의원 위치 · 진료시간 · 후기 확인하기",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "건강한정형외과의원 위치 · 진료시간 · 후기 확인하기",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "서울에스와이(SY)정형외과의원 위치 · 진료시간 · 후기 확인하기",
+       "is_me": false
+      }
+     ]
+    },
+    "kin": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "지식iN",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "포항죽도동쪽에 잘보는 정형외과 추천좀",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "포항에서 물리치료 잘하는 정형외과나 재활의학과...",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "포항 장성동에 위치한 시티병원요...",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "포항역에서 칠포해수욕장 가는 방법이요. ^ㅡ^",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "오른쪽 뇌가 가끔씩 찌릿찌릿하게 아픈것은...",
+       "is_me": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "kw": "포항시 정형외과",
+   "type": "구단위",
+   "base": "정형외과",
+   "place": {
+    "keyword": "포항시 정형외과",
+    "exposed": true,
+    "rank": 5,
+    "ambiguous": false,
+    "results": [
+     {
+      "rank": 1,
+      "title": "포항연세정형외과의원",
+      "address": "경상북도 포항시 남구 시청로 18 퍼스트힐 201호",
+      "address_jibun": "경상북도 포항시 남구 대잠동 1003 퍼스트힐 201호",
+      "category": "병원,의원>정형외과",
+      "link": "https://www.pohangyonsei.com/",
+      "telephone": "",
+      "description": "",
+      "longitude": 129.3404491,
+      "latitude": 36.0181738
+     },
+     {
+      "rank": 2,
+      "title": "범성 정형외과의원",
+      "address": "경상북도 포항시 북구 천마로 54",
+      "address_jibun": "경상북도 포항시 북구 양덕동 1402",
+      "category": "병원,의원>정형외과",
+      "link": "https://bumsungos.com/",
+      "telephone": "",
+      "description": "",
+      "longitude": 129.3971479,
+      "latitude": 36.0814294
+     },
+     {
+      "rank": 3,
+      "title": "등정형외과의원",
+      "address": "경상북도 포항시 남구 중앙로 102",
+      "address_jibun": "경상북도 포항시 남구 해도동 46-2",
+      "category": "병원,의원>정형외과",
+      "link": "https://www.doctorzone.co.kr/headoffice/index.php",
+      "telephone": "",
+      "description": "",
+      "longitude": 129.3689818,
+      "latitude": 36.0223354
+     },
+     {
+      "rank": 4,
+      "title": "닥터존정형외과의원 포항",
+      "address": "경상북도 포항시 북구 삼호로 287 존메디컬빌딩 2, 3, 4층",
+      "address_jibun": "경상북도 포항시 북구 두호동 1087-3 존메디컬빌딩 2, 3, 4층",
+      "category": "병원,의원>정형외과",
+      "link": "https://blog.naver.com/carrot6577",
+      "telephone": "",
+      "description": "",
+      "longitude": 129.3818559,
+      "latitude": 36.0633878
+     },
+     {
+      "rank": 5,
+      "title": "시원마취통증의학과의원",
+      "address": "경상북도 포항시 북구 중흥로 239 1, 2층",
+      "address_jibun": "경상북도 포항시 북구 죽도동 609-9 1, 2층",
+      "category": "병원,의원>정형외과",
+      "link": "http://www.siwonclinic.co.kr/",
+      "telephone": "",
+      "description": "",
+      "longitude": 129.3593392,
+      "latitude": 36.0247043
+     }
+    ]
+   },
+   "content": {
+    "blog": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "블로그",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "포항시정형외과 통증 케어를",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "포항시 북구 정형외과 진료 발바닥통증의 원인 족저근막염의...",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "포항시정형외과질환 목뼈를 바로 잡는 추나요법",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "포항시 북구 정형외과 일요일 진료, 도수치료, 물리치료｜척추...",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "포항시 정형외과 광고대행 제대로 된 서비스를 만나봐야 하는...",
+       "is_me": false
+      }
+     ]
+    },
+    "cafe": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "카페",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "포항 일요일 피부과 정형외과 산부인과 한의원 안과 치과 문여는곳 찾기",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "메디114-4월 개원현황 전국 124개 의원·병원 개원, 소아청소년과·이비인후과·정형외과 강세",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "여기는 포항입니다",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "5월 개원현황, 전체 95개 의원·병원 개원, 내과 및 정형외과 개원 강세",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "포항 바로정형외과 물리치료사 구인합니다.",
+       "is_me": false
+      }
+     ]
+    },
+    "web": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "웹문서",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "포항1정형외과의원 후기/가격/비용 (2026)",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "성모정형외과의원 후기/가격/비용 (2026)",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "등정형외과의원 - 똑닥",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "포항1정형외과의원 위치 · 진료시간 · 후기 확인하기",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "포항1정형외과의원 | 경북 포항북구 흥해읍 의원",
+       "is_me": false
+      }
+     ]
+    },
+    "news": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "뉴스",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "&lt;화보&gt; 제10회 포항철강마라톤",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "포항 세명기독병원, 팔꿈치 골절·불안정성 '최적 치료법' 제시... 세계...",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "해병대 1사단 의무대대, 포항 기계면 주민 대상 ‘찾아가는 의료지원’...",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "해병대 1사단 의무대대, 기계면 주민 대상 ‘찾아가는 의료지원’",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "좋은선린병원–포항시태권도협회, 스포츠 의료 협력 MOU 체결",
+       "is_me": false
+      }
+     ]
+    },
+    "image": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "이미지",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "좋은병원들-공지사항 좋은병원들",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "휴먼본정형외과의원 위치 · 진료시간 · 후기 확인하기",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "포항1정형외과의원 : 방사선사 | 더팀스 방사선사 by 포항1정형외과의원",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "포항연세정형외과의원",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "에스포항병원, 정형외과 전문의 영입",
+       "is_me": false
+      }
+     ]
+    },
+    "kin": {
+     "present": true,
+     "exposed": true,
+     "position": 11,
+     "label": "지식iN",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "포항시 북구 흥해읍 우리들 연합 정형외과!!",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "포항시 장성동 장성요양병원[내공30]",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "저는 88세 남성입니다. 경북 포항시 북구 기계면에 거",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "주말 정형외과",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "포항시에서 유명한외과 (내성발톱 전문)",
+       "is_me": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "kw": "경상북 정형외과",
+   "type": "시단위",
+   "base": "정형외과",
+   "place": {
+    "keyword": "경상북 정형외과",
+    "exposed": false,
+    "rank": null,
+    "ambiguous": false,
+    "results": []
+   },
+   "content": {
+    "blog": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "블로그",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "[경상북도]경상북도 김천의료원 [慶尙北道...",
+       "is_me": false
+      }
+     ]
+    },
+    "cafe": {
+     "present": false,
+     "exposed": false,
+     "position": null,
+     "label": "카페",
+     "ambiguous": false,
+     "top": []
+    },
+    "web": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "웹문서",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "경상북도 전체 정형외과 의원 순위 3 페이지",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "경상북도 전체 정형외과 의원 순위 5 페이지",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "우리들연합정형외과의원, 054-262-5556, 경상북도 포항시 북구 흥해읍 한동로 42 (흥해읍)",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "유강연합의원 | 포항시 내과・정형외과 후기 10개 평점 4.7",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "구미큰나무정형외과의원, 054-473-8575, 경상북도 구미시 인동중앙로10길 4 지하1,지상1,4층 (인의동)",
+       "is_me": false
+      }
+     ]
+    },
+    "news": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "뉴스",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "권규호 예천권병원 원장, 경북도민상 수상",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "권규호 예천권병원 원장, 경북도민상 수상",
+       "is_me": false
+      }
+     ]
+    },
+    "image": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "이미지",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "환자 받는 정형외과",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "\"지역 최고 정형외과 전문병원 만들 것\"",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "[병원 열전] 입원실 없는 정형외과 10년… '비수술 메카'로 우뚝",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "경상대병원 정형외과 유준일 교수, 대한정형외과학회 젊은 연구자상 수상",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "3대가 찾는 병원…정형외과-치매센터 입소문",
+       "is_me": false
+      }
+     ]
+    },
+    "kin": {
+     "present": false,
+     "exposed": false,
+     "position": null,
+     "label": "지식iN",
+     "ambiguous": false,
+     "top": []
+    }
+   }
+  },
+  {
+   "kw": "정형외과",
+   "type": "메인",
+   "base": "정형외과",
+   "place": {
+    "keyword": "정형외과",
+    "exposed": false,
+    "rank": null,
+    "ambiguous": false,
+    "results": [
+     {
+      "rank": 1,
+      "title": "연세공감마취통증의학과의원 을지로",
+      "address": "서울특별시 중구 남대문로9길 40 센터플레이스 3층",
+      "address_jibun": "서울특별시 중구 다동 155 센터플레이스 3층",
+      "category": "병원,의원>정형외과",
+      "link": "https://blog.naver.com/gonggampain",
+      "telephone": "",
+      "description": "",
+      "longitude": 126.980583,
+      "latitude": 37.5670584
+     },
+     {
+      "rank": 2,
+      "title": "우리본정형외과의원",
+      "address": "서울특별시 중구 청계천로 14 2층",
+      "address_jibun": "서울특별시 중구 무교동 77 2층",
+      "category": "병원,의원>정형외과",
+      "link": "http://wooribone.com",
+      "telephone": "",
+      "description": "",
+      "longitude": 126.9786682,
+      "latitude": 37.5688241
+     },
+     {
+      "rank": 3,
+      "title": "스마일마취통증의학과의원",
+      "address": "서울특별시 종로구 새문안로 89 정우빌딩 8층",
+      "address_jibun": "서울특별시 종로구 신문로1가 25 정우빌딩 8층",
+      "category": "병원,의원>정형외과",
+      "link": "http://www.smile-hospital.co.kr",
+      "telephone": "",
+      "description": "",
+      "longitude": 126.9745322,
+      "latitude": 37.5704736
+     },
+     {
+      "rank": 4,
+      "title": "광화문 참바른정형외과의원",
+      "address": "서울특별시 종로구 무교로 39 3, 4, 5, 6층",
+      "address_jibun": "서울특별시 종로구 서린동 145-1 3, 4, 5, 6층",
+      "category": "병원,의원>정형외과",
+      "link": "https://chambarunclinic.com/",
+      "telephone": "",
+      "description": "",
+      "longitude": 126.979092,
+      "latitude": 37.5695266
+     },
+     {
+      "rank": 5,
+      "title": "성모웰니스마취통증의학과의원",
+      "address": "서울특별시 중구 서소문로 138 대한일보빌딩 4층",
+      "address_jibun": "서울특별시 중구 태평로2가 340-6 대한일보빌딩 4층",
+      "category": "병원,의원>정형외과",
+      "link": "https://blog.naver.com/stmarypain",
+      "telephone": "",
+      "description": "",
+      "longitude": 126.9763792,
+      "latitude": 37.5637561
+     }
+    ]
+   },
+   "content": {
+    "blog": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "블로그",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "천안 정형외과 추천 회전근개파열의 모든 점",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "당산 일요일 정형외과 목디스크 치료, 초기에 관리하는 것이...",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "천안 쌍용동 정형외과 병원 베드매트제작&amp;의자천갈이",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "피부과,이비인후과,정형외과,내과 개원 창업 환영. 학원...",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "오산정형외과 관절 통증 케어를",
+       "is_me": false
+      }
+     ]
+    },
+    "cafe": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "카페",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "활막육종 수술 후 정형외과 외래+종양내과 외래 결과 (아산도 홀록산 품절 이슈..)",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "대구 소아정형외과",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "어깨통증 정형외과 가보신 분 계실까요?",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "정형외과 허리 지금 가야 할까요",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "정형외과추천",
+       "is_me": false
+      }
+     ]
+    },
+    "web": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "웹문서",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "정형외과 - 나무위키",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "정형외과 - 경희의료원",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "정형외과 - 의료진소개 &gt; 진료과/의료진 &gt; 진료안내",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "정형외과 - 국민건강보험 일산병원",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "정형외과 - 서울아산병원",
+       "is_me": false
+      }
+     ]
+    },
+    "news": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "뉴스",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "이춘택병원, 박기철 척추외과 과장 영입…&quot;척추센터 진료 강화&quot;",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "한림대춘천성심병원, 바이오·헬스케어 혁신 성장 위한 '강원 브릿지 오...",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "발목 관절염, 심해질수록 당뇨·심혈관질환 등 대사질환 위험 증가",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "무릎 인대·연골 손상, 방치하면 '퇴행성 관절염' 지름길",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "서울아산병원, 국제적 연구 경쟁력 인정 … '네이처 인덱스' 국내 1위",
+       "is_me": false
+      }
+     ]
+    },
+    "image": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "이미지",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "제이엘정형외과의원 마곡",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "서울튼튼정형외과의원",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "길음 오르세정형외과, 정형외과 전문의 진료 진행",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "창동으뜸정형외과의원",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "올바른정형외과의원 위치 · 진료시간 · 후기 확인하기",
+       "is_me": false
+      }
+     ]
+    },
+    "kin": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "지식iN",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "정형외과신경외과 선택",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "정형외과 문의",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "마포구 어깨 정형외과 추천(마포구 어깨인대파열)",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "개인정형외과 내용증명 보내도 될까요?",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "(정형외과):무릎이 아픕니다",
+       "is_me": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "kw": "포항시 무릎통증",
+   "type": "증상",
+   "base": "무릎통증",
+   "place": {
+    "keyword": "포항시 무릎통증",
+    "exposed": false,
+    "rank": null,
+    "ambiguous": false,
+    "results": [
+     {
+      "rank": 1,
+      "title": "범성 정형외과의원",
+      "address": "경상북도 포항시 북구 천마로 54",
+      "address_jibun": "경상북도 포항시 북구 양덕동 1402",
+      "category": "병원,의원>정형외과",
+      "link": "https://bumsungos.com/",
+      "telephone": "",
+      "description": "",
+      "longitude": 129.3971479,
+      "latitude": 36.0814294
+     },
+     {
+      "rank": 2,
+      "title": "참좋은마취통증의학과의원",
+      "address": "경상북도 포항시 북구 포스코대로 288 3층",
+      "address_jibun": "경상북도 포항시 북구 죽도동 644-12 3층",
+      "category": "건강,의료>병원,의원",
+      "link": "",
+      "telephone": "",
+      "description": "",
+      "longitude": 129.3552275,
+      "latitude": 36.0200026
+     },
+     {
+      "rank": 3,
+      "title": "민경신마취통증의학과의원",
+      "address": "경상북도 포항시 북구 두호로 26 롯데리아 3층 301호",
+      "address_jibun": "경상북도 포항시 북구 두호동 1025-4 롯데리아 3층 301호",
+      "category": "병원,의원>마취통증의학과",
+      "link": "",
+      "telephone": "",
+      "description": "",
+      "longitude": 129.3755497,
+      "latitude": 36.0601974
+     },
+     {
+      "rank": 4,
+      "title": "튜브락 포항점",
+      "address": "경상북도 포항시 북구 중앙로 239",
+      "address_jibun": "경상북도 포항시 북구 죽도동 42-5",
+      "category": "신발>건강신발",
+      "link": "https://blog.naver.com/tublockpohang",
+      "telephone": "",
+      "description": "",
+      "longitude": 129.3653811,
+      "latitude": 36.0342145
+     },
+     {
+      "rank": 5,
+      "title": "시티병원",
+      "address": "경상북도 포항시 북구 장량로31번길 56",
+      "address_jibun": "경상북도 포항시 북구 장성동 1495-1",
+      "category": "건강,의료>병원,의원",
+      "link": "http://www.cthospital.net/",
+      "telephone": "",
+      "description": "",
+      "longitude": 129.3851875,
+      "latitude": 36.0876736
+     }
+    ]
+   },
+   "content": {
+    "blog": {
+     "present": true,
+     "exposed": true,
+     "position": 5,
+     "label": "블로그",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "포항시정형외과 통증 케어를",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "포항시 북구 정형외과... 6곳 추천  무릎 어깨 연골 통증 재활",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "포항시 북구 정형외과 일요일... 발가락, 무릎, 관절염, 후기...",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "포항시도수치료 병원 무릎통증 재활을",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "포항무릎통증  효과적인 치료법이 있는  포항시원통증으로...",
+       "is_me": true
+      }
+     ]
+    },
+    "cafe": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "카페",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "인천무릎관절염 치료 걱정말고",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "인천무릎통증 한의원 야간에도",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "구월동 족저근막염 치료 만수동 만족감을 위해",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "국립발레단 출신 강승현 선생님 레슨 오픈",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "동탄허리통증 치료 동탄 허리디스크주사",
+       "is_me": false
+      }
+     ]
+    },
+    "web": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "웹문서",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "무릎 - 포항건강마취통증의학과",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "포항시 북구 무릎통증 전문 병원 추천, 꼭 가봐야 할 4곳!",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "포항정형외과추천 퇴행성관절염으로 인한 무릎관절통, 비수술 치료 가능할까?",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "포항무릎통증 부위별 원인과 자향한의원 치료",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "포항북구주말한의원 골반 무릎통증 방치하지 말고 조기 관리가 필요합니다",
+       "is_me": false
+      }
+     ]
+    },
+    "news": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "뉴스",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "포항시 북구 흥해읍 영일만대로 4중 추돌.. 2명 경상",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "포항 흥해읍 4중 추돌...2명 부상",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "박정희가 심고 김대중이 가꿨다... 산림 복구에 성공한 유일한 나라, 한...",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "이재명 대통령 공약 ‘아프면 쉴 권리 상병수당’ 순천시 2년 6개월 해보...",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "[7일 오늘의 사건사고①]경남 김해 어방동 한 삼거리 교차로 인근서 치...",
+       "is_me": false
+      }
+     ]
+    },
+    "image": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "이미지",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "포항의료원, 만성 무릎통증 문제해결 `인공슬관절치환수술` 2천500례 달성",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "젊다고 방심하면 안 되는 무릎 통증…초기 관리가 핵심",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "남성 무릎 통증",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "男보다 심한… 참을수 없는 무릎통증",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "무릎 통증 치료, 정확한 원인 알고 접근하는 것이 중요 : 건강검진정보",
+       "is_me": false
+      }
+     ]
+    },
+    "kin": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "지식iN",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "있나요? (포항 포항시 30대후반/남 무릎통증)",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "(포항 포항시 40대초반/남 무릎통증 체외충격파)",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "포항시 상도동 40대중반/여 퇴행성무릎관절염 무릎통증)",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "괜찮을까요? (포항시 30대초반/여 교통사고 후유증)",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "(포항시 남구 80대중반/남 무릎 관절 수술 후 재활)",
+       "is_me": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "kw": "포항시 오십견",
+   "type": "증상",
+   "base": "오십견",
+   "place": {
+    "keyword": "포항시 오십견",
+    "exposed": false,
+    "rank": null,
+    "ambiguous": false,
+    "results": [
+     {
+      "rank": 1,
+      "title": "제이마디정형외과의원",
+      "address": "경상북도 포항시 북구 천마로 96",
+      "address_jibun": "경상북도 포항시 북구 양덕동 1364",
+      "category": "병원,의원>정형외과",
+      "link": "http://www.jmadi.co.kr/",
+      "telephone": "",
+      "description": "",
+      "longitude": 129.397111,
+      "latitude": 36.0850971
+     },
+     {
+      "rank": 2,
+      "title": "형통한마취통증의학과의원",
+      "address": "경상북도 포항시 남구 상공로 136 1층",
+      "address_jibun": "경상북도 포항시 남구 대도동 96-6 1층",
+      "category": "병원,의원>마취통증의학과",
+      "link": "http://www.hpain.co.kr/",
+      "telephone": "",
+      "description": "",
+      "longitude": 129.362192,
+      "latitude": 36.0193914
+     },
+     {
+      "rank": 3,
+      "title": "참사랑송광한의원",
+      "address": "경상북도 포항시 남구 연일읍 연일로159번길 30 참사랑송광한의원",
+      "address_jibun": "경상북도 포항시 남구 연일읍 생지리 206-1 참사랑송광한의원",
+      "category": "병원,의원>한의원",
+      "link": "https://blog.naver.com/haitem99",
+      "telephone": "",
+      "description": "",
+      "longitude": 129.3470391,
+      "latitude": 35.9962788
+     },
+     {
+      "rank": 4,
+      "title": "행복지압안마원",
+      "address": "경상북도 포항시 북구 중흥로226번길 7 1층",
+      "address_jibun": "경상북도 포항시 북구 죽도동 615-10 1층",
+      "category": "미용>안마,마사지,지압",
+      "link": "",
+      "telephone": "",
+      "description": "",
+      "longitude": 129.359464,
+      "latitude": 36.0232264
+     },
+     {
+      "rank": 5,
+      "title": "리핏운동재활센터",
+      "address": "경상북도 경주시 광중3길 56-16 2층 리핏운동재활센터",
+      "address_jibun": "경상북도 경주시 용강동 1718-1 2층 리핏운동재활센터",
+      "category": "스포츠,오락>스포츠시설",
+      "link": "https://blog.naver.com/tnt062",
+      "telephone": "",
+      "description": "",
+      "longitude": 129.2312731,
+      "latitude": 35.8853265
+     }
+    ]
+   },
+   "content": {
+    "blog": {
+     "present": true,
+     "exposed": true,
+     "position": 11,
+     "label": "블로그",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "포항시한의원, 이럴 때 오십견이 생겨요!",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "포항시북구한의원 어깨통증 오십견 이외에도 이런 이유가",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "격투기 선수의 오십견 치료 후기 수압팽창술 &amp; 관절수동술 후기",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "포항시한의원 추천으로 어깨가 올라가지 않는 증상을 치료",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "포항 오십견, 어깨가 안 올라간다면? 원인과 감별 포인트 안내...",
+       "is_me": false
+      }
+     ]
+    },
+    "cafe": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "카페",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "경북 포항시/목디스크/동네병원",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "경북포항시/목디스크/포항성모병원",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "안녕하세요",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "수술후 3주",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "only 강서맘회원 위한 스페샬혜택 주는 광고업체 리스트[2025년 4월]",
+       "is_me": false
+      }
+     ]
+    },
+    "web": {
+     "present": true,
+     "exposed": true,
+     "position": 11,
+     "label": "웹문서",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "오십견 : 유착성관절낭염",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "움츠러드는 어깨로 틍증을 느끼신다면? | 경상북도 포항시 북구 두호동 | 정형외과",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "오십견 때문에 속옷 입기 힘드셨다면 | 경상북도 포항시 북구 양덕동 | 필라테스",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "오십견 어깨통증으로 뒷좌석 물건 잡기 어려워, 포항북구 추나요법 한의원",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "포항오천정형외과에서 알려드리는 어깨 통증의 원인, 회전근개파열부터 오십견까지",
+       "is_me": false
+      }
+     ]
+    },
+    "news": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "뉴스",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "앙카 혈관염 환자, 류마티스 인자 보유하면 근육통ㆍ관절통 증상 심해 ...",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "포항 평생학습원, 여름철 시민 건강 특강",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "포항시, 평생학습원 여름철 시민 건강 특강 개최",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "포항 정한의원, 아토피 피부염 진료 특화…치료제 직접 개발",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "포항 장량동 양덕상가번영회, 한방 의료봉사",
+       "is_me": false
+      }
+     ]
+    },
+    "image": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "이미지",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "포항시의회 이상범 경제산업위원장, 경북 최다 조례안 발의",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "네이버 인플루언서 [네이버 인플루언서] &#10;안녕하세요. 사진찍는 보근 입니다.&#10;현재 인스타그램, 페이스북을 포함한 모든 SNS를...",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "person in black pants and black socks photo – Free Apparel Image on Unsplash Photo by Liz Harrell on Unsplash",
+       "is_me": false
+      }
+     ]
+    },
+    "kin": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "지식iN",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "오십견 어깨통증 한방병원(포항 포항시 오십견)",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "오십견으로 인한 어깨통증 한방병원 추나요법...",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "(포항 포항시 30대후반/남 회전근개파열...",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "부끄럽지만 제얼굴어떤가요",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "어려보이는 것도 짜증나 죽겠어요ㅜㅜ",
+       "is_me": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "kw": "포항시 허리디스크",
+   "type": "증상",
+   "base": "허리디스크",
+   "place": {
+    "keyword": "포항시 허리디스크",
+    "exposed": false,
+    "rank": null,
+    "ambiguous": false,
+    "results": [
+     {
+      "rank": 1,
+      "title": "범성 정형외과의원",
+      "address": "경상북도 포항시 북구 천마로 54",
+      "address_jibun": "경상북도 포항시 북구 양덕동 1402",
+      "category": "병원,의원>정형외과",
+      "link": "https://bumsungos.com/",
+      "telephone": "",
+      "description": "",
+      "longitude": 129.3971479,
+      "latitude": 36.0814294
+     },
+     {
+      "rank": 2,
+      "title": "시티병원",
+      "address": "경상북도 포항시 북구 장량로31번길 56",
+      "address_jibun": "경상북도 포항시 북구 장성동 1495-1",
+      "category": "건강,의료>병원,의원",
+      "link": "http://www.cthospital.net/",
+      "telephone": "",
+      "description": "",
+      "longitude": 129.3851875,
+      "latitude": 36.0876736
+     },
+     {
+      "rank": 3,
+      "title": "포항우리병원",
+      "address": "경상북도 포항시 북구 포스코대로 256",
+      "address_jibun": "경상북도 포항시 북구 죽도동 646-15",
+      "category": "병원,의원>신경외과",
+      "link": "http://pohangwoori.com",
+      "telephone": "",
+      "description": "",
+      "longitude": 129.3523389,
+      "latitude": 36.0215497
+     },
+     {
+      "rank": 4,
+      "title": "환호한의원",
+      "address": "경상북도 포항시 북구 새천년대로 1314 3층",
+      "address_jibun": "경상북도 포항시 북구 장성동 1442-1 3층",
+      "category": "병원,의원>한의원",
+      "link": "http://hwanho.n-c.co.kr/main.html",
+      "telephone": "",
+      "description": "",
+      "longitude": 129.3909134,
+      "latitude": 36.0753721
+     },
+     {
+      "rank": 5,
+      "title": "양덕열린한의원",
+      "address": "경상북도 포항시 북구 법원로 175",
+      "address_jibun": "경상북도 포항시 북구 양덕동 463-3",
+      "category": "병원,의원>한의원",
+      "link": "http://openhani.co.kr",
+      "telephone": "",
+      "description": "",
+      "longitude": 129.3876508,
+      "latitude": 36.0903915
+     }
+    ]
+   },
+   "content": {
+    "blog": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "블로그",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "포항시허리디스크 병원 주말진료 케어를",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "포항시허리디스크 허리 건강을",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "포항시허리디스크 병원 원인 파악을",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "포항시 남빈동 척바른재활의학과 - 허리디스크",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "허리디스크도 원인에 따라 포항시정형외과질환에서",
+       "is_me": false
+      }
+     ]
+    },
+    "cafe": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "카페",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "허리디스크 치료 성공",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "경북 포항시/목디스크/동네병원",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "시흥 허리디스크치료 한의원 학익동 불안했나요",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "쿠디 9.0 쉘터+면라이너+그라운드시트 (카키)",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "경북포항시/목디스크/포항성모병원",
+       "is_me": false
+      }
+     ]
+    },
+    "web": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "웹문서",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "에스포항병원 ㅣ 척추센터",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "경산에서 포항까지! 허리 디스크 회복❗️ | 경상북도 포항시 북구 양덕동 | 건강/운동클래스",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "허리디스크가 신경을 눌렀을 때, 포항북구 추나 한의원",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "포항정형외과 허리디스크로 인한 다리 저림, 어떤 치료가 필요할까?",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "허리 질환 - 포항 본 365의원",
+       "is_me": false
+      }
+     ]
+    },
+    "news": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "뉴스",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "[파워인터뷰 360] 장기현 경상북도맨발걷기협회 회장 &quot;포항, 전국에서 가...",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "맨발로 찾은 힐링… 건강… 걷는 '足足' 기가 '팍팍' [심층기획]",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "(포항:수T)제주는 올레길, 포항은 맨발로..걷기 위해 몰려온다",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "제주는 올레길, 포항은 맨발로..걷기 위해",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "제주는 올레길, 포항은 맨발로..걷기 위해 몰려온다",
+       "is_me": false
+      }
+     ]
+    },
+    "image": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "이미지",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "허리디스크 환자",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "당장 병원 가야하는 허리디스크 증상 2가지",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "다양한 연령대에 발생하는 허리디스크",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "앉아만 있었는데 허리디스크 터졌다… 이게 가능한 일?",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "의외로 잘 모르는 허리디스크 증상들",
+       "is_me": false
+      }
+     ]
+    },
+    "kin": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "지식iN",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "교통사고 허리디스크 한방병원(포항시 포항상도동...",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "추나요법 어떤가요? (포항시 남구 40대중반/여 허리디스크)",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "(포항시 남구 30대중반/남 허리디스크4번5번)",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "하는데요 (포항시 30대중반/남 허리디스크치료...",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "(포항 포항시 50대초반/남 허리디스크 4번5번 파열)",
+       "is_me": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "kw": "포항시 정형외과 추천",
+   "type": "비교",
+   "base": "정형외과",
+   "place": {
+    "keyword": "포항시 정형외과 추천",
+    "exposed": true,
+    "rank": 5,
+    "ambiguous": false,
+    "results": [
+     {
+      "rank": 1,
+      "title": "포항연세정형외과의원",
+      "address": "경상북도 포항시 남구 시청로 18 퍼스트힐 201호",
+      "address_jibun": "경상북도 포항시 남구 대잠동 1003 퍼스트힐 201호",
+      "category": "병원,의원>정형외과",
+      "link": "https://www.pohangyonsei.com/",
+      "telephone": "",
+      "description": "",
+      "longitude": 129.3404491,
+      "latitude": 36.0181738
+     },
+     {
+      "rank": 2,
+      "title": "범성 정형외과의원",
+      "address": "경상북도 포항시 북구 천마로 54",
+      "address_jibun": "경상북도 포항시 북구 양덕동 1402",
+      "category": "병원,의원>정형외과",
+      "link": "https://bumsungos.com/",
+      "telephone": "",
+      "description": "",
+      "longitude": 129.3971479,
+      "latitude": 36.0814294
+     },
+     {
+      "rank": 3,
+      "title": "등정형외과의원",
+      "address": "경상북도 포항시 남구 중앙로 102",
+      "address_jibun": "경상북도 포항시 남구 해도동 46-2",
+      "category": "병원,의원>정형외과",
+      "link": "https://www.doctorzone.co.kr/headoffice/index.php",
+      "telephone": "",
+      "description": "",
+      "longitude": 129.3689818,
+      "latitude": 36.0223354
+     },
+     {
+      "rank": 4,
+      "title": "닥터존정형외과의원 포항",
+      "address": "경상북도 포항시 북구 삼호로 287 존메디컬빌딩 2, 3, 4층",
+      "address_jibun": "경상북도 포항시 북구 두호동 1087-3 존메디컬빌딩 2, 3, 4층",
+      "category": "병원,의원>정형외과",
+      "link": "https://blog.naver.com/carrot6577",
+      "telephone": "",
+      "description": "",
+      "longitude": 129.3818559,
+      "latitude": 36.0633878
+     },
+     {
+      "rank": 5,
+      "title": "시원마취통증의학과의원",
+      "address": "경상북도 포항시 북구 중흥로 239 1, 2층",
+      "address_jibun": "경상북도 포항시 북구 죽도동 609-9 1, 2층",
+      "category": "병원,의원>정형외과",
+      "link": "http://www.siwonclinic.co.kr/",
+      "telephone": "",
+      "description": "",
+      "longitude": 129.3593392,
+      "latitude": 36.0247043
+     }
+    ]
+   },
+   "content": {
+    "blog": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "블로그",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "포항시 북구 정형외과 일요일 진료, 도수치료, 물리치료｜척추...",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "포항시 정형외과 광고대행 제대로 된 서비스를 만나봐야 하는...",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "포항시 북구 정형외과 전문병원 6곳 추천  무릎 어깨 연골 통증...",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "[포항 요양원/추천/후기/가격] 박영대 정형외과의원 포항...",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "포항정형외과추천 45세 이후 무릎통증, 퇴행성관절염 신호",
+       "is_me": false
+      }
+     ]
+    },
+    "cafe": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "카페",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "여기는 포항입니다",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "급해요~포항시 정형외과 추천해주세요ㅠㅠ",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "포항 윈 호텔 만족스러웠던 숙소",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "KTX신도시 유일한 상업지구 성곡",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "포항시 검진내과 개원 자리입니다.",
+       "is_me": false
+      }
+     ]
+    },
+    "web": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "웹문서",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "포항정형외과추천좀해주세요 | 흥해읍",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "북부정형외과의원 후기/가격/비용 (2026)",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "성모정형외과의원 후기/가격/비용 (2026)",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "포항정형외과추천 중풍·척추질환 후 재활치료, 조기 시작이 회복 속도를 좌우합니다!",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "포항시 정형외과 추천 순위",
+       "is_me": false
+      }
+     ]
+    },
+    "news": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "뉴스",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "전국 간호사들, 산불 피해 이재민 구호에 한마음 外",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "치과 환자 본인 확인 의무화, 5월 20일 부터 시행 外",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "[유통가 레이더] &quot;청년들에게 우리 농산물 식재료를&quot;... SPC, '청춘식탁'...",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "국민 지키는 헌신, 고맙고 또 고맙습니다",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "도수치료 서류 떼오면 피부시술 싸게… 병원 2곳 덜미",
+       "is_me": false
+      }
+     ]
+    },
+    "image": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "이미지",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "포항연세정형외과의원",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "포항연세정형외과의원",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "포항연세정형외과의원",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "포항연세정형외과의원",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "포항연세정형외과의원",
+       "is_me": false
+      }
+     ]
+    },
+    "kin": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "지식iN",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "포항죽도동쪽에 잘보는 정형외과 추천좀",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "주말 정형외과",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "포항시에서 유명한외과 (내성발톱 전문)",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "포항시에서 디스크 치료 잘 하는 병원을 찾습니다.",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "포항에 있는 해수욕장중에 좋은곳 추천해주세요 (내공)",
+       "is_me": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "kw": "죽도동 도수치료",
+   "type": "동단위",
+   "base": "도수치료",
+   "place": {
+    "keyword": "죽도동 도수치료",
+    "exposed": true,
+    "rank": 1,
+    "ambiguous": false,
+    "results": [
+     {
+      "rank": 1,
+      "title": "시원마취통증의학과의원 도수치료센터 낮병동",
+      "address": "경상북도 포항시 북구 중흥로 239 상가 2층",
+      "address_jibun": "경상북도 포항시 북구 죽도동 609-9 상가 2층",
+      "category": "병원>병원부속시설",
+      "link": "http://siwonclinic.co.kr/manual/home",
+      "telephone": "",
+      "description": "",
+      "longitude": 129.3592602,
+      "latitude": 36.0247015
+     },
+     {
+      "rank": 2,
+      "title": "시원마취통증의학과의원",
+      "address": "경상북도 포항시 북구 중흥로 239 1, 2층",
+      "address_jibun": "경상북도 포항시 북구 죽도동 609-9 1, 2층",
+      "category": "병원,의원>정형외과",
+      "link": "http://www.siwonclinic.co.kr/",
+      "telephone": "",
+      "description": "",
+      "longitude": 129.3593392,
+      "latitude": 36.0247043
+     },
+     {
+      "rank": 3,
+      "title": "포항연세정형외과의원",
+      "address": "경상북도 포항시 남구 시청로 18 퍼스트힐 201호",
+      "address_jibun": "경상북도 포항시 남구 대잠동 1003 퍼스트힐 201호",
+      "category": "병원,의원>정형외과",
+      "link": "https://www.pohangyonsei.com/",
+      "telephone": "",
+      "description": "",
+      "longitude": 129.3404491,
+      "latitude": 36.0181738
+     },
+     {
+      "rank": 4,
+      "title": "등정형외과의원",
+      "address": "경상북도 포항시 남구 중앙로 102",
+      "address_jibun": "경상북도 포항시 남구 해도동 46-2",
+      "category": "병원,의원>정형외과",
+      "link": "https://www.doctorzone.co.kr/headoffice/index.php",
+      "telephone": "",
+      "description": "",
+      "longitude": 129.3689818,
+      "latitude": 36.0223354
+     },
+     {
+      "rank": 5,
+      "title": "이동튼튼정형외과의원",
+      "address": "경상북도 포항시 남구 포스코대로 138 5층 이동튼튼정형외과",
+      "address_jibun": "경상북도 포항시 남구 대잠동 459-3 5층 이동튼튼정형외과",
+      "category": "병원,의원>정형외과",
+      "link": "",
+      "telephone": "",
+      "description": "",
+      "longitude": 129.3406189,
+      "latitude": 36.0255491
+     }
+    ]
+   },
+   "content": {
+    "blog": {
+     "present": true,
+     "exposed": true,
+     "position": 4,
+     "label": "블로그",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "죽도동도수치료한방병원, 움직일 때 관절이 뻣뻣하게...",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "죽도동 통증의학과 무릎통증으로 움직일 때마다 불편하다면",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "포항죽도동PT 허리를 계속 풀어도 다시 아픈 이유",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "포항 북구 죽도동 시원통증의학과 개원준비!!",
+       "is_me": true
+      },
+      {
+       "rank": 5,
+       "title": "포항 죽도동 척바른재활의학과 - 무릎 바깥쪽 통증 알아보아요.",
+       "is_me": false
+      }
+     ]
+    },
+    "cafe": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "카페",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "허리통증이 심한데 병원말고 도수치료 받을 수 있는 곳이 있을까요?",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "죽도동 부근으로 정형외과&amp;도수치료 잘하는곳 추천이요~",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "도수 치료 추천해 주실 만한 병원 있을까요?",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "시티병원 도수치료관련 질문있어요",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "도수치료 잘하는곳이나 싼곳추천해주세요",
+       "is_me": false
+      }
+     ]
+    },
+    "web": {
+     "present": true,
+     "exposed": true,
+     "position": 1,
+     "label": "웹문서",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "시원마취통증의학과의원 후기/가격/비용 (2026)",
+       "is_me": true
+      },
+      {
+       "rank": 2,
+       "title": "오학윤남동수정형외과신경외과의원 후기/가격/비용 (2026)",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "포항남구쪽도수치료잘하는곳추천해주세요 | 죽도동",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "죽도동 정형외과 진료 오십견 어깨통증, 기능적근육내자극치료 회복 방법을 살펴보면",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "포항재활의학병원 후기/가격/비용 (2026)",
+       "is_me": false
+      }
+     ]
+    },
+    "news": {
+     "present": false,
+     "exposed": false,
+     "position": null,
+     "label": "뉴스",
+     "ambiguous": false,
+     "top": []
+    },
+    "image": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "이미지",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "도수치료",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "치료보다 '고객 관리'가 먼저? 도수치료 '환자 모시기' 경쟁 문제 없나",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "28화 엄살쟁이의 도수치료 후기",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "\"치료인 줄 알았는데\"…도수치료실에서 벌어진 악몽",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "\"돈 되니까\" 너도나도 도입한 도수치료, 안전은?",
+       "is_me": false
+      }
+     ]
+    },
+    "kin": {
+     "present": false,
+     "exposed": false,
+     "position": null,
+     "label": "지식iN",
+     "ambiguous": false,
+     "top": []
+    }
+   }
+  },
+  {
+   "kw": "포항시 도수치료",
+   "type": "구단위",
+   "base": "도수치료",
+   "place": {
+    "keyword": "포항시 도수치료",
+    "exposed": true,
+    "rank": 1,
+    "ambiguous": false,
+    "results": [
+     {
+      "rank": 1,
+      "title": "시원마취통증의학과의원 도수치료센터 낮병동",
+      "address": "경상북도 포항시 북구 중흥로 239 상가 2층",
+      "address_jibun": "경상북도 포항시 북구 죽도동 609-9 상가 2층",
+      "category": "병원>병원부속시설",
+      "link": "http://siwonclinic.co.kr/manual/home",
+      "telephone": "",
+      "description": "",
+      "longitude": 129.3592602,
+      "latitude": 36.0247015
+     },
+     {
+      "rank": 2,
+      "title": "포항연세정형외과의원",
+      "address": "경상북도 포항시 남구 시청로 18 퍼스트힐 201호",
+      "address_jibun": "경상북도 포항시 남구 대잠동 1003 퍼스트힐 201호",
+      "category": "병원,의원>정형외과",
+      "link": "https://www.pohangyonsei.com/",
+      "telephone": "",
+      "description": "",
+      "longitude": 129.3404491,
+      "latitude": 36.0181738
+     },
+     {
+      "rank": 3,
+      "title": "등정형외과의원",
+      "address": "경상북도 포항시 남구 중앙로 102",
+      "address_jibun": "경상북도 포항시 남구 해도동 46-2",
+      "category": "병원,의원>정형외과",
+      "link": "https://www.doctorzone.co.kr/headoffice/index.php",
+      "telephone": "",
+      "description": "",
+      "longitude": 129.3689818,
+      "latitude": 36.0223354
+     },
+     {
+      "rank": 4,
+      "title": "닥터존정형외과의원 포항",
+      "address": "경상북도 포항시 북구 삼호로 287 존메디컬빌딩 2, 3, 4층",
+      "address_jibun": "경상북도 포항시 북구 두호동 1087-3 존메디컬빌딩 2, 3, 4층",
+      "category": "병원,의원>정형외과",
+      "link": "https://blog.naver.com/carrot6577",
+      "telephone": "",
+      "description": "",
+      "longitude": 129.3818559,
+      "latitude": 36.0633878
+     },
+     {
+      "rank": 5,
+      "title": "시원마취통증의학과의원",
+      "address": "경상북도 포항시 북구 중흥로 239 1, 2층",
+      "address_jibun": "경상북도 포항시 북구 죽도동 609-9 1, 2층",
+      "category": "병원,의원>정형외과",
+      "link": "http://www.siwonclinic.co.kr/",
+      "telephone": "",
+      "description": "",
+      "longitude": 129.3593392,
+      "latitude": 36.0247043
+     }
+    ]
+   },
+   "content": {
+    "blog": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "블로그",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "포항시 북구 정형외과 일요일 진료, 도수치료, 물리치료｜척추...",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "포항시도수치료 병원 무릎통증 재활을",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "[특강] 포항 위덕대학교 물리치료학과 척추 도수치료 특강...",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "도수치료 잘 하는 병원 찾는 방법",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "[포항] 닥터우의원 도수치료 방문후기",
+       "is_me": false
+      }
+     ]
+    },
+    "cafe": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "카페",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "[경북 포항시 북구] (드림연합의원) 도수치료사 . 방사선사 선생님 모십니다. 2명 연봉 3000만원 학력무관 ...",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "포항 북구 상도동 수한방병원 (5월초 오픈예정) 도수치료사 구인합니다",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "경북 포항시 바로 정형외과 구인공고입니드아아아아아아아아아아ㅏㅇ",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "물만 먹어도 살찌는 분 ?!",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "[경북 포항시 북구] (의료법인 유성의료재단) 유성요양병원 물리치료사 모집공고 (파트타임도 가능) 1명 월...",
+       "is_me": false
+      }
+     ]
+    },
+    "web": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "웹문서",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "도수치료 &gt; 포항시 가격비교 (2026)",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "경북 포항남구 도수치료 병원·의원 가격비교(2026)",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "경북 포항북구 도수치료 병원·의원 가격비교(2026)",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "포항 남구 도수치료 전문 업체 추천! BEST 6곳",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "포항시 남구 도수치료 잘하는 곳 BEST 5: 어깨, 목, 허리, 척추, 골반, 무릎, 다리 치료 명소!",
+       "is_me": false
+      }
+     ]
+    },
+    "news": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "뉴스",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "최해윤 병원장, &quot;한의학 전승과 현대적 치료 접목으로 지역민 건강 증진...",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "[스타트 브리핑] 음주운전 초범에도 시동 잠금장치 의무화... &quot;재범률 70...",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "한의원에서 도수치료 후 추간판파열…1심 이어 2심도 '무죄'",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "[오늘 뭐 먹지] CJ제일제당·오리온·하림",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "[#먹거리 신상이오] CJ제일제당 '맥스봉 스팸콕콕' 출시 外 오리온, 오뚜...",
+       "is_me": false
+      }
+     ]
+    },
+    "image": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "이미지",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "포항남부경찰서, 2021년 1분기 5대 범죄 14.5% 감소",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "경찰, 포항시 공무원 비위 의혹 본격 수사…감사자료 확보",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "도수치료",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "천차만별 도수치료 병원따라 62배 차",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "도수치료 중단 병원 속출… 물리치료사 실직 위기",
+       "is_me": false
+      }
+     ]
+    },
+    "kin": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "지식iN",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "교통사고 치료 질문(포항시 도수치료 병원)",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "교통사고 치료 질문(포항시 성도동 도수치료 병원)",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "교통사고 도수치료 괜찮나요.(포항시 교통사고입원)",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "교통사고 도수치료 괜찮나요.(포항시 상도동...",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "한방병원 도수치료 어떤가요? (포항 포항시 30대초반/남...",
+       "is_me": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "kw": "경상북 도수치료",
+   "type": "시단위",
+   "base": "도수치료",
+   "place": {
+    "keyword": "경상북 도수치료",
+    "exposed": false,
+    "rank": null,
+    "ambiguous": false,
+    "results": []
+   },
+   "content": {
+    "blog": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "블로그",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "경북도청 디즈니월드",
+       "is_me": false
+      }
+     ]
+    },
+    "cafe": {
+     "present": false,
+     "exposed": false,
+     "position": null,
+     "label": "카페",
+     "ambiguous": false,
+     "top": []
+    },
+    "web": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "웹문서",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "경북의사회, 친선골프대회로 3750만원 기금 마련",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "성모정형외과의원 (2026) 송도동 토요일진료병원",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "제일정형외과병원",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "신라요양병원 - 부산광역시 가야동 위치, 정형외과, 무릎, 어깨 관절, 관절염 클리닉, 인대손상 진료 안내 병원홈....",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "김학근 경상북도의사회 부회장 아들 결혼",
+       "is_me": false
+      }
+     ]
+    },
+    "news": {
+     "present": false,
+     "exposed": false,
+     "position": null,
+     "label": "뉴스",
+     "ambiguous": false,
+     "top": []
+    },
+    "image": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "이미지",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "도수치료",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "도수치료",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "도수치료",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "치료보다 '고객 관리'가 먼저? 도수치료 '환자 모시기' 경쟁 문제 없나",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "28화 엄살쟁이의 도수치료 후기",
+       "is_me": false
+      }
+     ]
+    },
+    "kin": {
+     "present": false,
+     "exposed": false,
+     "position": null,
+     "label": "지식iN",
+     "ambiguous": false,
+     "top": []
+    }
+   }
+  }
+ ],
+ "location": {
+  "radius_m": 1000,
+  "adm_cd": "37011",
+  "adm_nm": "경상북도포항시 남구",
+  "avg_age": 45.5,
+  "density_basis": "체감(인구가중)",
+  "population_radius": 10109,
+  "demand_score": 18.7,
+  "employee_density_km2": 1879,
+  "commerce_score": 7.2,
+  "competitors": 16,
+  "competition_score": 60.1,
+  "saturation_per_10k": 15.8,
+  "site_score": 37.1,
+  "radius_breakdown": {
+   "500": {
+    "competitors": 4,
+    "competition_score": 53.9,
+    "demand_score": 18.7,
+    "population_radius": 2527
+   },
+   "1000": {
+    "competitors": 16,
+    "competition_score": 60.1,
+    "demand_score": 18.7,
+    "population_radius": 10109
+   },
+   "1500": {
+    "competitors": 28,
+    "competition_score": 63.8,
+    "demand_score": 18.7,
+    "population_radius": 22746
+   },
+   "2000": {
+    "competitors": 35,
+    "competition_score": 67.7,
+    "demand_score": 18.7,
+    "population_radius": 40438
+   }
+  },
+  "competitor_list": [
+   {
+    "name": "시원마취통증의학과의원",
+    "distance_m": 7
+   },
+   {
+    "name": "김지홍정형외과의원",
+    "distance_m": 44
+   },
+   {
+    "name": "상쾌한 항구병원",
+    "distance_m": 243
+   },
+   {
+    "name": "포항건강마취통증의학과의원",
+    "distance_m": 340
+   },
+   {
+    "name": "삼성연합의원",
+    "distance_m": 522
+   },
+   {
+    "name": "참좋은 마취통증의학과의원",
+    "distance_m": 635
+   },
+   {
+    "name": "형통한마취통증의학과의원",
+    "distance_m": 646
+   },
+   {
+    "name": "제일신경외과의원",
+    "distance_m": 659
+   }
+  ]
+ },
+ "location_map": null,
+ "benchmark": {
+  "blog": 14,
+  "cafe": 3,
+  "web": 17,
+  "news": 3,
+  "image": 3,
+  "kin": 7
+ },
+ "benchmark_meta": {
+  "n": 3,
+  "basis": "상위 경쟁 3곳 평균(실측)"
+ },
+ "composite": {
+  "score": 40.9,
+  "measured_weight_pct": 89,
+  "components": {
+   "exposure": 37.5,
+   "density": 60.1,
+   "demand": 18.7,
+   "place": 67.0
+  },
+  "place_frac": 0.25
+ },
+ "place": {
+  "signals": {
+   "phone": false,
+   "url": true,
+   "category": true
+  },
+  "info_completeness": 0.67,
+  "reviews": null,
+  "rating": null,
+  "photos": null,
+  "score": 67.0,
+  "frac": 0.25,
+  "measured": [
+   "info"
+  ],
+  "internal": {
+   "status": "미측정",
+   "note": "자동 수집 미실행(--collect-place-metrics)"
+  }
+ },
+ "actions": [
+  {
+   "action_type": "keyword_coverage",
+   "title": "미노출 키워드 4개 커버리지 정비",
+   "explanation": "\"경상북 정형외과·정형외과·포항시 허리디스크\" 등이 어느 영역에도 노출되지 않습니다. 실제 제공하는 진료라면 소개·진료항목·FAQ·블로그에 반영하세요.",
+   "evidence_metric": "키워드 12개 중 4개 전 영역 미노출",
+   "compliance_status": "safe",
+   "priority": 1
+  },
+  {
+   "action_type": "place_ops",
+   "title": "플레이스 기본정보·리뷰 운영 정비",
+   "explanation": "대표 사진·진료시간·주차·예약 링크를 실제 운영 상태와 맞추고, 자발적 리뷰 동선과 답글 운영을 정비하세요.",
+   "evidence_metric": "기본정보 완성도 67%",
+   "compliance_status": "safe",
+   "priority": 2
+  }
+ ],
+ "search_demand": {
+  "available": false,
+  "volumes": {},
+  "related": []
+ },
+ "resolution": {
+  "note": "",
+  "candidates": [
+   {
+    "title": "시원마취통증의학과의원",
+    "address": "경상북도 포항시 북구 중흥로 239 1, 2층"
+   },
+   {
+    "title": "시원마취통증의학과의원 시원스킨클리닉",
+    "address": "경상북도 포항시 북구 중흥로 239 지하1층"
+   },
+   {
+    "title": "시원마취통증의학과의원 도수치료센터 낮병동",
+    "address": "경상북도 포항시 북구 중흥로 239 상가 2층"
+   }
+  ]
+ },
+ "summary": {
+  "place_hit": 5,
+  "content_hit": 6,
+  "total": 12,
+  "ambiguous": false
+ },
+ "trend": {
+  "first": true,
+  "prior_month": null,
+  "deltas": {}
+ }
+}

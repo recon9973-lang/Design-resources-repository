@@ -362,11 +362,11 @@ def main() -> None:
             for r in rows:
                 ce = naver_content.content_exposure(r["kw"], comp["name"])
                 for s in SEC_KEYS:
-                    cell = ce.get(s) or {}
-                    if cell.get("present"):
+                    cval = ce.get(s) or {}
+                    if cval.get("present"):
                         per[s]["active"] += 1
                         got = True
-                    if cell.get("exposed"):
+                    if cval.get("exposed"):
                         per[s]["exposed"] += 1
             if got:
                 measured += 1
