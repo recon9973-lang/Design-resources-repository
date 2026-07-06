@@ -11,6 +11,7 @@
 """
 
 import argparse
+import base64
 import html as html_mod
 import json
 import math
@@ -28,14 +29,34 @@ from medirank.geo import haversine_m                              # noqa: E402
 SEC_KEYS = ["blog", "cafe", "web", "news", "image", "kin"]
 SEC_LABELS = ["블로그", "카페", "웹문서", "뉴스", "이미지", "지식iN"]
 
-# (주)베놈 로고 — 자기완결 인라인 SVG(V 마크)+워드마크. 외부 이미지 없이 CSP(img-src data:)·인쇄 안전.
-_VMARK = ('<svg class="vmark" viewBox="0 0 32 32" width="{w}" height="{w}" aria-hidden="true">'
-          '<rect width="32" height="32" rx="8" fill="var(--accent)"/>'
-          '<path d="M8.6 9 L16 24 L23.4 9" fill="none" stroke="#fff" stroke-width="3.4" '
-          'stroke-linecap="round" stroke-linejoin="round"/></svg>')
-VENOM_LOGO = (_VMARK.format(w=30)
+# (주)베놈 로고 — 저장소의 실제 로고 파일(icons/icon-192.png, 'V.' 마크)을 data URI로 임베드.
+# 리포트 CSP(img-src data:)와 인쇄에서 안전. 파일이 없으면 원본 근사 인라인 SVG로 폴백.
+def _load_logo_uri():
+    try:
+        p = Path(__file__).resolve().parent.parent / "icons" / "icon-192.png"
+        return "data:image/png;base64," + base64.b64encode(p.read_bytes()).decode("ascii")
+    except Exception:
+        return None
+
+
+_LOGO_URI = _load_logo_uri()
+
+
+def _vmark(w: int) -> str:
+    if _LOGO_URI:
+        return (f'<img class="vmark" src="{_LOGO_URI}" width="{w}" height="{w}" '
+                f'alt="(주)베놈 로고" style="border-radius:{max(3, round(w*0.22))}px"/>')
+    # 폴백: 원본 디자인 근사(파란 배지 + V + 점)
+    return (f'<svg class="vmark" viewBox="0 0 32 32" width="{w}" height="{w}" aria-hidden="true">'
+            '<rect width="32" height="32" rx="7" fill="var(--accent)"/>'
+            '<path d="M9 8.5 L16 22 L23 8.5" fill="none" stroke="#fff" stroke-width="3.2" '
+            'stroke-linecap="round" stroke-linejoin="round"/>'
+            '<circle cx="16" cy="26" r="2.1" fill="#fff"/></svg>')
+
+
+VENOM_LOGO = (_vmark(32)
               + '<span class="wm"><b>VENOMAD</b><small>(주)베놈 · 병원 마케팅</small></span>')
-VENOM_LOGO_SM = _VMARK.format(w=15) + '<b style="font-weight:800">VENOMAD</b> (주)베놈'
+VENOM_LOGO_SM = _vmark(15) + '<b style="font-weight:800">VENOMAD</b> (주)베놈'
 
 
 def cell(c: dict) -> str:
