@@ -224,6 +224,32 @@ def compute_trend(result: dict, history_path: str) -> dict:
     return trend
 
 
+def filter_by_volume(kws: list, vol_by_kw: dict, vol_min: int,
+                     vol_available: bool) -> tuple[list, list]:
+    """검색량 기준 취사선택. 각 키워드에 volume(실측|None)을 부착하고 (유지, 제외)를 반환.
+
+    - vol_available=False: 검색량 미연동 → 거를 근거가 없으므로 필터 미적용, volume=None(미측정).
+    - 브랜드 유형: 정체성 키워드라 검색량과 무관하게 항상 유지.
+    - 그 외: 월 검색량이 vol_min 초과면 유지, vol_min 이하/데이터 없음이면 제외.
+    조작 금지: 측정 못 한 검색량을 임의값으로 채우지 않는다.
+    """
+    kept, dropped = [], []
+    for k in kws:
+        row = vol_by_kw.get(keywordgen._norm(k["kw"])) if vol_available else None
+        k["volume"] = ({"pc": row.get("pc"), "mobile": row.get("mobile"),
+                        "total": row.get("total"), "comp": row.get("comp")} if row else None)
+        total = (k["volume"] or {}).get("total")
+        if not vol_available:
+            kept.append(k)
+        elif k["type"] == "브랜드":
+            kept.append(k)
+        elif isinstance(total, int) and total > vol_min:
+            kept.append(k)
+        else:
+            dropped.append({"kw": k["kw"], "type": k["type"], "total": total})
+    return kept, dropped
+
+
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--name", required=True, help="업체명 (이것만 있으면 됨)")
@@ -248,6 +274,9 @@ def main() -> None:
     ap.add_argument("--history", default=None,
                     help="월간 추이용 진단 이력 JSON 경로 — 같은 병원의 지난 진단 대비 실제 변화(delta) 산출. "
                          "이전 데이터 없으면 '첫 진단'으로 정직 표기(조작 없음)")
+    ap.add_argument("--vol-min", type=int, default=20,
+                    help="월 검색량이 이 값 이하인 저수요 키워드를 진단에서 제외(브랜드는 예외 유지). "
+                         "검색광고 키 미연동 시 필터 미적용·검색량 미측정 표기. 기본 20")
     args = ap.parse_args()
 
     # 1) 업체 특정
@@ -284,8 +313,29 @@ def main() -> None:
     profile = dict(biz)
     kws = keywordgen.generate_keywords(profile, args.max_keywords)
     print(f"\n[키워드 자동 산출] {len(kws)}개")
+
+    # 2-b) 검색량 기반 취사선택 — 검색광고 키워드도구로 월 검색량을 조회해
+    #      저수요(≤ --vol-min) 키워드는 진단에서 제외한다. 브랜드는 정체성이라 항상 유지.
+    #      검색량 미연동(키/개방망 없음) 시: 거를 근거가 없으므로 필터를 적용하지 않고,
+    #      각 키워드 검색량은 '미측정'으로 둔다(없는 값 조작 금지).
+    vol_min = args.vol_min
+    vol_available = searchad.available()
+    vol_by_kw = {}
+    if vol_available:
+        print(f"[검색량 취사선택] 검색광고 키워드도구 조회 → 월 검색량 {vol_min} 이하 제외")
+        vol_by_kw = searchad.volumes_for([k["kw"] for k in kws]) or {}
+    kept, dropped = filter_by_volume(kws, vol_by_kw, vol_min, vol_available)
+    kws = kept
+    if vol_available:
+        for d in dropped:
+            print(f"  ✕ 제외 {d['kw']} (검색량 {d['total'] if d['total'] is not None else '데이터없음'})")
+        print(f"  → 진단 유지 {len(kws)}개 · 저수요 제외 {len(dropped)}개")
+    else:
+        print("[검색량 취사선택] 검색광고 키 미연동 — 필터 미적용, 검색량 미측정 표기(개방망에서 활성화)")
     for k in kws:
-        print(f"  - {k['kw']}  ({k['type']})")
+        vtxt = (f" · 검색량 {k['volume']['total']:,}" if (k.get("volume") or {}).get("total") is not None
+                else (" · 검색량 미측정" if not vol_available else ""))
+        print(f"  - {k['kw']}  ({k['type']}){vtxt}")
 
     # 3) 키워드별 진단
     gu_hint = region["gu"] or region["city"]
@@ -324,26 +374,23 @@ def main() -> None:
         print("\n[실제 지도] NCP Static Map "
               + ("임베드 완료" if location_map else "실패 — 좌표/키 확인"))
 
-    # 5) 검색 수요 — 절대 월 검색량·연관검색어 (검색광고 키워드도구, 키 있을 때만)
+    # 5) 검색 수요 — 연관검색어 (검색광고 키워드도구, 키 있을 때만).
+    #    진단 키워드별 월 검색량은 2-b에서 이미 k["volume"]에 실측·부착됨(중복 호출 안 함).
     _norm = lambda s: "".join((s or "").split())
-    search_demand = {"available": False, "volumes": {}, "related": []}
-    if searchad.available():
-        print("\n[검색 수요] 네이버 검색광고 키워드도구 — 월 검색량 · 연관검색어")
+    volumes = {k["kw"]: k["volume"] for k in kws if k.get("volume")}
+    search_demand = {"available": bool(vol_available), "volumes": volumes,
+                     "related": [], "vol_min": vol_min}
+    if vol_available:
+        print("\n[검색 수요] 네이버 검색광고 키워드도구 — 연관검색어")
         kw_texts = [k["kw"] for k in kws if k["type"] != "브랜드"]
-        vols = searchad.volumes_for(kw_texts) or {}
-        volumes = {}
-        for k in kws:
-            row = vols.get(_norm(k["kw"]))
-            if row:
-                volumes[k["kw"]] = {"pc": row["pc"], "mobile": row["mobile"],
-                                    "total": row["total"], "comp": row["comp"]}
         reg = region["gu"] or region["city"]
         seeds = [(f"{reg}{b}" if reg else b) for b in cls["base_terms"][:2] if b]
         rep = searchad.keyword_report(seeds or kw_texts[:2]) or []
         diag = {_norm(k["kw"]) for k in kws}
-        related = [r for r in rep if _norm(r["kw"]) not in diag and r["total"] > 0][:15]
-        search_demand = {"available": True, "volumes": volumes, "related": related}
-        print(f"  검색량 확보 {len(volumes)}개 · 연관검색어 {len(related)}개")
+        related = [r for r in rep
+                   if _norm(r["kw"]) not in diag and r["total"] > vol_min][:15]
+        search_demand["related"] = related
+        print(f"  진단 키워드 검색량 {len(volumes)}개 · 연관검색어 {len(related)}개")
 
     # 5-b) 실측 경쟁 벤치마크 — 상위 경쟁 병원을 같은 키워드로 조회한 영역별 노출률 평균.
     #      데이터 없으면 None → 리포트에서 '미측정'으로 표기(조작값 넣지 않음).
@@ -442,6 +489,9 @@ def main() -> None:
         "composite": composite, "place": place_info,
         "actions": build_actions(rows, location, place_info, benchmark),
         "search_demand": search_demand,
+        "dropped_keywords": dropped,
+        "vol_filter": {"available": bool(vol_available), "min": vol_min,
+                       "dropped": len(dropped), "kept": len(rows)},
         "resolution": {"note": res["note"],
                        "candidates": [{"title": c["title"], "address": c["address"]}
                                       for c in res["candidates"][:5]]},
@@ -507,10 +557,10 @@ def render_html(j: dict, masked: bool = False) -> str:
     def comp_txt(c):
         return f'<em> · {e(c)}</em>' if c else ""
 
-    def vol_cell(kw):
+    def vol_cell(k):
         if not has_vol:
             return ""
-        v = vols.get(kw)
+        v = k.get("volume") or vols.get(k["kw"])
         return f'<td class="c vol">{fmt_vol(v["total"]) if v else "—"}</td>'
 
     def cell_html(c):
@@ -536,7 +586,7 @@ def render_html(j: dict, masked: bool = False) -> str:
 
     kw_rows = "".join(
         f'<tr><td><b>{e(k["kw"])}</b></td><td>{e(k["type"])}</td>'
-        + vol_cell(k["kw"])
+        + vol_cell(k)
         + place_html(k["place"])
         + "".join(cell_html((k["content"] or {}).get(key)) for key in SEC_KEYS)
         + "</tr>"
@@ -679,8 +729,9 @@ def render_html(j: dict, masked: bool = False) -> str:
         rb = loc.get("radius_breakdown") or {}
         radius_html = ""
         if rb and not masked:
-            rfmt = lambda r: (f"{r/1000:g}km" if r >= 1000 else f"{r}m")
-            cols = sorted(rb)
+            # radius_breakdown 키는 인프로세스에선 int, JSON 재로드 시 str → int로 정규화
+            rfmt = lambda r: (f"{int(r)/1000:g}km" if int(r) >= 1000 else f"{int(r)}m")
+            cols = sorted(rb, key=lambda r: int(r))
             hdr = "".join(f"<th>{rfmt(r)}</th>" for r in cols)
             rrow = lambda lab, fn: ("<tr><td>" + lab + "</td>"
                                     + "".join(f"<td>{fn(rb[r])}</td>" for r in cols) + "</tr>")
@@ -731,6 +782,10 @@ def render_html(j: dict, masked: bool = False) -> str:
             for it in rows)
 
     def top5_block(k):
+        # 브랜드(병원명) 키워드는 상위5에서 제외 — 전국 동명 지점·무관 콘텐츠가 섞여
+        # 이 병원의 경쟁 현황을 왜곡한다. 컨설팅 가치는 지역·진료과 대표 키워드의 SERP에 있다.
+        if k.get("type") == "브랜드":
+            return ""
         secs = []
         pl = k["place"] or {}
         if pl.get("results"):
@@ -837,23 +892,30 @@ def render_html(j: dict, masked: bool = False) -> str:
         radar = (f'<svg viewBox="0 0 300 340" width="100%" style="max-width:330px;display:block;margin:4px auto 0" '
                  f'role="img" aria-label="영역별 커버리지 레이더">{rings}{axes}{bench}{data}'
                  f'<circle cx="{cx}" cy="{cy}" r="2" fill="var(--mut)"/>{labels}</svg>' + legend)
-        maxa = max((s["active"] for s in secs), default=0) or 1
-        bars = "".join(
-            f'<div class="cvrow"><span class="cvl">{s["label"]}</span>'
-            f'<span class="cvbar"><span class="cvact" style="width:{100*s["active"]/maxa:.0f}%">'
-            f'<span class="cvexp" style="width:{(100*s["exposed"]/s["active"]) if s["active"] else 0:.0f}%"></span>'
-            f'</span></span>'
-            f'<span class="cvv">노출 <b>{s["exposed"]}</b> / {s["active"]}</span></div>'
-            for s in secs)
         radar_cap = ('영역별 · 활성 키워드 가운데 병원명 콘텐츠가 노출된 비율 · '
                      + ('<b style="color:var(--warn)">점선</b> = ' + e(bench_basis)
                         if has_bench else '경쟁 비교는 <b>미측정</b>'))
+        # 오른쪽 칸: 영역별 막대(중복) 대신 '지금 안 보이는 키워드'(전 영역 미노출) 목록 —
+        # 레이더가 '영역'을 보여주면, 이 패널은 '어느 검색어에서 안 보이는지'를 짚어 실행으로 연결한다.
+        missing = [k for k in j["keywords"]
+                   if k.get("type") != "브랜드"
+                   and not (k["place"] or {}).get("exposed")
+                   and not any(((k["content"] or {}).get(kk) or {}).get("exposed") for kk, _ in SEC_LABELS)]
+        if missing:
+            mitems = "".join(
+                f'<li><span class="tt">{e(k["kw"])}</span>'
+                f'<span class="ad">{e(k.get("type",""))}</span></li>' for k in missing[:10])
+            miss_body = (f'<p class="ds">플레이스·통합검색 <b>어느 영역에서도 노출되지 않는</b> 대표 키워드입니다. '
+                         f'환자가 이 말로 검색하면 병원이 보이지 않습니다 — 우선 공략 대상.</p>'
+                         f'<ol class="misslist">{mitems}</ol>')
+        else:
+            miss_body = ('<p class="ds">대표 키워드가 <b>모두 최소 한 영역 이상</b> 노출되고 있습니다 — '
+                         '전 영역 공백은 없습니다.</p>')
         return (f'<div class="cvgrid">'
                 f'<div class="cvcard"><div class="ovh">통합검색 영역 커버리지 레이더</div>'
                 f'<p class="ds">{radar_cap}</p>{radar}</div>'
-                f'<div class="cvcard"><div class="ovh">영역별 노출 키워드 수</div>'
-                f'<p class="ds">옅은 막대 = 영역이 활성인 키워드 · 진한 채움 = 그중 노출된 키워드</p>'
-                f'<div class="cvbars">{bars}</div></div></div>')
+                f'<div class="cvcard"><div class="ovh">지금 안 보이는 키워드</div>'
+                f'{miss_body}</div></div>')
 
     coverage_html = "" if masked else coverage_charts()
 
@@ -1029,7 +1091,11 @@ def render_html(j: dict, masked: bool = False) -> str:
             '<section class="card"><h2>컨설팅 소견 — 지금 무엇을 해야 하나</h2>'
             '<p class="mut" style="font-size:12px;margin:-4px 0 12px">이 진단 결과를 우선순위 액션과, 원장님이 실제로 '
             '궁금해하는 질문·"환자를 찾아오게 만드는" 해답으로 연결했습니다.</p>'
-            f'<p class="subh">이번 달 우선 개선 액션</p><div class="acts">{acts_html}</div>'
+            f'<p class="subh">이번 달 우선 개선 액션</p>'
+            '<p class="mut" style="font-size:12px;margin:-2px 0 10px"><span class="cok">의료광고 안전</span> '
+            '= 이 조치는 <b>의료법 제56조(의료광고 금지)</b>에 저촉되지 않는 범위입니다 — 치료효과 보장·환자 유인·'
+            '과장·비교 표현 없이, 이미 있는 사실(진료시간·위치·자발적 후기 등)을 정확히 노출하는 개선만 제안합니다.</p>'
+            f'<div class="acts">{acts_html}</div>'
             f'<p class="subh">원장님이 궁금해하는 것 → 해답</p><div class="guide">{cards_g}</div>'
             '<div class="gcta">더 구체적인 개선안이 필요하시면 — '
             '<a href="../self-check/#risk">의료법 리스크 자가진단</a> · '
@@ -1067,12 +1133,22 @@ def render_html(j: dict, masked: bool = False) -> str:
     top5_html = "".join(top5_block(k) for k in j["keywords"])
     top5_section = (f'''
 <section class="card"><h2>영역별 상위 5 노출 현황</h2>
-<p class="mut" style="font-size:12px;margin:-4px 0 12px">키워드를 펼치면 각 영역의 <b>상위 5건</b>을 보여줍니다.
-미노출 영역도 "그 자리에 지금 누가 떠 있는지"를 함께 확인하세요. <b>파란 강조 = 우리 업체</b>.</p>
+<p class="mut" style="font-size:12px;margin:-4px 0 12px">환자가 실제로 검색하는 <b>지역·진료과 대표 키워드</b> 기준입니다
+(병원명 검색은 전국 동명 지점이 섞여 제외). 키워드를 펼치면 각 영역 <b>상위 5건</b> — 미노출 자리에 지금
+누가 떠 있는지 확인하세요. <b>파란 강조 = 우리 업체</b>.</p>
 {top5_html}</section>''' if top5_html else "")
 
     # 검색 수요 · 연관 검색어 섹션 (검색광고 키워드도구 연동 시)
     vol_th = "<th>월 검색량</th>" if has_vol else ""
+    _vmin = (j.get("vol_filter") or {}).get("min", 20)
+    if masked:
+        vol_note = ""
+    elif has_vol:
+        vol_note = (f'<p class="mut" style="font-size:12px;margin:6px 0 0">월 검색량 = 검색광고 '
+                    f'키워드도구 실측(월간 PC+모바일). <b>검색량 {_vmin} 이하 저수요 키워드는 자동 제외</b>했습니다.</p>')
+    else:
+        vol_note = ('<p class="mut" style="font-size:12px;margin:6px 0 0">월 검색량: <b>미측정</b> — '
+                    '검색광고 키워드도구 미연동(개방망 환경에서 활성화). 미연동 시 저수요 자동 제외는 적용되지 않습니다.</p>')
     demand_section = ""
     if has_vol:
         vlist = sorted(
@@ -1090,12 +1166,30 @@ def render_html(j: dict, masked: bool = False) -> str:
             for x in related)
         chips_block = (f'<h3 style="margin:18px 0 8px">연관 검색어 — 환자가 함께 쓰는 말</h3>'
                        f'<div class="chips">{chips}</div>') if chips else ""
+        vf = j.get("vol_filter") or {}
+        vmin = vf.get("min", 20)
+        dropped_kw = j.get("dropped_keywords") or []
+        if dropped_kw:
+            ditems = "".join(
+                f'<span class="chip mut">{e(d["kw"])}'
+                f'<b>{fmt_vol(d.get("total")) if d.get("total") is not None else "데이터없음"}</b></span>'
+                for d in dropped_kw)
+            dropped_block = (
+                f'<h3 style="margin:18px 0 8px">저수요 제외 — 월 검색량 {vmin} 이하</h3>'
+                f'<p class="ds">검색량이 낮아(≤{vmin}) 진단 대상에서 제외한 키워드입니다. '
+                f'노출을 확보해도 유입이 거의 없어 우선순위에서 뺐습니다(브랜드는 예외로 항상 유지).</p>'
+                f'<div class="chips">{ditems}</div>')
+        else:
+            dropped_block = (
+                f'<p class="ds" style="margin-top:12px">월 검색량 {vmin} 이하 저수요 키워드는 '
+                f'자동 제외했습니다. 이번 진단에서는 제외 대상이 없었습니다.</p>')
         demand_section = f'''
 <section class="card"><h2>검색 수요 · 연관 검색어</h2>
 <p class="ds">네이버 검색광고 키워드도구 기준 <b>월간 검색수</b>(PC+모바일 합산). 실제 환자가 그 달에 이 말을 얼마나 검색했는지 —
-노출을 어디부터 채울지 우선순위를 정하는 근거입니다.</p>
+노출을 어디부터 채울지 우선순위를 정하는 근거입니다. 진단 키워드는 <b>월 검색량 {j.get("vol_filter",{}).get("min",20)} 이하를 제외</b>해 실제 수요가 있는 것만 남겼습니다.</p>
 <div class="vwrap">{vbars}</div>
 {chips_block}
+{dropped_block}
 <p class="ds" style="margin-top:12px">숫자 옆 <b>낮음·중간·높음</b> = 광고 경쟁 정도. <b>검색량은 많은데 위 매트릭스에서 미노출인 키워드가 1순위 공략 대상</b>입니다.</p>
 </section>'''
 
@@ -1244,6 +1338,11 @@ border:1px solid var(--line);border-radius:999px;background:var(--accent-soft)}}
 .cvexp{{position:absolute;left:0;top:0;height:100%;background:var(--accent)}}
 .cvv{{font-size:12px;font-weight:700;text-align:right;font-variant-numeric:tabular-nums}}
 .cvv b{{color:var(--accent)}}
+.misslist{{list-style:none;margin:10px 0 0;padding:0;display:flex;flex-direction:column;gap:7px}}
+.misslist li{{display:flex;align-items:center;justify-content:space-between;gap:10px;
+  padding:8px 11px;background:var(--track);border-radius:9px;border-left:3px solid var(--bad)}}
+.misslist .tt{{font-size:13px;font-weight:700}}
+.misslist .ad{{font-size:11px;color:var(--mut);font-weight:700}}
 .cvlegend{{display:flex;gap:18px;justify-content:center;font-size:11.5px;color:var(--sub);margin-top:2px}}
 .cvlegend span{{display:inline-flex;align-items:center;gap:6px}}
 .cvlegend .lg{{width:16px;height:0;border-top:2px solid;display:inline-block}}
@@ -1325,6 +1424,7 @@ border-radius:8px;padding:8px 12px;margin:0}}
 <p class="mut" style="font-size:12px;margin:10px 0 0">○ N = 공식 API 결과 내 위치(실제 화면 순위 아님) ·
 ✕ = 상위 30건(플레이스 5건) 내 없음 · — = 이 키워드에는 해당 영역 없음.
 파워링크(광고)·브랜드 콘텐츠·스마트블록 배치는 공식 API 미제공으로 측정 제외.</p>
+{vol_note}
 </section>
 {demand_section}
 {top5_section}
