@@ -29,34 +29,39 @@ from medirank.geo import haversine_m                              # noqa: E402
 SEC_KEYS = ["blog", "cafe", "web", "news", "image", "kin"]
 SEC_LABELS = ["블로그", "카페", "웹문서", "뉴스", "이미지", "지식iN"]
 
-# (주)베놈 로고 — 저장소의 실제 로고 파일(icons/icon-192.png, 'V.' 마크)을 data URI로 임베드.
-# 리포트 CSP(img-src data:)와 인쇄에서 안전. 파일이 없으면 원본 근사 인라인 SVG로 폴백.
+# (주)베놈 로고 — 'VENOM' 워드마크(헤비 산세리프 + 주황 점) 재현.
+# 저장소에 공식 벡터/이미지(icons/venom-logo.svg|png)가 있으면 그것을 data URI로 정확히 임베드하고,
+# 없으면 아래 인라인 SVG 워드마크로 렌더한다. 리포트 CSP(img-src data:)·인쇄·다크모드 안전.
+VENOM_ORANGE = "#F5821F"
+
+
 def _load_logo_uri():
-    try:
-        p = Path(__file__).resolve().parent.parent / "icons" / "icon-192.png"
-        return "data:image/png;base64," + base64.b64encode(p.read_bytes()).decode("ascii")
-    except Exception:
-        return None
+    base = Path(__file__).resolve().parent.parent / "icons"
+    for name, mime in (("venom-logo.svg", "image/svg+xml"),
+                       ("venom-logo.png", "image/png")):
+        try:
+            data = (base / name).read_bytes()
+            return f"data:{mime};base64," + base64.b64encode(data).decode("ascii")
+        except Exception:
+            continue
+    return None
 
 
 _LOGO_URI = _load_logo_uri()
 
 
-def _vmark(w: int) -> str:
+def _wordmark(h: int) -> str:
+    """'VENOM' 워드마크. 글자색은 테마 대응(currentColor), 점은 브랜드 주황 고정."""
     if _LOGO_URI:
-        return (f'<img class="vmark" src="{_LOGO_URI}" width="{w}" height="{w}" '
-                f'alt="(주)베놈 로고" style="border-radius:{max(3, round(w*0.22))}px"/>')
-    # 폴백: 원본 디자인 근사(파란 배지 + V + 점)
-    return (f'<svg class="vmark" viewBox="0 0 32 32" width="{w}" height="{w}" aria-hidden="true">'
-            '<rect width="32" height="32" rx="7" fill="var(--accent)"/>'
-            '<path d="M9 8.5 L16 22 L23 8.5" fill="none" stroke="#fff" stroke-width="3.2" '
-            'stroke-linecap="round" stroke-linejoin="round"/>'
-            '<circle cx="16" cy="26" r="2.1" fill="#fff"/></svg>')
+        return f'<img class="vlogo" src="{_LOGO_URI}" height="{h}" alt="VENOM (주)베놈"/>'
+    return (f'<svg class="vlogo" viewBox="0 0 322 74" height="{h}" role="img" aria-label="VENOM (주)베놈">'
+            "<text x='1' y='58' font-family=\"Montserrat,Poppins,Pretendard,'Segoe UI',Helvetica,Arial,sans-serif\" "
+            'font-weight="900" font-size="66" letter-spacing="-2" fill="currentColor">VENOM</text>'
+            f'<circle cx="303" cy="14" r="10.5" fill="{VENOM_ORANGE}"/></svg>')
 
 
-VENOM_LOGO = (_vmark(32)
-              + '<span class="wm"><b>VENOMAD</b><small>(주)베놈 · 병원 마케팅</small></span>')
-VENOM_LOGO_SM = _vmark(15) + '<b style="font-weight:800">VENOMAD</b> (주)베놈'
+VENOM_LOGO = _wordmark(30)
+VENOM_LOGO_SM = _wordmark(16)
 
 
 def cell(c: dict) -> str:
@@ -1241,13 +1246,10 @@ font-family:"Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",system-ui,sans-
 .wrap{{max-width:880px;margin:0 auto;padding:26px 16px 60px;display:flex;flex-direction:column;gap:18px}}
 header{{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center;
 border-bottom:2px solid var(--accent);padding-bottom:12px}}
-.brand{{display:inline-flex;align-items:center;gap:10px;white-space:nowrap}}
-.brand .vmark{{flex:none;display:block}}
-.brand .wm{{display:inline-flex;flex-direction:column;line-height:1.08}}
-.brand .wm b{{font-size:15.5px;font-weight:800;color:var(--accent);letter-spacing:.02em}}
-.brand .wm small{{font-size:10.5px;font-weight:700;color:var(--sub)}}
+.brand{{display:inline-flex;align-items:center;white-space:nowrap}}
+.vlogo{{display:block;color:var(--ink)}}
 .bn{{font-size:11.5px;color:var(--sub)}}
-footer .vmark{{vertical-align:-3px;margin-right:3px}}
+footer .vlogo{{display:inline-block;vertical-align:-4px;margin-right:5px}}
 h1{{font-size:24px;margin:8px 0 4px}}h2{{font-size:16.5px;margin:0 0 10px}}h3{{font-size:13.5px;margin:0}}
 .meta{{font-size:13px;color:var(--sub)}}.meta b{{color:var(--ink)}}
 .card{{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px 20px}}
