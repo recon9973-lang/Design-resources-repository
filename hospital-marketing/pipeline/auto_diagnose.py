@@ -266,7 +266,7 @@ def main() -> None:
         "gu": r_road["gu"] or r_jibun["gu"],
         "dong": r_jibun["dong"] or r_road["dong"],
     }
-    cls = keywordgen.classify(biz.get("category") or "")
+    cls = keywordgen.classify(biz.get("category") or "", biz.get("title") or "")
     print("=" * 72)
     print(f"[업체 특정] {biz['title']}")
     print(f"  주소   : {biz['address']}")

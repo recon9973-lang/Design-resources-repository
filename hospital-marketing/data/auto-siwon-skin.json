@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-07-06T10:22:20+00:00",
+ "generated_at": "2026-07-06T11:01:45+00:00",
  "business": {
   "rank": 1,
   "title": "시원마취통증의학과의원 시원스킨클리닉",
@@ -13,16 +13,19 @@
   "latitude": 36.0247015
  },
  "region": {
-  "city": "경상북",
+  "city": "경북",
   "gu": "포항시",
   "dong": "죽도동"
  },
  "classification": {
   "is_hospital": true,
-  "dept": null,
+  "dept": "피부과",
   "base_terms": [
-   "병원"
-  ]
+   "피부관리",
+   "스킨케어",
+   "피부"
+  ],
+  "name_inferred": true
  },
  "keywords": [
   {
@@ -231,74 +234,74 @@
    }
   },
   {
-   "kw": "죽도동 병원",
+   "kw": "죽도동 피부관리",
    "type": "동단위",
-   "base": "병원",
+   "base": "피부관리",
    "place": {
-    "keyword": "죽도동 병원",
+    "keyword": "죽도동 피부관리",
     "exposed": false,
     "rank": null,
     "ambiguous": false,
     "results": [
      {
       "rank": 1,
-      "title": "포항 밴스의원",
-      "address": "경상북도 포항시 북구 중흥로 336 굿모닝타워 10층 1001호",
-      "address_jibun": "경상북도 포항시 북구 죽도동 48-27 굿모닝타워 10층 1001호",
-      "category": "병원,의원>피부과",
-      "link": "https://pohang.vandsclinic.co.kr/",
+      "title": "스킨하우스",
+      "address": "경상북도 포항시 북구 중앙로192번길 4-2 리치하임 2F",
+      "address_jibun": "경상북도 포항시 북구 죽도동 37-9 리치하임 2F",
+      "category": "미용>피부,체형관리",
+      "link": "https://blog.naver.com/skinhouse0221",
       "telephone": "",
       "description": "",
-      "longitude": 129.3654924,
-      "latitude": 36.0316611
+      "longitude": 129.367059,
+      "latitude": 36.0301241
      },
      {
       "rank": 2,
-      "title": "스카이플란트치과의원 포항",
-      "address": "경상북도 포항시 북구 포스코대로 303 2층",
-      "address_jibun": "경상북도 포항시 북구 죽도동 642-8 2층",
-      "category": "병원,의원>치과",
-      "link": "http://skyplant.co.kr/",
+      "title": "아로마스토리",
+      "address": "경상북도 포항시 북구 상대로 5 2층",
+      "address_jibun": "경상북도 포항시 북구 죽도동 678-12 2층",
+      "category": "미용>피부,체형관리",
+      "link": "https://m.blog.naver.cim/bishopmepi/223450294431",
       "telephone": "",
       "description": "",
-      "longitude": 129.357503,
-      "latitude": 36.0198837
+      "longitude": 129.3488512,
+      "latitude": 36.0188585
      },
      {
       "rank": 3,
-      "title": "예스치과의원",
-      "address": "경상북도 포항시 북구 중흥로 330 한도빌딩",
-      "address_jibun": "경상북도 포항시 북구 죽도동 48-10 한도빌딩",
-      "category": "병원,의원>치과",
-      "link": "http://www.예스치과.kr",
+      "title": "킹아로마마사지",
+      "address": "경상북도 포항시 북구 중흥로 126 3층",
+      "address_jibun": "경상북도 포항시 북구 죽도동 718-4 3층",
+      "category": "미용>피부,체형관리",
+      "link": "",
       "telephone": "",
       "description": "",
-      "longitude": 129.3652497,
-      "latitude": 36.0313904
+      "longitude": 129.3528321,
+      "latitude": 36.0158214
      },
      {
       "rank": 4,
-      "title": "포항여성병원",
-      "address": "경상북도 포항시 북구 포스코대로 269",
-      "address_jibun": "경상북도 포항시 북구 죽도동 640-5",
-      "category": "병원,의원>산부인과",
-      "link": "https://phw.co.kr",
+      "title": "중국전통마사지",
+      "address": "경상북도 포항시 북구 중흥로125번길 5 2층",
+      "address_jibun": "경상북도 포항시 북구 죽도동 709-13 2층",
+      "category": "미용>피부,체형관리",
+      "link": "",
       "telephone": "",
       "description": "",
-      "longitude": 129.3543512,
-      "latitude": 36.0215497
+      "longitude": 129.3517874,
+      "latitude": 36.0161136
      },
      {
       "rank": 5,
-      "title": "미르치과병원",
-      "address": "경상북도 포항시 북구 포스코대로 288 5~9층",
-      "address_jibun": "경상북도 포항시 북구 죽도동 644-12 5~9층",
-      "category": "병원,의원>치과",
-      "link": "http://www.phmir.com/",
+      "title": "우아한에스테틱",
+      "address": "경상북도 포항시 북구 칠성천길 118 2층",
+      "address_jibun": "경상북도 포항시 북구 죽도동 1-16 2층",
+      "category": "미용>피부,체형관리",
+      "link": "",
       "telephone": "",
       "description": "",
-      "longitude": 129.3552028,
-      "latitude": 36.0200559
+      "longitude": 129.3665897,
+      "latitude": 36.0361992
      }
     ]
    },
@@ -312,27 +315,27 @@
      "top": [
       {
        "rank": 1,
-       "title": "죽도동 치과 병원, 사후관리가 걱정된다면 시작 전 점검할...",
+       "title": "더결뷰티 후기 | 피부 리프팅 관리 잘하는 포항죽도동에스테틱",
        "is_me": false
       },
       {
        "rank": 2,
-       "title": "죽도동한방병원 운동 후 어깨 통증이 계속된다면",
+       "title": "포항 죽도동 피부관리 더결뷰티 물방울 관리 솔직후기",
        "is_me": false
       },
       {
        "rank": 3,
-       "title": "포항 죽도동 병원 건물 출입문이 쾅쾅 닫히는 상황, 힌지...",
+       "title": "포항 죽도동 피부관리 더결뷰티 즉각적인 리프팅 후기",
        "is_me": false
       },
       {
        "rank": 4,
-       "title": "포항죽도동병원 대신 한의원에서 경옥고로 면역력을 강화하여",
+       "title": "포항피부관리 포항죽도동에스테틱 '더결뷰티' 속눈썹연장 후기",
        "is_me": false
       },
       {
        "rank": 5,
-       "title": "포항죽도동병원 잦은 두통에 힘들다면 한의원에서",
+       "title": "포항피부관리 받고 온 날｜포항죽도동에스테틱 MTS 피부관리...",
        "is_me": false
       }
      ]
@@ -346,27 +349,27 @@
      "top": [
       {
        "rank": 1,
-       "title": "죽도동 병원",
+       "title": "죽도동에 피부관리샵 추천좀해주세요",
        "is_me": false
       },
       {
        "rank": 2,
-       "title": "죽도동 인성병원에 초5 ADHD진료 잘보시는 선생님 추천부탁드려요.",
+       "title": "포항 죽도동 피부 샵인구해요",
        "is_me": false
       },
       {
        "rank": 3,
-       "title": "죽도동 쪽에 보건증 발급병원",
+       "title": "포항한의원에서 아빠 모시고 기미제거 하고 왔습니다~",
        "is_me": false
       },
       {
        "rank": 4,
-       "title": "죽도동 ㅈㅇ 동물병원",
+       "title": "피부관리샵",
        "is_me": false
       },
       {
        "rank": 5,
-       "title": "죽도동 깨끗하고 조용한 원룸, 미투 있어요~^^",
+       "title": "체형,피부관리관리샵 영뷰티 인사드립니다",
        "is_me": false
       }
      ]
@@ -380,27 +383,27 @@
      "top": [
       {
        "rank": 1,
-       "title": "상쾌한항구병원 후기/가격/비용 (2026)",
+       "title": "포항죽도동피부관리 재방문할수밖에 없는 더결뷰티",
        "is_me": false
       },
       {
        "rank": 2,
-       "title": "죽도동 내과 | 27개 병원 비교",
+       "title": "포항 죽도동 피부관리샵 [우아한 에스테틱] 손 수기관리에 테라노바 기기관리 최고 :D",
        "is_me": false
       },
       {
        "rank": 3,
-       "title": "포항건강마취통증의학과의원 후기/가격/비용 (2026)",
+       "title": "[포항 죽도동 뷰티샵] 포항 에스테틱 피부관리 속건조 잡는 물방울 관리 추천, 더결뷰티",
        "is_me": false
       },
       {
        "rank": 4,
-       "title": "성모연합외과의원 후기/가격/비용 (2026)",
+       "title": "포항죽도동피부관리/ 에끌라뷰티에서 리프팅관리!",
        "is_me": false
       },
       {
        "rank": 5,
-       "title": "포항재활의학병원 후기/가격/비용 (2026)",
+       "title": "[포항 죽도동 뷰티샵] 꼼꼼한 포항피부관리 1:1 맞춤케어 잘하는 곳, 스킨하우스",
        "is_me": false
       }
      ]
@@ -414,27 +417,22 @@
      "top": [
       {
        "rank": 1,
-       "title": "포항 횡단보도 사고 운전자 음주 의혹…70대 보행자 부상",
+       "title": "&quot;이럴바엔 차라리 문 닫는 게 낫다&quot;",
        "is_me": false
       },
       {
        "rank": 2,
-       "title": "&quot;투표용지 찍어줘&quot; 소란에 차량 이송 제보까지…투표소 곳곳 긴장(종합...",
+       "title": "[9일 캠코 공개매각 정보/온비드종합] 강원도 양양군 양양읍 거마리 163...",
        "is_me": false
       },
       {
        "rank": 3,
-       "title": "&quot;투표 꼭 해야죠&quot;…휠체어 탄 60대 환자도 의료진 도움 받아 한 표",
+       "title": "[3일 캠코 공개매각 정보/온비드종합] 국유재산 매각 입찰공고 외 온비...",
        "is_me": false
       },
       {
        "rank": 4,
-       "title": "&quot;더는 기다릴 수 없다&quot;…포항지진 시민들, 400㎞ 걸어 대법원 문 두드리...",
-       "is_me": false
-      },
-      {
-       "rank": 5,
-       "title": "물집 터진 발로 걸어온 천리길… 포항시민들 대법원 앞 눈물의 호소",
+       "title": "‘체온업다이어트’…예신 포항점 가을 다이어트 프로그램 ‘인기’",
        "is_me": false
       }
      ]
@@ -448,27 +446,27 @@
      "top": [
       {
        "rank": 1,
-       "title": "포항 죽도동 S병원 앞 도로 깊이 1m 포트홀 발견",
+       "title": "뷰티립스 고수의 피부 관리 서비스, 경북 포항시 - 숨고, 숨은고수 뷰티립스 고수의 피부 관리 서비스, 경북 포항시",
        "is_me": false
       },
       {
        "rank": 2,
-       "title": "포항여성병원, 죽도동에 사랑의 선풍기 기탁",
+       "title": "이사랑 고수의 피부 관리 서비스, 경북 포항시 - 숨고, 숨은고수 이사랑 고수의 피부 관리 서비스, 경북 포항시",
        "is_me": false
       },
       {
        "rank": 3,
-       "title": "포항여성병원 간호사회, 죽도동에 이불 전달",
+       "title": "마사지샵 포항 미휴, 피부관리 커플 마사지 등 최대 60% 할인 이벤트 진행",
        "is_me": false
       },
       {
        "rank": 4,
-       "title": "포항 죽도동 미르치과병원, 취약계층 이웃에 100만원 상당의 라면 기탁",
+       "title": "포항시 죽도숯불촌,  백미10kg 100포와 라면 50상자 기탁",
        "is_me": false
       },
       {
        "rank": 5,
-       "title": "죽도동 사랑니발치 TOP10 (2021) | 병원 리뷰,후기는 모두닥!",
+       "title": "포항시 죽도숯불촌, 지역 불우이웃에 쌀 100포 전달",
        "is_me": false
       }
      ]
@@ -482,27 +480,7 @@
      "top": [
       {
        "rank": 1,
-       "title": "포항 인성병원 (죽도동), 인성병원 (장성동)",
-       "is_me": false
-      },
-      {
-       "rank": 2,
-       "title": "포항죽도동쪽에 잘보는 정형외과 추천좀",
-       "is_me": false
-      },
-      {
-       "rank": 3,
-       "title": "죽도동 동물병원 중성화 잘하는곳 있나요?",
-       "is_me": false
-      },
-      {
-       "rank": 4,
-       "title": "포항 간경화 환자 요양병원",
-       "is_me": false
-      },
-      {
-       "rank": 5,
-       "title": "포항 동물병원(토끼)",
+       "title": "셀리턴 led마스크 효과와 안구안전성 고민",
        "is_me": false
       }
      ]
@@ -510,561 +488,74 @@
    }
   },
   {
-   "kw": "포항시 병원",
-   "type": "구단위",
-   "base": "병원",
-   "place": {
-    "keyword": "포항시 병원",
-    "exposed": false,
-    "rank": null,
-    "ambiguous": false,
-    "results": [
-     {
-      "rank": 1,
-      "title": "포항 밴스의원",
-      "address": "경상북도 포항시 북구 중흥로 336 굿모닝타워 10층 1001호",
-      "address_jibun": "경상북도 포항시 북구 죽도동 48-27 굿모닝타워 10층 1001호",
-      "category": "병원,의원>피부과",
-      "link": "https://pohang.vandsclinic.co.kr/",
-      "telephone": "",
-      "description": "",
-      "longitude": 129.3654924,
-      "latitude": 36.0316611
-     },
-     {
-      "rank": 2,
-      "title": "리네의원",
-      "address": "경상북도 포항시 남구 중흥로 73 2층, 3층",
-      "address_jibun": "경상북도 포항시 남구 상도동 586-10 2층, 3층",
-      "category": "병원,의원>피부과",
-      "link": "https://www.line-clinic.co.kr",
-      "telephone": "",
-      "description": "",
-      "longitude": 129.3491385,
-      "latitude": 36.0120423
-     },
-     {
-      "rank": 3,
-      "title": "블리비의원 포항점",
-      "address": "경상북도 포항시 남구 중흥로 88 CNK메디컬빌딩 8층",
-      "address_jibun": "경상북도 포항시 남구 상도동 609-6 CNK메디컬빌딩 8층",
-      "category": "병원,의원>피부과",
-      "link": "http://www.velyb.kr/",
-      "telephone": "",
-      "description": "",
-      "longitude": 129.3505943,
-      "latitude": 36.0129568
-     },
-     {
-      "rank": 4,
-      "title": "포항연세정형외과의원",
-      "address": "경상북도 포항시 남구 시청로 18 퍼스트힐 201호",
-      "address_jibun": "경상북도 포항시 남구 대잠동 1003 퍼스트힐 201호",
-      "category": "병원,의원>정형외과",
-      "link": "https://www.pohangyonsei.com/",
-      "telephone": "",
-      "description": "",
-      "longitude": 129.3404491,
-      "latitude": 36.0181738
-     },
-     {
-      "rank": 5,
-      "title": "포항휴먼피부과의원",
-      "address": "경상북도 포항시 북구 새천년대로 1149 101호, 201호",
-      "address_jibun": "경상북도 포항시 북구 장성동 829 101호, 201호",
-      "category": "병원,의원>피부과",
-      "link": "http://phhuman.co.kr/",
-      "telephone": "",
-      "description": "",
-      "longitude": 129.3733001,
-      "latitude": 36.0713216
-     }
-    ]
-   },
-   "content": {
-    "blog": {
-     "present": true,
-     "exposed": false,
-     "position": null,
-     "label": "블로그",
-     "ambiguous": false,
-     "top": [
-      {
-       "rank": 1,
-       "title": "포항시교통사고병원 경추통과 두통 관리",
-       "is_me": false
-      },
-      {
-       "rank": 2,
-       "title": "포항시한방병원 내상 케어해서",
-       "is_me": false
-      },
-      {
-       "rank": 3,
-       "title": "포항시교통사고병원 지속되는 통증 케어한다면",
-       "is_me": false
-      },
-      {
-       "rank": 4,
-       "title": "포항시 병원 안심동행 서비스 후기",
-       "is_me": false
-      },
-      {
-       "rank": 5,
-       "title": "포항시한방병원 내상 파악해서",
-       "is_me": false
-      }
-     ]
-    },
-    "cafe": {
-     "present": true,
-     "exposed": false,
-     "position": null,
-     "label": "카페",
-     "ambiguous": false,
-     "top": [
-      {
-       "rank": 1,
-       "title": "포항시한방병원 사고후 증상 개선이 필요하다면",
-       "is_me": false
-      },
-      {
-       "rank": 2,
-       "title": "포항시 병원",
-       "is_me": false
-      },
-      {
-       "rank": 3,
-       "title": "포항시 북구 병원에서 단기 알바 선생님 구합니다",
-       "is_me": false
-      },
-      {
-       "rank": 4,
-       "title": "포항시 e병원 장례식장 부고화환 빠르게 도와드려요",
-       "is_me": false
-      },
-      {
-       "rank": 5,
-       "title": "포항시 간호 간병통합서비스 병동 현황 및 병원 리스트 정리",
-       "is_me": false
-      }
-     ]
-    },
-    "web": {
-     "present": true,
-     "exposed": false,
-     "position": null,
-     "label": "웹문서",
-     "ambiguous": false,
-     "top": [
-      {
-       "rank": 1,
-       "title": "협력 병·의원 현황",
-       "is_me": false
-      },
-      {
-       "rank": 2,
-       "title": "포항성모병원",
-       "is_me": false
-      },
-      {
-       "rank": 3,
-       "title": "요양기관 정보 &lt; 건강보험심사평가원",
-       "is_me": false
-      },
-      {
-       "rank": 4,
-       "title": "에스포항병원 후기/가격/비용 (2026)",
-       "is_me": false
-      },
-      {
-       "rank": 5,
-       "title": "상쾌한항구병원 후기/가격/비용 (2026)",
-       "is_me": false
-      }
-     ]
-    },
-    "news": {
-     "present": true,
-     "exposed": false,
-     "position": null,
-     "label": "뉴스",
-     "ambiguous": false,
-     "top": [
-      {
-       "rank": 1,
-       "title": "포항서 중학생 집단 난투극…6명 공동폭행 입건",
-       "is_me": false
-      },
-      {
-       "rank": 2,
-       "title": "[부음] 김동규 장인, 윤보원 시부, 범지형 부친 외",
-       "is_me": false
-      },
-      {
-       "rank": 3,
-       "title": "[포항]행정망 밖 '투명인간' 70대..이웃 관심으로 '새 삶'",
-       "is_me": false
-      },
-      {
-       "rank": 4,
-       "title": "포항 에코빌리지 '신광면 유치' 힘 실리나",
-       "is_me": false
-      },
-      {
-       "rank": 5,
-       "title": "경북도, 삼성 구미 로봇 투자 환영...자립형 로봇산업 생태계 고도화 박...",
-       "is_me": false
-      }
-     ]
-    },
-    "image": {
-     "present": true,
-     "exposed": false,
-     "position": null,
-     "label": "이미지",
-     "ambiguous": false,
-     "top": [
-      {
-       "rank": 1,
-       "title": "에스포항병원, 2018년 포항시 출산장려 '명예홍보기업' 위촉",
-       "is_me": false
-      },
-      {
-       "rank": 2,
-       "title": "미리 알면 도움 되는 '2015 달라지는 포항시정'",
-       "is_me": false
-      },
-      {
-       "rank": 3,
-       "title": "[신년사] 이강덕 포항시장 \"전 분야 걸쳐 동해안 거점도시 되도록 최선 다할 것\"",
-       "is_me": false
-      },
-      {
-       "rank": 4,
-       "title": "또 ‘구급차 뺑뺑이’… 교통사고 환자 2시간 헤매다 숨졌다",
-       "is_me": false
-      },
-      {
-       "rank": 5,
-       "title": "포항시시설관리공단, 포항선린병원과 업무협약",
-       "is_me": false
-      }
-     ]
-    },
-    "kin": {
-     "present": true,
-     "exposed": false,
-     "position": null,
-     "label": "지식iN",
-     "ambiguous": false,
-     "top": [
-      {
-       "rank": 1,
-       "title": "오십견 어깨통증 한방병원(포항 포항시 오십견)",
-       "is_me": false
-      },
-      {
-       "rank": 2,
-       "title": "교통사고 요추염좌 한방병원(포항 포항시 요추염좌)",
-       "is_me": false
-      },
-      {
-       "rank": 3,
-       "title": "교통사고 목디스크 한방병원(포항시 포항상도동 목디스크)",
-       "is_me": false
-      },
-      {
-       "rank": 4,
-       "title": "교통사고 허리디스크 한방병원(포항시 포항상도동...",
-       "is_me": false
-      },
-      {
-       "rank": 5,
-       "title": "목디스크 추나요법 한방병원(포항 포항시 목디스크)",
-       "is_me": false
-      }
-     ]
-    }
-   }
-  },
-  {
-   "kw": "경상북 병원",
+   "kw": "포항 피부관리",
    "type": "시단위",
-   "base": "병원",
+   "base": "피부관리",
    "place": {
-    "keyword": "경상북 병원",
-    "exposed": false,
-    "rank": null,
-    "ambiguous": false,
-    "results": []
-   },
-   "content": {
-    "blog": {
-     "present": true,
-     "exposed": false,
-     "position": null,
-     "label": "블로그",
-     "ambiguous": false,
-     "top": [
-      {
-       "rank": 1,
-       "title": "경상북 영덕군 남산리 영덕효요양병원장례식장 바로배송 후기!...",
-       "is_me": false
-      },
-      {
-       "rank": 2,
-       "title": "자랑스러운 경상북도민상 시상식 유튜브 채널 보이소 TV...",
-       "is_me": false
-      },
-      {
-       "rank": 3,
-       "title": "경상북도민의 날 기념, 자랑스러운 경상북도민상 시상식",
-       "is_me": false
-      },
-      {
-       "rank": 4,
-       "title": "경상북도민의 날 기념‘자랑스러운 경상북도민상 시상식’개최",
-       "is_me": false
-      },
-      {
-       "rank": 5,
-       "title": "[경북도민신문] 경북을 빛낸 ‘자랑스러운 경상북도민상’...",
-       "is_me": false
-      }
-     ]
-    },
-    "cafe": {
-     "present": true,
-     "exposed": false,
-     "position": null,
-     "label": "카페",
-     "ambiguous": false,
-     "top": [
-      {
-       "rank": 1,
-       "title": "[여성아이병원]난임해결은 여성아이병원",
-       "is_me": false
-      },
-      {
-       "rank": 2,
-       "title": "[여성아이병원] 난임부부에게 희망을♥",
-       "is_me": false
-      },
-      {
-       "rank": 3,
-       "title": "임산부키트~",
-       "is_me": false
-      },
-      {
-       "rank": 4,
-       "title": "[여성아이병원] 인공수정 시험관시술의 차이가 뭘까요?!",
-       "is_me": false
-      },
-      {
-       "rank": 5,
-       "title": "상주시 공공산후조리원 9월말~10월초 개원예정",
-       "is_me": false
-      }
-     ]
-    },
-    "web": {
-     "present": true,
-     "exposed": false,
-     "position": null,
-     "label": "웹문서",
-     "ambiguous": false,
-     "top": [
-      {
-       "rank": 1,
-       "title": "타임라인&gt;소식 - 경상북도청",
-       "is_me": false
-      },
-      {
-       "rank": 2,
-       "title": "경상북 온라인 마케팅 전문 업체 - 마케팅의중심 AI Lab | 경상북 병원 변호사 금융 학원 맛집 광고 실행사",
-       "is_me": false
-      },
-      {
-       "rank": 3,
-       "title": "일상킷",
-       "is_me": false
-      },
-      {
-       "rank": 4,
-       "title": "포항시 이대공·강창호·이순자 씨, ‘2021 자랑스러운 경상북도민상’ 수상",
-       "is_me": false
-      },
-      {
-       "rank": 5,
-       "title": "권규호 예천권병원 원장, 경북도민상 수상",
-       "is_me": false
-      }
-     ]
-    },
-    "news": {
-     "present": true,
-     "exposed": false,
-     "position": null,
-     "label": "뉴스",
-     "ambiguous": false,
-     "top": [
-      {
-       "rank": 1,
-       "title": "권기창 &quot;안동 정상회담, 선거 영향 없을 것…사법 리스크 無 인생 건다...",
-       "is_me": false
-      },
-      {
-       "rank": 2,
-       "title": "경북도, APEC 정상회의 감염병 대응도 '정상급으로'",
-       "is_me": false
-      },
-      {
-       "rank": 3,
-       "title": "[오늘의 주요 사회 일정] 대구·경북(10월1일 수요일)",
-       "is_me": false
-      },
-      {
-       "rank": 4,
-       "title": "[오늘의 주요일정]대구·경북(10월1일 수요일)",
-       "is_me": false
-      },
-      {
-       "rank": 5,
-       "title": "[2024년 10월 23일 시도지사 주요일정] 오세훈 서울시장, 서울시 철도 지...",
-       "is_me": false
-      }
-     ]
-    },
-    "image": {
-     "present": true,
-     "exposed": false,
-     "position": null,
-     "label": "이미지",
-     "ambiguous": false,
-     "top": [
-      {
-       "rank": 1,
-       "title": "강병직 김천제일병원 이사장·백계자 대도중공업 대표, 자랑스러운 경상북도민상 수상",
-       "is_me": false
-      },
-      {
-       "rank": 2,
-       "title": "강병직 김천제일병원 이사장·백계자 대도중공업 대표, 자랑스러운 경상북도민상 수상",
-       "is_me": false
-      },
-      {
-       "rank": 3,
-       "title": "강병직 김천제일병원 이사장·백계자 대도중공업 대표, 자랑스러운 경상북도민상 수상",
-       "is_me": false
-      },
-      {
-       "rank": 4,
-       "title": "안동시치매안심센터-도립안동노인전문요양병원, 업무협약 체결",
-       "is_me": false
-      },
-      {
-       "rank": 5,
-       "title": "상주적십자병원, 공공보건의료 협력체계 구축 원외대표협의체 회의 열어",
-       "is_me": false
-      }
-     ]
-    },
-    "kin": {
-     "present": true,
-     "exposed": false,
-     "position": null,
-     "label": "지식iN",
-     "ambiguous": false,
-     "top": [
-      {
-       "rank": 1,
-       "title": "(실화)친구가 저지른 최악의 살인사건",
-       "is_me": false
-      },
-      {
-       "rank": 2,
-       "title": "경상북터 구미시 애견병원 좋은곳 부탁드려요",
-       "is_me": false
-      },
-      {
-       "rank": 3,
-       "title": "운동처방학과나 스포츠의학과에대해서..",
-       "is_me": false
-      }
-     ]
-    }
-   }
-  },
-  {
-   "kw": "병원",
-   "type": "메인",
-   "base": "병원",
-   "place": {
-    "keyword": "병원",
+    "keyword": "포항 피부관리",
     "exposed": false,
     "rank": null,
     "ambiguous": false,
     "results": [
      {
       "rank": 1,
-      "title": "셀린의원 명동점",
-      "address": "서울특별시 중구 남대문로7길 16 1층 셀린의원 명동",
-      "address_jibun": "서울특별시 중구 소공동 21-1 1층 셀린의원 명동",
-      "category": "병원,의원>피부과",
-      "link": "http://pf.kakao.com/_AmKxln",
+      "title": "포항 마사지 다온 아로마",
+      "address": "경상북도 포항시 남구 상대로 125 2층",
+      "address_jibun": "경상북도 포항시 남구 대도동 158-34 2층",
+      "category": "미용>피부,체형관리",
+      "link": "https://www.instagram.com/da.on.aroma",
       "telephone": "",
       "description": "",
-      "longitude": 126.9811262,
-      "latitude": 37.5642284
+      "longitude": 129.3602412,
+      "latitude": 36.0137754
      },
      {
       "rank": 2,
-      "title": "광화문선치과의원",
-      "address": "서울특별시 중구 세종대로 135-9 충방빌딩 3층",
-      "address_jibun": "서울특별시 중구 태평로1가 62-3 충방빌딩 3층",
-      "category": "병원,의원>치과",
-      "link": "https://blog.naver.com/sundent21",
+      "title": "더손길 에스테틱",
+      "address": "경상북도 포항시 남구 효성로60번길 10 하늘풍경 1층",
+      "address_jibun": "경상북도 포항시 남구 효자동 599-2 하늘풍경 1층",
+      "category": "미용>피부,체형관리",
+      "link": "http://instagram.com/songil2435",
       "telephone": "",
       "description": "",
-      "longitude": 126.9763175,
-      "latitude": 37.5688261
+      "longitude": 129.340027,
+      "latitude": 36.005101
      },
      {
       "rank": 3,
-      "title": "써밋의원 광화문역",
-      "address": "서울특별시 중구 세종대로22길 12 광화문G스퀘어 3층",
-      "address_jibun": "서울특별시 중구 태평로1가 25-3 광화문G스퀘어 3층",
-      "category": "병원,의원>피부과",
-      "link": "https://youtube.com/@summitclinic_kr",
+      "title": "약손명가 포항점",
+      "address": "경상북도 포항시 남구 포스코대로 138 DMT대잠메디컬타워 7층",
+      "address_jibun": "경상북도 포항시 남구 대잠동 459-3 DMT대잠메디컬타워 7층",
+      "category": "미용>피부,체형관리",
+      "link": "https://www.instagram.com/yakson__pohang/",
       "telephone": "",
       "description": "",
-      "longitude": 126.977968,
-      "latitude": 37.5679455
+      "longitude": 129.340601,
+      "latitude": 36.0255693
      },
      {
       "rank": 4,
-      "title": "연세공감마취통증의학과의원 을지로",
-      "address": "서울특별시 중구 남대문로9길 40 센터플레이스 3층",
-      "address_jibun": "서울특별시 중구 다동 155 센터플레이스 3층",
-      "category": "병원,의원>정형외과",
-      "link": "https://blog.naver.com/gonggampain",
+      "title": "예움",
+      "address": "경상북도 포항시 북구 우창동로56번길 25 예움",
+      "address_jibun": "경상북도 포항시 북구 우현동 621 예움",
+      "category": "미용>피부,체형관리",
+      "link": "https://booking.naver.com/booking/13/bizes/1629948",
       "telephone": "",
       "description": "",
-      "longitude": 126.980583,
-      "latitude": 37.5670584
+      "longitude": 129.3634854,
+      "latitude": 36.055212
      },
      {
       "rank": 5,
-      "title": "시청하늘정신건강의학과의원",
-      "address": "서울특별시 중구 무교로 13 6층",
-      "address_jibun": "서울특별시 중구 무교동 24-2 6층",
-      "category": "병원,의원>정신건강의학과",
-      "link": "https://skymentalhealth.com/sc",
+      "title": "뷰티앤맘 포항문덕점",
+      "address": "경상북도 포항시 남구 오천읍 냉천로320번길 34 월드타워",
+      "address_jibun": "경상북도 포항시 남구 오천읍 원리 946-4 월드타워",
+      "category": "미용>피부,체형관리",
+      "link": "https://blog.naver.com/nabis1982",
       "telephone": "",
       "description": "",
-      "longitude": 126.9789887,
-      "latitude": 37.56714
+      "longitude": 129.4052807,
+      "latitude": 35.9661302
      }
     ]
    },
@@ -1078,27 +569,27 @@
      "top": [
       {
        "rank": 1,
-       "title": "아인병원 제왕절개 2일차 생생 후기",
+       "title": "포항 피부관리 고민이라면 에스테틱 미휴 윤곽관리 후기",
        "is_me": false
       },
       {
        "rank": 2,
-       "title": "강남역 더왈츠의원 병원커튼과 블라인드 시공후기",
+       "title": "포항피부관리 프레아에스테틱 관리 받은 찐 후기! &quot;좁쌀 여드름&quot;",
        "is_me": false
       },
       {
        "rank": 3,
-       "title": "동물병원 리셉션 취업 100% 되는 방법 현실 정보",
+       "title": "포항 피부관리 잘하는 곳 에스파몽벨 페이스+등관리 80분 추천",
        "is_me": false
       },
       {
        "rank": 4,
-       "title": "미래에서 온 영수증, 병원 가야지",
+       "title": "포항 피부관리 슈퍼젝션 건조한 피부 모공관리 후기 에끌라뷰티",
        "is_me": false
       },
       {
        "rank": 5,
-       "title": "오늘 아침 : 오픈런 (병원, 한살림)",
+       "title": "포항피부관리 웨딩관리 탱탱스킨바디 추천 찐후기(광고X)",
        "is_me": false
       }
      ]
@@ -1112,27 +603,27 @@
      "top": [
       {
        "rank": 1,
-       "title": "요양병원 알아보고 있는데요",
+       "title": "포항피부관리 괜찮은 곳 있을까요?",
        "is_me": false
       },
       {
        "rank": 2,
-       "title": "어지러움증 병원 선택 고민돼요ㅠ",
+       "title": "포항 피부관리 어디 받으세요??",
        "is_me": false
       },
       {
        "rank": 3,
-       "title": "재활병원문의",
+       "title": "포항피부과 자극 없이 피부 관리 잘하는 곳 있을까요?",
        "is_me": false
       },
       {
        "rank": 4,
-       "title": "화홍병원 진료후기",
+       "title": "포항피부관리 찐맛집 후기",
        "is_me": false
       },
       {
        "rank": 5,
-       "title": "통깁스만가능한병원",
+       "title": "포항피부관리샵 어디가 괜찮을까요?",
        "is_me": false
       }
      ]
@@ -1146,27 +637,27 @@
      "top": [
       {
        "rank": 1,
-       "title": "서울아산병원",
+       "title": "포항피부관리 등드름 등필링 후기 르주비아에스테틱",
        "is_me": false
       },
       {
        "rank": 2,
-       "title": "병원 - 나무위키",
+       "title": "포항 김석주 피부과 - 피부과 전문의",
        "is_me": false
       },
       {
        "rank": 3,
-       "title": "고려대학교 의료원",
+       "title": "프리미엄케어 - 라인미의원 :: 포항피부과",
        "is_me": false
       },
       {
        "rank": 4,
-       "title": "서울시산하병원소개",
+       "title": "포항 양덕 피부관리 비오스스킨앤바디 편평사마귀랑 쥐젖",
        "is_me": false
       },
       {
        "rank": 5,
-       "title": "고려대학교 안산병원",
+       "title": "포항피부과 라인미의원 생얼라인미부스터 리쥬란으로 피부관리후기",
        "is_me": false
       }
      ]
@@ -1180,27 +671,27 @@
      "top": [
       {
        "rank": 1,
-       "title": "이호연씨 별세, 김문철(에스포항병원 대표병원장)씨 모친상",
+       "title": "대웅제약, 동물용 창상피복재 '베아좀' 허가…반려동물 의료기기 출시",
        "is_me": false
       },
       {
        "rank": 2,
-       "title": "[참성단] 도수치료",
+       "title": "[건강 칼럼] 피부 환경 개선 중심 스킨부스터 활용, 엘라비에 리투오 진...",
        "is_me": false
       },
       {
        "rank": 3,
-       "title": "&quot;요양원이 죽인 것&quot;…박하선, 90대 노인 폭행 사망 사건 대응에 격분 (히...",
+       "title": "포항과학기술고, 국제뷰티아티스트공모전 휩쓸었다",
        "is_me": false
       },
       {
        "rank": 4,
-       "title": "부산시 서구 아파트 화재…50대 여성 1명 병원 이송",
+       "title": "포항과학기술고, 국제뷰티아티스트공모전 35개 상 수상",
        "is_me": false
       },
       {
        "rank": 5,
-       "title": "[기고]1500만명의 반려사회, 상생 지혜 찾아야",
+       "title": "[Who Is ?] 박형세 LG전자 MS사업본부장 사장",
        "is_me": false
       }
      ]
@@ -1214,27 +705,27 @@
      "top": [
       {
        "rank": 1,
-       "title": "병원 - 무료 의료 및 의료개 아이콘 아티스트가 디자인한 병원 종의 무료 아이콘",
+       "title": "포항 효자 예신관리 및 피부 관리 추천 📍더손길 에스테틱 #포항피부관리 #포항수기마사지 #포항예신관리 #포항몸매관리 #포항경락 #오늘여기클립...",
        "is_me": false
       },
       {
        "rank": 2,
-       "title": "센텀종합병원, 중증 응급환자 비율 70%…\"부산 평균 웃돌아\"",
+       "title": "함께해용  #뒷목왁싱 #예뻐 #배왁싱 #바디왁싱 #페이스왁싱 #포항피부관리 #문덕피부관리 #문덕에스테틱... | Instagram Instagram의 포항왁싱...",
        "is_me": false
       },
       {
        "rank": 3,
-       "title": "보라매병원 간호부, 2년 연속 간호·간병통합서비스 'S등급' 달성",
+       "title": "어본에스테 피부관리 포항점",
        "is_me": false
       },
       {
        "rank": 4,
-       "title": "건강보험심사평가원 인증, 드림종합병원 1등급 이유는?",
+       "title": "극E 원장님을 만나면 고생할수 있습니당😝😝 모두 즐거운 주말보내세요✌️ #미스테틱#포항피부관리#포항피부 #포항피부관리실 | Instagram...",
        "is_me": false
       },
       {
        "rank": 5,
-       "title": "동강병원, 만성폐쇄성폐질환·결핵 진료 1등급",
+       "title": "뷰티앤맘 포항문덕점",
        "is_me": false
       }
      ]
@@ -1248,27 +739,27 @@
      "top": [
       {
        "rank": 1,
-       "title": "서혜부탈장수술비용 병원마다 다른 이유가 있나요?",
+       "title": "포항 피부관리 피부과추천",
        "is_me": false
       },
       {
        "rank": 2,
-       "title": "자율신경실조증 병원, 언제 방문하는 것이 좋을까요?...",
+       "title": "여드름치료 잘하는 포항 피부과나 한의원이나 피부관리...",
        "is_me": false
       },
       {
        "rank": 3,
-       "title": "창원 탈모병원",
+       "title": "포항에 신부피부관리 해주는 곳 어디 괜찮은 곳 없나요 ?",
        "is_me": false
       },
       {
        "rank": 4,
-       "title": "안면거상병원 어떻게 골라야 할까요?(강남 안면거상)",
+       "title": "포항에 피부관리 잘해주는 곳 추천부탁드릴께요",
        "is_me": false
       },
       {
        "rank": 5,
-       "title": "항암치료 받을 때 암요양병원가면 어떤걸 해주나요?...",
+       "title": "포항에 피부관리실 추천 부탁해요",
        "is_me": false
       }
      ]
@@ -1276,29 +767,611 @@
    }
   },
   {
-   "kw": "포항시 병원 추천",
-   "type": "비교",
-   "base": "병원",
+   "kw": "피부관리",
+   "type": "메인",
+   "base": "피부관리",
    "place": {
-    "keyword": "포항시 병원 추천",
+    "keyword": "피부관리",
     "exposed": false,
     "rank": null,
     "ambiguous": false,
     "results": [
      {
       "rank": 1,
-      "title": "포항 밴스의원",
-      "address": "경상북도 포항시 북구 중흥로 336 굿모닝타워 10층 1001호",
-      "address_jibun": "경상북도 포항시 북구 죽도동 48-27 굿모닝타워 10층 1001호",
-      "category": "병원,의원>피부과",
-      "link": "https://pohang.vandsclinic.co.kr/",
+      "title": "더하노이풋앤바디 시청프레지던트호텔점",
+      "address": "서울특별시 중구 을지로 16 프레지던트호텔 지하 2층 B02호",
+      "address_jibun": "서울특별시 중구 을지로1가 188-3 프레지던트호텔 지하 2층 B02호",
+      "category": "미용>피부,체형관리",
+      "link": "https://www.instagram.com/the_hanoi_cityhall",
       "telephone": "",
       "description": "",
-      "longitude": 129.3654924,
-      "latitude": 36.0316611
+      "longitude": 126.9795532,
+      "latitude": 37.5657665
      },
      {
       "rank": 2,
+      "title": "뷰태에스테틱",
+      "address": "서울특별시 중구 무교로 32 효령빌딩 6층 604호",
+      "address_jibun": "서울특별시 중구 무교동 1 효령빌딩 6층 604호",
+      "category": "미용>피부,체형관리",
+      "link": "https://pf.kakao.com/_awAxon",
+      "telephone": "",
+      "description": "",
+      "longitude": 126.9795793,
+      "latitude": 37.5687701
+     },
+     {
+      "rank": 3,
+      "title": "더벨스파 더플라자점",
+      "address": "서울특별시 중구 소공로 119 플라자호텔 별관 15F",
+      "address_jibun": "서울특별시 중구 태평로2가 23 플라자호텔 별관 15F",
+      "category": "미용>피부,체형관리",
+      "link": "http://www.bellespa.co.kr",
+      "telephone": "",
+      "description": "",
+      "longitude": 126.9781033,
+      "latitude": 37.5646897
+     },
+     {
+      "rank": 4,
+      "title": "풋스올 종로점",
+      "address": "서울특별시 종로구 종로 19 르메이에르종로타운 상가 4층 418호",
+      "address_jibun": "서울특별시 종로구 종로1가 24 르메이에르종로타운 상가 4층 418호",
+      "category": "생활,편의>발관리",
+      "link": "http://www.footsallkorea.com",
+      "telephone": "",
+      "description": "",
+      "longitude": 126.9798204,
+      "latitude": 37.5704613
+     },
+     {
+      "rank": 5,
+      "title": "약손명가 시청역점",
+      "address": "서울특별시 중구 무교로 12 정오빌딩 5층",
+      "address_jibun": "서울특별시 중구 무교동 21-3 정오빌딩 5층",
+      "category": "미용>피부,체형관리",
+      "link": "https://yaksonhouse.com/branch-detail/?mod=document&pageid=1&keyword=%EC%8B%9C%EC%B2%AD%EC%97%AD%EC%A0%90&uid=160037",
+      "telephone": "",
+      "description": "",
+      "longitude": 126.9793902,
+      "latitude": 37.5670736
+     }
+    ]
+   },
+   "content": {
+    "blog": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "블로그",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "김포피부관리 내공 느껴진 김기옥 스킨케어",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "부산 피부관리 얼굴선 달라진 곳 추천 후기",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "강동피부관리 예쁘다에스테틱 둔촌, 수분가득한 관리 후기",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "구로피부관리, 리쥬란힐러로 케어 받은 후기",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "안양피부관리 민감할 때 받았던 후기",
+       "is_me": false
+      }
+     ]
+    },
+    "cafe": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "카페",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "의정부 피부관리 스킨케어",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "목포 피부관리 웨디아 윤곽관리 후기",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "피부관리",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "임산부 피부관리 어떻게 하고 계신가요?",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "피부관리사 자격증 준비과정 수업 후기",
+       "is_me": false
+      }
+     ]
+    },
+    "web": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "웹문서",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "피부관리 - 대한피부과학회",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "피부미용클리닉 - 구미강동병원",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "날씨가 더워질수록 심해지는 여름철 피부질환 관리법! '피부관리'",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "질병관리청 여름철 피부 문제 안내 - 이달의 건강정보 - 상세내용 | 국가건강정보포털",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "남자 피부를 지키는 6가지 방법",
+       "is_me": false
+      }
+     ]
+    },
+    "news": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "뉴스",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "노지선, 여름 거리에서 포니테일 묶으며 전한 솔직 일상",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "에이치피앤씨, 인터참 코리아 2026서 '테라비코스' 선보여…&quot;헬스케어 ...",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "'레이시올로지', 론칭 2개월 만에 전국 한의원 400곳 입점",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "K-뷰티 열풍에 뷰티업계 다시 명동으로…의료·에스테틱 신규 출점 러시",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "더마 코스메틱 '레이시올로지' 론칭 2개월 만에 전국 400개 한의원 입점",
+       "is_me": false
+      }
+     ]
+    },
+    "image": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "이미지",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "일주일에 1분! 피부 전문가가 되어 집에서 관리하세요 by 메가 메디코스 일주일에 1분! 피부 전문가가 되어 집에서 관리하세요  by 메가 메디코스",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "네이버 인플루언서 [네이버 인플루언서] 여름철 피부관리법들...",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "겨울철 건조한 사무실, 피부 관리 비법 5",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "얼굴 피부 관리. 미용실에서 혈청 오일 치료를 받는 아름다운 웃는 여자의 근접 촬영. 미용센터에서 소녀의 얼굴에 화장품 세럼을...",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "피부미용 페이셜 관리 | 김현숙 | 메디시언 - 예스24",
+       "is_me": false
+      }
+     ]
+    },
+    "kin": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "지식iN",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "피부과 피부관리 뭐부터 해야하나요",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "모공피부관리 받았는데",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "신도림피부관리 미라젯 여드름 흉터랑 모공에 효과...",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "부산 피부 관리 꾸준하게 할 수 있는 피부과 추천 해주세요",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "패인흉터는 피부관리 뭐부터 시작하는 게 좋나요?",
+       "is_me": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "kw": "포항 여드름",
+   "type": "증상",
+   "base": "여드름",
+   "place": {
+    "keyword": "포항 여드름",
+    "exposed": false,
+    "rank": null,
+    "ambiguous": false,
+    "results": [
+     {
+      "rank": 1,
+      "title": "더퍼스트의원 포항본점",
+      "address": "경상북도 포항시 남구 중흥로 96 포항 메디 센터 4, 5층 더 퍼스트 의원",
+      "address_jibun": "경상북도 포항시 남구 상도동 609-1 포항 메디 센터 4, 5층 더 퍼스트 의원",
+      "category": "병원,의원>피부과",
+      "link": "http://pf.kakao.com/_PNWqT",
+      "telephone": "",
+      "description": "",
+      "longitude": 129.3510772,
+      "latitude": 36.0135238
+     },
+     {
+      "rank": 2,
+      "title": "오한의원",
+      "address": "경상북도 포항시 북구 죽도로 25 2층",
+      "address_jibun": "경상북도 포항시 북구 죽도동 40-5 2층",
+      "category": "병원,의원>한의원",
+      "link": "https://ohhani.co.kr/",
+      "telephone": "",
+      "description": "",
+      "longitude": 129.3639321,
+      "latitude": 36.0343532
+     },
+     {
+      "rank": 3,
+      "title": "오기손길",
+      "address": "경상북도 포항시 북구 우창동로55번길 19 다온트리빌 지하층 B103호",
+      "address_jibun": "경상북도 포항시 북구 우현동 617 다온트리빌 지하층 B103호",
+      "category": "미용>피부,체형관리",
+      "link": "https://blog.naver.com/dushrl8318",
+      "telephone": "",
+      "description": "",
+      "longitude": 129.3625719,
+      "latitude": 36.0558058
+     },
+     {
+      "rank": 4,
+      "title": "늘사랑한의원",
+      "address": "경상북도 포항시 북구 장량중앙로 55 미소빌딩 2층",
+      "address_jibun": "경상북도 포항시 북구 양덕동 657-3 미소빌딩 2층",
+      "category": "병원,의원>한의원",
+      "link": "http://0546140890.quv.kr/",
+      "telephone": "",
+      "description": "",
+      "longitude": 129.3881785,
+      "latitude": 36.0902985
+     },
+     {
+      "rank": 5,
+      "title": "원스 에스테틱 포항점",
+      "address": "경상북도 포항시 북구 항도길 3 1층 원스",
+      "address_jibun": "경상북도 포항시 북구 학산동 148-9 1층 원스",
+      "category": "미용>피부,체형관리",
+      "link": "https://www.instagram.com/ones_aesthetics",
+      "telephone": "",
+      "description": "",
+      "longitude": 129.3698187,
+      "latitude": 36.0506279
+     }
+    ]
+   },
+   "content": {
+    "blog": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "블로그",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "포항여드름치료 성인되어 더 고민이라면",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "포항 피부관리 여드름 탈출 씨파우더 시작",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "드립니다 제발 가셔요! (포항여드름, 포항에스테틱, 여드름관리)",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "포항피부관리 여드름 기초부터 완벽케어 가능한 곳",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "포항 여드름 반복? 원인부터 봐야 합니다 (북구 피부과)",
+       "is_me": false
+      }
+     ]
+    },
+    "cafe": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "카페",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "포항 여드름 피부과 추천해주세요!",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "포항 여드름 응급 진정 병원 추천해주세요 ㅜㅜ",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "포항피부과 여드름 관리받은 후기 적어봐용",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "포항여드름치료 하려는데 한의원이나 피부과 추천 부탁드려요",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "포항 여드름 흉터 치료 피부과 추천",
+       "is_me": false
+      }
+     ]
+    },
+    "web": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "웹문서",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "포항 여드름약 처방병원 찾는 법｜여드름약 종류·가격 한눈에 정리",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "경상북도 포항시 모공/여드름치료 피부과 TOP10 후기/가격 총정리 (2026)",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "오기손길[포항여드름의신]",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "여드름 - 라인미의원 :: 포항피부과",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "포항 여드름관리 화농성 여드름 AC 코팅 솔루션 '인디자인페이스'",
+       "is_me": false
+      }
+     ]
+    },
+    "news": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "뉴스",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "[제약+] 한미약품, '오가논'과 복합제 3종 동남아 공급 계약 外",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "[제약업계 소식] 5월 22일",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "서울시약사회 주도 '불용 ATC 캐니스터' 보상안, 전국 948개 약국 4503건...",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "[오늘의 장바구니] NS홈쇼핑·SSG닷컴·현대백화점 외",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "‘미래 생명공학자’ 김세희 등 대한민국 인재상",
+       "is_me": false
+      }
+     ]
+    },
+    "image": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "이미지",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "#끌림미#포항피부관리#포항여드름관리#포항신부관리#포항산후관리#포항맛집#포항카페 | Instagram Instagram의 포항피부관리 / 끌림미 원장...",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "포항피부관리 / 끌림미 원장 정인아 | 여드름 방치하면 피부고생... #끌림미#포항여드름#포항피부관리#포항여드름관리#포항신부관리...",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "포항여드름 신의 손 육은경뷰티연구소 원장 육은경... | Instagram Instagram의 포항여드름 신의 손 육은경뷰티연구소 원장 육은경님...",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "메인 링크 클릭하시면 오픈카카오 바로 연결됩니다#포항피부관리#포항여드름#포항여드름관리#포항산후관리#포항신부관리#끌림미#경주피부관리\"",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "#끌림미#포항여드름#포항피부관리#포항여드름관리#포항신부관리#포항산후관리#포항맛집#포항카페#경주피부관리\"",
+       "is_me": false
+      }
+     ]
+    },
+    "kin": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "지식iN",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "포항여드름피부과 나아질까요",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "해병대 해군포항병원 여드름약 처방",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "포항피부과 성인여드름이 생겼어요..",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "포항여드름피부과 대체 원인이 뭘까효..",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "포항여드름한의원추천해주세요~!",
+       "is_me": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "kw": "포항 기미",
+   "type": "증상",
+   "base": "기미",
+   "place": {
+    "keyword": "포항 기미",
+    "exposed": false,
+    "rank": null,
+    "ambiguous": false,
+    "results": [
+     {
+      "rank": 1,
+      "title": "기미골",
+      "address": "경상북도 포항시 남구 장기면 정천리",
+      "address_jibun": "경상북도 포항시 남구 장기면 정천리",
+      "category": "고개,골짜기",
+      "link": "",
+      "telephone": "",
+      "description": "",
+      "longitude": 129.4659784,
+      "latitude": 35.9548943
+     },
+     {
+      "rank": 2,
+      "title": "기미골",
+      "address": "경상북도 포항시 북구 신광면 사정리",
+      "address_jibun": "경상북도 포항시 북구 신광면 사정리",
+      "category": "고개,골짜기",
+      "link": "",
+      "telephone": "",
+      "description": "",
+      "longitude": 129.2786022,
+      "latitude": 36.1219022
+     },
+     {
+      "rank": 3,
+      "title": "장구밖기미들",
+      "address": "경상북도 포항시 북구 기계면 미현리",
+      "address_jibun": "경상북도 포항시 북구 기계면 미현리",
+      "category": "지명>들,평야",
+      "link": "",
+      "telephone": "",
+      "description": "",
+      "longitude": 129.2039193,
+      "latitude": 36.1171214
+     },
+     {
+      "rank": 4,
       "title": "리네의원",
       "address": "경상북도 포항시 남구 중흥로 73 2층, 3층",
       "address_jibun": "경상북도 포항시 남구 상도동 586-10 2층, 3층",
@@ -1308,30 +1381,6 @@
       "description": "",
       "longitude": 129.3491385,
       "latitude": 36.0120423
-     },
-     {
-      "rank": 3,
-      "title": "블리비의원 포항점",
-      "address": "경상북도 포항시 남구 중흥로 88 CNK메디컬빌딩 8층",
-      "address_jibun": "경상북도 포항시 남구 상도동 609-6 CNK메디컬빌딩 8층",
-      "category": "병원,의원>피부과",
-      "link": "http://www.velyb.kr/",
-      "telephone": "",
-      "description": "",
-      "longitude": 129.3505943,
-      "latitude": 36.0129568
-     },
-     {
-      "rank": 4,
-      "title": "포항연세정형외과의원",
-      "address": "경상북도 포항시 남구 시청로 18 퍼스트힐 201호",
-      "address_jibun": "경상북도 포항시 남구 대잠동 1003 퍼스트힐 201호",
-      "category": "병원,의원>정형외과",
-      "link": "https://www.pohangyonsei.com/",
-      "telephone": "",
-      "description": "",
-      "longitude": 129.3404491,
-      "latitude": 36.0181738
      },
      {
       "rank": 5,
@@ -1357,27 +1406,27 @@
      "top": [
       {
        "rank": 1,
-       "title": "포항시 장성동 대형상가 건물 매매 ★요양병원추천★",
+       "title": "포항 기미, 레이저 10번 받아도 왜 그대로일까요?",
        "is_me": false
       },
       {
        "rank": 2,
-       "title": "포항시 남구, 당뇨병 전문병원 추천 정보!",
+       "title": "포항기미, 같은 시술 받아도 결과가 다른 이유",
        "is_me": false
       },
       {
        "rank": 3,
-       "title": "포항시 양덕동 임플란트 병원 추천 저렴하고 잘하는 곳 5곳 비교",
+       "title": "포항 기미제거 한 번에 없애려 할수록 어려워집니다",
        "is_me": false
       },
       {
        "rank": 4,
-       "title": "포항시 남빈동 임플란트... 방법 저렴하고 잘하는 치과 병원 추천",
+       "title": "피코토닝 포항, 기미 잡티 개선에 도움될까?",
        "is_me": false
       },
       {
        "rank": 5,
-       "title": "포항시 신흥동 저렴한 임플란트 치과 병원 추천",
+       "title": "포항잡티레이저 기미주근깨 종결",
        "is_me": false
       }
      ]
@@ -1391,27 +1440,27 @@
      "top": [
       {
        "rank": 1,
-       "title": "포항요양병원 추천 급하게 찾고 있어요",
+       "title": "기미제거 피부과",
        "is_me": false
       },
       {
        "rank": 2,
-       "title": "포항 건강검진병원 추천 | 국가검진 가능한 곳",
+       "title": "포항기미레이저 필요하세요?",
        "is_me": false
       },
       {
        "rank": 3,
-       "title": "(경북 포항) 길냥이TNR병원 추천/ 포획틀 구하는 방법/ TNR 요령 조언부탁드립니다",
+       "title": "포항기미 잡티 잘하는피부과(광고x)효과보신 피부과 있을까요?",
        "is_me": false
       },
       {
        "rank": 4,
-       "title": "(경북 포항) 좋은 병원 추천/ 포획틀 구하기/ TNR 요령/ 고알못 조언부탁드립니다",
+       "title": "포항기미제거 고민되는 피부고민을 개선할려면",
        "is_me": false
       },
       {
        "rank": 5,
-       "title": "포항시 병원 추천 부탁드립니다",
+       "title": "포항기미제거 환절기에 피부관리방법은",
        "is_me": false
       }
      ]
@@ -1425,27 +1474,27 @@
      "top": [
       {
        "rank": 1,
-       "title": "포항시 남구 목디스크 전문 병원 추천! BEST 4곳은?",
+       "title": "포항 기미제거 잘 하는 피부과 알려주세요 | 오천읍",
        "is_me": false
       },
       {
        "rank": 2,
-       "title": "[의료] 경상북도 포항시 일반병원추천검색 | 로컬맵 포항시 두리찾기",
+       "title": "기미제거 | 오천읍",
        "is_me": false
       },
       {
        "rank": 3,
-       "title": "포항시 정형외과 유명한 곳 순위 - 경상북도 포항시 전문의 정형외과 잘하는 6곳 병원 의원 추천 리스트",
+       "title": "포항 기미 제거 치료, 저렴하기만한 곳 찾다가 망치는 이유",
        "is_me": false
       },
       {
        "rank": 4,
-       "title": "포항시 북구 재활병원 추천: 재활의학과 전문병원 5곳!",
+       "title": "색소 - 라인미의원 :: 포항피부과",
        "is_me": false
       },
       {
        "rank": 5,
-       "title": "경북 포항시 보톡스 병원 추천 TOP 5 - 뷰티샵",
+       "title": "[포항] 양덕 기미 쥐젖 점 주근깨 편평사마귀 제거 잘하는곳_리르다뷰티",
        "is_me": false
       }
      ]
@@ -1459,27 +1508,27 @@
      "top": [
       {
        "rank": 1,
-       "title": "[경북 브리핑 모음(6월 29일)] 봉화군, '봉화어울림센터' 7월 1일 개관…...",
+       "title": "[국제칼럼] 호남 반도체 영남이 반대 말자",
        "is_me": false
       },
       {
        "rank": 2,
-       "title": "[나눔 트렌드] 충북가정위탁지원센터 위탁모 이정옥 씨, 가정위탁 공로...",
+       "title": "적자 늪에 빠진 포항제철소…박용선 號, ‘상생 요구’보다 ‘기다림’...",
        "is_me": false
       },
       {
        "rank": 3,
-       "title": "아파트 불 났을 때 생존법… 무조건 대피? 아니죠! [강기자의 세종실록...",
+       "title": "철강업계 덮친 전기료 쇼크…포항 철강산업 경쟁력 흔든다",
        "is_me": false
       },
       {
        "rank": 4,
-       "title": "스위스 바이오헬스 시장의 숨은 다섯 가지 규칙",
+       "title": "경북한의사회 보수교육···방문진료·레이저 등 임상기법 공유",
        "is_me": false
       },
       {
        "rank": 5,
-       "title": "[파워인터뷰] 박성진 한동대 총장 &quot;크리스천 대학-기업-투자자 잇는 '글...",
+       "title": "‘진격의 아열대’ 강릉·울진 습격",
        "is_me": false
       }
      ]
@@ -1493,27 +1542,27 @@
      "top": [
       {
        "rank": 1,
-       "title": "포항시, 집단감염 차단위해 요양병원 관리 강화",
+       "title": "포항시북구 이재원 예비후보, '1919년 기미 청하장터 만세운동기념식' 참여",
        "is_me": false
       },
       {
        "rank": 2,
-       "title": "포항시, ‘찾아가는 행복병원’ 운영",
+       "title": "이재원 포항북 후보 \"100여년 전 청하장터 만세운동, 시민 주도 정치\"",
        "is_me": false
       },
       {
        "rank": 3,
-       "title": "포항시, 의대-대학병원 유치 나선다",
+       "title": "[전국]포스코 포항제철에서 동시다발 화재...전기실 전소 | YTN 포스코 포항제철에서 동시다발 화재...전기실 전소",
        "is_me": false
       },
       {
        "rank": 4,
-       "title": "포항시-대형병원 1대1 책임전담제 시행",
+       "title": "‘레이저시술’은 딱지가 진다? ‘토닝’으로 해결~",
        "is_me": false
       },
       {
        "rank": 5,
-       "title": "포항시, 병원 등 코로나19 '사전검사제' 도입...추가 확산 차단",
+       "title": "포항, 오징어 어획량 급감으로 어업 생계 위협...\"특별재난지역 선정해야\"",
        "is_me": false
       }
      ]
@@ -1527,27 +1576,1637 @@
      "top": [
       {
        "rank": 1,
-       "title": "포항 북구 소동물병원 추천좀해주세요",
+       "title": "포항 기미 주근깨",
        "is_me": false
       },
       {
        "rank": 2,
-       "title": "동물병원 추천좀...",
+       "title": "포항기미 치료잘하는 곳 없나요 ㅠ",
        "is_me": false
       },
       {
        "rank": 3,
-       "title": "포항 동물병원 추천 좀 해주세요:)",
+       "title": "포항기미 치료받아볼까하는데..",
        "is_me": false
       },
       {
        "rank": 4,
-       "title": "심한. 요통치료 방법, 병원. 찾기",
+       "title": "포항에 기미주근깨전문병원 찾아요",
        "is_me": false
       },
       {
        "rank": 5,
-       "title": "강아지 병원",
+       "title": "포항피부과중에 기미치료잘하는곳 찾아요",
+       "is_me": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "kw": "포항 모공",
+   "type": "증상",
+   "base": "모공",
+   "place": {
+    "keyword": "포항 모공",
+    "exposed": false,
+    "rank": null,
+    "ambiguous": false,
+    "results": [
+     {
+      "rank": 1,
+      "title": "아비에에스테틱 포항점",
+      "address": "경상북도 포항시 북구 장량주택로4번길 10 1층",
+      "address_jibun": "경상북도 포항시 북구 양덕동 776-7 1층",
+      "category": "미용>피부,체형관리",
+      "link": "https://www.instagram.com/avie_pohang_skin",
+      "telephone": "",
+      "description": "",
+      "longitude": 129.390448,
+      "latitude": 36.0873917
+     },
+     {
+      "rank": 2,
+      "title": "엄윤진스킨&amp;바디",
+      "address": "경상북도 포항시 북구 학전로 24 우방비치 후문, 영해마트3층",
+      "address_jibun": "경상북도 포항시 북구 항구동 45-13 우방비치 후문, 영해마트3층",
+      "category": "미용>피부,체형관리",
+      "link": "https://blog.naver.com/umsjsj",
+      "telephone": "",
+      "description": "",
+      "longitude": 129.3745508,
+      "latitude": 36.0547742
+     },
+     {
+      "rank": 3,
+      "title": "예쁨, 더하다",
+      "address": "경상북도 포항시 북구 양학로 39 득량동, 2층",
+      "address_jibun": "경상북도 포항시 북구 득량동 146-3 2층",
+      "category": "미용>피부,체형관리",
+      "link": "https://www.instagram.com/hyun_4145/",
+      "telephone": "",
+      "description": "",
+      "longitude": 129.3494301,
+      "latitude": 36.0271009
+     },
+     {
+      "rank": 4,
+      "title": "청담스킨케어",
+      "address": "경상북도 경주시 안강읍 구부랑길 45 청담스킨케어",
+      "address_jibun": "경상북도 경주시 안강읍 산대리 2400-2 청담스킨케어",
+      "category": "미용>피부,체형관리",
+      "link": "",
+      "telephone": "",
+      "description": "",
+      "longitude": 129.196648,
+      "latitude": 36.0015927
+     }
+    ]
+   },
+   "content": {
+    "blog": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "블로그",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "포항 피부관리 슈퍼젝션 건조한 피부 모공관리 후기 에끌라뷰티",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "포항 모공관리 스트레스 끝 새미모 포항점 두호동 피부관리 후기",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "포항모공관리 문덕레이저관리 받은 솔직후기!",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "포항 모공,늘어난 원인이 피지인지 탄력인지부터 다릅니다",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "포항피부관리 포항윤곽관리 새미모에서 포항모공관리 받은 후기",
+       "is_me": false
+      }
+     ]
+    },
+    "cafe": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "카페",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "포항 모공 축소술 잘하는 곳 좀 알려주세요",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "포항 모공축소술 가능한 피부과 좀 알려주세요",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "대구울산포항 쪽에 모공레이저",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "포항 모공 축소술 가능한 병원 좀 알려주세ㅔ요",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "포항모공각화증 피부과 간지러워 긁게 된다면",
+       "is_me": false
+      }
+     ]
+    },
+    "web": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "웹문서",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "세멘관리🌿 모공,트러블케어 | 경상북도 포항시 북구 양덕동 | 왁싱",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "아쿠아필 - 라인미의원 :: 포항피부과",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "약손명가 포항점 작은모공관리 후기",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "모공탄력 All in V-RO &gt; 이벤트",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "포항 대잠동 피부관리 채움뷰티 첫 모공관리",
+       "is_me": false
+      }
+     ]
+    },
+    "news": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "뉴스",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "대구 찾은 中 예비 왕홍들…K-뷰티 관광 ‘시동’",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "2026 소비자 선정 최고의 브랜드 대상",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "[Daily New유통] 이랜드 미쏘, NS홈쇼핑, 대교 外",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "백악관 대변인 &quot;한국 화장품 최고&quot;…경주 방문 후 SNS 화제",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "&quot;천년고도에서 경험하는 K-뷰티&quot;…라한셀렉트 경주, 올리브영·한국관광...",
+       "is_me": false
+      }
+     ]
+    },
+    "image": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "이미지",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "포항 여드름 복구센터 클로버 대표원장 김정애 | 💬 나이가 들면 피부탄력이 떨어지고 모공이 늘어나요 다양한 원인이 있습니다 ■노화로...",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "포항웨딩관리/포항피부관리/포항윤곽관리/어본에스테 | 여름철 SOS... 대표적으로 ▪️피부트러블 ▪️모공처짐 ▪️홍조 ▪️탈수현상...",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "스페이스뷰티 경주용강점",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "포항피부관리 / 끌림미 원장 정인아 | 피부결이 까칠까칠하다? 피지랑 각질이 들뜬다? 모공속을 깨끗히 비워내고, 늘어진 모공을 탄력있게...",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "몸 녹이는 '뜨거운 물' 샤워… 부작용 이렇게 많다고?",
+       "is_me": false
+      }
+     ]
+    },
+    "kin": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "지식iN",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "포항피부과 문의??(모공 기미 여드름흉터)",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "포항 모공각화증 없애는 병원 ,금액",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "포항 피부과의원",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "포항 피부과의원",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "포항 제네시스 관리 받아보신 분들 효과 어떤가요?",
+       "is_me": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "kw": "포항 피부관리 추천",
+   "type": "비교",
+   "base": "피부관리",
+   "place": {
+    "keyword": "포항 피부관리 추천",
+    "exposed": false,
+    "rank": null,
+    "ambiguous": false,
+    "results": [
+     {
+      "rank": 1,
+      "title": "포항 마사지 다온 아로마",
+      "address": "경상북도 포항시 남구 상대로 125 2층",
+      "address_jibun": "경상북도 포항시 남구 대도동 158-34 2층",
+      "category": "미용>피부,체형관리",
+      "link": "https://www.instagram.com/da.on.aroma",
+      "telephone": "",
+      "description": "",
+      "longitude": 129.3602412,
+      "latitude": 36.0137754
+     },
+     {
+      "rank": 2,
+      "title": "더손길 에스테틱",
+      "address": "경상북도 포항시 남구 효성로60번길 10 하늘풍경 1층",
+      "address_jibun": "경상북도 포항시 남구 효자동 599-2 하늘풍경 1층",
+      "category": "미용>피부,체형관리",
+      "link": "http://instagram.com/songil2435",
+      "telephone": "",
+      "description": "",
+      "longitude": 129.340027,
+      "latitude": 36.005101
+     },
+     {
+      "rank": 3,
+      "title": "약손명가 포항점",
+      "address": "경상북도 포항시 남구 포스코대로 138 DMT대잠메디컬타워 7층",
+      "address_jibun": "경상북도 포항시 남구 대잠동 459-3 DMT대잠메디컬타워 7층",
+      "category": "미용>피부,체형관리",
+      "link": "https://www.instagram.com/yakson__pohang/",
+      "telephone": "",
+      "description": "",
+      "longitude": 129.340601,
+      "latitude": 36.0255693
+     },
+     {
+      "rank": 4,
+      "title": "예움",
+      "address": "경상북도 포항시 북구 우창동로56번길 25 예움",
+      "address_jibun": "경상북도 포항시 북구 우현동 621 예움",
+      "category": "미용>피부,체형관리",
+      "link": "https://booking.naver.com/booking/13/bizes/1629948",
+      "telephone": "",
+      "description": "",
+      "longitude": 129.3634854,
+      "latitude": 36.055212
+     },
+     {
+      "rank": 5,
+      "title": "뷰티앤맘 포항문덕점",
+      "address": "경상북도 포항시 남구 오천읍 냉천로320번길 34 월드타워",
+      "address_jibun": "경상북도 포항시 남구 오천읍 원리 946-4 월드타워",
+      "category": "미용>피부,체형관리",
+      "link": "https://blog.naver.com/nabis1982",
+      "telephone": "",
+      "description": "",
+      "longitude": 129.4052807,
+      "latitude": 35.9661302
+     }
+    ]
+   },
+   "content": {
+    "blog": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "블로그",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "포항 피부관리 잘하는 곳 에스파몽벨 페이스+등관리 80분 추천",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "포항피부관리 웨딩관리 탱탱스킨바디 추천 찐후기(광고X)",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "포항피부관리 웨딩관리 솔직 후기 &quot;프레아에스테틱 추천&quot;",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "포항피부관리 프레아에스테틱 관리 받은 찐 후기! &quot;좁쌀 여드름&quot;",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "포항 피부관리 슈퍼젝션 건조한 피부 모공관리 후기 에끌라뷰티",
+       "is_me": false
+      }
+     ]
+    },
+    "cafe": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "카페",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "포항피부관리 괜찮은 곳 있을까요?",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "포항피부과 자극 없이 피부 관리 잘하는 곳 있을까요?",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "포항피부관리 찐맛집 후기",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "포항피부관리샵 어디가 괜찮을까요?",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "포항북구 피부과나 피부관리할수있는 곳 추천해주세요!!",
+       "is_me": false
+      }
+     ]
+    },
+    "web": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "웹문서",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "[포항피부관리추천]포항 가성비 좋은 피부관리, 등관리_스킨앤래쉬 포항 1호점",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "경북 포항시 남구 지역 피부 관리 추천고수 - 숨고, 숨은고수",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "경북 포항시 북구 지역 피부 관리 추천고수 - 숨고, 숨은고수",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "포항문덕피부관리 뷰엔스파 스토리채널 - 카카오 스토리",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "포항 피부관리 추천 깐달걀피부 만드는 카밀에스테틱",
+       "is_me": false
+      }
+     ]
+    },
+    "news": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "뉴스",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "[오늘의 장바구니] NS홈쇼핑·SSG닷컴·현대백화점 외",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "[오늘의 장바구니] 이마트24·롯데홈쇼핑·SK스토아·키녹 외",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "[유통가 레이더] &quot;찾아가는 가전 고민해결사&quot;... 롯데하이마트, '방문컨...",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "[Who Is ?] 박형세 LG전자 MS사업본부장 사장",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "[오늘의 장바구니] 롯데마트·설화수·SSG닷컴 외",
+       "is_me": false
+      }
+     ]
+    },
+    "image": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "이미지",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "포항 효자 예신관리 및 피부 관리 추천 📍더손길 에스테틱 #포항피부관리 #포항수기마사지 #포항예신관리 #포항몸매관리 #포항경락 #오늘여기클립...",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "[뷰티한국 - 미코 체험]\"포항 '영뷰티'에서 전혀 새로운 피부관리를 만났어요~\"",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "포항 피부관리샵 미휴, 코로나로 인한 피부트러블과 민감성피부 필관리 50% 할인 이벤트",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "포항피부관리루피하임 - YouTube 포항피부관리루피하임",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "JRL 2020C 클리퍼 날 2020T날 골드 실버 페이드 FADE 클리퍼 바리깡 : JRL코리아",
+       "is_me": false
+      }
+     ]
+    },
+    "kin": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "지식iN",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "포항 피부관리 피부과추천",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "포항에 피부관리실 추천 부탁해요",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "포항에 피부관리 잘해주는 곳 추천부탁드릴께요",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "포항에 신부피부관리 해주는 곳 어디 괜찮은 곳 없나요 ?",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "포항피부학원 어디가 좋을까요?",
+       "is_me": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "kw": "죽도동 스킨케어",
+   "type": "동단위",
+   "base": "스킨케어",
+   "place": {
+    "keyword": "죽도동 스킨케어",
+    "exposed": false,
+    "rank": null,
+    "ambiguous": false,
+    "results": [
+     {
+      "rank": 1,
+      "title": "스킨하우스",
+      "address": "경상북도 포항시 북구 중앙로192번길 4-2 리치하임 2F",
+      "address_jibun": "경상북도 포항시 북구 죽도동 37-9 리치하임 2F",
+      "category": "미용>피부,체형관리",
+      "link": "https://blog.naver.com/skinhouse0221",
+      "telephone": "",
+      "description": "",
+      "longitude": 129.367059,
+      "latitude": 36.0301241
+     },
+     {
+      "rank": 2,
+      "title": "아로마스토리",
+      "address": "경상북도 포항시 북구 상대로 5 2층",
+      "address_jibun": "경상북도 포항시 북구 죽도동 678-12 2층",
+      "category": "미용>피부,체형관리",
+      "link": "https://m.blog.naver.cim/bishopmepi/223450294431",
+      "telephone": "",
+      "description": "",
+      "longitude": 129.3488512,
+      "latitude": 36.0188585
+     },
+     {
+      "rank": 3,
+      "title": "킹아로마마사지",
+      "address": "경상북도 포항시 북구 중흥로 126 3층",
+      "address_jibun": "경상북도 포항시 북구 죽도동 718-4 3층",
+      "category": "미용>피부,체형관리",
+      "link": "",
+      "telephone": "",
+      "description": "",
+      "longitude": 129.3528321,
+      "latitude": 36.0158214
+     },
+     {
+      "rank": 4,
+      "title": "중국전통마사지",
+      "address": "경상북도 포항시 북구 중흥로125번길 5 2층",
+      "address_jibun": "경상북도 포항시 북구 죽도동 709-13 2층",
+      "category": "미용>피부,체형관리",
+      "link": "",
+      "telephone": "",
+      "description": "",
+      "longitude": 129.3517874,
+      "latitude": 36.0161136
+     },
+     {
+      "rank": 5,
+      "title": "우아한에스테틱",
+      "address": "경상북도 포항시 북구 칠성천길 118 2층",
+      "address_jibun": "경상북도 포항시 북구 죽도동 1-16 2층",
+      "category": "미용>피부,체형관리",
+      "link": "",
+      "telephone": "",
+      "description": "",
+      "longitude": 129.3665897,
+      "latitude": 36.0361992
+     }
+    ]
+   },
+   "content": {
+    "blog": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "블로그",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "포항 북구 죽도동 디톡스 스킨케어 다온 뷰티앤웰니스 | 진짜...",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "포항 죽도동 스킨케어 에끌라뷰티 동안관리",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "더결뷰티 후기 | 피부 리프팅 관리 잘하는 포항죽도동에스테틱",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "포항 죽도동 피부관리 에스테틱 KP카밍 MTS 추천 : 더결뷰티",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "포항상권,포항시상권분석 ( 북구 중앙동 &amp; 죽도동 25-2회차)...",
+       "is_me": false
+      }
+     ]
+    },
+    "cafe": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "카페",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "포항 죽도동 피부 샵인구해요",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "에스테틱 합법 레이저 ✨엑스터✨ 포항세미나 (8/12)",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "호빵찜기기(찐빵찜기기)",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "아마란스♥",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "[소셜커머스 모음] 소셜커머스 사이트/반값정보 - 지방 (5/20)",
+       "is_me": false
+      }
+     ]
+    },
+    "web": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "웹문서",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "[포항 죽도동 뷰티샵] 꼼꼼한 포항피부관리 1:1 맞춤케어 잘하는 곳, 스킨하우스",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "[포항 죽도동 뷰티샵] 포항 에스테틱 피부관리 속건조 잡는 물방울 관리 추천, 더결뷰티",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "'포항시 북구 죽도동 피부,체형관리' | 동네마실, 동네정보 검색!",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "2026 경상북도 포항시 북구 죽도동 피부 관리실 상가 목록 30곳 - 수리·개인 이용·미용 리스트",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "손경린 스킨케어 (경북 포항시 북구 죽도동) 피부미용업 뷰티샵 정보 퍼브시",
+       "is_me": false
+      }
+     ]
+    },
+    "news": {
+     "present": false,
+     "exposed": false,
+     "position": null,
+     "label": "뉴스",
+     "ambiguous": false,
+     "top": []
+    },
+    "image": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "이미지",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "포항시 죽도숯불촌,  백미10kg 100포와 라면 50상자 기탁",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "포항시 죽도숯불촌, 지역 불우이웃에 쌀 100포 전달",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "포항시 호텔 A1 죽도 | 2026년 최신 가격 & 프로모션 - 클룩 Klook 대한민국",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "포항의 명품마을(16)-포항의 정치·문화·행정 1번지... 다양한 수산물 가득한 `죽도동`",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "포항시 죽도동, 사랑의 연탄 나누기 봉사 나서",
+       "is_me": false
+      }
+     ]
+    },
+    "kin": {
+     "present": false,
+     "exposed": false,
+     "position": null,
+     "label": "지식iN",
+     "ambiguous": false,
+     "top": []
+    }
+   }
+  },
+  {
+   "kw": "포항 스킨케어",
+   "type": "시단위",
+   "base": "스킨케어",
+   "place": {
+    "keyword": "포항 스킨케어",
+    "exposed": false,
+    "rank": null,
+    "ambiguous": false,
+    "results": [
+     {
+      "rank": 1,
+      "title": "포항 마사지 다온 아로마",
+      "address": "경상북도 포항시 남구 상대로 125 2층",
+      "address_jibun": "경상북도 포항시 남구 대도동 158-34 2층",
+      "category": "미용>피부,체형관리",
+      "link": "https://www.instagram.com/da.on.aroma",
+      "telephone": "",
+      "description": "",
+      "longitude": 129.3602412,
+      "latitude": 36.0137754
+     },
+     {
+      "rank": 2,
+      "title": "더손길 에스테틱",
+      "address": "경상북도 포항시 남구 효성로60번길 10 하늘풍경 1층",
+      "address_jibun": "경상북도 포항시 남구 효자동 599-2 하늘풍경 1층",
+      "category": "미용>피부,체형관리",
+      "link": "http://instagram.com/songil2435",
+      "telephone": "",
+      "description": "",
+      "longitude": 129.340027,
+      "latitude": 36.005101
+     },
+     {
+      "rank": 3,
+      "title": "약손명가 포항점",
+      "address": "경상북도 포항시 남구 포스코대로 138 DMT대잠메디컬타워 7층",
+      "address_jibun": "경상북도 포항시 남구 대잠동 459-3 DMT대잠메디컬타워 7층",
+      "category": "미용>피부,체형관리",
+      "link": "https://www.instagram.com/yakson__pohang/",
+      "telephone": "",
+      "description": "",
+      "longitude": 129.340601,
+      "latitude": 36.0255693
+     },
+     {
+      "rank": 4,
+      "title": "예움",
+      "address": "경상북도 포항시 북구 우창동로56번길 25 예움",
+      "address_jibun": "경상북도 포항시 북구 우현동 621 예움",
+      "category": "미용>피부,체형관리",
+      "link": "https://booking.naver.com/booking/13/bizes/1629948",
+      "telephone": "",
+      "description": "",
+      "longitude": 129.3634854,
+      "latitude": 36.055212
+     },
+     {
+      "rank": 5,
+      "title": "뷰티앤맘 포항문덕점",
+      "address": "경상북도 포항시 남구 오천읍 냉천로320번길 34 월드타워",
+      "address_jibun": "경상북도 포항시 남구 오천읍 원리 946-4 월드타워",
+      "category": "미용>피부,체형관리",
+      "link": "https://blog.naver.com/nabis1982",
+      "telephone": "",
+      "description": "",
+      "longitude": 129.4052807,
+      "latitude": 35.9661302
+     }
+    ]
+   },
+   "content": {
+    "blog": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "블로그",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "포항 장성동 수기관리 넌스킨케어 대만족 추천 후기",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "하늘호수스킨케어 포항 출장 산후마사지 후기",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "포항 창포동 산후마사지 출장도 가능한 하늘호수 스킨케어",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "넌스킨케어 | 포항 장성동 수기 | 데콜테마사지",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "포항 에스테틱 양덕 넌스킨케어 리프팅 윤곽관리",
+       "is_me": false
+      }
+     ]
+    },
+    "cafe": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "카페",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "[포항]속눈썹연장/속눈썹펌/왁싱/스킨케어 방문형 체험단 모집합니다 ^^",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "민감성피부 스킨케어 너무 고민이네요 ㅠㅠ",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "포항 하늘호수스킨케어 영덕으로 출장산후마사지&amp;단유마사지 내돈내산 후기 및 정보",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "포항피부과 진주피부과 알아보시나요?",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "요즘 핫한 스킨케어 자격증 포항아우라미용학원에서 교육받아요~",
+       "is_me": false
+      }
+     ]
+    },
+    "web": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "웹문서",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "더휴스킨케어 | 경상북도 포항시 북구 장성동 | 피부관리",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "화장품 - 라인미의원 :: 포항피부과",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "포항 피부관리 더휴스킨케어에서 플라리온 관리후기",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "너무 시원했던 포항 거북목 건식 수기치료 행복만들기 스킨케어 솔직후기",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "[포항 장성동]포항수기 경락맛집 넌스킨케어 후기♀️",
+       "is_me": false
+      }
+     ]
+    },
+    "news": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "뉴스",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "부산창경, 스스로 프로젝트 3기 비수도권 20개사 지원",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "롯데면세점 명동본점, 샤넬 매장 리뉴얼…롯데홈쇼핑, 이유리와 음성도...",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "[유통레이더] 더현대 서울, K-팝·패션·푸드 총망라한 콘텐츠 축제 연다",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "[나눔 트렌드] '헌혈홍보대사' 배우 박재민, 200회 헌혈 달성… 선한 영...",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "[2026 뷰티 테크]&quot;K-뷰티 2.0: 전달·AI·플랫폼의 시대&quot; ③코스맥스",
+       "is_me": false
+      }
+     ]
+    },
+    "image": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "이미지",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "송스킨케어",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "엘스킨케어",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "알라딘 스킨케어",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "WA스킨케어",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "동안스킨케어",
+       "is_me": false
+      }
+     ]
+    },
+    "kin": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "지식iN",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "포항에 스킨케어 관리 잘해주는 곳 소개 해주세요 !!",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "포항 바다가 보이는 스파온천",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "포항 미용학원 추천해주세요.",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "포항 피부과 추천 좀 해주세요",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "포항오천에잇는 좋은피부과추천좀요 ,",
+       "is_me": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "kw": "스킨케어",
+   "type": "메인",
+   "base": "스킨케어",
+   "place": {
+    "keyword": "스킨케어",
+    "exposed": false,
+    "rank": null,
+    "ambiguous": false,
+    "results": [
+     {
+      "rank": 1,
+      "title": "더하노이풋앤바디 시청프레지던트호텔점",
+      "address": "서울특별시 중구 을지로 16 프레지던트호텔 지하 2층 B02호",
+      "address_jibun": "서울특별시 중구 을지로1가 188-3 프레지던트호텔 지하 2층 B02호",
+      "category": "미용>피부,체형관리",
+      "link": "https://www.instagram.com/the_hanoi_cityhall",
+      "telephone": "",
+      "description": "",
+      "longitude": 126.9795532,
+      "latitude": 37.5657665
+     },
+     {
+      "rank": 2,
+      "title": "뷰태에스테틱",
+      "address": "서울특별시 중구 무교로 32 효령빌딩 6층 604호",
+      "address_jibun": "서울특별시 중구 무교동 1 효령빌딩 6층 604호",
+      "category": "미용>피부,체형관리",
+      "link": "https://pf.kakao.com/_awAxon",
+      "telephone": "",
+      "description": "",
+      "longitude": 126.9795793,
+      "latitude": 37.5687701
+     },
+     {
+      "rank": 3,
+      "title": "더벨스파 더플라자점",
+      "address": "서울특별시 중구 소공로 119 플라자호텔 별관 15F",
+      "address_jibun": "서울특별시 중구 태평로2가 23 플라자호텔 별관 15F",
+      "category": "미용>피부,체형관리",
+      "link": "http://www.bellespa.co.kr",
+      "telephone": "",
+      "description": "",
+      "longitude": 126.9781033,
+      "latitude": 37.5646897
+     },
+     {
+      "rank": 4,
+      "title": "풋스올 종로점",
+      "address": "서울특별시 종로구 종로 19 르메이에르종로타운 상가 4층 418호",
+      "address_jibun": "서울특별시 종로구 종로1가 24 르메이에르종로타운 상가 4층 418호",
+      "category": "생활,편의>발관리",
+      "link": "http://www.footsallkorea.com",
+      "telephone": "",
+      "description": "",
+      "longitude": 126.9798204,
+      "latitude": 37.5704613
+     },
+     {
+      "rank": 5,
+      "title": "약손명가 시청역점",
+      "address": "서울특별시 중구 무교로 12 정오빌딩 5층",
+      "address_jibun": "서울특별시 중구 무교동 21-3 정오빌딩 5층",
+      "category": "미용>피부,체형관리",
+      "link": "https://yaksonhouse.com/branch-detail/?mod=document&pageid=1&keyword=%EC%8B%9C%EC%B2%AD%EC%97%AD%EC%A0%90&uid=160037",
+      "telephone": "",
+      "description": "",
+      "longitude": 126.9793902,
+      "latitude": 37.5670736
+     }
+    ]
+   },
+   "content": {
+    "blog": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "블로그",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "김포피부관리 내공 느껴진 김기옥 스킨케어",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "다낭 미케비치 마사지 가격 안스파 스킨케어 후기",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "마곡피부관리 여드름이 고민이라면 스킨케어는 미더베스트에서",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "제주 림프관리 오은미스킨케어",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "비타민 앰플 효과와 10초 버블팩 스킨 케어 순서 정리",
+       "is_me": false
+      }
+     ]
+    },
+    "cafe": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "카페",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "의정부 피부관리 스킨케어",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "스킨케어 바르고 난 뒤",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "초딩 기초스킨케어 궁금해요",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "신생아 스킨케어 궁금해요~",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "중딩 여자이이 스킨케어 제품",
+       "is_me": false
+      }
+     ]
+    },
+    "web": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "웹문서",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "스킨케어 - 스킨, 로션, 에센스/세럼/앰플, 미스트",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "스킨 케어 - 위키백과 한국어",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "스킨케어 컬렉션ㅣ프리미엄 피부관리 &amp; 기초화장품Estée Lauder 에스티 로더",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "스킨케어 - Gmarket",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "스킨케어 - 옥션",
+       "is_me": false
+      }
+     ]
+    },
+    "news": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "뉴스",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "&quot;공장 풀가동에 비용 감소까지…한국콜마, 본격적인 '돈 벌기' 타이밍 왔...",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "&quot;터지는 인디 브랜드, 쏟아지는 미국 수주…코스메카코리아의 '행복한 ...",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "&quot;공장이 모자랄 지경…코스맥스, 밀려드는 주문에 2분기 실적 '합격점'&quot;",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "에이치피앤씨, 인터참 코리아 2026서 '테라비코스' 선보여…&quot;헬스케어 ...",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "'레이시올로지', 론칭 2개월 만에 전국 한의원 400곳 입점",
+       "is_me": false
+      }
+     ]
+    },
+    "image": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "이미지",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "바이오던스 스킨케어 시그니처 3종 세트",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "아티스트리, 인텐시브 스킨케어 리뉴잉 필 출시",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "라운드어라운드 그린티 약산성 스킨케어(워터200ml+로션220ml+워터33ml+로션33ml) : 셀인원",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "오케이(OK)캐시백 '오퀴즈'의 5월 31일 오후 6시 현재 '에스트라 여름 스킨케어 더마 화장품 G라이브' 관련 문제의 정답은?",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "케어 브러시 청소 앤 얼굴 | 클렌징 3개 글로아 바디용 클리너 및 키트 스킨 e 스크럽 바디 제거 뷰티의 워터프루프 모공 각질 페이스 청소용...",
+       "is_me": false
+      }
+     ]
+    },
+    "kin": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "지식iN",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "스킨케어 단계별로 손 씻어야 하나요?",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "쌍수 후 세수 및 스킨케어",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "지성피부 스킨케어 꿀팁 추천..",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "아침 저녁 스킨케어 질문",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "스킨케어 루틴이 어떻게 되죠..?",
+       "is_me": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "kw": "죽도동 피부",
+   "type": "동단위",
+   "base": "피부",
+   "place": {
+    "keyword": "죽도동 피부",
+    "exposed": false,
+    "rank": null,
+    "ambiguous": false,
+    "results": [
+     {
+      "rank": 1,
+      "title": "포항 밴스의원",
+      "address": "경상북도 포항시 북구 중흥로 336 굿모닝타워 10층 1001호",
+      "address_jibun": "경상북도 포항시 북구 죽도동 48-27 굿모닝타워 10층 1001호",
+      "category": "병원,의원>피부과",
+      "link": "https://pohang.vandsclinic.co.kr/",
+      "telephone": "",
+      "description": "",
+      "longitude": 129.3654924,
+      "latitude": 36.0316611
+     },
+     {
+      "rank": 2,
+      "title": "스킨하우스",
+      "address": "경상북도 포항시 북구 중앙로192번길 4-2 리치하임 2F",
+      "address_jibun": "경상북도 포항시 북구 죽도동 37-9 리치하임 2F",
+      "category": "미용>피부,체형관리",
+      "link": "https://blog.naver.com/skinhouse0221",
+      "telephone": "",
+      "description": "",
+      "longitude": 129.367059,
+      "latitude": 36.0301241
+     },
+     {
+      "rank": 3,
+      "title": "바로그의원 포항",
+      "address": "경상북도 포항시 북구 중흥로 277 4층",
+      "address_jibun": "경상북도 포항시 북구 죽도동 106-2 4층",
+      "category": "병원,의원>피부과",
+      "link": "https://blog.naver.com/pohang_rog/223687410793",
+      "telephone": "",
+      "description": "",
+      "longitude": 129.3616353,
+      "latitude": 36.0276597
+     },
+     {
+      "rank": 4,
+      "title": "아로마스토리",
+      "address": "경상북도 포항시 북구 상대로 5 2층",
+      "address_jibun": "경상북도 포항시 북구 죽도동 678-12 2층",
+      "category": "미용>피부,체형관리",
+      "link": "https://m.blog.naver.cim/bishopmepi/223450294431",
+      "telephone": "",
+      "description": "",
+      "longitude": 129.3488512,
+      "latitude": 36.0188585
+     },
+     {
+      "rank": 5,
+      "title": "고운권호준피부과의원",
+      "address": "경상북도 포항시 북구 포스코대로 288 미르빌딩3층",
+      "address_jibun": "경상북도 포항시 북구 죽도동 644-12 미르빌딩3층",
+      "category": "병원,의원>피부과",
+      "link": "",
+      "telephone": "",
+      "description": "",
+      "longitude": 129.3553011,
+      "latitude": 36.0199667
+     }
+    ]
+   },
+   "content": {
+    "blog": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "블로그",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "더결뷰티 후기 | 피부 리프팅 관리 잘하는 포항죽도동에스테틱",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "포항 죽도동 피부관리 더결뷰티 물방울 관리 솔직후기",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "포항 죽도동 피부관리 리프팅, 어떻게 선택해야 할까?",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "포항 죽도동 피부관리 더결뷰티 즉각적인 리프팅 후기",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "포항피부관리 포항죽도동에스테틱 '더결뷰티' 속눈썹연장 후기",
+       "is_me": false
+      }
+     ]
+    },
+    "cafe": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "카페",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "포항 죽도동 피부 샵인구해요",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "죽도동피부과 리프팅 다녀왔어요",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "죽도동 근처 피부마사지",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "죽도동에 피부관리샵 추천좀해주세요",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "피부마사지",
+       "is_me": false
+      }
+     ]
+    },
+    "web": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "웹문서",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "죽도삼성의원 후기/가격/비용 (2026)",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "죽도삼성의원 - 똑닥",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "아름다운피부과의원 위치 · 후기 · 예약",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "수스킨앤바디 | 경상북도 포항시 북구 죽도동 | 피부관리",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "피부과 | 죽도동",
+       "is_me": false
+      }
+     ]
+    },
+    "news": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "뉴스",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "[인터뷰] '포항의 젊은 엔진' 김상일 도의원 후보 &quot;경북도 예산 확보해...",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "‘바람개비 국수봉사단’, 한겨울 추위 녹이는 따뜻한 국수 나눔 성료",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "스물다섯 살에 연고 없는 포항에서 무용학원 개원",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "포항e요양병원, 보훈문화 확산 앞장",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "포항e요양병원, 도 최초 일반병원에 국가유공자 전용 주차장 설치",
+       "is_me": false
+      }
+     ]
+    },
+    "image": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "이미지",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "더결뷰티",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "더결뷰티",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "더결뷰티",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "알라딘: [중고] 글리머 : 디자인이 반짝하는 순간 [중고] 글리머 : 디자인이 반짝하는 순간",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "현존을 찾는 법 | 교보문고 | 꽃피는아침마을",
+       "is_me": false
+      }
+     ]
+    },
+    "kin": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "지식iN",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "포항에서 모낭충이 피부에 미치는 영향에 대해 설명...",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "셀리턴 led마스크 효과와 안구안전성 고민",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "올리브영 슈렉팩 vs led마스크 개고민ㅠㅠ",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "포항리프팅 추천 해주세요",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "포항에서 점 뺄려고합니다.",
        "is_me": false
       }
      ]
@@ -1557,25 +3216,99 @@
  ],
  "location": {
   "radius_m": 1000,
-  "adm_cd": "37011",
-  "adm_nm": "경상북도포항시 남구",
-  "avg_age": 45.5,
-  "density_basis": "체감(인구가중)",
-  "population_radius": 10109,
-  "demand_score": 18.7,
-  "employee_density_km2": 1879,
-  "commerce_score": 7.2
+  "adm_cd": null,
+  "adm_nm": null,
+  "avg_age": null,
+  "density_basis": "기본값",
+  "population_radius": 40840,
+  "demand_score": 56.2,
+  "employee_density_km2": 0,
+  "commerce_score": 0.0,
+  "competitors": 16,
+  "competition_score": 63.3,
+  "saturation_per_10k": 3.9,
+  "site_score": 48.5,
+  "radius_breakdown": {
+   "500": {
+    "competitors": 2,
+    "competition_score": 69.0,
+    "demand_score": 56.2,
+    "population_radius": 10210
+   },
+   "1000": {
+    "competitors": 16,
+    "competition_score": 63.3,
+    "demand_score": 56.2,
+    "population_radius": 40840
+   },
+   "1500": {
+    "competitors": 25,
+    "competition_score": 65.5,
+    "demand_score": 56.2,
+    "population_radius": 91891
+   },
+   "2000": {
+    "competitors": 43,
+    "competition_score": 66.3,
+    "demand_score": 56.2,
+    "population_radius": 163362
+   }
+  },
+  "competitor_list": [
+   {
+    "name": "김석주피부과의원",
+    "distance_m": 134
+   },
+   {
+    "name": "바로그의원",
+    "distance_m": 399
+   },
+   {
+    "name": "고운권호준피부과의원",
+    "distance_m": 631
+   },
+   {
+    "name": "미채움의원",
+    "distance_m": 637
+   },
+   {
+    "name": "레디원성형외과의원",
+    "distance_m": 648
+   },
+   {
+    "name": "포미성형외과의원",
+    "distance_m": 678
+   },
+   {
+    "name": "포항라온성형외과의원",
+    "distance_m": 685
+   },
+   {
+    "name": "최선택연합속내과의원",
+    "distance_m": 691
+   }
+  ]
  },
  "location_map": null,
- "benchmark": null,
- "benchmark_meta": null,
+ "benchmark": {
+  "blog": 3,
+  "cafe": 0,
+  "web": 20,
+  "news": 0,
+  "image": 0,
+  "kin": 6
+ },
+ "benchmark_meta": {
+  "n": 3,
+  "basis": "상위 경쟁 3곳 평균(실측)"
+ },
  "composite": {
-  "score": 20.3,
-  "measured_weight_pct": 64,
+  "score": 37.1,
+  "measured_weight_pct": 89,
   "components": {
-   "exposure": 16.7,
-   "density": null,
-   "demand": 18.7,
+   "exposure": 8.3,
+   "density": 63.3,
+   "demand": 56.2,
    "place": 67.0
   },
   "place_frac": 0.25
@@ -1603,9 +3336,9 @@
  "actions": [
   {
    "action_type": "keyword_coverage",
-   "title": "미노출 키워드 5개 커버리지 정비",
-   "explanation": "\"죽도동 병원·포항시 병원·경상북 병원\" 등이 어느 영역에도 노출되지 않습니다. 실제 제공하는 진료라면 소개·진료항목·FAQ·블로그에 반영하세요.",
-   "evidence_metric": "키워드 6개 중 5개 전 영역 미노출",
+   "title": "미노출 키워드 11개 커버리지 정비",
+   "explanation": "\"죽도동 피부관리·포항 피부관리·피부관리\" 등이 어느 영역에도 노출되지 않습니다. 실제 제공하는 진료라면 소개·진료항목·FAQ·블로그에 반영하세요.",
+   "evidence_metric": "키워드 12개 중 11개 전 영역 미노출",
    "compliance_status": "safe",
    "priority": 1
   },
@@ -1643,7 +3376,7 @@
  "summary": {
   "place_hit": 1,
   "content_hit": 1,
-  "total": 6,
+  "total": 12,
   "ambiguous": false
  },
  "trend": {
