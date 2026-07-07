@@ -345,6 +345,7 @@
    자동수집 항목(쿠키·방문기록)이 게시된 상태인지 확인하세요. */
 const GA_MEASUREMENT_ID = 'G-XXXXXXXXXX'; // TODO: GA4 측정 ID로 교체
 const CONSENT_VERSION = '2026-07-06'; // 동의 문구(약관·처리방침) 버전 — 문구 변경 시 갱신
+const APPLY_ENDPOINT = 'https://desktop-tutorial-chi-peach.vercel.app/api/apply'; // Airtable 접수 프록시
 if (!/X{4}/.test(GA_MEASUREMENT_ID)) {
   const s = document.createElement('script');
   s.async = true;
@@ -419,10 +420,34 @@ document.getElementById('applyForm').addEventListener('submit', e => {
     staged.push(consentRecord);
     localStorage.setItem('venom_consent_log', JSON.stringify(staged.slice(-50)));
   } catch {}
-  // 접수 서버 연동 시: fetch('/api/apply', { method:'POST', body: JSON.stringify({ ...formData, consent: consentRecord }) })
 
-  f.style.display = 'none';
-  document.getElementById('formDone').style.display = 'block';
+  // 접수 서버(Airtable 프록시)로 전송 — 토큰은 서버에만 있어 안전
+  const payload = {
+    hospital: f.hospital.value, department: f.department.value, address: f.address.value,
+    tel: f.tel.value, url: f.url.value, keywords: f.keywords.value,
+    name: f.name.value, role: f.role.value, phone: f.phone.value, email: f.email.value,
+    delivery: f.delivery.value, consult: f.consult.value, etc: f.etc.value,
+    company_website: f.company_website.value,   // 허니팟(서버 재검증)
+    ts: consentRecord.ts, policyVersion: consentRecord.policyVersion,
+    consent: consentRecord.consents, adChannels: consentRecord.consents.adChannels,
+  };
+  const btn = f.querySelector('button[type=submit]');
+  if (btn) { btn.disabled = true; btn.textContent = '접수 중…'; }
+  fetch(APPLY_ENDPOINT, {
+    method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload),
+  })
+    .then(r => r.json().catch(() => ({ ok: r.ok })))
+    .then(res => {
+      if (!res.ok) throw new Error(res.error || '접수 실패');
+      f.style.display = 'none';
+      document.getElementById('formDone').style.display = 'block';
+    })
+    .catch(err => {
+      // 서버 미배포/오류 시: 증적은 이미 로컬 보관됨. 사용자에게 대체 연락 안내.
+      if (btn) { btn.disabled = false; btn.textContent = '무료 진단 신청하기'; }
+      alert('일시적으로 접수가 지연되고 있습니다. 잠시 후 다시 시도하시거나 1661-4142로 연락해 주세요.\n(입력하신 내용은 안전하게 임시 보관되었습니다.)');
+      console.warn('apply endpoint error:', err && err.message);
+    });
 });
 </script>
 </body>
