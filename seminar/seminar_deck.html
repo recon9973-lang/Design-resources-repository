@@ -170,6 +170,7 @@
     if(['ArrowLeft','ArrowUp','PageUp'].includes(e.key))show(i-1);
     if(e.key==='Home')show(0); if(e.key==='End')show(slides.length-1);});
   addEventListener('click',e=>{show(e.clientX>innerWidth/2?i+1:i-1)});
+  if(location.search.includes('export'))document.getElementById('hud').style.display='none';
   show((parseInt(location.hash.slice(1))||1)-1);
 </script>
 </body>
