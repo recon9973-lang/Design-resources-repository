@@ -1,0 +1,43 @@
+name: Update PROJECT_STATE
+
+# push마다 PROJECT_STATE.md를 자동 재생성·커밋 → 항상 최신.
+# 새 세션이 이 1파일로 오리엔테이션 → 재탐색 토큰 절약.
+
+on:
+  push:
+    branches: [claude/design-resources-github-pages-4p6dj7]
+    # 자기 자신 커밋은 트리거 제외 → 무한 루프 방지.
+    paths-ignore:
+      - "PROJECT_STATE.md"
+  workflow_dispatch:
+
+concurrency:
+  group: project-state-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 30
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Generate PROJECT_STATE.md
+        run: node scripts/gen-project-state.mjs
+      - name: Commit if changed
+        run: |
+          if git diff --quiet PROJECT_STATE.md; then
+            echo "변경 없음 — 건너뜀"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add PROJECT_STATE.md
+          git commit -m "chore: PROJECT_STATE 자동 갱신 [skip ci]"
+          git push
