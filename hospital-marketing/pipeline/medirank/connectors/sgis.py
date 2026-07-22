@@ -30,15 +30,37 @@ def _get_json(url: str) -> dict:
     return json.loads(httpx.get_bytes(url, timeout=60))
 
 
-def get_access_token() -> str | None:
+# 토큰 캐시 — SGIS 액세스 토큰은 발급 후 일정 시간 유효하다. 캐시하지 않으면
+# 진단 1건이 find_adm_cd·area_stats·pop_weighted_density마다 토큰을 새로 발급해
+# 인증(auth) 호출이 폭증 → SGIS가 인증을 제한(-401)한다. 프로세스 내 재사용으로 방지.
+_TOKEN = {"value": None, "last_error": None}
+
+
+def get_access_token(force: bool = False) -> str | None:
     if not available():
         return None
+    if _TOKEN["value"] and not force:
+        return _TOKEN["value"]
     key, secret = _keys()
     q = urllib.parse.urlencode({"consumer_key": key, "consumer_secret": secret})
-    data = _get_json(AUTH_URL + "?" + q)
-    if data.get("errCd") != 0:
+    try:
+        data = _get_json(AUTH_URL + "?" + q)
+    except Exception as e:
+        _TOKEN["last_error"] = {"errCd": "EXC", "errMsg": str(e)}
         return None
-    return data["result"]["accessToken"]
+    if data.get("errCd") != 0:
+        _TOKEN["last_error"] = {"errCd": data.get("errCd"), "errMsg": data.get("errMsg")}
+        _TOKEN["value"] = None
+        return None
+    _TOKEN["value"] = data["result"]["accessToken"]
+    _TOKEN["last_error"] = None
+    return _TOKEN["value"]
+
+
+def auth_status() -> dict:
+    """SGIS 인증 상태 진단용 — 마지막 인증 에러/토큰 보유 여부."""
+    tok = get_access_token()
+    return {"ok": bool(tok), "last_error": _TOKEN["last_error"]}
 
 
 def area_stats(adm_cd: str, year: str = "2023") -> dict | None:
@@ -71,6 +93,65 @@ def area_stats(adm_cd: str, year: str = "2023") -> dict | None:
         }
     except Exception:
         return None
+
+
+def population_composition(adm_cd: str, year: str = "2023") -> dict | None:
+    """행정구역 인구 구성 — 총인구·평균연령·남녀·연령대. SGIS 실측만.
+
+    조작 금지: SGIS가 주지 않는 항목은 None(미측정)으로 둔다. 남녀는 gender 필터,
+    연령대는 age_type 코드 순회로 조회한다. (SGIS OpenAPI3 population.json)
+    가장 적은 호출로 얻도록 total→남/여 순서로 조회(쿼터 절약, 토큰 캐시 사용).
+    """
+    token = get_access_token()
+    if not token:
+        return None
+
+    def _pop(extra):
+        q = urllib.parse.urlencode({"accessToken": token, "year": year,
+                                    "adm_cd": adm_cd, "low_search": "0", **extra})
+        try:
+            d = _get_json(POP_URL + "?" + q)
+            if d.get("errCd") != 0 or not d.get("result"):
+                return None
+            return d["result"]
+        except Exception:
+            return None
+
+    numf = lambda r, k: (float(r[k]) if r and r.get(k) not in (None, "N/A") else None)
+    base = _pop({})
+    if not base:
+        return None
+    b = base[0]
+    out = {"year": year, "tot_ppltn": numf(b, "tot_ppltn"), "avg_age": numf(b, "avg_age"),
+           "male_ppltn": None, "female_ppltn": None, "male_pct": None, "female_pct": None,
+           "age_bands": None}
+
+    # 성별: gender 필터(1=남, 2=여). 파라미터가 무시되면 total과 동일해지므로 검증 필요.
+    male = _pop({"gender": "1"})
+    female = _pop({"gender": "2"})
+    m = numf(male[0], "tot_ppltn") if male else None
+    f = numf(female[0], "tot_ppltn") if female else None
+    # 남/여가 total과 같으면(=필터 무시) 신뢰 불가 → 미측정 유지(조작 금지)
+    if m is not None and f is not None and m != out["tot_ppltn"] and f != out["tot_ppltn"] and (m + f) > 0:
+        out["male_ppltn"], out["female_ppltn"] = int(m), int(f)
+        out["male_pct"] = round(100 * m / (m + f), 1)
+        out["female_pct"] = round(100 * f / (m + f), 1)
+
+    # 연령대: age_type 코드별 인구. SGIS 응답 필드는 개방망 실검증 후 확정.
+    bands = []
+    AGE_LABELS = [("1", "0-9세"), ("2", "10대"), ("3", "20대"), ("4", "30대"),
+                  ("5", "40대"), ("6", "50대"), ("7", "60대"), ("8", "70대 이상")]
+    for code, label in AGE_LABELS:
+        rows = _pop({"age_type": code})
+        v = numf(rows[0], "ppltn") if rows else (numf(rows[0], "tot_ppltn") if rows else None)
+        if v is not None and v != out["tot_ppltn"]:
+            bands.append({"label": label, "ppltn": int(v)})
+    if bands:
+        total_b = sum(x["ppltn"] for x in bands) or 1
+        for x in bands:
+            x["pct"] = round(100 * x["ppltn"] / total_b, 1)
+        out["age_bands"] = bands
+    return out
 
 
 STAGE_URL = "https://sgisapi.kostat.go.kr/OpenAPI3/addr/stage.json"

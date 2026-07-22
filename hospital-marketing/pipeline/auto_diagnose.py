@@ -72,12 +72,14 @@ def cell(c: dict) -> str:
     return f"○{c['position']}" if c.get("exposed") else "✕"
 
 
-def analyze_location(biz: dict, region: dict, cls: dict, radius_m: int = 1000) -> dict | None:
+def analyze_location(biz: dict, region: dict, cls: dict, radius_m: int = 1000,
+                     demographics: bool = False) -> dict | None:
     """업체 좌표·행정구역 기반 입지 참고 분석.
 
     - 공통: SGIS 인구·종사자 지표 → 잠재 수요·상권 활동 점수
     - 병원: HIRA 같은 진료과 반경 경쟁 → 경쟁 여유 점수 + 입지 참고 점수
     - 비병원: 경쟁 지표는 공식 데이터가 없어 수요·상권만 제공
+    - demographics=True: SGIS 인구 구성(총인구·남녀·연령대) 추가 조회(호출 증가)
     """
     lat, lng = biz.get("latitude"), biz.get("longitude")
     adm_cd = sgis.find_adm_cd(region.get("city") or "", region.get("gu"))
@@ -87,7 +89,9 @@ def analyze_location(biz: dict, region: dict, cls: dict, radius_m: int = 1000) -
 
     out = {"radius_m": radius_m, "adm_cd": adm_cd,
            "adm_nm": (stats or {}).get("adm_nm"),
-           "avg_age": (stats or {}).get("avg_age")}
+           "avg_age": (stats or {}).get("avg_age"),
+           "demographics": (sgis.population_composition(adm_cd)
+                            if demographics and adm_cd else None)}
 
     # 체감(인구가중) 밀도 우선 — 넓은 시의 외곽 읍·면이 도심 밀도를 희석하는 문제 보정.
     # 신뢰도 원칙: SGIS 실측 밀도가 없으면 임의 기본값으로 인구를 지어내지 않고 '미측정'으로 둔다.
@@ -323,6 +327,8 @@ def main() -> None:
     ap.add_argument("--vol-min", type=int, default=20,
                     help="월 검색량이 이 값 이하인 저수요 키워드를 진단에서 제외(브랜드는 예외 유지). "
                          "검색광고 키 미연동 시 필터 미적용·검색량 미측정 표기. 기본 20")
+    ap.add_argument("--demographics", action="store_true",
+                    help="입지 인구 구성(총인구·남녀·연령대) SGIS 추가 조회(호출 증가 — 쿼터 유의)")
     args = ap.parse_args()
 
     # 1) 업체 특정
@@ -401,7 +407,7 @@ def main() -> None:
     location = None
     if not args.no_location:
         print("\n[입지 분석] SGIS 인구·상권" + (" + HIRA 경쟁" if cls["is_hospital"] else ""))
-        location = analyze_location(biz, region, cls)
+        location = analyze_location(biz, region, cls, demographics=args.demographics)
         if location:
             _n = lambda v, suf="": (f"{v:,}{suf}" if isinstance(v, int) else
                                      (f"{v}{suf}" if v is not None else "미측정"))
@@ -806,10 +812,45 @@ def render_html(j: dict, masked: bool = False) -> str:
                 + '</tbody></table></div>'
                 '<p class="ds">가까운 반경 = 실제 생활권 경쟁. 반경을 넓히면 경쟁·수요가 함께 커집니다(경쟁 여유·수요 점수는 당사 산식).</p>')
 
+        # 인구 구성 — 총인구·남녀·연령대 (SGIS 실측, --demographics). 없으면 미측정.
+        demo_html = ""
+        demo = loc.get("demographics") if not masked else None
+        if demo:
+            yr = e(str(demo.get("year") or ""))
+            dcards = []
+            if demo.get("tot_ppltn") is not None:
+                dcards.append(("행정구역 총인구", f'{int(demo["tot_ppltn"]):,}명', f'{yr}년 SGIS'))
+            if demo.get("avg_age") is not None:
+                dcards.append(("평균 연령", f'{demo["avg_age"]:.1f}세', '주민 평균'))
+            if demo.get("male_pct") is not None:
+                dcards.append(("남녀 비율", f'남 {demo["male_pct"]:g}% · 여 {demo["female_pct"]:g}%',
+                               f'남 {demo["male_ppltn"]:,} · 여 {demo["female_ppltn"]:,}명'))
+            dc = "".join(f'<div class="stat"><div class="k">{k}</div><div class="v">{v}</div>'
+                         f'<div class="d">{d}</div></div>' for k, v, d in dcards)
+            bands = demo.get("age_bands") or []
+            band_html = ""
+            if bands:
+                maxp = max((x["pct"] for x in bands), default=1) or 1
+                band_html = ('<h3 class="sm-title">연령대 구성</h3><div class="cvbars">'
+                             + "".join(
+                                 f'<div class="cvrow"><span class="cvl">{e(x["label"])}</span>'
+                                 f'<span class="cvbar"><span class="cvact" style="width:{100*x["pct"]/maxp:.0f}%">'
+                                 f'<span class="cvexp" style="width:100%"></span></span></span>'
+                                 f'<span class="cvv"><b>{x["pct"]:g}%</b></span></div>' for x in bands)
+                             + '</div>')
+            na = [lab for lab, ok in (("남녀 비율", demo.get("male_pct") is not None),
+                                       ("연령대 구성", bool(bands))) if not ok]
+            na_note = (f'<p class="mut" style="font-size:12px;margin:8px 0 0">{" · ".join(na)}: '
+                       'SGIS 성별·연령 응답 확인 후 제공(미측정).</p>' if na else "")
+            demo_html = (f'<h3 class="sm-title">인구 구성 <span style="font-weight:400;color:var(--mut)">· '
+                         f'{yr}년 통계청 SGIS 실측</span></h3><div class="summary">{dc}</div>'
+                         f'{band_html}{na_note}')
+
         loc_html = f'''
 <section class="card"><h2>입지 참고 분석</h2>
   <div class="summary">{cs}</div>{note}
   {map_html}
+  {demo_html}
   {radius_html}
   {meters_html}
   <p class="mut" style="font-size:12px;margin:14px 0 0">반경 인구·상권은 <b>{e(loc.get("density_basis") or "시·구 평균")} 밀도</b> 기준 추정입니다.
