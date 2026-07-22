@@ -90,22 +90,31 @@ def analyze_location(biz: dict, region: dict, cls: dict, radius_m: int = 1000) -
            "avg_age": (stats or {}).get("avg_age")}
 
     # 체감(인구가중) 밀도 우선 — 넓은 시의 외곽 읍·면이 도심 밀도를 희석하는 문제 보정.
+    # 신뢰도 원칙: SGIS 실측 밀도가 없으면 임의 기본값으로 인구를 지어내지 않고 '미측정'으로 둔다.
     avg_dnsty = (stats or {}).get("ppltn_dnsty")
     w_dnsty = sgis.pop_weighted_density(adm_cd) if adm_cd else None
-    dnsty = w_dnsty or avg_dnsty or 13000.0
-    out["density_basis"] = "체감(인구가중)" if w_dnsty else ("시·구 평균" if avg_dnsty else "기본값")
-    pop_radius = int(dnsty * math.pi * (radius_m / 1000.0) ** 2)
-    demand = scoring.demand_score(pop_radius, 0.45, radius_m)
+    dnsty = w_dnsty or avg_dnsty  # 실측 밀도 (없으면 None → 미측정)
+    if dnsty:
+        out["density_basis"] = "체감(인구가중)" if w_dnsty else "시·구 평균"
+        pop_radius = int(dnsty * math.pi * (radius_m / 1000.0) ** 2)
+        demand = scoring.demand_score(pop_radius, 0.45, radius_m)
+    else:
+        out["density_basis"] = "미측정"
+        pop_radius = None
+        demand = None
     out.update({"population_radius": pop_radius, "demand_score": demand})
 
-    # 종사자 밀도도 같은 체감 기준으로 스케일 (기하평균 종사자밀도 × 체감/평균 배율)
-    emp_density = 0.0
-    if stats and stats.get("employee_cnt") and stats.get("tot_ppltn") and avg_dnsty:
+    # 종사자 밀도도 같은 체감 기준으로 스케일. 실측 없으면 상권 점수도 미측정(0으로 조작 금지).
+    if stats and stats.get("employee_cnt") and stats.get("tot_ppltn") and avg_dnsty and dnsty:
         real_area = stats["tot_ppltn"] / avg_dnsty
         emp_base = stats["employee_cnt"] / real_area if real_area else 0.0
         emp_density = emp_base * (dnsty / avg_dnsty)
-    commerce = round(100.0 * (1.0 - math.exp(-emp_density / 25000.0)), 1)
-    out.update({"employee_density_km2": round(emp_density), "commerce_score": commerce})
+        commerce = round(100.0 * (1.0 - math.exp(-emp_density / 25000.0)), 1)
+        out.update({"employee_density_km2": round(emp_density), "commerce_score": commerce})
+    else:
+        emp_density = None
+        commerce = None
+        out.update({"employee_density_km2": None, "commerce_score": None})
 
     dgsbjt = keywordgen.DEPT_DGSBJT.get(cls.get("dept") or "")
     if cls.get("is_hospital") and dgsbjt and lat is not None and lng is not None:
@@ -124,16 +133,18 @@ def analyze_location(biz: dict, region: dict, cls: dict, radius_m: int = 1000) -
         for r in radii:
             comps_r = [{"distance_m": c["distance_m"], "same_department": True}
                        for c in comp_full if c["distance_m"] <= r]
-            pop_r = int(dnsty * math.pi * (r / 1000.0) ** 2)
+            pop_r = int(dnsty * math.pi * (r / 1000.0) ** 2) if dnsty else None
             breakdown[r] = {
                 "competitors": len(comps_r),
                 "competition_score": scoring.density_score(comps_r, r),
-                "demand_score": scoring.demand_score(pop_r, 0.45, r),
+                "demand_score": scoring.demand_score(pop_r, 0.45, r) if pop_r else None,
                 "population_radius": pop_r,
             }
         cur = breakdown[radius_m]
         density = cur["competition_score"]
-        site = round(0.5 * density + 0.3 * demand + 0.2 * commerce, 1)
+        # 입지 참고 점수 — 수요·상권이 미측정(SGIS 실패)이면 조작 없이 None.
+        site = (round(0.5 * density + 0.3 * demand + 0.2 * commerce, 1)
+                if demand is not None and commerce is not None else None)
         out.update({
             "competitors": cur["competitors"], "competition_score": density,
             "saturation_per_10k": round(cur["competitors"] / (pop_radius / 10000.0), 1) if pop_radius else None,
@@ -392,12 +403,14 @@ def main() -> None:
         print("\n[입지 분석] SGIS 인구·상권" + (" + HIRA 경쟁" if cls["is_hospital"] else ""))
         location = analyze_location(biz, region, cls)
         if location:
-            print(f"  행정구역   : {location.get('adm_nm') or '-'} (평균연령 {location.get('avg_age') or '-'})")
-            print(f"  반경 1km 인구(추정): {location['population_radius']:,}명 · 수요 점수 {location['demand_score']}")
-            print(f"  종사자 밀도 : {location['employee_density_km2']:,}/km² · 상권 활동 점수 {location['commerce_score']}")
+            _n = lambda v, suf="": (f"{v:,}{suf}" if isinstance(v, int) else
+                                     (f"{v}{suf}" if v is not None else "미측정"))
+            print(f"  행정구역   : {location.get('adm_nm') or '미측정'} (평균연령 {location.get('avg_age') or '-'})")
+            print(f"  반경 1km 인구(추정): {_n(location['population_radius'], '명')} · 수요 점수 {location['demand_score'] if location['demand_score'] is not None else '미측정'}")
+            print(f"  종사자 밀도 : {_n(location['employee_density_km2'], '/km²')} · 상권 활동 점수 {location['commerce_score'] if location['commerce_score'] is not None else '미측정'}")
             if "competitors" in location:
                 print(f"  같은 진료과 경쟁: {location['competitors']}곳 · 경쟁 여유 {location['competition_score']}"
-                      f" · 입지 참고 점수 {location['site_score']}")
+                      f" · 입지 참고 점수 {location['site_score'] if location['site_score'] is not None else '미측정'}")
         else:
             print("  지표 수집 실패 (SGIS 키/지역 확인)")
 
@@ -714,21 +727,34 @@ def render_html(j: dict, masked: bool = False) -> str:
             reg_main = e(r.get("gu") or r.get("city") or (loc.get("adm_nm") or "-"))
             reg_sub = (f'{e(r.get("city"))} · 평균연령 {loc.get("avg_age") or "-"}세'
                        if r.get("gu") and r.get("city") else f'평균연령 {loc.get("avg_age") or "-"}세')
+            _num = lambda v, suf: (f'{v:,}{suf}' if isinstance(v, int)
+                                   else (f'{v}{suf}' if v is not None else '미측정'))
+            _na_note = 'SGIS 일시 미수신 — 미측정'
+            pop_ok = loc.get("population_radius") is not None
             cards = [
                 ("행정구역", reg_main, reg_sub),
-                ("반경 1km 인구(추정)", f'{loc["population_radius"]:,}명', f'{basis} 밀도 기준'),
-                ("종사자 밀도", f'{loc["employee_density_km2"]:,}/km²', '직장인 유동 근사'),
+                ("반경 1km 인구(추정)", _num(loc.get("population_radius"), "명"),
+                 f'{basis} 밀도 기준' if pop_ok else _na_note),
+                ("종사자 밀도", _num(loc.get("employee_density_km2"), "/km²"),
+                 '직장인 유동 근사' if loc.get("employee_density_km2") is not None else _na_note),
             ]
             if "competitors" in loc:
                 cards.append(("같은 진료과 경쟁 (1km)", f'{loc["competitors"]}곳', '가까울수록 경쟁 치열'))
+            # 미측정 지표는 게이지/바 대신 '미측정' 표기(조작 없음)
+            def zbar(label, score, meaning):
+                if score is None:
+                    return (f'<div class="zbar"><div class="zb-head"><span class="zl">{label}</span>'
+                            f'<span style="color:var(--mut);font-weight:700">미측정</span></div>'
+                            f'<div class="sm-mean">{meaning} · SGIS 일시 미수신</div></div>')
+                return zone_bar(label, score, meaning)
             hero = (f'<div class="gcol">{gauge_semi(loc["site_score"], "입지 참고 점수 · 종합")}</div>'
-                    if "competitors" in loc else "")
+                    if "competitors" in loc and loc.get("site_score") is not None else "")
             zbars = ""
             if "competitors" in loc:
-                zbars += zone_bar("경쟁 여유", loc["competition_score"],
-                                  "경쟁 밀도 대비 여유 — 높을수록 경쟁이 덜 치열")
-            zbars += zone_bar("잠재 수요", loc["demand_score"], "반경 내 거주 인구 기반 수요 잠재력")
-            zbars += zone_bar("상권 활동", loc["commerce_score"], "종사자 밀도 기반 상권 활동성")
+                zbars += zbar("경쟁 여유", loc["competition_score"],
+                              "경쟁 밀도 대비 여유 — 높을수록 경쟁이 덜 치열")
+            zbars += zbar("잠재 수요", loc["demand_score"], "반경 내 거주 인구 기반 수요 잠재력")
+            zbars += zbar("상권 활동", loc["commerce_score"], "종사자 밀도 기반 상권 활동성")
             meters_html = (
                 f'<h3 class="sm-title">점수 해설 '
                 f'<span>기준 · <b style="color:var(--bad)">낮음</b> 0~40 · '
@@ -775,7 +801,8 @@ def render_html(j: dict, masked: bool = False) -> str:
                 '<div class="tw"><table class="rtbl"><thead><tr><th>반경</th>' + hdr + '</tr></thead><tbody>'
                 + rrow("경쟁 병원", lambda d: f'{d["competitors"]}곳')
                 + rrow("경쟁 여유", lambda d: f'{d["competition_score"]:.0f}')
-                + rrow("수요 점수", lambda d: f'{d["demand_score"]:.0f}')
+                + rrow("수요 점수", lambda d: (f'{d["demand_score"]:.0f}'
+                                             if d.get("demand_score") is not None else '미측정'))
                 + '</tbody></table></div>'
                 '<p class="ds">가까운 반경 = 실제 생활권 경쟁. 반경을 넓히면 경쟁·수요가 함께 커집니다(경쟁 여유·수요 점수는 당사 산식).</p>')
 

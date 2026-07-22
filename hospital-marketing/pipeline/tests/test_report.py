@@ -57,5 +57,30 @@ class TestReportStructure(unittest.TestCase):
         self.assertIn("진단 리포트", self.html)
 
 
+class TestLocationIntegrity(unittest.TestCase):
+    def test_sgis_unavailable_marks_unmeasured_not_fabricated(self):
+        # SGIS 실패 시 기본 밀도(13000)로 인구를 지어내지 않고 미측정(None)이어야 한다.
+        from medirank.connectors import sgis
+        orig_adm, orig_stats, orig_dens = (sgis.find_adm_cd, sgis.area_stats,
+                                           sgis.pop_weighted_density)
+        sgis.find_adm_cd = lambda *a, **k: None
+        sgis.area_stats = lambda *a, **k: None
+        sgis.pop_weighted_density = lambda *a, **k: None
+        try:
+            biz = {"title": "가상의원", "latitude": 37.5, "longitude": 127.0}
+            region = {"city": "서울", "gu": "강남구", "dong": "역삼동"}
+            cls = {"is_hospital": False, "dept": None, "base_terms": ["병원"]}
+            loc = ad.analyze_location(biz, region, cls)
+            self.assertIsNotNone(loc)
+            self.assertIsNone(loc["population_radius"], "SGIS 실패인데 인구가 조작됨")
+            self.assertIsNone(loc["demand_score"])
+            self.assertIsNone(loc["commerce_score"])
+            self.assertEqual(loc["density_basis"], "미측정")
+            self.assertNotEqual(loc["population_radius"], 40840)
+        finally:
+            sgis.find_adm_cd, sgis.area_stats, sgis.pop_weighted_density = (
+                orig_adm, orig_stats, orig_dens)
+
+
 if __name__ == "__main__":
     unittest.main()
