@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-07-22T15:55:35+00:00",
+ "generated_at": "2026-07-22T16:06:24+00:00",
  "business": {
   "rank": 1,
   "title": "더바른한의원 대구침산",
@@ -453,7 +453,7 @@
       },
       {
        "rank": 3,
-       "title": "대구광역시 북구 칠성동2가 [월세] 300/30 | 피터팬의 좋은방 구하기 대구광역시 북구 칠성동2가 [월세] 300/30",
+       "title": "대구광역시 북구 칠성동2가 [월세] 500/43 | 피터팬의 좋은방 구하기 대구광역시 북구 칠성동2가 [월세] 500/43",
        "is_me": false
       },
       {
@@ -463,7 +463,7 @@
       },
       {
        "rank": 5,
-       "title": "대구광역시 북구 칠성동2가 [월세] 1000/35 | 피터팬의 좋은방 구하기 대구광역시 북구 칠성동2가 [월세] 1000/35",
+       "title": "대구광역시 북구 칠성동2가 [매매] 8억 3760 쓰리룸+(방:4/욕실:2) | 피터팬의 좋은방 구하기 대구광역시 북구 칠성동2가 [매매] 8억 3760...",
        "is_me": false
       }
      ]
@@ -3259,39 +3259,39 @@
   "adm_cd": null,
   "adm_nm": null,
   "avg_age": null,
-  "density_basis": "기본값",
-  "population_radius": 40840,
-  "demand_score": 56.2,
-  "employee_density_km2": 0,
-  "commerce_score": 0.0,
+  "density_basis": "미측정",
+  "population_radius": null,
+  "demand_score": null,
+  "employee_density_km2": null,
+  "commerce_score": null,
   "competitors": 21,
   "competition_score": 56.5,
-  "saturation_per_10k": 5.1,
-  "site_score": 45.1,
+  "saturation_per_10k": null,
+  "site_score": null,
   "radius_breakdown": {
    "500": {
     "competitors": 3,
     "competition_score": 59.4,
-    "demand_score": 56.2,
-    "population_radius": 10210
+    "demand_score": null,
+    "population_radius": null
    },
    "1000": {
     "competitors": 21,
     "competition_score": 56.5,
-    "demand_score": 56.2,
-    "population_radius": 40840
+    "demand_score": null,
+    "population_radius": null
    },
    "1500": {
     "competitors": 36,
     "competition_score": 60.0,
-    "demand_score": 56.2,
-    "population_radius": 91891
+    "demand_score": null,
+    "population_radius": null
    },
    "2000": {
     "competitors": 87,
     "competition_score": 57.8,
-    "demand_score": 56.2,
-    "population_radius": 163362
+    "demand_score": null,
+    "population_radius": null
    }
   },
   "competitor_list": [
@@ -3343,12 +3343,12 @@
   "basis": "상위 경쟁 3곳 평균(실측)"
  },
  "composite": {
-  "score": 44.6,
-  "measured_weight_pct": 89,
+  "score": 41.2,
+  "measured_weight_pct": 69,
   "components": {
    "exposure": 29.2,
    "density": 56.5,
-   "demand": 56.2,
+   "demand": null,
    "place": 67.0
   },
   "place_frac": 0.25
