@@ -47,10 +47,17 @@ def naver_available() -> bool:
 # 호출 시점에 읽으므로 .env/환경 갱신도 반영된다.
 
 def searchad_creds() -> tuple[str, str, str]:
-    """네이버 검색광고 키워드도구 자격증명 (API_KEY, SECRET_KEY, CUSTOMER_ID)."""
-    return (os.environ.get("NAVER_AD_API_KEY", ""),
-            os.environ.get("NAVER_AD_SECRET_KEY", ""),
-            os.environ.get("NAVER_AD_CUSTOMER_ID", ""))
+    """네이버 검색광고 키워드도구 자격증명 (API_KEY, SECRET, CUSTOMER_ID).
+
+    베놈 생태계 키 레지스트리 정규 이름(NAVER_AD_API_KEY / NAVER_AD_SECRET /
+    NAVER_AD_CUSTOMER_ID)을 우선 사용하고, 구/타 프로젝트 이름은 폴백으로 인식해
+    한 값을 여러 프로젝트가 공유하도록 통일한다.
+    """
+    g = os.environ.get
+    api = g("NAVER_AD_API_KEY") or g("NAVER_ACCESS_LICENSE") or ""
+    secret = g("NAVER_AD_SECRET") or g("NAVER_AD_SECRET_KEY") or g("NAVER_SECRET_KEY") or ""
+    cust = g("NAVER_AD_CUSTOMER_ID") or g("NAVER_CUSTOMER_ID") or ""
+    return (api, secret, cust)
 
 
 def searchad_available() -> bool:
