@@ -1,0 +1,3427 @@
+{
+ "generated_at": "2026-07-22T15:55:35+00:00",
+ "business": {
+  "rank": 1,
+  "title": "더바른한의원 대구침산",
+  "address": "대구광역시 북구 옥산로 95 화인탑팰리스 3층",
+  "address_jibun": "대구광역시 북구 칠성동2가 90 화인탑팰리스 3층",
+  "category": "병원,의원>한의원",
+  "link": "http://www.더바른한의원.kr",
+  "telephone": "",
+  "description": "",
+  "longitude": 128.5859322,
+  "latitude": 35.8846399
+ },
+ "region": {
+  "city": "대구",
+  "gu": "북구",
+  "dong": "칠성동2가"
+ },
+ "classification": {
+  "is_hospital": true,
+  "dept": "한의원",
+  "base_terms": [
+   "한의원",
+   "추나요법",
+   "다이어트한약"
+  ]
+ },
+ "keywords": [
+  {
+   "kw": "더바른한의원 대구침산",
+   "type": "브랜드",
+   "base": "더바른한의원 대구침산",
+   "volume": null,
+   "place": {
+    "keyword": "더바른한의원 대구침산",
+    "exposed": true,
+    "rank": 1,
+    "ambiguous": false,
+    "results": [
+     {
+      "rank": 1,
+      "title": "더바른한의원 대구침산",
+      "address": "대구광역시 북구 옥산로 95 화인탑팰리스 3층",
+      "address_jibun": "대구광역시 북구 칠성동2가 90 화인탑팰리스 3층",
+      "category": "병원,의원>한의원",
+      "link": "http://www.더바른한의원.kr",
+      "telephone": "",
+      "description": "",
+      "longitude": 128.5859322,
+      "latitude": 35.8846399
+     }
+    ]
+   },
+   "content": {
+    "blog": {
+     "present": true,
+     "exposed": true,
+     "position": 1,
+     "label": "블로그",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "[더바른한의원 대구침산] 2월 설 당일 휴진 안내",
+       "is_me": true
+      },
+      {
+       "rank": 2,
+       "title": "대구북구 더바른한의원 침산 한의사 3인 소개",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "교통사고로 대구침산 더바른한의원 입원했어요",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "[더바른한의원 대구침산] 6월 진료 일정 안내",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "더바른한의원 대구침산을 찾아주시는 분들께",
+       "is_me": false
+      }
+     ]
+    },
+    "cafe": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "카페",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "턱라인 관리 이런건 어디로 다니세요??",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "침산동 한의원 괜찮은 곳 있을까요 난생 첫 교통사고났어요 ;",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "대구 북구 한의원 정보 총정리",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "안녕하세요^^ 더바른한의원(침산) 입니다.",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "대구 피부관리 어디 가세요?",
+       "is_me": false
+      }
+     ]
+    },
+    "web": {
+     "present": true,
+     "exposed": true,
+     "position": 1,
+     "label": "웹문서",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "더바른한의원 대구침산 - 더바른한의원 침산 블로그",
+       "is_me": true
+      },
+      {
+       "rank": 2,
+       "title": "더바른한의원 침산",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "더바른한의원 침산 후기/가격/비용 (2026)",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "더바른한의원 - 북구 옥산로 95",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "[더바른한의원 대구침산] 7월 제헌절 정상진료 일정 안내",
+       "is_me": false
+      }
+     ]
+    },
+    "news": {
+     "present": true,
+     "exposed": true,
+     "position": 1,
+     "label": "뉴스",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "[칼럼] 교통사고 후유증, 겉보다 속이 더 문제...초기 대응해야 만성통...",
+       "is_me": true
+      }
+     ]
+    },
+    "image": {
+     "present": true,
+     "exposed": true,
+     "position": 2,
+     "label": "이미지",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "[더바른한의원(침산)] [대구 더바른한의원(침산)] 간호조무사 정규직 추가채용 - 사람인",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "더바른한의원 대구침산",
+       "is_me": true
+      },
+      {
+       "rank": 3,
+       "title": "대구 바른몸 허리디스크 교통사고 추나요법 한의원 치료",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "대구 바른몸한의원 허리디스크 일자목 추나요법 치료",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "더바른한의원",
+       "is_me": false
+      }
+     ]
+    },
+    "kin": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "지식iN",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "대구한의원 중에서 안면비대칭교정?",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "대구 턱관절교정 해주는 한의원 좀?",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "얼굴 축소 한의원 있을까요? (대구 범어동 30대중반/여...",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "턱에 딱딱 소리와 통증으로 인해 치료 문의합니다 (대구...",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "안면비대칭한의원 있나요? (대구 범어동 20대중반/남...",
+       "is_me": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "kw": "칠성동2가 한의원",
+   "type": "동단위",
+   "base": "한의원",
+   "volume": null,
+   "place": {
+    "keyword": "칠성동2가 한의원",
+    "exposed": true,
+    "rank": 1,
+    "ambiguous": false,
+    "results": [
+     {
+      "rank": 1,
+      "title": "더바른한의원 대구침산",
+      "address": "대구광역시 북구 옥산로 95 화인탑팰리스 3층",
+      "address_jibun": "대구광역시 북구 칠성동2가 90 화인탑팰리스 3층",
+      "category": "병원,의원>한의원",
+      "link": "http://www.더바른한의원.kr",
+      "telephone": "",
+      "description": "",
+      "longitude": 128.5859322,
+      "latitude": 35.8846399
+     },
+     {
+      "rank": 2,
+      "title": "공덕한의원",
+      "address": "대구광역시 북구 중앙대로 509",
+      "address_jibun": "대구광역시 북구 칠성동2가 297-13",
+      "category": "병원,의원>한의원",
+      "link": "",
+      "telephone": "",
+      "description": "",
+      "longitude": 128.5951177,
+      "latitude": 35.8785194
+     },
+     {
+      "rank": 3,
+      "title": "경희사랑한의원",
+      "address": "대구광역시 북구 침산로 100 오페라삼정그린코아 상가 2층 204호",
+      "address_jibun": "대구광역시 북구 칠성동2가 733 오페라삼정그린코아 상가 2층 204호",
+      "category": "병원,의원>한의원",
+      "link": "https://blog.naver.com/khsrkmc",
+      "telephone": "",
+      "description": "",
+      "longitude": 128.591011,
+      "latitude": 35.8848387
+     },
+     {
+      "rank": 4,
+      "title": "이찬영한의원",
+      "address": "대구광역시 북구 중앙대로 542",
+      "address_jibun": "대구광역시 북구 칠성동2가 382-21",
+      "category": "병원,의원>한의원",
+      "link": "",
+      "telephone": "",
+      "description": "",
+      "longitude": 128.5966421,
+      "latitude": 35.881348
+     },
+     {
+      "rank": 5,
+      "title": "진성한의원",
+      "address": "대구광역시 북구 옥산로 103 침산1차푸르지오",
+      "address_jibun": "대구광역시 북구 칠성동2가 2-5 침산1차푸르지오",
+      "category": "병원,의원>한의원",
+      "link": "",
+      "telephone": "",
+      "description": "",
+      "longitude": 128.5863478,
+      "latitude": 35.884523
+     }
+    ]
+   },
+   "content": {
+    "blog": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "블로그",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "2025년 7월 전국 한의원 개업 폐업 현황 (개원 및 폐원...",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "한방족발 대구 칠성동 생생정보 전설의맛 대우족발",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "대구 칠성동 맛집 푸짐하고 재미있다 수락국수",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "대구 칠성동 대구역 오래된 노포 대우족발(since1985)",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "&lt;대구북구칠성동&gt;유별난 엄빠 첫찌 2차유아 구강검진 하러...",
+       "is_me": false
+      }
+     ]
+    },
+    "cafe": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "카페",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "대구 틱치료 한의원 한방점신과박사",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "대구공진단 면역력강화 한의원에서",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "대구틱장애 시작 해아림한의원",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "대구소아정신과 등교거부 틱장애 한방신경정신과박사원장",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "대구다한증 결국 한의학박사한테",
+       "is_me": false
+      }
+     ]
+    },
+    "web": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "웹문서",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "진성한의원 | 대구광역시 북구 칠성동2가 | 한의원",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "공덕한의원, 053-424-1275, 대구광역시 북구 중앙대로 506 (칠성동2가)",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "공덕한의원 - 똑닥",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "공덕한의원",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "진성한의원",
+       "is_me": false
+      }
+     ]
+    },
+    "news": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "뉴스",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "집값 상승 속 거주와 투자, 두 마리 토끼 잡는 오피스텔",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "근현대 한의학 인물사 (337): 金道春(1908∼?)",
+       "is_me": false
+      }
+     ]
+    },
+    "image": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "이미지",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "대구 북구 칠성동2가 355-18 주소 검색 결과 2곳 - 다이닝코드",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "[경매정보] 대구 북구 칠성동2가 근린시설 지하층 비101호",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "대구광역시 북구 칠성동2가 [월세] 300/30 | 피터팬의 좋은방 구하기 대구광역시 북구 칠성동2가 [월세] 300/30",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "대구광역시 북구 칠성동2가 [월세] 1000/35 | 피터팬의 좋은방 구하기 대구광역시 북구 칠성동2가 [월세] 1000/35",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "대구광역시 북구 칠성동2가 [월세] 1000/35 | 피터팬의 좋은방 구하기 대구광역시 북구 칠성동2가 [월세] 1000/35",
+       "is_me": false
+      }
+     ]
+    },
+    "kin": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "지식iN",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "대구광역시 북구칠성동 에대해,,",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "대구에서 추나요법 잘하는곳은 추천 해주세요!!",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "토지소유자가 건물소유자를상대로건물철거및토지사용...",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "추나요법(골반틀어짐)",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "대구유명한한의원(내공100)",
+       "is_me": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "kw": "북구 한의원",
+   "type": "구단위",
+   "base": "한의원",
+   "volume": null,
+   "place": {
+    "keyword": "북구 한의원",
+    "exposed": true,
+    "rank": 4,
+    "ambiguous": false,
+    "results": [
+     {
+      "rank": 1,
+      "title": "신세계한의원 대구칠곡",
+      "address": "대구광역시 북구 학정로 415 메가타운 4층",
+      "address_jibun": "대구광역시 북구 동천동 912-3 메가타운 4층",
+      "category": "병원,의원>한의원",
+      "link": "http://ssghani.co.kr/",
+      "telephone": "",
+      "description": "",
+      "longitude": 128.563082,
+      "latitude": 35.9417807
+     },
+     {
+      "rank": 2,
+      "title": "서울태365한의원",
+      "address": "대구광역시 북구 동북로 156 2층",
+      "address_jibun": "대구광역시 북구 산격동 1238-1 2층",
+      "category": "병원,의원>한의원",
+      "link": "https://blog.naver.com/seoultae365",
+      "telephone": "",
+      "description": "",
+      "longitude": 128.6097162,
+      "latitude": 35.8995436
+     },
+     {
+      "rank": 3,
+      "title": "청담한의원",
+      "address": "대구광역시 북구 팔거천동로 218 2층 청담한의원",
+      "address_jibun": "대구광역시 북구 동천동 893 2층 청담한의원",
+      "category": "병원,의원>한의원",
+      "link": "https://blog.naver.com/daegucheongdam",
+      "telephone": "",
+      "description": "",
+      "longitude": 128.5586042,
+      "latitude": 35.9433494
+     },
+     {
+      "rank": 4,
+      "title": "더바른한의원 대구침산",
+      "address": "대구광역시 북구 옥산로 95 화인탑팰리스 3층",
+      "address_jibun": "대구광역시 북구 칠성동2가 90 화인탑팰리스 3층",
+      "category": "병원,의원>한의원",
+      "link": "http://www.더바른한의원.kr",
+      "telephone": "",
+      "description": "",
+      "longitude": 128.5859322,
+      "latitude": 35.8846399
+     },
+     {
+      "rank": 5,
+      "title": "더나은365한의원 신암복현",
+      "address": "대구광역시 북구 동북로 291 3층 더나은365한의원",
+      "address_jibun": "대구광역시 북구 복현동 337-9 3층 더나은365한의원",
+      "category": "병원,의원>한의원",
+      "link": "http://thebetter365.com",
+      "telephone": "",
+      "description": "",
+      "longitude": 128.6221718,
+      "latitude": 35.8926868
+     }
+    ]
+   },
+   "content": {
+    "blog": {
+     "present": true,
+     "exposed": true,
+     "position": 3,
+     "label": "블로그",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "대구북구한의원 날씬한 몸매를 위한 관리를",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "부산북구한의원 사고 후 팔저림 충돌 통증은",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "대구북구한의원 교통사고 통증 케어방법은",
+       "is_me": true
+      },
+      {
+       "rank": 4,
+       "title": "부산북구한의원 사고 후 관절 손상은",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "울산북구한의원 힘이 안 들어가는 어깨 오십견 관리는",
+       "is_me": false
+      }
+     ]
+    },
+    "cafe": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "카페",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "대구 교통사고 한의원 북구에서 치료 받아야 한다면",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "북구 한의원 문의해요~",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "북구 한의원추천 부탁드립니다~!",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "대구북구한의원 관절교정으로 통증 완화",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "울산북구 한의원 추천요",
+       "is_me": false
+      }
+     ]
+    },
+    "web": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "웹문서",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "흥해한의원 후기/가격/비용 (2026)",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "명가한의원 후기/가격/비용 (2026)",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "침산한의원 후기/가격/비용 (2026)",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "강북한의원 후기/가격/비용 (2026)",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "태양한의원 후기/가격/비용 (2026)",
+       "is_me": false
+      }
+     ]
+    },
+    "news": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "뉴스",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "울산시 북구한의사회, 이주노동자 무료진료 상반기 결산",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "의료기관 확충에 신명진료소 기능 재편 검토",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "[갈길 먼 통합돌봄⑥] 케어안심주택 183개 시군구 없다···퇴원 후 돌봄...",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "경북한의사회 보수교육···방문진료·레이저 등 임상기법 공유",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "&quot;한의난임과 한의약 건강돌봄 사업 우수 성과 공유&quot;",
+       "is_me": false
+      }
+     ]
+    },
+    "image": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "이미지",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "부산 북구, ’한방주치의 사업’ 참여 한의원 20곳 현판 부착",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "청담한의원 후기/가격/비용 (2026) | 모두닥",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "경희자연품한의원 - YouTube 경희자연품한의원",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "행복나무한의원 후기/가격/비용 (2026) | 모두닥",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "은평구 한의원 건물 화재 현장",
+       "is_me": false
+      }
+     ]
+    },
+    "kin": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "지식iN",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "광주북구한의원 추나요법 잘하는 곳",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "부산북구 다이어트 한의원 궁금해요",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "한의원에서 윤곽수술 붓기 관리도 하나요?(대구 북구...",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "부산북구 한방병원 한의원?",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "부산북구 교통사고한방병원 한의원?",
+       "is_me": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "kw": "대구 한의원",
+   "type": "시단위",
+   "base": "한의원",
+   "volume": null,
+   "place": {
+    "keyword": "대구 한의원",
+    "exposed": false,
+    "rank": null,
+    "ambiguous": false,
+    "results": [
+     {
+      "rank": 1,
+      "title": "더편한한의원 대구",
+      "address": "대구광역시 달서구 용산로 226 2층, 3층",
+      "address_jibun": "대구광역시 달서구 용산동 932-7 2층, 3층",
+      "category": "병원,의원>한의원",
+      "link": "http://thefh.co.kr/",
+      "telephone": "",
+      "description": "",
+      "longitude": 128.530825,
+      "latitude": 35.857749
+     },
+     {
+      "rank": 2,
+      "title": "화접몽한의원 대구",
+      "address": "대구광역시 중구 국채보상로 598 정호빌딩 7층",
+      "address_jibun": "대구광역시 중구 동성로2가 56 정호빌딩 7층",
+      "category": "병원,의원>한의원",
+      "link": "https://blog.naver.com/mongdaegu",
+      "telephone": "",
+      "description": "",
+      "longitude": 128.5960431,
+      "latitude": 35.8705269
+     },
+     {
+      "rank": 3,
+      "title": "다이트한의원 대구",
+      "address": "대구광역시 수성구 동대구로 341 1층",
+      "address_jibun": "대구광역시 수성구 범어동 43-8 1층",
+      "category": "병원,의원>한의원",
+      "link": "https://daegu.daeatdiet.com/",
+      "telephone": "",
+      "description": "",
+      "longitude": 128.6260282,
+      "latitude": 35.8609261
+     },
+     {
+      "rank": 4,
+      "title": "설명한의원 대구수성",
+      "address": "대구광역시 수성구 달구벌대로 2379 2층, 3층 설명한의원",
+      "address_jibun": "대구광역시 수성구 범어동 558-15 2층, 3층 설명한의원",
+      "category": "병원,의원>한의원",
+      "link": "https://blog.naver.com/beomeo_sm",
+      "telephone": "",
+      "description": "",
+      "longitude": 128.622841,
+      "latitude": 35.8596297
+     },
+     {
+      "rank": 5,
+      "title": "하늘마음한의원 대구",
+      "address": "대구광역시 수성구 동대구로 329",
+      "address_jibun": "대구광역시 수성구 범어동 43-2",
+      "category": "병원,의원>한의원",
+      "link": "https://booking.naver.com/booking/13/bizes/258448",
+      "telephone": "",
+      "description": "",
+      "longitude": 128.625687,
+      "latitude": 35.859955
+     }
+    ]
+   },
+   "content": {
+    "blog": {
+     "present": true,
+     "exposed": true,
+     "position": 17,
+     "label": "블로그",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "대구한의원 건강한 체중 감량을 위한 올바른 생활 습관 안내",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "대구다이어트한약 한의원의 체계적인 관리로",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "대구한의원추천 교통사고 이후 고통스럽다면",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "대구다이어트한의원 과체중 고민이라면",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "대구다이어트한의원 비만 고민이라면",
+       "is_me": false
+      }
+     ]
+    },
+    "cafe": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "카페",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "대구한의원 대구한방병원 문의는?",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "다이어트 한방병원 후기 대구한의원 결정한 이유",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "대구 달서구한의원 통증, 추나요법을 통해",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "대구 하늘체한의원 푠사 잘 빼주나요?",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "대구다이어트한의원 일반 다이어트와 어떤 차이가 있을까요?",
+       "is_me": false
+      }
+     ]
+    },
+    "web": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "웹문서",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "대구 함소아한의원 수성점",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "대구 함소아한의원 수성점",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "로하셀한의원 대구점 후기/가격/비용 (2026)",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "대구 - 생기한의원",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "자연과한의원 대구점 후기/가격/비용 (2026)",
+       "is_me": false
+      }
+     ]
+    },
+    "news": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "뉴스",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "하나투어 인바운드 확대·모두투어 상장 21주년…노랑풍선·놀유니버스...",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "아토피, 증상과 생활환경 고려한 지속적 관리 필요",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "경북한의사회, 8월 9일 대구서 학술세미나 개최",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "[이웃사랑]주 3회 투석으로 버티는 삶…9인 가족 생계 짊어진 영천 60대...",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "밤마다 터지는 가짜 식욕의 비밀...‘야간 폭식 증후군’과 혈당 불안정...",
+       "is_me": false
+      }
+     ]
+    },
+    "image": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "이미지",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "스마일365한의원 대구침산점",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "대구 위담한의원, 소비자 서비스만족대상 위장질환 부문 수상",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "설명한의원 대구수성",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "대구 편한세상한의원 이승렬 원장 - 효 특집 나의 아버지",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "대구위담한의원 - YouTube 대구위담한의원",
+       "is_me": false
+      }
+     ]
+    },
+    "kin": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "지식iN",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "대구한의원 담적치료 받아보신 분 계신가요?(대구...",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "한의원 치료가 도움이 될까요(대구, 한포진한의원)",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "대구 비염 한의원｜아이가 항상 입 벌리고 숨 쉬는데...",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "관절염 한의원(대구 수성구 관절염)",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "계속 재발하는 한포진 한의원 치료는 어떤가요?(대구...",
+       "is_me": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "kw": "한의원",
+   "type": "메인",
+   "base": "한의원",
+   "volume": null,
+   "place": {
+    "keyword": "한의원",
+    "exposed": false,
+    "rank": null,
+    "ambiguous": false,
+    "results": [
+     {
+      "rank": 1,
+      "title": "터한의원 광화문점",
+      "address": "서울특별시 종로구 종로 19 307호, 308-1호, 308-2호, 309-1호",
+      "address_jibun": "서울특별시 종로구 종로1가 24 307호, 308-1호, 308-2호, 309-1호",
+      "category": "병원,의원>한의원",
+      "link": "https://letsgoteo.com/teo_ghm",
+      "telephone": "",
+      "description": "",
+      "longitude": 126.9798877,
+      "latitude": 37.570739
+     },
+     {
+      "rank": 2,
+      "title": "청담한의원 광화문",
+      "address": "서울특별시 종로구 종로 19 3층 302-1호 청담한의원.",
+      "address_jibun": "서울특별시 종로구 종로1가 24 3층 302-1호 청담한의원.",
+      "category": "병원,의원>한의원",
+      "link": "https://blog.naver.com/chungdamhani07",
+      "telephone": "",
+      "description": "",
+      "longitude": 126.9796213,
+      "latitude": 37.5708004
+     },
+     {
+      "rank": 3,
+      "title": "진심온한의원 종로",
+      "address": "서울특별시 중구 남대문로9길 40 센터플레이스 2층",
+      "address_jibun": "서울특별시 중구 다동 155 센터플레이스 2층",
+      "category": "병원,의원>한의원",
+      "link": "http://heart-on.co.kr/",
+      "telephone": "",
+      "description": "",
+      "longitude": 126.9806203,
+      "latitude": 37.5670351
+     },
+     {
+      "rank": 4,
+      "title": "생기찬한의원",
+      "address": "서울특별시 중구 덕수궁길 7 오천회관 5층",
+      "address_jibun": "서울특별시 중구 태평로2가 366-1 오천회관 5층",
+      "category": "병원,의원>한의원",
+      "link": "https://blog.naver.com/saenggichan",
+      "telephone": "",
+      "description": "",
+      "longitude": 126.9763528,
+      "latitude": 37.5647358
+     },
+     {
+      "rank": 5,
+      "title": "휴본한의원",
+      "address": "서울특별시 중구 무교로 15 남강빌딩 701호",
+      "address_jibun": "서울특별시 중구 무교동 32-2 남강빌딩 701호",
+      "category": "병원,의원>한의원",
+      "link": "http://www.hubonclinic.com/",
+      "telephone": "",
+      "description": "",
+      "longitude": 126.9789742,
+      "latitude": 37.5672482
+     }
+    ]
+   },
+   "content": {
+    "blog": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "블로그",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "대구다이어트한의원 과체중 막으려면",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "대구교통사고한의원 통증 완화를",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "등드름한의원 관리 후기 등여드름 자국 관리 과정",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "당산 한약 다이어트 한의원 다녀온 솔직 후기 - 리체안한의원...",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "수원여드름피부과 한의원 발현 기전 중심으로",
+       "is_me": false
+      }
+     ]
+    },
+    "cafe": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "카페",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "경주 한의원 난임 예약 가능한가요?",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "김해한의원 체질 맞춤 한약으로",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "서초한의원 교통사고 후 통증 관리에서 확인할 점",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "난청치료한의원 어디 가야 할까요",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "한의원 약침 효과 없어요...??",
+       "is_me": false
+      }
+     ]
+    },
+    "web": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "웹문서",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "한의원 - 나무위키",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "동의보감 한의원 - 산청 동의보감촌",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "한의원&lt;병원 현황&lt;민원안내&lt;군산시 보건소",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "한의원 - 위키백과 한국어",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "한음 한방신경정신과한의원 | 전국 30개 지점",
+       "is_me": false
+      }
+     ]
+    },
+    "news": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "뉴스",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "&quot;팝업부터 스타 마케팅까지&quot;... 성수·북촌 달군 K뷰티 오프라인 전쟁",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "링탭·비오레·원씽, 여름맞이 체험형 부스부터 성수 팝업",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "잡음이 있어야 더 잘 들린다",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "하나투어 인바운드 확대·모두투어 상장 21주년…노랑풍선·놀유니버스...",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "[건강라이프] 위에서 본 정수리 숱이 비어 보인다면…남성 정수리형 탈...",
+       "is_me": false
+      }
+     ]
+    },
+    "image": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "이미지",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "경희김세윤한의원",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "암사경희한의원",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "경희튼튼본한의원",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "정담한의원",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "지성한의원 위치 · 진료시간 · 후기 확인하기",
+       "is_me": false
+      }
+     ]
+    },
+    "kin": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "지식iN",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "다낭성난소증후군 한의원 한약 치료 어떨까요(노원...",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "자율신경실조증 한의원 치료 어떻게 하나요?",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "한의원공진단 일반 제품과 다른가요(역삼 한의원공진단)",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "공진단한의원 좋은 곳 찾는 방법(서초 공진단한의원)",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "입냄새,한의원 치료 효과 있나요?",
+       "is_me": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "kw": "북구 교통사고후유증",
+   "type": "증상",
+   "base": "교통사고후유증",
+   "volume": null,
+   "place": {
+    "keyword": "북구 교통사고후유증",
+    "exposed": false,
+    "rank": null,
+    "ambiguous": false,
+    "results": [
+     {
+      "rank": 1,
+      "title": "더나은365한의원 신암복현",
+      "address": "대구광역시 북구 동북로 291 3층 더나은365한의원",
+      "address_jibun": "대구광역시 북구 복현동 337-9 3층 더나은365한의원",
+      "category": "병원,의원>한의원",
+      "link": "http://thebetter365.com",
+      "telephone": "",
+      "description": "",
+      "longitude": 128.6221718,
+      "latitude": 35.8926868
+     },
+     {
+      "rank": 2,
+      "title": "동서한의원",
+      "address": "대구광역시 북구 침산남로19길 2 침산농협상가 2층",
+      "address_jibun": "대구광역시 북구 침산동 363-7 침산농협상가 2층",
+      "category": "병원,의원>한의원",
+      "link": "https://blog.naver.com/dsdongseo",
+      "telephone": "",
+      "description": "",
+      "longitude": 128.5869377,
+      "latitude": 35.8893636
+     },
+     {
+      "rank": 3,
+      "title": "빌리브한의원 신천역",
+      "address": "대구광역시 동구 송라로 86 2층",
+      "address_jibun": "대구광역시 동구 신천동 17-1 2층",
+      "category": "병원,의원>한의원",
+      "link": "https://believehani.com/",
+      "telephone": "",
+      "description": "",
+      "longitude": 128.6177757,
+      "latitude": 35.87489
+     },
+     {
+      "rank": 4,
+      "title": "경희보인한의원",
+      "address": "대구광역시 서구 국채보상로 293 2층",
+      "address_jibun": "대구광역시 서구 평리동 1053-1 2층",
+      "category": "병원,의원>한의원",
+      "link": "http://www.khboin.com",
+      "telephone": "",
+      "description": "",
+      "longitude": 128.5630462,
+      "latitude": 35.8721302
+     },
+     {
+      "rank": 5,
+      "title": "리젠365한의원",
+      "address": "대구광역시 수성구 범어천로 214 범어더리브스퀘어 311호 리젠365한의원",
+      "address_jibun": "대구광역시 수성구 범어동 2262 범어더리브스퀘어 311호 리젠365한의원",
+      "category": "병원,의원>한의원",
+      "link": "https://www.youtube.com/@%EC%83%9D%EC%B2%B4%EC%97%AD%ED%95%99",
+      "telephone": "",
+      "description": "",
+      "longitude": 128.6192933,
+      "latitude": 35.8639366
+     }
+    ]
+   },
+   "content": {
+    "blog": {
+     "present": true,
+     "exposed": true,
+     "position": 30,
+     "label": "블로그",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "부산북구한의원 교통사고 후유증 방치 말고",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "부산북구정형외과 교통사고 후유증, 도수치료 직접 받아본 후기",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "부산북구한의원 교통사고 후유증 집중적 케어가",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "교통사고후유증 통증이 퍼지는 기분 들어대구북구한의원",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "교통사고 후유증, 당장은 안... 안 되는 이유 대구북구한의원",
+       "is_me": false
+      }
+     ]
+    },
+    "cafe": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "카페",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "화명동한의원 교통사고 후유증 관리를",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "교통사고 후유증 치료",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "대구북구한방병원 여기 추천할게요!",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "대구북구교통사고병원 사고 뒤 몸이 무겁게 느껴지는 이유",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "광주 북구 교통사고 재활, 한방병원 입원 관리는 어떻게 진행될까요?",
+       "is_me": false
+      }
+     ]
+    },
+    "web": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "웹문서",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "교통사고 후유증 치료, 빠르게 대처하세요!! | 대구광역시 북구 동천동 | 한의원",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "교통사고후유증 아픈 상태로 긴 시간 보내지 말아야, 대구북구 한의원 추나치료",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "광주 북구 교통사고 후유증 '이것'만 확인하세요.",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "대구북구교통사고병원 후유증 예방은",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "한방병원 정형외과 등 질문~ - ~~ 부산북구 한방병원, 정형외과, 한의원 등등 교통사고병...",
+       "is_me": false
+      }
+     ]
+    },
+    "news": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "뉴스",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "[어린이뉴스] 어린이집 700곳 실내공기질 개선… 기후에너지환경부·18개...",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "최고령 110세·생애 첫 투표 10대…“지역 미래 이끌 사람 뽑아야죠”",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "새벽 오픈런부터 부상 투혼까지…광주 투표 열기 후끈",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "우리는 이곳을 벗어날 수 없다",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "34년간 돌봤던 지적장애 딸 살해한 아버지…'벼랑 끝 가족' 돌볼 방법 없...",
+       "is_me": false
+      }
+     ]
+    },
+    "image": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "이미지",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "겨울철 교통사고 후유증의 한의원 한방치료",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "교통사고 후유증, 생각 보다 심각… 효과적인 치료법은?",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "교통사고후유증 증상 다양하기에 방심해서는 안돼",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "교통사고후유증증상 방치하지 말고 한방치료로 개선해야",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "교통사고후유증치료, 근본원인 해결이 중요",
+       "is_me": false
+      }
+     ]
+    },
+    "kin": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "지식iN",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "후유증 추나요법(대구북구 동대구역 교통사고후유증)",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "교통사고 입원 병원 찾아요(화명동 교통사고 후유증)",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "광주북구한의원 추나요법 잘하는 곳",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "만덕, 부산북구쪽 교통사고 입원되는 곳 찾습니다 ㅜㅜ!",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "교통사고 후유증 문의(대구북구 동대구역 교통사고치료)",
+       "is_me": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "kw": "북구 허리통증",
+   "type": "증상",
+   "base": "허리통증",
+   "volume": null,
+   "place": {
+    "keyword": "북구 허리통증",
+    "exposed": false,
+    "rank": null,
+    "ambiguous": false,
+    "results": [
+     {
+      "rank": 1,
+      "title": "칠곡경대연합마취통증의학과의원",
+      "address": "대구광역시 북구 칠곡중앙대로 404 메디파크 6층",
+      "address_jibun": "대구광역시 북구 태전동 993-12 경기도 안산시 단원구 다문화길 6 2층",
+      "category": "병원,의원>마취통증의학과",
+      "link": "https://blog.naver.com/kimgood2523",
+      "telephone": "",
+      "description": "",
+      "longitude": 128.5486239,
+      "latitude": 35.9317753
+     },
+     {
+      "rank": 2,
+      "title": "침산올바른마취통증의학과의원",
+      "address": "대구광역시 북구 침산로 144 3층 301호",
+      "address_jibun": "대구광역시 북구 침산동 285-4 3층 301호",
+      "category": "병원,의원>마취통증의학과",
+      "link": "http://cspain.co.kr",
+      "telephone": "",
+      "description": "",
+      "longitude": 128.5915149,
+      "latitude": 35.8892696
+     },
+     {
+      "rank": 3,
+      "title": "서울연합마취통증의학과의원",
+      "address": "대구광역시 북구 학정로 435 칠곡유성빌딩 3층",
+      "address_jibun": "대구광역시 북구 동천동 896-3 칠곡유성빌딩 3층",
+      "category": "병원,의원>마취통증의학과",
+      "link": "https://blog.naver.com/hhehhehh",
+      "telephone": "",
+      "description": "",
+      "longitude": 128.5634272,
+      "latitude": 35.9435902
+     },
+     {
+      "rank": 4,
+      "title": "다온정형외과의원",
+      "address": "대구광역시 북구 동북로 160 2층, 5층 다온정형외과의원",
+      "address_jibun": "대구광역시 북구 산격동 1260-1 2층, 5층 다온정형외과의원",
+      "category": "병원,의원>정형외과",
+      "link": "https://blog.naver.com/luvpluss12",
+      "telephone": "",
+      "description": "",
+      "longitude": 128.6101812,
+      "latitude": 35.8992414
+     },
+     {
+      "rank": 5,
+      "title": "산격마취통증의학과의원",
+      "address": "대구광역시 북구 동북로 172 4층",
+      "address_jibun": "대구광역시 북구 산격동 1260-9 4층",
+      "category": "병원,의원>마취통증의학과",
+      "link": "",
+      "telephone": "",
+      "description": "",
+      "longitude": 128.6112316,
+      "latitude": 35.8989007
+     }
+    ]
+   },
+   "content": {
+    "blog": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "블로그",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "대구북구정형외과 허리 통증 치료 이것만 꼭 기억하세요",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "부산북구 허리통증 공휴일한의원 갑작스럽게 무거운 물건을...",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "대구북구정형외과 도수치료 허리통증 관리하기 위해 침산동",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "광주북구정형외과 무릎 통증이 허리 긴장과 함께 나타난다면",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "대구북구정형외과 허리 통증, 전문의가 알려주는 치료 핵심",
+       "is_me": false
+      }
+     ]
+    },
+    "cafe": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "카페",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "울산 북구 통증관리 자세관리 보현바른자세",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "대구북구한의원 관절교정으로 통증 완화",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "광주광역시 북구 운암동 / 허리 통증과 다리 저림 / 허리디스크 의심",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "대구북구교통사고병원 사고 뒤 몸이 무겁게 느껴지는 이유",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "대구북구만성통증 어깨 허리 자율신경치료 어때요?",
+       "is_me": false
+      }
+     ]
+    },
+    "web": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "웹문서",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "대구북구추나 허리통증",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "부산북구 화명 허리통증 야간한의원",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "광주 북구 허리 통증 한방병원",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "울산북구 허리디스크 하반신으로 통증이 퍼진다면, 약침치료 한의원",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "포항 북구 통증 한의원 - 허리·목·어깨 한방치료 칼럼",
+       "is_me": false
+      }
+     ]
+    },
+    "news": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "뉴스",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "라오스 장애 여성 2명, 맞춤 의·수족으로 새 삶",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "[민심2026] 역대 최고 사전투표율...본 투표 열기 이어갈까?",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "서영대 RISE사업단, ‘5월 인권길 도보순례’서 봉사활동 실시",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "대구 북구, 경로당 입식환경 개선사업 추진",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "[패트롤] 영천시-청도군-대구북구-수성구-대구대-대구시교육청",
+       "is_me": false
+      }
+     ]
+    },
+    "image": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "이미지",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "허리 펼 때 나타나는 허리통증, 척추관협착증 비수술치료",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "허리 통증",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "허리통증 “내·외과 질환 살펴라”",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "허리통증 해결",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "허리 주변 통증, 원인도 가지가지‥당신도?",
+       "is_me": false
+      }
+     ]
+    },
+    "kin": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "지식iN",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "교통사고 허리디스크 한방병원(대구북구 동대구역 허리...",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "교통사고 허리통증 치료(대구북구 동대구역 교통사고치료)",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "광주 북구 허리디스크 잘 봐주는데 있을까요?",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "울산 북구에 허리통증 수기마사지 잘하는곳 추천(내공20)",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "교통사고 통증 치료(대구북구 동대구역 교통사고치료)",
+       "is_me": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "kw": "북구 소화불량",
+   "type": "증상",
+   "base": "소화불량",
+   "volume": null,
+   "place": {
+    "keyword": "북구 소화불량",
+    "exposed": false,
+    "rank": null,
+    "ambiguous": false,
+    "results": [
+     {
+      "rank": 1,
+      "title": "경신한의원",
+      "address": "대구광역시 북구 칠성남로 226-2 2층 경신한의원",
+      "address_jibun": "대구광역시 북구 칠성동1가 157-1 2층 경신한의원",
+      "category": "병원,의원>한의원",
+      "link": "https://open.kakao.com/o/sLtzbMUd",
+      "telephone": "",
+      "description": "",
+      "longitude": 128.6049155,
+      "latitude": 35.8759276
+     },
+     {
+      "rank": 2,
+      "title": "덕원한의원",
+      "address": "대구광역시 북구 태전로 46",
+      "address_jibun": "대구광역시 북구 태전동 253-20",
+      "category": "병원,의원>한의원",
+      "link": "",
+      "telephone": "",
+      "description": "",
+      "longitude": 128.5443314,
+      "latitude": 35.9245072
+     },
+     {
+      "rank": 3,
+      "title": "박태우한의원",
+      "address": "대구광역시 북구 칠곡중앙대로 339",
+      "address_jibun": "대구광역시 북구 태전동 989-4",
+      "category": "병원,의원>한의원",
+      "link": "",
+      "telephone": "",
+      "description": "",
+      "longitude": 128.5471212,
+      "latitude": 35.9260357
+     },
+     {
+      "rank": 4,
+      "title": "소문생생한의원",
+      "address": "대구광역시 북구 침산남로 175",
+      "address_jibun": "대구광역시 북구 침산동 145-2",
+      "category": "병원,의원>한의원",
+      "link": "",
+      "telephone": "",
+      "description": "",
+      "longitude": 128.5949002,
+      "latitude": 35.8876543
+     },
+     {
+      "rank": 5,
+      "title": "청록한의원",
+      "address": "대구광역시 동구 화랑로 33 더샵디어엘로 상가 301동 209호",
+      "address_jibun": "대구광역시 동구 신천동 353-1 더샵디어엘로 상가 301동 209호",
+      "category": "병원,의원>한의원",
+      "link": "https://blog.naver.com/chungrok96",
+      "telephone": "",
+      "description": "",
+      "longitude": 128.630605,
+      "latitude": 35.8714445
+     }
+    ]
+   },
+   "content": {
+    "blog": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "블로그",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "대구 북구 소화불량 한의원 원인을 고려한 한방치료",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "포항북구한의원 치료 만성소화불량으로 힘들었다면",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "[소화기] 소화불량·속쓰림... (부산 북구 화명동 동해한의원)",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "대구북구한방병원 간암 수술 후 소화불량이 나타나는 이유와...",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "기능성소화불량 증상이 오래간다 싶으면 울산북구한의원",
+       "is_me": false
+      }
+     ]
+    },
+    "cafe": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "카페",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "울산 북구+수면부족, 숨을 쉬어도 답답함, 몸에 열오르며 땀이남, 약간의 소화불량+보류+병원 선정 고민중",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "대구북구한방병원 여기 추천할게요!",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "소화불량 때문에 진료보려고 하는데 북구 병원 추천 부탁드려도 될까요?",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "광주 북구 교통사고 재활, 한방병원 입원 관리는 어떻게 진행될까요?",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "울산북구.남.59.소화불량",
+       "is_me": false
+      }
+     ]
+    },
+    "web": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "웹문서",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "기능성소화불량 헛배부르고 윗배가 편치않아, 포항북구한의원 보약, 한약치료",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "광주 북구 소화불량 한의원 소화 안되고 메스껍고 울렁거림",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "기능성소화불량 계속 트림 나고 더부룩, 울산북구 보약, 한약치료 한의원",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "포항북구한의원, 만성소화불량은 단순한 위의 문제가 아닙니다",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "울산 북구 소화불량 및 장염 치료 잘하는 병원 추천 (내과, 소아청소년과, 가정의학과)",
+       "is_me": false
+      }
+     ]
+    },
+    "news": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "뉴스",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "2026 메디엑스포 코리아 성료, 첨단의료기기·디지털 헬스케어...'메디시...",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "[병원계 소식] 4월 1일",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "한 겨울 추위에 속 불편한 사람들이 늘어나는 이유는?",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "추운 겨울만 되면 속 불편하더니…이유 있었다",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "한겨울 추위에 속 불편 호소 늘어… 위장 기능 저하·겨울철 식중독 주...",
+       "is_me": false
+      }
+     ]
+    },
+    "image": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "이미지",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "소화 불량",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "‘엄지의 제왕’ 집콕생활 지침서-무시하면 큰일 난다! 소화 불량",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "22화 소화불량",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "소화불량",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "소화 불량",
+       "is_me": false
+      }
+     ]
+    },
+    "kin": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "지식iN",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "문제로 일상에 어려움이 있습니다(대구북구, 교통사고치료)",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "내공100) 울산 북구 식욕억제제",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "소화불량과 열굴 미열이 관련이 있나요?",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "왜 나는 걸까요? (대구 북구 칠성동 30대중반/여 구취)",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "(대구 북구 읍내동 40대중반/남 기능성위장장애)",
+       "is_me": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "kw": "북구 한의원 추천",
+   "type": "비교",
+   "base": "한의원",
+   "volume": null,
+   "place": {
+    "keyword": "북구 한의원 추천",
+    "exposed": true,
+    "rank": 4,
+    "ambiguous": false,
+    "results": [
+     {
+      "rank": 1,
+      "title": "신세계한의원 대구칠곡",
+      "address": "대구광역시 북구 학정로 415 메가타운 4층",
+      "address_jibun": "대구광역시 북구 동천동 912-3 메가타운 4층",
+      "category": "병원,의원>한의원",
+      "link": "http://ssghani.co.kr/",
+      "telephone": "",
+      "description": "",
+      "longitude": 128.563082,
+      "latitude": 35.9417807
+     },
+     {
+      "rank": 2,
+      "title": "서울태365한의원",
+      "address": "대구광역시 북구 동북로 156 2층",
+      "address_jibun": "대구광역시 북구 산격동 1238-1 2층",
+      "category": "병원,의원>한의원",
+      "link": "https://blog.naver.com/seoultae365",
+      "telephone": "",
+      "description": "",
+      "longitude": 128.6097162,
+      "latitude": 35.8995436
+     },
+     {
+      "rank": 3,
+      "title": "청담한의원",
+      "address": "대구광역시 북구 팔거천동로 218 2층 청담한의원",
+      "address_jibun": "대구광역시 북구 동천동 893 2층 청담한의원",
+      "category": "병원,의원>한의원",
+      "link": "https://blog.naver.com/daegucheongdam",
+      "telephone": "",
+      "description": "",
+      "longitude": 128.5586042,
+      "latitude": 35.9433494
+     },
+     {
+      "rank": 4,
+      "title": "더바른한의원 대구침산",
+      "address": "대구광역시 북구 옥산로 95 화인탑팰리스 3층",
+      "address_jibun": "대구광역시 북구 칠성동2가 90 화인탑팰리스 3층",
+      "category": "병원,의원>한의원",
+      "link": "http://www.더바른한의원.kr",
+      "telephone": "",
+      "description": "",
+      "longitude": 128.5859322,
+      "latitude": 35.8846399
+     },
+     {
+      "rank": 5,
+      "title": "더나은365한의원 신암복현",
+      "address": "대구광역시 북구 동북로 291 3층 더나은365한의원",
+      "address_jibun": "대구광역시 북구 복현동 337-9 3층 더나은365한의원",
+      "category": "병원,의원>한의원",
+      "link": "http://thebetter365.com",
+      "telephone": "",
+      "description": "",
+      "longitude": 128.6221718,
+      "latitude": 35.8926868
+     }
+    ]
+   },
+   "content": {
+    "blog": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "블로그",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "대구북구한의원추천, 시간이 지나면 저절로 낫는다? 오십견...",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "포항북구한의원 추천, 노트북 오래 본 후 굳어진 목 어깨통증",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "부산북구한의원추천, 믿을 수 있는 곳 찾는 포인트 4가지",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "대구북구 복현동 교통사고 한의원추천 받기전 지연성 통증...",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "포항북구한의원 추천, 과민성대장증후군 때문에 검색하고 있다면",
+       "is_me": false
+      }
+     ]
+    },
+    "cafe": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "카페",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "대구 교통사고 한의원 북구에서 치료 받아야 한다면",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "북구 한의원추천 부탁드립니다~!",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "울산북구 한의원 추천요",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "북구 한의원 문의해요~",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "대구 태전동한의원 추천 교통사고 입원실 치료 방법은",
+       "is_me": false
+      }
+     ]
+    },
+    "web": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "웹문서",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "금남한의원 후기/가격/비용 (2026)",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "신화한의원 후기/가격/비용 (2026)",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "장수한의원 후기/가격/비용 (2026)",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "구침가한의원 후기/가격/비용 (2026)",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "삼동한의원 후기/가격/비용 (2026)",
+       "is_me": false
+      }
+     ]
+    },
+    "news": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "뉴스",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "‘8~10일 간 긴 추석 연휴’… 건강 유지법 ‘이것’만은 꼭! 유념해야",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "[더버터] 각자의 방식으로 이어가는 기부…‘더기버스50’ 3차 명단 공개",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "&quot;자식보다 낫다&quot; 광주다움 통합돌봄, 예산·서비스 확충 과제",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "[2024 상반기 한의계] 한의협 45대 집행부 및 지부 수장 교체 등 변화 물...",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "한의약 건강돌봄사업 우수 사례 발굴과 성과 공유",
+       "is_me": false
+      }
+     ]
+    },
+    "image": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "이미지",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "경희나은한의원",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "대구 북구 정형외과나 한의원 추천 부탁드립니다!! - 러닝 마이너 갤러리",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "대구 북구, 설 앞두고 보은한의원 '현금+떡국떡' 온기",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "부산 북구, '한방주치의 사업' 참여 한의원 20곳 현판 부착",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "울산 북구 농소1동 약손한의원,  나눔실천 명패달기에 631호점으로 등록",
+       "is_me": false
+      }
+     ]
+    },
+    "kin": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "지식iN",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "부산북구 다이어트한의원 추천좀",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "부산북구 한방병원 한의원?",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "부산북구 교통사고한방병원 한의원?",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "광주북구한의원 추나요법 잘하는 곳",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "부산북구한의원 추천좀. 어깨가 너무 아프네요.",
+       "is_me": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "kw": "칠성동2가 추나요법",
+   "type": "동단위",
+   "base": "추나요법",
+   "volume": null,
+   "place": {
+    "keyword": "칠성동2가 추나요법",
+    "exposed": false,
+    "rank": null,
+    "ambiguous": false,
+    "results": [
+     {
+      "rank": 1,
+      "title": "잘보는한의원 반월당",
+      "address": "대구광역시 중구 달구벌대로 2109 교원빌딩(빨간펜) 4층 잘보는 한의원",
+      "address_jibun": "대구광역시 중구 덕산동 128-1 교원빌딩(빨간펜) 4층 잘보는 한의원",
+      "category": "병원,의원>한의원",
+      "link": "https://cafe.naver.com/jbnmedical",
+      "telephone": "",
+      "description": "",
+      "longitude": 128.5945338,
+      "latitude": 35.8656232
+     },
+     {
+      "rank": 2,
+      "title": "스마일365한의원 대구침산점",
+      "address": "대구광역시 북구 침산로 124 2층",
+      "address_jibun": "대구광역시 북구 침산동 245-8 2층",
+      "category": "병원,의원>한의원",
+      "link": "https://www.instagram.com/smile365clinic/",
+      "telephone": "",
+      "description": "",
+      "longitude": 128.5916846,
+      "latitude": 35.8872738
+     },
+     {
+      "rank": 3,
+      "title": "홍익한의원",
+      "address": "대구광역시 중구 남성로 10",
+      "address_jibun": "대구광역시 중구 남성로 132-1",
+      "category": "병원,의원>한의원",
+      "link": "https://blog.naver.com/hongikhaniwon",
+      "telephone": "",
+      "description": "",
+      "longitude": 128.5880575,
+      "latitude": 35.8687799
+     },
+     {
+      "rank": 4,
+      "title": "마디에스한의원",
+      "address": "대구광역시 북구 침산로 128 3층",
+      "address_jibun": "대구광역시 북구 침산동 248-5 3층",
+      "category": "병원,의원>한의원",
+      "link": "https://blog.naver.com/madi-s",
+      "telephone": "",
+      "description": "",
+      "longitude": 128.591799,
+      "latitude": 35.8876459
+     },
+     {
+      "rank": 5,
+      "title": "본울림 한의원",
+      "address": "대구광역시 북구 신암로 111 3층 304호",
+      "address_jibun": "대구광역시 북구 대현동 274-65 3층 304호",
+      "category": "병원,의원>한의원",
+      "link": "https://blog.naver.com/bulh6780",
+      "telephone": "",
+      "description": "",
+      "longitude": 128.6113843,
+      "latitude": 35.8808575
+     }
+    ]
+   },
+   "content": {
+    "blog": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "블로그",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "대구 체형교정 마사지 행복휴센터 두번째 재방문 추천 후기",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "대구 북구 침산동 재방문 ‘행복휴센터’ 직장인 수험생...",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "지금 너는 어딨을까",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "캠핑장정보",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "원인 과거엔 퇴행성 요즘엔 자세 불량, 칠성동2가 한의원 추나",
+       "is_me": false
+      }
+     ]
+    },
+    "cafe": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "카페",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "대구교통사고한의원, 치료와 추나요법",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "해당 지역 한방병원 온라인마케팅 광고대행 매출 상승의 핵심 비결",
+       "is_me": false
+      }
+     ]
+    },
+    "web": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "웹문서",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "칠성동추나요법 통증 개선과 재활의 효과",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "칠성동추나요법 신체 교정하고 통증을 개선해요",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "진성한의원 위치 · 진료시간 · 후기 확인하기",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "대구 북구 칠성동2가 칠성보강정형외과 재활의학과 신경외과",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "대구 북구 추나요법 한의원 잘하는 10곳 추천 안내 | 다이어트 한약 저렴한 곳 가격 비교 모음 | 질환, 척추, 교....",
+       "is_me": false
+      }
+     ]
+    },
+    "news": {
+     "present": false,
+     "exposed": false,
+     "position": null,
+     "label": "뉴스",
+     "ambiguous": false,
+     "top": []
+    },
+    "image": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "이미지",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "인근주민 침산점 - 대구, 북구, 칠성동2가 | 맛집검색 식신",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "대구 북구 칠성동2가 355-18 주소 검색 결과 2곳 - 다이닝코드",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "대구 북구 칠성동2가 : 학원 검색 - 오늘학교 아카데미",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "대구 북구 칠성동2가 : 학원 검색 - 오늘학교 아카데미",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "대구 북구 칠성동2가 : 학원 검색 - 오늘학교 아카데미",
+       "is_me": false
+      }
+     ]
+    },
+    "kin": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "지식iN",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "대구에서 추나요법 잘하는곳은 추천 해주세요!!",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "추나요법(골반틀어짐)",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "대구에서 추나요법",
+       "is_me": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "kw": "북구 추나요법",
+   "type": "구단위",
+   "base": "추나요법",
+   "volume": null,
+   "place": {
+    "keyword": "북구 추나요법",
+    "exposed": false,
+    "rank": null,
+    "ambiguous": false,
+    "results": [
+     {
+      "rank": 1,
+      "title": "신세계한의원 대구칠곡",
+      "address": "대구광역시 북구 학정로 415 메가타운 4층",
+      "address_jibun": "대구광역시 북구 동천동 912-3 메가타운 4층",
+      "category": "병원,의원>한의원",
+      "link": "http://ssghani.co.kr/",
+      "telephone": "",
+      "description": "",
+      "longitude": 128.563082,
+      "latitude": 35.9417807
+     },
+     {
+      "rank": 2,
+      "title": "더나은365한의원 신암복현",
+      "address": "대구광역시 북구 동북로 291 3층 더나은365한의원",
+      "address_jibun": "대구광역시 북구 복현동 337-9 3층 더나은365한의원",
+      "category": "병원,의원>한의원",
+      "link": "http://thebetter365.com",
+      "telephone": "",
+      "description": "",
+      "longitude": 128.6221718,
+      "latitude": 35.8926868
+     },
+     {
+      "rank": 3,
+      "title": "스마일365한의원 대구침산점",
+      "address": "대구광역시 북구 침산로 124 2층",
+      "address_jibun": "대구광역시 북구 침산동 245-8 2층",
+      "category": "병원,의원>한의원",
+      "link": "https://www.instagram.com/smile365clinic/",
+      "telephone": "",
+      "description": "",
+      "longitude": 128.5916846,
+      "latitude": 35.8872738
+     },
+     {
+      "rank": 4,
+      "title": "마디에스한의원",
+      "address": "대구광역시 북구 침산로 128 3층",
+      "address_jibun": "대구광역시 북구 침산동 248-5 3층",
+      "category": "병원,의원>한의원",
+      "link": "https://blog.naver.com/madi-s",
+      "telephone": "",
+      "description": "",
+      "longitude": 128.591799,
+      "latitude": 35.8876459
+     },
+     {
+      "rank": 5,
+      "title": "본울림 한의원",
+      "address": "대구광역시 북구 신암로 111 3층 304호",
+      "address_jibun": "대구광역시 북구 대현동 274-65 3층 304호",
+      "category": "병원,의원>한의원",
+      "link": "https://blog.naver.com/bulh6780",
+      "telephone": "",
+      "description": "",
+      "longitude": 128.6113843,
+      "latitude": 35.8808575
+     }
+    ]
+   },
+   "content": {
+    "blog": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "블로그",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "대구북구한의원 추나요법을 통해",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "대구북구추나요법한의원 견인치료 통해 신속한 케어를",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "대구북구추나요법 한의원 척추관협착증을 살피게끔",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "울산북구추나요법 생활 습관 관리가 중요한 이유",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "부산북구추나요법 허리디스크 악화를 멈추려면",
+       "is_me": false
+      }
+     ]
+    },
+    "cafe": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "카페",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "북구 추나요법",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "울산 북구 한의원 울산 추나요법 잘하는곳",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "대구 교통사고 한의원 북구에서 치료 받아야 한다면",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "부산북구교통사고한의원 부산북구추나요법 건강한 관리",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "울산북구한의원 울산추나요법 잘 낫지 않는 통증도",
+       "is_me": false
+      }
+     ]
+    },
+    "web": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "웹문서",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "광주 북구 추나요법 잘하는 10곳 추천과 2025년 저렴한 한약 가격 가이드",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "대구 북구 추나요법 한의원 1곳 업체 추천 | 교정, 가격, 다이어트 한약 | 선택",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "화명동 한의원 추나요법 몇 번 받아야 하나요?",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "부산 북구 추나요법 한의원 4곳 업체 추천 | 가격, 다이어트 한약, 교정 | 소식",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "대구 북구 유명 한의원 추천: 도수치료와 추나요법이 잘하는 BEST 4곳",
+       "is_me": false
+      }
+     ]
+    },
+    "news": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "뉴스",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "경북한의사회 보수교육···방문진료·레이저 등 임상기법 공유",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "광주광역시한의사회-심평원 광주전남본부 간담회…한의 현안 관련 논의",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "목·허리 디스크 통증부터 체형교정까지, 한의원 추나요법 역할은",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "추나요법 치료, 한의원 진행 시 목·허리 디스크 통증부터 성장치료까지...",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "iM금융그룹, 임직원 화합의 장 '패밀리데이' 개최",
+       "is_me": false
+      }
+     ]
+    },
+    "image": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "이미지",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "대구 교통사고 전국2위, 추나요법 등 한의원 치료법은?",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "추나요법 급여화 결정됐지만 유효성 논란 끊이지 않아",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "3월부터 한방 추나요법에 건강보험 적용",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "추나요법 질 관리 기전 마련해 급여화 추진",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "네이버 인플루언서 [네이버 인플루언서] 고미의 추나요법",
+       "is_me": false
+      }
+     ]
+    },
+    "kin": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "지식iN",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "광주북구한의원 추나요법 잘하는 곳",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "광주북구에 추나요법 잘하는 한의원 추천해주세요.",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "교통사고 후유증 추나요법(대구북구 동대구역...",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "광주 북구에 추나요법 잘하는 한의원 추천해주세요",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "광주북구에 있는 한의원 중 추나요법 잘하는 곳 있나요?",
+       "is_me": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "kw": "대구 추나요법",
+   "type": "시단위",
+   "base": "추나요법",
+   "volume": null,
+   "place": {
+    "keyword": "대구 추나요법",
+    "exposed": false,
+    "rank": null,
+    "ambiguous": false,
+    "results": [
+     {
+      "rank": 1,
+      "title": "신세계한의원 대구칠곡",
+      "address": "대구광역시 북구 학정로 415 메가타운 4층",
+      "address_jibun": "대구광역시 북구 동천동 912-3 메가타운 4층",
+      "category": "병원,의원>한의원",
+      "link": "http://ssghani.co.kr/",
+      "telephone": "",
+      "description": "",
+      "longitude": 128.563082,
+      "latitude": 35.9417807
+     },
+     {
+      "rank": 2,
+      "title": "더나은365한의원 성서이곡",
+      "address": "대구광역시 달서구 계대동문로 124 2층",
+      "address_jibun": "대구광역시 달서구 이곡동 1198-2 2층",
+      "category": "병원,의원>한의원",
+      "link": "http://thebetter365.com/",
+      "telephone": "",
+      "description": "",
+      "longitude": 128.505908,
+      "latitude": 35.8550922
+     },
+     {
+      "rank": 3,
+      "title": "수월한방병원 달서",
+      "address": "대구광역시 달서구 조암로 17 이래타워 키즈 2, 3, 4층",
+      "address_jibun": "대구광역시 달서구 월성동 1852 이래타워 키즈 2, 3, 4층",
+      "category": "건강,의료>한방병원",
+      "link": "http://www.수월한방병원.com",
+      "telephone": "",
+      "description": "",
+      "longitude": 128.5279763,
+      "latitude": 35.8250247
+     },
+     {
+      "rank": 4,
+      "title": "당당한의원 대구수성",
+      "address": "대구광역시 수성구 동대구로 311 범어 애플타워 6층",
+      "address_jibun": "대구광역시 수성구 범어동 563-4 범어 애플타워 6층",
+      "category": "병원,의원>한의원",
+      "link": "http://yesdang-ss.co.kr/",
+      "telephone": "",
+      "description": "",
+      "longitude": 128.6252464,
+      "latitude": 35.8581271
+     },
+     {
+      "rank": 5,
+      "title": "더리셋한의원",
+      "address": "대구광역시 수성구 동대구로 278",
+      "address_jibun": "대구광역시 수성구 범어동 595-45",
+      "category": "병원,의원>한의원",
+      "link": "https://leandiet.co.kr/@thereset",
+      "telephone": "",
+      "description": "",
+      "longitude": 128.6259712,
+      "latitude": 35.8551341
+     }
+    ]
+   },
+   "content": {
+    "blog": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "블로그",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "대구추나요법 통증이 유지되고 있다면",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "대구추나요법 통증이 지속된다면",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "대구추나요법 신체 통증 케어를",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "대구추나요법 통증 완화에 도움 되던 선택 기준",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "대구추나요법 통증이 꾸준하다면",
+       "is_me": false
+      }
+     ]
+    },
+    "cafe": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "카페",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "대구 달서구한의원 통증, 추나요법을 통해",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "대구추나요법 잘하는곳 있을까요",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "대구추나요법 잘하는곳 있을까요 허리랑 목 통증 때문에요",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "대구허리디스크 병원 추나요법 치료 통한 통증 관리",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "대구추나요법 왜 추천받는 걸까?",
+       "is_me": false
+      }
+     ]
+    },
+    "web": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "웹문서",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "수성척척한의원 대구 수성구 교통사고 한의원 - 척척 통증치료",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "대구교통사고한의원 · 추나요법 · 도수치료 | 광명한방병원",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "수성척척한의원 대구 수성구 교통사고 한의원 - 대구추나요법 틀어진 골반, 척추 바로 잡으세요",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "추나요법 &gt; 대구 가격비교 (2026)",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "수성척척한의원 대구 수성구 교통사고 한의원 - 대구추나요법 집중적으로 살피는 부위는 어딜까요?",
+       "is_me": false
+      }
+     ]
+    },
+    "news": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "뉴스",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "대구한의대한방병원 우상하 교수, 요통 관리 및 한의치료법 소개",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "[한방칼럼] 삐끗한 발목, 진단부터 재활까지 체계적인 관리가 필요한 이...",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "자생한방병원 강제수사..수백억원대 보험사기 의혹",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "[투데이 건강노트] “귀 검사는 정상인데 이명이 들려요”",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "경북한의사회 보수교육···방문진료·레이저 등 임상기법 공유",
+       "is_me": false
+      }
+     ]
+    },
+    "image": {
+     "present": true,
+     "exposed": true,
+     "position": 20,
+     "label": "이미지",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "대구 바른몸한의원 디스크 관절염 추나요법 한방치료",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "대구 깨끗안한의원 \"교통사고 후유증, 추나요법으로 치료하세요\"",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "추나요법 급여화 무효 소송 '각하'‥한의 보장성 강화 박차",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "대구 교통사고 전국2위, 추나요법 등 한의원 치료법은?",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "[대구자생한방병원의 건강이야기] “지긋지긋한 척추질환 추나요법으로 완화하세요”",
+       "is_me": false
+      }
+     ]
+    },
+    "kin": {
+     "present": true,
+     "exposed": false,
+     "position": null,
+     "label": "지식iN",
+     "ambiguous": false,
+     "top": [
+      {
+       "rank": 1,
+       "title": "한의원 추나요법 치료(대구 수성구 추나요법)",
+       "is_me": false
+      },
+      {
+       "rank": 2,
+       "title": "디스크 환자도 추나요법 받을 수 있나요?(대구 허리디스크)",
+       "is_me": false
+      },
+      {
+       "rank": 3,
+       "title": "교통사고 허리통증 추나요법(대구 달서구 허리통증)",
+       "is_me": false
+      },
+      {
+       "rank": 4,
+       "title": "대구추나요법 한의원?",
+       "is_me": false
+      },
+      {
+       "rank": 5,
+       "title": "대구 추나요법 허리교정에 어떤가요??",
+       "is_me": false
+      }
+     ]
+    }
+   }
+  }
+ ],
+ "location": {
+  "radius_m": 1000,
+  "adm_cd": null,
+  "adm_nm": null,
+  "avg_age": null,
+  "density_basis": "기본값",
+  "population_radius": 40840,
+  "demand_score": 56.2,
+  "employee_density_km2": 0,
+  "commerce_score": 0.0,
+  "competitors": 21,
+  "competition_score": 56.5,
+  "saturation_per_10k": 5.1,
+  "site_score": 45.1,
+  "radius_breakdown": {
+   "500": {
+    "competitors": 3,
+    "competition_score": 59.4,
+    "demand_score": 56.2,
+    "population_radius": 10210
+   },
+   "1000": {
+    "competitors": 21,
+    "competition_score": 56.5,
+    "demand_score": 56.2,
+    "population_radius": 40840
+   },
+   "1500": {
+    "competitors": 36,
+    "competition_score": 60.0,
+    "demand_score": 56.2,
+    "population_radius": 91891
+   },
+   "2000": {
+    "competitors": 87,
+    "competition_score": 57.8,
+    "demand_score": 56.2,
+    "population_radius": 163362
+   }
+  },
+  "competitor_list": [
+   {
+    "name": "더바른한의원",
+    "distance_m": 0
+   },
+   {
+    "name": "진성한의원",
+    "distance_m": 61
+   },
+   {
+    "name": "바올한의원",
+    "distance_m": 479
+   },
+   {
+    "name": "경희사랑한의원",
+    "distance_m": 500
+   },
+   {
+    "name": "성지한의원",
+    "distance_m": 500
+   },
+   {
+    "name": "동서한의원",
+    "distance_m": 538
+   },
+   {
+    "name": "흰사슴한의원",
+    "distance_m": 576
+   },
+   {
+    "name": "수경희한의원",
+    "distance_m": 590
+   }
+  ]
+ },
+ "location_map": null,
+ "benchmark": {
+  "blog": 14,
+  "cafe": 3,
+  "web": 17,
+  "news": 3,
+  "image": 8,
+  "kin": 3
+ },
+ "benchmark_meta": {
+  "n": 3,
+  "basis": "상위 경쟁 3곳 평균(실측)"
+ },
+ "composite": {
+  "score": 44.6,
+  "measured_weight_pct": 89,
+  "components": {
+   "exposure": 29.2,
+   "density": 56.5,
+   "demand": 56.2,
+   "place": 67.0
+  },
+  "place_frac": 0.25
+ },
+ "place": {
+  "signals": {
+   "phone": false,
+   "url": true,
+   "category": true
+  },
+  "info_completeness": 0.67,
+  "reviews": null,
+  "rating": null,
+  "photos": null,
+  "score": 67.0,
+  "frac": 0.25,
+  "measured": [
+   "info"
+  ],
+  "internal": {
+   "status": "미측정",
+   "note": "자동 수집 미실행(--collect-place-metrics)"
+  }
+ },
+ "actions": [
+  {
+   "action_type": "keyword_coverage",
+   "title": "미노출 키워드 5개 커버리지 정비",
+   "explanation": "\"한의원·북구 허리통증·북구 소화불량\" 등이 어느 영역에도 노출되지 않습니다. 실제 제공하는 진료라면 소개·진료항목·FAQ·블로그에 반영하세요.",
+   "evidence_metric": "키워드 12개 중 5개 전 영역 미노출",
+   "compliance_status": "safe",
+   "priority": 1
+  },
+  {
+   "action_type": "place_ops",
+   "title": "플레이스 기본정보·리뷰 운영 정비",
+   "explanation": "대표 사진·진료시간·주차·예약 링크를 실제 운영 상태와 맞추고, 자발적 리뷰 동선과 답글 운영을 정비하세요.",
+   "evidence_metric": "기본정보 완성도 67%",
+   "compliance_status": "safe",
+   "priority": 2
+  }
+ ],
+ "search_demand": {
+  "available": false,
+  "volumes": {},
+  "related": [],
+  "vol_min": 20
+ },
+ "dropped_keywords": [],
+ "vol_filter": {
+  "available": false,
+  "min": 20,
+  "dropped": 0,
+  "kept": 12
+ },
+ "resolution": {
+  "note": "",
+  "candidates": [
+   {
+    "title": "더바른한의원 대구침산",
+    "address": "대구광역시 북구 옥산로 95 화인탑팰리스 3층"
+   }
+  ]
+ },
+ "summary": {
+  "place_hit": 4,
+  "content_hit": 5,
+  "total": 12,
+  "ambiguous": false
+ },
+ "trend": {
+  "first": true,
+  "prior_month": null,
+  "deltas": {}
+ }
+}
